@@ -1,0 +1,394 @@
+{% extends 'base.html' %}
+
+<!-- Header -->
+{% block description %}Master web development with complete HTML/CSS guide. Learn the fundamentals, best practices, and advanced techniques to create modern, responsive web pages.{% endblock %}
+{% block keywords %}HTML/CSS{% endblock %}
+{% block title %}HTML/CSS : Complete guide{% endblock %}
+
+{% block content %}
+
+<div class="bg-gray-900">
+    <article class="bg-gray-900">
+      <div class="flex justify-center items-center py-8 px-8 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+          <div class="max-w-screen-lg sm:text-lg text-gray-400">
+              <h1 class="mb-4 text-5xl tracking-tight font-bold text-white">HTML/CSS: Complete GUIDE</h1>
+              <h2 class="mb-8 mt-8 text-4xl tracking-tight font-bold text-white">Before Getting Started</h2>
+              <p class="mb-4 font-light">Welcome to this comprehensive guide on HTML and CSS! Whether you're a beginner or looking to deepen your knowledge, this guide will help you master the basics and explore advanced techniques to create modern and attractive web pages.</p>
+              <h3 class="mb-8 mt-8 text-xl tracking-tight font-bold text-white">Why Learn HTML and CSS?</h3>
+              <p class="mb-4 font-light">HTML (HyperText Markup Language) is the fundamental language used to structure web pages, while CSS (Cascading Style Sheets) is used to style them and make them visually appealing. Together, these two languages are essential for any developer or website creator.</p>
+              <h3 class="mb-8 mt-8 text-xl tracking-tight font-bold text-white">What You Will Learn</h3>
+              <p class="mb-4 font-light">📌 HTML: Essential tags, page structure, forms, tables…</p>
+              <p class="mb-4 font-light">📌 CSS: Styling, colors, fonts, positioning, responsive design…</p>
+              <p class="mb-4 font-light">📌 Best Practices: Accessibility, code optimization, and modern techniques.</p>
+              <p class="mb-4 font-light">Through this guide, you’ll learn step by step, with concrete examples and tips, how to build professional and well-structured websites.</p>
+              <p class="mb-4 font-light">💡 Ready to dive into the world of web development? Let’s go! 🚀</p>
+              <h3 class="mb-8 mt-8 text-xl tracking-tight font-bold text-white">Guide Content</h3>
+              <nav class="mb-4">
+                <ul>
+                    <li class="font-light">- <a class="inline-flex items-center font-medium text-primary-500 hover:text-primary-700" href="#html-fundamentals">1. Mastering HTML Fundamentals</a></li>
+                    <li class="font-light">- <a class="inline-flex items-center font-medium text-primary-500 hover:text-primary-700" href="#css-fundamentals">2. Mastering CSS Fundamentals</a></li>
+                    <li class="font-light">- <a class="inline-flex items-center font-medium text-primary-500 hover:text-primary-700" href="#responsive-design">3. Responsive Design & Adaptability</a></li>
+                    <li class="font-light">- <a class="inline-flex items-center font-medium text-primary-500 hover:text-primary-700" href="#performance">4. Performance and Optimization</a></li>
+                    <li class="font-light">- <a class="inline-flex items-center font-medium text-primary-500 hover:text-primary-700" href="#tools">5. Tools and Best Practices</a></li>
+                    <li class="font-light">- <a class="inline-flex items-center font-medium text-primary-500 hover:text-primary-700" href="#">6. Modern CSS Frameworks</a></li>
+                    <li class="font-light">- <a class="inline-flex items-center font-medium text-primary-500 hover:text-primary-700" href="#">7. Deployment and Maintenance</a></li>
+                    <li class="font-light">- <a class="inline-flex items-center font-medium text-primary-500 hover:text-primary-700" href="#">8. Ressources</a></li>
+                    <li class="font-light">- <a class="inline-flex items-center font-medium text-primary-500 hover:text-primary-700" href="#">9. Practical Project: Landing Page</a></li>
+                </ul>
+              </nav>
+              <p class="mb-4 font-light">Dont forget: Join our web dev <a class="inline-flex items-center font-medium text-primary-500 hover:text-primary-700" href="#" >community—learn</a>, build, and grow together, all for free!</p>
+              <h2 id="html-fundamentals"class="mb-8 mt-8 text-4xl tracking-tight font-bold text-white">1. Mastering HTML Fundamentals</h2>
+              <p class="mb-4 font-light">HTML (Hypertext Markup Language) is the foundation of every web page’s structure. Here are the essential elements you need to master to get started:</p>
+              <h3 class="mb-8 mt-8 text-xl tracking-tight font-bold text-white">HTML Structure</h3>
+              <p class="mb-4 font-light">The basic structure of an HTML document consists of several key elements:</p>
+              <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">&lt;!DOCTYPE html&gt;</strong>: This declaration tells the browser that the file is an HTML5 document. It is essential to ensure that the document is correctly interpreted by all modern browsers.</p>
+              <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">&lt;html&gt;</strong>:  The html element contains all the content of the web page. It is the root of all HTML elements.</p>
+              <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">&lt;head&gt;</strong>: The head section contains metadata about the document, such as links to CSS files, icons, page descriptions, etc. This information does not appear directly in the page content but influences its behavior and appearance.</p>
+              <p class="mb-4 font-light">Example:</p>
+              <pre><code>&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My web page&lt;title&gt;
+&lt;/head&gt;</code></pre>
+              <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">&lt;meta&gt;</strong>: The meta element defines metadata such as character encoding (UTF-8), page description, and SEO rules. For example, meta charset="UTF-8" defines the character encoding.</p>
+              <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">&lt;body&gt;</strong>: The body section contains all visible content of the web page: text, images, videos, etc.</p>
+              <h3 class="mb-8 mt-8 text-xl tracking-tight font-bold text-white">HTML Elements</h3>
+              <p class="mb-4 font-light">Here are the basic HTML elements that make up web page content:</p>
+              <p class="mb-4 font-light"><strong class="font-bold">Headings</strong> (<strong class="font-medium text-primary-500 hover:text-primary-700">&lt;h1&gt;</strong> - <strong class="font-medium text-primary-500 hover:text-primary-700">&lt;h6&gt;</strong>): Headings are used to structure content. h1 represents the main title (most important), while h6 represents a less important heading. Using hierarchical headings improves readability and accessibility.</p>
+              <p class="mb-4 font-light">Example:</p>
+              <pre><code>&lt;h1&gt;Main Title&lt;h1&gt;
+&lt;h2&gt;A Subtitle&lt;h2&gt;</code></pre>
+              <p class="mb-4 font-light"><strong class="font-bold">Paragraphs</strong> (<strong class="font-medium text-primary-500 hover:text-primary-700">&lt;p&gt;</strong>): Paragraphs are used to group text into logical units, helping to organize content into readable blocks.</p>
+              <p class="mb-4 font-light">Example:</p>
+              <pre><code>&lt;p&gt;This is a paragraph of text.&lt;p&gt;</code></pre>
+              <p class="mb-4 font-light"><strong class="font-bold">Lists</strong> (<strong class="font-medium text-primary-500 hover:text-primary-700">&lt;ul&gt;</strong> - <strong class="font-medium text-primary-500 hover:text-primary-700">&lt;ol&gt;</strong>)</p>
+              <p class="mb-4 font-light">- (<strong class="font-medium text-primary-500 hover:text-primary-700">&lt;ul&gt;</strong>): Unordered list (with bullet points). Example:</p>
+              <pre><code>&lt;ul&gt;
+    &lt;li&gt;First item&lt;/li&gt;
+    &lt;li&gt;Second item&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+              <p class="mb-4 font-light">- (<strong class="font-medium text-primary-500 hover:text-primary-700">&lt;ol&gt;</strong>): Ordered list (with numbers). Example:</p>
+              <pre><code>&lt;ol&gt;
+    &lt;li&gt;First item&lt;/li&gt;
+    &lt;li&gt;Second item&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+              <p class="mb-4 font-light"><strong class="font-bold">Tables</strong> (<strong class="font-medium text-primary-500 hover:text-primary-700">&lt;table&gt;</strong>): Tables allow displaying data in a grid format.</p>
+              <pre><code>&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;First item&lt;/th&gt;
+        &lt;th&gt;Second item&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;th&gt;First item&lt;/th&gt;
+        &lt;th&gt;Second item&lt;/th&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+              <h3 class="mb-8 mt-8 text-xl tracking-tight font-bold text-white">HTML Forms</h3>
+              <p class="mb-4 font-light">Forms are used to collect user information:</p>
+              <p class="mb-4 font-light"><strong class="font-bold">Fields</strong> (<strong class="font-medium text-primary-500 hover:text-primary-700">&lt;input&gt;</strong> - <strong class="font-medium text-primary-500 hover:text-primary-700">&lt;textarea&gt;</strong>): Used for various types of text input, such as text fields, passwords, or emails.</p>
+              <p class="mb-4 font-light">Example:</p>
+              <pre><code>&lt;input type="text" placeholder="Enter your name"&gt;
+&lt;textarea placeholder="Enter a message"&gt;&lt;/textarea&gt;</code></pre>
+              <p class="mb-4 font-light"><strong class="font-bold">Buttons</strong> (<strong class="font-medium text-primary-500 hover:text-primary-700">&lt;button&gt;</strong>: Used to create a button for submitting a form or performing an action.</p>
+              <p class="mb-4 font-light">Example:</p>
+              <pre><code>&lt;button type="submit""&gt;Submit&lt;/button&gt;</code></pre>
+              <p class="mb-4 font-light"><strong class="font-bold">Selections</strong> (<strong class="font-medium text-primary-500 hover:text-primary-700">&lt;select&gt;</strong>: Used to create a dropdown menu.</p>
+              <p class="mb-4 font-light">Example:</p>
+              <pre><code>&lt;button type="submit""&gt;Submit&lt;/button&gt;</code></pre>
+              <p class="mb-4 font-light"><strong class="font-bold">Selections</strong> (<strong class="font-medium text-primary-500 hover:text-primary-700">&lt;select&gt;</strong>: Used to create a dropdown menu.</p>
+              <p class="mb-4 font-light">Example:</p>
+              <pre><code>&lt;select&gt;
+    &lt;option value="option1"&gt;option1&lt;/option&gt;
+    &lt;option value="option2"&gt;option2&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+              <h3 class="mb-8 mt-8 text-xl tracking-tight font-bold text-white">HTML Semantics</h3>
+              <p class="mb-4 font-light">Semantic elements clearly describe their role in content structure, improving accessibility and SEO:</p>
+              <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">&lt;header&gt;</strong>: Represents the page or section header, often containing a logo, navigation bar, etc.</p>
+              <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">&lt;nav&gt;</strong>: A navigation block, typically used for main site navigation links.</p>
+              <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">&lt;main&gt;</strong>: Contains the main content of the page. It is unique and used only once per page.</p>
+              <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">&lt;article&gt;</strong>: Represents self-contained content that can be distributed or reused independently (e.g., blog posts, news articles, etc.).</p>
+              <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">&lt;section&gt;</strong>: Used to divide content into logical sections, usually with a heading.</p>
+              <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">&lt;footer&gt;</strong>: The footer element, typically used for information like credits, privacy policies, contact links, etc.</p>
+              <h3 class="mb-8 mt-8 text-xl tracking-tight font-bold text-white">Accessibility (A11Y)</h3>
+                <p class="mb-4 font-light">Accessibility ensures that web content is usable by all people, including those with disabilities. Here are some important practices:</p>
+                <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">&lt;alt&gt;</strong>: The alt attribute provides a text description of images. This is essential for people using screen readers.</p>
+                <p class="mb-4 font-light">Example:</p>
+                <pre><code>&lt;img src="image.jpg" alt="Image description"&gt;</code></pre>
+                <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">&lt;aria-label&gt;</strong>: Adds additional information to HTML elements to improve accessibility (e.g., buttons or form fields).</p>
+                <p class="mb-4 font-light">Example:</p>
+                <pre><code>&lt;button aria-label="Close window"&gt;X&lt;/button&gt;</code></pre>
+                <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">&lt;role&gt;</strong>: ARIA roles describe non-semantic elements (such as a button or dynamic panel) so screen readers know how to interpret them.</p>
+                <p class="mb-4 font-light">Example:</p>
+                <pre><code>&lt;div role="button" aria-pressed="false"&gt;Click here&lt;/div&gt;</code></pre>
+                <h3 class="mb-8 mt-8 text-xl tracking-tight font-bold text-white">Conclusion</h3>
+                <p class="mb-4 font-light">Understanding these HTML fundamentals is essential for building well-structured, accessible, and optimized web pages. Once you master these basics, you’ll be able to create effective web pages and explore advanced concepts like CSS and JavaScript to make your applications even more interactive and dynamic.</p>
+                <p class="mb-4 font-light">💡 <a class="inline-flex items-center font-medium text-primary-500 hover:text-primary-700" href="../tools/html-elements" >HTML Elements : complete list!</a></p>
+                <h2 id="css-fundamentals"class="mb-8 mt-8 text-4xl tracking-tight font-bold text-white">2. Mastering CSS Fundamentals</h2>
+                <p class="mb-4 font-light">CSS (Cascading Style Sheets) is the language used to define the style of web pages, determining their layout, appearance, and visual presentation. Here are the key concepts to master for a solid understanding of CSS.</p>
+                <h3 class="mb-8 mt-8 text-xl tracking-tight font-bold text-white">Selectors and Specificity</h3>
+                <p class="mb-4 font-light">Selectors are patterns used to target specific HTML elements within a document. Specificity determines the priority of CSS rules when multiple styles could apply to the same element.</p>
+                <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">id (#)</strong>: An ID selector targets an element with a specific identifier. IDs should be unique on a page and used only once per document.</p>
+                <pre><code>#header {
+    background-color: blue;
+}</code></pre>
+                <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">class (.)</strong>: A class selector targets elements that have a specific class. Multiple elements can share the same class.</p>
+                <pre><code>.menu {
+    font-size: 16px;
+}</code></pre>    
+                <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">:hover</strong>: The hover pseudo-class is used to define styles for an element when a user hovers over it with the mouse (e.g., a button).</p>
+                <pre><code>button:hover {
+    background-color: lightblue;
+}</code></pre>    
+                <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">:nth-child()</strong>: The nth-child() pseudo-class allows targeting a specific child element within its parent. This is useful for styling elements based on their position.</p>
+                <pre><code>ul li:nth-child(2) {
+    color: red;  /* Applies style to the second item in the list */
+}</code></pre>      
+                <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">Attribute Selectors</strong>: Allows targeting elements based on the existence or value of an attribute.</p>
+                <pre><code>input[type="text"] {
+    border: 1px solid black;
+}</code></pre>    
+                 <h3 class="mb-8 mt-8 text-xl tracking-tight font-bold text-white">Box Model</h3>
+                 <p class="mb-4 font-light">The box model defines how elements are displayed on the page and how they occupy space. It consists of four main areas: margin, border, padding, and content.</p>
+                 <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">margin</strong>: The space around the element, outside the border. The margin separates an element from others.</p>
+                 <pre><code>div {
+    margin: 20px;
+}</code></pre> 
+                <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">border</strong>: The border that surrounds the element, positioned between the padding and the margin.</p>
+                 <pre><code>div {
+    border: 1px solid black;
+}</code></pre> 
+                <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">padding</strong>: The space between the element's content and its border. The padding creates space inside the element.</p>
+                <pre><code>div {
+    padding: 10px;
+}</code></pre> 
+                <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">width</strong>and<strong class="font-medium text-primary-500 hover:text-primary-700">height</strong>: The width and height of the element, defining the size of its content.</p>
+                <pre><code>div {
+    width: 300px;
+    height: 200px;
+}</code></pre> 
+            <p class="mb-4 font-light"><strong class="font-bold">IMPORTANT</strong>: The total size of an element includes width, height, padding, and border. Using box-sizing: border-box ensures the total width accounts for padding and border.</p>
+            <h3 class="mb-8 mt-8 text-xl tracking-tight font-bold text-white">Typography & Colors</h3>
+            <p class="mb-4 font-light">Google Fonts: A free service for embedding external fonts into an HTML page.</p>
+            <pre><code>&lt;link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"&gt;</code></pre>
+            <p class="mb-4 font-light">In CSS:</p>
+            <pre><code>body {
+    font-family: 'Roboto', sans-serif;
+}</code></pre>   
+            <p class="mb-4 font-bold">Units of Measurement:</p>
+            <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">px</strong>: Fixed unit (e.g., 16px).</p>
+            <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">em</strong>: Relative to the font size of the parent element (useful for flexible scaling).</p>
+            <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">rm</strong>: Relative to the root element (<html>), ensuring uniform sizing across the document.</p>
+            <p class="mb-4 font-light">Exemple:</p>
+            <pre><code>p {
+    font-size: 1.5em; /* 1.5 times the parent element's font size */
+}</code></pre>   
+            <p class="mb-4 font-bold">Color Formats:</p>
+            <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">Hexadecimal</strong>: #ff5733</p>
+            <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">RGB</strong>: rgb(255, 87, 51)</p>
+            <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">HSL</strong>:hsl(9, 100%, 60%)</p>
+            <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">Named colors</strong>: red, blue, green</p>
+            <p class="mb-4 font-light">Exemple:</p>
+            <pre><code>p {
+    color: red; /* font size color is red */
+}</code></pre>   
+            <h3 class="mb-8 mt-8 text-xl tracking-tight font-bold text-white">Flexbox & Grid</h3>
+            <p class="mb-4 font-light">These layout systems help manage flexible and responsive designs.</p>
+            <p class="mb-4 font-light">Flexbox (<strong class="font-medium text-primary-500 hover:text-primary-700">display: flex</strong>): Ideal for linear layouts, either in a row or a column.</p>
+            <pre><code>.container {
+    display: flex;
+    justify-content: space-between; /* Distributes space between elements */
+    align-items: center;            /* Aligns elements vertically */
+}</code></pre>
+            <p class="mb-4 font-light">Grid (<strong class="font-medium text-primary-500 hover:text-primary-700">display: grid</strong>): A two-dimensional system for complex layouts.</p>
+            <pre><code>.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    gap: 10px; /* Spacing between elements */
+}</code></pre>
+            <h3 class="mb-8 mt-8 text-xl tracking-tight font-bold text-white">CSS Variables</h3>
+            <p class="mb-4 font-light">CSS variables enable reusable values, improving code maintainability.</p>
+            <p class="mb-4 font-light">Declaring a CSS variable:</p>
+            <pre><code>:root {
+    --primary-color: #ff5733;
+    --font-size: 16px;
+}</code></pre>
+            <p class="mb-4 font-light">Using a CSS variable:</p>
+            <pre><code>h1 {
+    color: var(--primary-color);
+    font-size: var(--font-size);
+}</code></pre>
+            <h3 class="mb-8 mt-8 text-xl tracking-tight font-bold text-white">Animations & Transitions</h3>
+            <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">@keyframes</strong>: Defines step-based animations.</p>
+            <pre><code>@keyframes colorChange {
+    0% { color: red; }
+    100% { color: blue; }
+}
+
+p {
+    animation: colorChange 2s infinite;
+}</code></pre>
+            <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">transition</strong>: Adds smooth transitions to property changes.</p>
+            <pre><code>button {
+    background-color: red;
+    transition: background-color 0.3s ease;
+}
+              
+button:hover {
+    background-color: green;
+}</code></pre>            
+            <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">transform</strong>: Moves, scales, or rotates elements.</p>
+            <pre><code>div {
+    transform: rotate(45deg);
+}</code></pre>
+            <h3 class="mb-8 mt-8 text-xl tracking-tight font-bold text-white">Conclusion</h3>
+            <p class="mb-4 font-light">Mastering these CSS fundamentals is essential for creating structured, responsive, and aesthetically pleasing websites. A solid grasp of CSS improves user experience, layout control, and interface design. Once comfortable with these basics, you can explore advanced topics like complex animations, media queries for responsiveness, and more.</p>
+            <p class="mb-4 font-light">💡 <a class="inline-flex items-center font-medium text-primary-500 hover:text-primary-700" href="../tools/css-properties" >CSS Properties : complete list!</a></p>
+            <h2 id="responsive-design"class="mb-8 mt-8 text-4xl tracking-tight font-bold text-white">3. Responsive Design & Adaptability</h2>
+            <p class="mb-4 font-light">Responsive Design is an approach that allows a web page to automatically adapt to different screen sizes. It ensures an optimal user experience regardless of the device used to view the site. Here are the essential elements to understand and use this approach effectively.</p>
+            <h3 class="mb-8 mt-8 text-xl tracking-tight font-bold text-white">Media Queries</h3>
+            <p class="mb-4 font-light">Media queries allow you to define specific CSS rules that apply only under certain conditions, such as screen size. This makes it possible to create different styles for desktops, tablets, and smartphones.</p>
+            <p class="mb-4 font-light">Basic example:</p>
+            <pre><code>@media (max-width: 768px) { /* Styles applied only if the screen width is less than or equal to 768px */
+    body {
+        font-size: 14px;
+    }
+}</code></pre>
+            <p class="mb-4 font-bold">Explanation:</p>
+            <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">@media</strong>: The keyword used to define a rule that applies based on device characteristics (screen width, orientation, etc.).</p>
+            <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">(max-width: 768px)</strong>: The conditional expression that means “if the screen width is less than or equal to 768px.” This means the rules inside this block will only apply to tablet-sized screens and smaller (like smartphones).</p>
+            <p class="mb-4 font-light">You can also combine multiple conditions</p>
+            <pre><code>@media (max-width: 768px) and (orientation: portrait) {
+    /* Styles applied for screens less than 768px wide in portrait mode */
+}</code></pre>
+            <p class="mb-4 font-bold">Other properties used in media queries:</p>
+            <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">min-width</strong>: Applies to screens larger than a given size.</p>
+            <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">max-width</strong>: Applies to screens smaller than a given size.</p>
+            <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">orientation</strong>: Targets the screen orientation (portrait or landscape).</p>
+            <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">resolution</strong>: Used to target screen resolution, ideal for high-resolution displays (e.g., Retina screens).</p>
+            <p class="mb-4 font-bold">Media queries are at the heart of responsive web design. They make the design fluid and adaptable depending on the device being used.</p>
+            <h3 class="mb-8 mt-8 text-xl tracking-tight font-bold text-white">Relative Units</h3>
+            <p class="mb-4 font-light">Relative units are used to define dimensions in a flexible and responsive way. Unlike absolute units like pixels (px), which are fixed, relative units allow the layout to adapt based on the screen size or the size of the parent element.</p>
+            <p class="mb-4 font-light">Here are the main relative units used for responsive design:</p>
+            <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">vw</strong>(Viewport Width): This unit is relative to the width of the viewport. 1vw equals 1% of the total viewport width.</p>
+            <pre><code>div {
+    width: 50vw;  /* The width will be 50% of the viewport width */
+}</code></pre>
+            <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">vh</strong>(Viewport Height): This unit is relative to the height of the viewport. 1vh equals 1% of the total viewport height.</p>
+            <pre><code>div {
+    height: 100vh;  /* The height will be 100% of the viewport height */
+}</code></pre>
+            <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">%</strong>(Percentage): Percentages are relative to the size of the parent element. For example, if you set an element's width to 50%, it will be 50% the width of its parent.</p>
+            <pre><code>div {
+    width: 50%;  /* The width will be 50% of the parent element’s width */
+}</code></pre>
+            <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">em</strong>This unit is relative to the font size of the parent element. For example, if the parent element’s font size is 16px, then 1em equals 16px. It’s useful for fluid text sizing.</p>
+            <pre><code>p {
+    font-size: 2em;  /* The font size will be twice that of the parent element */
+}</code></pre>
+            <p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">rem</strong> Like em, but rem is always relative to the root element’s (&lt;html&gt;) font size, usually defined in pixels. For example, if html { font-size: 16px; }, then 1rem = 16px.</p>
+<pre><code>h1 {
+        font-size: 2rem;  /* The font size will be twice the root element’s size (16px) */
+}</code></pre>
+              <p class="mb-4 font-light">Relative units are powerful for building flexible layouts that adapt to different screen sizes and user needs.</p>
+              <h3 class="mb-8 mt-8 text-xl tracking-tight font-bold text-white">CSS Frameworks</h3>
+              <p class="mb-4 font-light">CSS frameworks are libraries that contain pre-defined CSS rules, components, and tools that simplify the creation of responsive and modern layouts. Using these frameworks can save you a lot of time, as they are designed to be optimized and follow best practices.</p>
+              <p class="mb-4 font-light">Here are the three most popular CSS frameworks:</p>
+              <p class="mb-4 font-bold">Bootstrap</p>
+              <p class="mb-4 font-light">Bootstrap is one of the most widely used CSS frameworks, created by Twitter. It offers a series of grids, pre-built components (buttons, cards, modals, etc.), and utility classes to manage responsive design and layout.</p>
+              <p class="mb-4 font-light">Example usage:</p>
+              <pre><code>
+&lt;div class="container"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col-md-6"&gt;
+            &lt;!-- Content --&gt;
+        &lt;/div&gt;
+        &lt;div class="col-md-6"&gt;
+            &lt;!-- Content --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+              <p class="mb-4 font-ligh">Grids: Bootstrap provides a flexible grid system with column classes that adapt to different screen sizes (e.g., col-sm-4, col-md-6, etc.).</p>
+              <p class="mb-4 font-bold">Tailwind</p>
+              <p class="mb-4 font-light">Tailwind CSS is a utility-first framework, meaning you primarily use utility classes to apply styles directly in your HTML. Instead of writing separate CSS, you use classes like p-4, text-center, bg-blue-500, etc.</p>
+              <p class="mb-4 font-light">Example usage:</p>
+              <pre><code>&lt;div class="bg-blue-500 text-white p-4"&gt;
+    &lt;h1 class="text-2xl"&gt;Welcome to my website&lt;/h1&gt;
+&lt;/div&gt;</code></pre>
+              <p class="mb-4 font-light">Advantage: Highly flexible and customizable, you’re not limited to pre-made components like in Bootstrap. This allows you to create a fully custom design.</p>
+              <p class="mb-4 font-bold">Foundation</p>
+              <p class="mb-4 font-light">Foundation is another popular CSS framework, developed by Zurb. It provides a grid system similar to Bootstrap’s, along with extra components and tools for building responsive websites.</p>
+              <p class="mb-4 font-light">Grids: Foundation also offers a fluid grid system with column classes similar to Bootstrap’s.</p>
+              <h3 class="mb-8 mt-8 text-xl tracking-tight font-bold text-white">Conclusion</h3>
+              <p class="mb-4 font-light">Responsive Design and Adaptability are key elements for building modern, high-performing websites accessible across all devices.</p>
+              <p class="mb-4 font-light">Media queries let you target specific screens and adjust the display based on screen size.</p>
+              <p class="mb-4 font-light">Using relative units helps make dimensions and layouts more flexible and suited to different environments.</p>
+              <p class="mb-4 font-light">CSS frameworks like Bootstrap, Tailwind CSS, and Foundation can help you speed up the development of responsive sites while following best design practices.</p>
+              <p class="mb-4 font-light">These tools and concepts are essential for ensuring your websites provide a consistent user experience, no matter the screen size.</p>
+              
+              <h2 id="performance"class="mb-8 mt-8 text-4xl tracking-tight font-bold text-white">4. Performance and Optimization</h2>
+              <p class="mb-4 font-light">Optimizing performance is crucial to providing a fast and smooth user experience. This includes reducing file sizes, lazy loading resources, and efficiently managing images and styles. Here are some specific techniques to optimize your site's performance.</p>
+              <h3 class="mb-8 mt-8 text-xl tracking-tight font-bold text-white">Lazy Loading of Resources</h3>
+              <p class="mb-4 font-light">Lazy Loading is a technique that delays the loading of resources (images, videos, CSS or JavaScript files) until they are needed—usually when a user scrolls to a certain part of the page or interacts with a component.</p>
+              <p class="mb-4 font-bold">Benefits:</p>
+              <p class="mb-4 font-light">Reduced initial load time: Non-essential resources (like images at the bottom of the page) aren’t loaded right away, speeding up page load.</p>
+              <p class="mb-4 font-light">Lower bandwidth usage: Users only load the content they actually see or interact with.</p>
+              <p class="mb-4 font-bold">Lazy Loading Examples:</p>
+              <p class="mb-4 font-light">Images: Use the <strong class="font-medium text-primary-500 hover:text-primary-700">loading="lazy"</strong> attribute on <strong class="font-medium text-primary-500 hover:text-primary-700">&lt;img&gt;</strong> tags to enable lazy loading for images:</p>
+              <pre><code>&lt;img src="image.jpg" loading="lazy" alt="Image description"&gt;</code></pre>
+              <p class="mb-4 font-light">Script: Use the <strong class="font-medium text-primary-500 hover:text-primary-700">defer</strong> or <strong class="font-medium text-primary-500 hover:text-primary-700">async</strong> attributes to load JavaScript files non-blocking:</p>
+              <pre><code>&lt;script src="script.js" defer"&gt;&lt;/script&gt;</code></pre>
+              <p class="mb-4 font-light">CSS: For non-critical styles (not needed for the initial render), you can load them lazily using JavaScript or conditionally with media queries.</p>
+              <h3 class="mb-8 mt-8 text-xl tracking-tight font-bold text-white">Optimized SVGs</h3>
+              <p class="mb-4 font-light">SVGs (Scalable Vector Graphics) are excellent for optimizing images—especially icons. They're vector-based, which means they can be resized without losing quality and are often much smaller than traditional image formats like PNG or JPEG.</p>
+              <p class="mb-4 font-bold">Optimization:</p>
+              <p class="mb-4 font-light">Use tools like SVGO to clean and optimize SVG files by removing unnecessary metadata, whitespace, and reducing file size.</p>
+              <p class="mb-4 font-light">Example of optimized SVG code:</p>
+              <pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"&gt;
+    &lt;path d="M12 2L2 22h20L12 2z"/&gt;
+&lt;/svg&gt;</code></pre>
+              <p class="mb-4 font-bold">Benefits:</p>
+              <p class="mb-4 font-light">SVG files are lighter and more flexible than raster images.</p>
+              <p class="mb-4 font-light">They can be embedded directly into HTML, eliminating the need for HTTP requests.</p>
+              <h3 class="mb-8 mt-8 text-xl tracking-tight font-bold text-white">Critical CSS</h3>
+              <p class="mb-4 font-light">Critical CSS refers to the essential CSS needed to render the above-the-fold content (the visible part of the page on first load). The idea is to load only the necessary styles for the initial view, and load the rest asynchronously.</p>
+              <p class="mb-4 font-bold">Benefits:</p>
+              <p class="mb-4 font-light">Faster initial rendering: By loading only what's needed for the initial viewport, the page appears more quickly.</p>
+              <p class="mb-4 font-light">Improved perceived performance: Users see and can interact with content sooner—even before all styles are fully loaded.</p>
+              <p class="mb-4 font-bold">How it works:</p>
+              <p class="mb-4 font-light">During your build process, extract only the CSS needed for the first render.</p>
+              <p class="mb-4 font-light">Embed it directly in the &lt;head&gt; of your HTML.</p>
+              <p class="mb-4 font-light">Load the rest of the CSS later via media queries or asynchronously with JavaScript.</p>
+              <p class="mb-4 font-bold">Tools for Critical CSS:</p>
+              <p class="mb-4 font-light">PurgeCSS: Can remove unused styles from your CSS.</p>
+              <p class="mb-4 font-light">Critical: Analyzes your HTML and CSS to extract critical styles automatically.</p>
+              <p class="mb-4 font-light">Example of including Critical CSS in HTML:</p>
+              <pre><code>&lt;style&gt;
+    /* Critical CSS goes here */
+&lt;/style&gt;
+&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+              <h3 class="mb-8 mt-8 text-xl tracking-tight font-bold text-white">Conclusion</h3>
+              <p class="mb-4 font-light">Optimizing your site’s performance and adaptability is essential for delivering a fast, smooth user experience. Here’s a summary of techniques you can use:</p>
+              <p class="mb-4 font-light">- Lazy loading to load resources only when needed, cutting down initial load time.</p>
+              <p class="mb-4 font-light">- Optimized SVGs to reduce HTTP requests and image sizes.</p>
+              <p class="mb-4 font-light">- Critical CSS to prioritize essential styles for the fastest possible first paint.</p>
+              <p class="mb-4 font-light">These optimizations help boost loading speed, efficiency, and user satisfaction on your website.</p>
+
+              <h2 id="tools"class="mb-8 mt-8 text-4xl tracking-tight font-bold text-white">5. Tools and Best Practices</h2>
+
+
+
+
+<h3 class="mb-8 mt-8 text-xl tracking-tight font-bold text-white">Typography & Colors</h3>
+<p class="mb-4 font-light">Google Fonts: A free service for embedding external fonts into an HTML page.</p>
+<p class="mb-4 font-light"><strong class="font-medium text-primary-500 hover:text-primary-700">@keyframes</strong>: Defines step-based animations.</p>
+
+
+
+          </div>
+      </div>
+    </article>
+</div>
+
+{% include 'components/cta.html' %}
+{% include 'components/aside.html' %}
+{% endblock %}
