@@ -1,8 +1,5 @@
-import sys
-import logging
-from app import app as application
-
-sys.path.insert(0, '/var/www/')
-
-logging.basicConfig(stream=sys.stderr)
-application.secret_key = 'mysecret'
+from app import app
+ 
+if __name__ == '__main__':
+   app.run()
+   
