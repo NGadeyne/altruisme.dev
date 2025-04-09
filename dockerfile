@@ -1,45 +1,34 @@
-# Étape 1 : Construire le projet Node.js (pour TailwindCSS)
-FROM node:20-alpine as node-build
+# Utilise une image Python légère
+FROM python:3.13-alpine
 
+# Installe Node.js (nécessaire pour Tailwind)
+RUN apk add --no-cache \
+    nodejs \
+    npm
+
+# Crée le dossier de travail
 WORKDIR /app
 
-# Copier package.json et package-lock.json
-COPY package.json package-lock.json ./
-
-# Installer les dépendances npm
-RUN npm install
-
-# Étape 2 : Construire le projet Python
-FROM python:3.11-slim as build
-
-WORKDIR /app
-
-# Installer les dépendances Python
+# Copie les dépendances Python
 COPY requirements.txt .
+
+# Installe les dépendances Python
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copier le code source du projet Flask
+# Copie le fichier package.json et package-lock.json (assurez-vous qu'ils existent dans votre projet)
+COPY package.json package-lock.json ./
+
+# Installe les dépendances Node.js (y compris Tailwind)
+RUN npm install
+
+# Copie le reste du code de l'app
 COPY . .
 
-# Copier les fichiers Node.js nécessaires à partir de l'étape précédente
-COPY --from=node-build /app /app
-
-# Vérifier l'installation de tailwindcss
-RUN ./node_modules/.bin/tailwindcss --version
-
-# Compiler TailwindCSS
+# Génère le fichier CSS avec Tailwind
 RUN npm run build
 
-# Étape 3 : Image finale pour la production
-FROM python:3.11-slim
-
-WORKDIR /app
-
-# Copier tous les fichiers de l'étape build
-COPY --from=build /app /app
-
-# Exposer le port
+# Expose le port attendu par App Platform
 EXPOSE 8080
 
-# Lancer l'application Flask via Gunicorn
-CMD ["gunicorn", "-b", "0.0.0.0:8080", "app:app"]
+# Lance l'app avec Gunicorn en production
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:app"]

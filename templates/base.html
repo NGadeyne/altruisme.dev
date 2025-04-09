@@ -10,7 +10,7 @@
     <meta name="keywords" content="{% block keywords %}{% endblock %}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-THZNFYZ8XS"></script>
     <script>
