@@ -1,22 +1,13 @@
 # Étape 1 : Construire le projet Node.js (pour TailwindCSS)
-FROM node:16-alpine as node-build
+FROM node:20-alpine as node-build
 
 WORKDIR /app
 
 # Copier package.json et package-lock.json
 COPY package.json package-lock.json ./
 
-# Mettre à jour npm à la dernière version
-RUN npm install -g npm@latest
-
 # Installer les dépendances npm
 RUN npm install
-
-# Vérifier les versions de Node.js et npm
-RUN node -v && npm -v
-
-# Vérifier que TailwindCSS est installé dans node_modules/.bin
-RUN ls -l /app/node_modules/.bin
 
 # Étape 2 : Construire le projet Python
 FROM python:3.11-slim as build
