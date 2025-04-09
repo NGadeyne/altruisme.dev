@@ -24,7 +24,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Vérifier l'installation de tailwindcss
-RUN ./node_modules/.bin/tailwindcss --version
+RUN npx tailwindcss --version
 
 # Compiler TailwindCSS
 RUN npm run build

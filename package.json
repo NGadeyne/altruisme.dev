@@ -2,10 +2,9 @@
   "name": "altruismeflask",
   "version": "1.0.0",
   "description": "Application Flask avec TailwindCSS",
-  "main": "index.js",
+  "main": "tailwind.config.js",
   "scripts": {
-    "build": "tailwindcss build static/css/tailwind.css -o static/css/styles.css",
-    "start": "python3 app.py"
+    "build": "npx tailwindcss build static/css/tailwind.css -o static/css/styles.css"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
