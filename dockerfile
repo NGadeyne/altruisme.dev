@@ -1,5 +1,12 @@
-# Etape 1: Construire le projet Node (pour TailwindCSS)
-FROM node:16-alpine as node-build
+# Etape 1: Utiliser une image Python et installer Node.js
+FROM python:3.11-slim as build
+
+# Installer Node.js
+RUN apt-get update && \
+    apt-get install -y curl && \
+    curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
+    apt-get install -y nodejs && \
+    apt-get clean
 
 WORKDIR /app
 
@@ -9,28 +16,17 @@ COPY package.json package-lock.json ./
 # Installer les dépendances npm
 RUN npm install
 
-# Etape 2: Construire le projet Python
-FROM python:3.11-slim as build
-
-WORKDIR /app
-
-# Installer les dépendances Python
+# Copier requirements.txt et installer les dépendances Python
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copier le code source du projet Flask
 COPY . .
 
-# Copier les fichiers Node.js nécessaires à partir de l'étape précédente
-COPY --from=node-build /app /app
-
-# Vérifier l'installation de tailwindcss
-RUN npm list tailwindcss
-
 # Compiler TailwindCSS
 RUN npm run build
 
-# Etape 3: Image finale pour la production
+# Etape 2: Image finale pour la production
 FROM python:3.11-slim
 
 WORKDIR /app
@@ -41,4 +37,5 @@ COPY --from=build /app /app
 # Exposer le port
 EXPOSE 8080
 
-# Lancer l'application Flask via Gun
+# Lancer l'application Flask via Gunicorn
+CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:8080"]
