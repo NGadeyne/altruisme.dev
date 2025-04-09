@@ -9,7 +9,7 @@ COPY package.json package-lock.json ./
 # Installer les dépendances Node.js, y compris TailwindCSS
 RUN npm install
 
-# Partie Python
+# Partie Python (pour Flask)
 FROM python:3.11-slim as build
 
 WORKDIR /app
@@ -18,8 +18,11 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copier le code Flask
+# Copier tout le projet (les fichiers Python et Node.js)
 COPY . .
+
+# Copier le dossier Node.js installé depuis l'image précédente
+COPY --from=node-build /app /app
 
 # Compiler TailwindCSS avec npm
 RUN npm run build
@@ -29,11 +32,11 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Copier les fichiers de Python et de Node.js (styles.css compilé)
-COPY --from=node-build /app /app
+# Copier tout depuis l'étape de build (Python et Node.js)
+COPY --from=build /app /app
 
 # Exposer le port
 EXPOSE 8080
 
-# Démarrer avec Gunicorn
+# Lancer l'application avec Gunicorn
 CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:app"]
