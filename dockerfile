@@ -3,7 +3,7 @@ FROM node:16-alpine as node-build
 
 WORKDIR /app
 
-# Copier package.json et package-lock.json dans le conteneur
+# Copier uniquement les fichiers nécessaires pour installer les dépendances
 COPY package.json package-lock.json ./
 
 # Installer les dépendances Node.js, y compris TailwindCSS
@@ -18,14 +18,14 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copier tout le projet (les fichiers Python et Node.js)
+# Copier le code source et les fichiers nécessaires
 COPY . .
 
-# Copier le dossier Node.js installé depuis l'image précédente
+# Copier les dépendances Node.js installées depuis l'étape précédente
 COPY --from=node-build /app /app
 
-# Installer Node.js et npm dans l'image finale (si nécessaire)
-RUN apt-get update && apt-get install -y nodejs npm
+# Vérifier que TailwindCSS est installé
+RUN npm list tailwindcss
 
 # Compiler TailwindCSS avec npm
 RUN npm run build
@@ -35,11 +35,11 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Installer Node.js et npm dans l'image finale
-RUN apt-get update && apt-get install -y nodejs npm
-
-# Copier tout depuis l'étape de build (Python et Node.js)
+# Copier l'ensemble du code et des dépendances
 COPY --from=build /app /app
+
+# Installer Node.js et npm dans l'image finale (si nécessaire)
+RUN apt-get update && apt-get install -y nodejs npm
 
 # Exposer le port
 EXPOSE 8080
