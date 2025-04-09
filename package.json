@@ -7,13 +7,11 @@
     "build": "tailwindcss build static/css/tailwind.css -o static/css/styles.css",
     "start": "python3 app.py"
   },
-  "dependencies": {
-    "tailwindcss": "^3.0.0",
-    "postcss": "^8.4.0",
-    "autoprefixer": "^10.3.0"
-  },
   "devDependencies": {
-    "npm": "^9.0.0"
+    "autoprefixer": "^10.4.21",
+    "npm": "^9.0.0",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.3"
   },
   "author": "",
   "license": "ISC"
