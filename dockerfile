@@ -23,6 +23,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copier le code source du projet Flask
 COPY . .
 
+# Vérifier l'installation de tailwindcss
+RUN ./node_modules/.bin/tailwindcss --version
+
 # Compiler TailwindCSS
 RUN npm run build
 
