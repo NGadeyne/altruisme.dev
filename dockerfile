@@ -1,35 +1,45 @@
-# Etape 1: Utiliser une image Python et installer Node.js
-FROM python:3.11-slim as build
-
-# Installer Node.js
-RUN apt-get update && \
-    apt-get install -y curl && \
-    curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
-    apt-get install -y nodejs && \
-    apt-get clean
+# Étape 1 : Construire le projet Node.js (pour TailwindCSS)
+FROM node:16-alpine as node-build
 
 WORKDIR /app
 
 # Copier package.json et package-lock.json
 COPY package.json package-lock.json ./
 
+# Mettre à jour npm à la dernière version
+RUN npm install -g npm@latest
+
 # Installer les dépendances npm
 RUN npm install
 
-# Copier requirements.txt et installer les dépendances Python
+# Vérifier les versions de Node.js et npm
+RUN node -v && npm -v
+
+# Vérifier que TailwindCSS est installé dans node_modules/.bin
+RUN ls -l /app/node_modules/.bin
+
+# Étape 2 : Construire le projet Python
+FROM python:3.11-slim as build
+
+WORKDIR /app
+
+# Installer les dépendances Python
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copier le code source du projet Flask
 COPY . .
 
+# Copier les fichiers Node.js nécessaires à partir de l'étape précédente
+COPY --from=node-build /app /app
+
 # Vérifier l'installation de tailwindcss
-RUN npx tailwindcss --version
+RUN ./node_modules/.bin/tailwindcss --version
 
 # Compiler TailwindCSS
 RUN npm run build
 
-# Etape 2: Image finale pour la production
+# Étape 3 : Image finale pour la production
 FROM python:3.11-slim
 
 WORKDIR /app
@@ -41,4 +51,4 @@ COPY --from=build /app /app
 EXPOSE 8080
 
 # Lancer l'application Flask via Gunicorn
-CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:8080"]
+CMD ["gunicorn", "-b", "0.0.0.0:8080", "app:app"]
