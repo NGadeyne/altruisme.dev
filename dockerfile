@@ -35,6 +35,9 @@ WORKDIR /app
 # Copier tout depuis l'étape de build (Python et Node.js)
 COPY --from=build /app /app
 
+# Installer Node.js et npm dans l'image finale (si nécessaire)
+RUN apt-get update && apt-get install -y nodejs npm
+
 # Exposer le port
 EXPOSE 8080
 
