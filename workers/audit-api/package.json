@@ -1,0 +1,14 @@
+{
+  "name": "@acquisition/audit-api",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "type-check": "tsc --noEmit",
+    "types": "wrangler types worker-configuration.d.ts --include-runtime false"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.0",
+    "wrangler": "^4.130.0"
+  }
+}

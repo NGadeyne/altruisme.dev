@@ -1,0 +1,5 @@
+{
+  "name": "altruisme-audit-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-10"
+}
