@@ -1,0 +1,130 @@
+@import 'tailwindcss';
+
+/* =========================================================
+   DESIGN SYSTEM
+   Tailwind v4
+   ========================================================= */
+
+@theme {
+  /* Typography */
+  --font-sans:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+
+  /* Ink */
+  --color-ink: #222826;
+  --color-ink-soft: #46504d;
+
+  /* Muted */
+  --color-muted: #64706c;
+  --color-muted-light: #78827e;
+
+  /* Petrol */
+  --color-petrol: #4f7774;
+  --color-petrol-dark: #31413f;
+  --color-petrol-hover: #456b68;
+  --color-petrol-light: #668c89;
+
+  /* Sand */
+  --color-sand: #f4efe7;
+  --color-sand-light: #f7f2e9;
+  --color-sand-warm: #eadfce;
+
+  /* Mist */
+  --color-mist: #edf3f0;
+  --color-mist-deep: #dce8e4;
+}
+
+/* =========================================================
+   ROOT
+   ========================================================= */
+
+:root {
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+
+  color: #222826;
+  background-color: #f4efe7;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #f4efe7;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+
+  background-color: #f4efe7;
+  color: #222826;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+/* =========================================================
+   ELEMENTS
+   ========================================================= */
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* =========================================================
+   ACCESSIBILITY / DETAILS
+   ========================================================= */
+
+::selection {
+  background-color: rgb(79 119 116 / 0.2);
+  color: #222826;
+}
+
+:focus-visible {
+  outline-offset: 3px;
+}

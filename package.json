@@ -1,0 +1,23 @@
+{
+  "name": "acquisition",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:website": "npm run dev --workspace=@acquisition/website",
+    "dev:learn": "npm run dev --workspace=@acquisition/learn",
+    "build:website": "npm run build --workspace=@acquisition/website",
+    "build:learn": "npm run build --workspace=@acquisition/learn",
+    "test:website": "npm run test:unit --workspace=@acquisition/website",
+    "test:learn": "npm run test:unit --workspace=@acquisition/learn",
+    "lint:website": "npm run lint --workspace=@acquisition/website",
+    "lint:learn": "npm run lint --workspace=@acquisition/learn",
+    "dev:coaching": "npm run dev --workspace=@acquisition/coaching",
+    "build:coaching": "npm run build --workspace=@acquisition/coaching",
+    "test:coaching": "npm run test:unit --workspace=@acquisition/coaching",
+    "lint:coaching": "npm run lint --workspace=@acquisition/coaching"
+  }
+}
