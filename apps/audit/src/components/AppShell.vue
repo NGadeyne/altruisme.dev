@@ -26,12 +26,46 @@
 
     <main><slot /></main>
 
-    <footer class="border-t border-petrol/10 bg-sand-light py-8">
-      <BaseContainer size="large" class="flex flex-col gap-2 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
-        <p>Altruisme.DEV · Pour les freelances IT & Tech</p>
-        <a href="https://altruisme.dev" class="font-medium transition hover:text-petrol">altruisme.dev</a>
-      </BaseContainer>
-    </footer>
+ <footer class="border-t border-petrol/10 bg-sand-light py-8">
+  <BaseContainer size="large">
+    <div
+      class="flex flex-col gap-5 text-sm text-muted sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>© 2026 Acquisition. Tous droits réservés.</p>
+
+      <nav aria-label="Liens légaux">
+        <ul class="flex flex-wrap gap-x-5 gap-y-2">
+          <li>
+            <a
+              href="https://altruisme.dev/mentions-legales"
+              class="transition hover:text-petrol"
+            >
+              Mentions légales
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://altruisme.dev/politique-de-confidentialite"
+              class="transition hover:text-petrol"
+            >
+              Politique de confidentialité
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://altruisme.dev/cookies"
+              class="transition hover:text-petrol"
+            >
+              Gestion des cookies
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </BaseContainer>
+</footer>
   </div>
 </template>
 
