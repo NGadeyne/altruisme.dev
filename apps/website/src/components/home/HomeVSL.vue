@@ -1,3 +1,18 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+
+import BaseButton from '@/components/ui/BaseButton.vue'
+import BaseContainer from '@/components/ui/BaseContainer.vue'
+
+const isPlaying = ref(false)
+
+const youtubeId = 'TON_ID_YOUTUBE'
+
+const playVideo = () => {
+  isPlaying.value = true
+}
+</script>
+
 <template>
   <section id="vsl" class="relative overflow-hidden bg-[#edf3f0] py-20 sm:py-24 lg:py-28">
     <!-- Glow -->
@@ -28,10 +43,12 @@
         <div
           class="relative mt-12 overflow-hidden rounded-3xl border border-[#4f7774]/15 bg-[#e9e2d7] shadow-xl shadow-[#31413f]/10"
         >
-          <div class="aspect-video">
+          <div class="relative aspect-video">
+            <!-- YouTube n'est chargé qu'après le clic -->
             <iframe
+              v-if="isPlaying"
               class="h-full w-full"
-              src="https://www.youtube.com/embed/TON_ID_YOUTUBE"
+              :src="`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1`"
               title="Comment signer sa prochaine mission freelance"
               frameborder="0"
               allow="
@@ -45,6 +62,45 @@
               "
               allowfullscreen
             />
+
+            <!-- Preview légère -->
+            <button
+              v-else
+              type="button"
+              class="group absolute inset-0 flex h-full w-full items-center justify-center bg-[#dfe9e5] transition hover:bg-[#d9e5e0]"
+              aria-label="Lire la vidéo"
+              @click="playVideo"
+            >
+              <!-- Décoration -->
+              <div
+                class="pointer-events-none absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#4f7774]/10 blur-3xl"
+              />
+
+              <div class="relative flex flex-col items-center gap-5 px-6 text-center">
+                <!-- Play button -->
+                <span
+                  class="flex h-20 w-20 items-center justify-center rounded-full bg-[#4f7774] shadow-lg shadow-[#31413f]/20 transition duration-300 group-hover:scale-105"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="ml-1 h-8 w-8 fill-white"
+                    aria-hidden="true"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </span>
+
+                <div>
+                  <p class="text-lg font-semibold text-[#222826]">
+                    Découvrir la méthode
+                  </p>
+
+                  <p class="mt-1 text-sm text-[#64706c]">
+                    Lance la vidéo pour comprendre les étapes.
+                  </p>
+                </div>
+              </div>
+            </button>
           </div>
         </div>
 
@@ -65,7 +121,9 @@
 
         <!-- CTA -->
         <div class="mt-8 text-center">
-          <BaseButton href="#offres" size="large"> Choisir mon accompagnement </BaseButton>
+          <BaseButton href="#offres" size="large">
+            Choisir mon accompagnement
+          </BaseButton>
 
           <p class="mt-4 text-sm text-[#78827e]">
             Accompagnement personnalisé ou formation en ligne.
@@ -75,8 +133,3 @@
     </BaseContainer>
   </section>
 </template>
-
-<script setup lang="ts">
-import BaseButton from '@/components/ui/BaseButton.vue'
-import BaseContainer from '@/components/ui/BaseContainer.vue'
-</script>
