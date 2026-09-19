@@ -5,21 +5,21 @@ import LegalPageLayout from '@/components/legal/LegalPageLayout.vue'
 <template>
   <LegalPageLayout
     title="Politique de confidentialité"
-    description="Cette politique explique quelles données personnelles peuvent être collectées sur Acquisition et comment elles sont utilisées."
+    description="Cette politique explique quelles données personnelles peuvent être collectées sur Altruisme.DEV et comment elles sont utilisées."
     updated-at="19 août 2026"
   >
     <section>
       <h2>1. Responsable du traitement</h2>
 
       <div class="mt-5 space-y-4">
-        <p>Le responsable des traitements de données réalisés via le site Acquisition est :</p>
+        <p>Le responsable des traitements de données réalisés via le site Altruisme.DEV est :</p>
 
         <p>
           <strong>Altruisme</strong><br />
           SASU<br />
           Adresse : <strong>14 RUE BAUSSET, 75015 PARIS</strong><br />
           Email :
-          <a href="mailto:TON_EMAIL">contact@altruisme.dev</a>
+          <a href="mailto:contact@altruisme.dev">contact@altruisme.dev</a>
         </p>
       </div>
     </section>
@@ -36,7 +36,7 @@ import LegalPageLayout from '@/components/legal/LegalPageLayout.vue'
           <li>ton numéro de téléphone lorsqu’il est communiqué ;</li>
           <li>les informations que tu renseignes lors d’une prise de rendez-vous ;</li>
           <li>
-            les informations renseignées lors d’une inscription à une masterclass ou à une formation
+            les informations renseignées lors d’une contribution, d’une inscription à la communauté ou d’un échange avec le média
             ;
           </li>
           <li>les informations nécessaires à la gestion d’une commande ou d’un accompagnement ;</li>
@@ -73,7 +73,7 @@ import LegalPageLayout from '@/components/legal/LegalPageLayout.vue'
             </tr>
 
             <tr class="border-b border-[#4f7774]/10">
-              <td class="py-4 pr-6">Masterclass</td>
+              <td class="py-4 pr-6">Communauté / contributions</td>
 
               <td class="py-4 pr-6">
                 Gérer ton inscription et t’envoyer les informations liées au live
@@ -141,7 +141,7 @@ import LegalPageLayout from '@/components/legal/LegalPageLayout.vue'
 
         <p>
           Les durées précises peuvent varier selon qu’il s’agit d’un simple prospect, d’un
-          participant à une masterclass ou d’un client.
+          membre de la communauté, d’un contributeur ou d’un interlocuteur du média.
         </p>
       </div>
     </section>
@@ -158,7 +158,7 @@ import LegalPageLayout from '@/components/legal/LegalPageLayout.vue'
 
         <p>
           Tu peux exercer tes droits en écrivant à :
-          <a href="mailto:TON_EMAIL"> TON_EMAIL </a>.
+          <a href="mailto:contact@altruisme.dev"> contact@altruisme.dev </a>.
         </p>
 
         <p>

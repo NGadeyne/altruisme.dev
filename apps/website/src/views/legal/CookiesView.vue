@@ -9,7 +9,7 @@ function openCookieSettings() {
 <template>
   <LegalPageLayout
     title="Gestion des cookies"
-    description="Cette page explique comment Acquisition utilise les cookies et autres traceurs, ainsi que la manière dont tu peux gérer tes préférences."
+    description="Cette page explique comment Altruisme.DEV utilise les cookies et autres traceurs, ainsi que la manière dont tu peux gérer tes préférences."
     updated-at="19 août 2026"
   >
     <!-- Introduction -->
@@ -101,7 +101,7 @@ function openCookieSettings() {
               <h3>Mesure d’audience</h3>
 
               <p class="mt-2 text-sm leading-6 text-[#64706c]">
-                Acquisition peut utiliser un outil de mesure d’audience afin de comprendre comment
+                Altruisme.DEV peut utiliser un outil de mesure d’audience afin de comprendre comment
                 le site est utilisé et d’améliorer son contenu.
               </p>
             </div>
@@ -253,7 +253,7 @@ function openCookieSettings() {
       <p class="mt-5">
         Pour toute question concernant l’utilisation des cookies ou la protection de tes données, tu
         peux nous contacter à
-        <a href="mailto:TON_EMAIL"> TON_EMAIL </a>.
+        <a href="mailto:contact@altruisme.dev">contact@altruisme.dev</a>.
       </p>
     </section>
   </LegalPageLayout>

@@ -1,76 +1,16 @@
 <script setup lang="ts">
-import AboutHero from '@/components/about/AboutHero.vue'
-import AboutStory from '@/components/about/AboutStory.vue'
-import AboutPrinciples from '@/components/about/AboutPrinciples.vue'
-import AboutPersonal from '@/components/about/AboutPersonal.vue'
-
 import BaseButton from '@/components/ui/BaseButton.vue'
 import BaseContainer from '@/components/ui/BaseContainer.vue'
 </script>
 
 <template>
-  <main class="min-h-screen bg-[#f4efe7]">
-    <!-- Hero -->
-    <AboutHero />
+  <main class="min-h-screen bg-sand">
+    <section class="relative isolate overflow-hidden py-20 sm:py-24 lg:py-28"><div class="pointer-events-none absolute inset-0 -z-20 bg-[linear-gradient(125deg,#f7f2e9_0%,#f3ede3_45%,#e4ece8_100%)]"/><BaseContainer><div class="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center"><div><p class="text-sm font-semibold uppercase tracking-[0.18em] text-petrol">À propos</p><h1 class="mt-4 text-4xl font-bold tracking-tight text-ink sm:text-6xl">Je m’appelle Nicolas Gadeyne.<br><span class="text-petrol">Altruisme.DEV est le média que j’ai envie de lire.</span></h1><p class="mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">Un média tech indépendant, curieux, accessible et exigeant. Un endroit où l’on peut parler produit, code, SaaS, IA, automatisation, entrepreneuriat ou freelancing sans réduire chaque sujet à une punchline.</p></div><div class="mx-auto w-full max-w-sm overflow-hidden rounded-[2rem] border border-petrol/15 bg-mist p-3 shadow-xl shadow-petrol/10"><img src="/src/assets/nico.png" alt="Nicolas Gadeyne" class="aspect-[4/5] w-full rounded-[1.5rem] object-cover" /></div></div></BaseContainer></section>
 
-    <!-- Parcours + pourquoi -->
-    <AboutStory />
+    <section class="py-20 sm:py-24"><BaseContainer><div class="mx-auto max-w-4xl"><p class="text-sm font-semibold uppercase tracking-[0.18em] text-petrol">Pourquoi Altruisme ?</p><h2 class="mt-4 text-3xl font-bold tracking-tight text-ink sm:text-5xl">Créer quelque chose d’utile avant de chercher à capter l’attention.</h2><div class="mt-8 space-y-6 text-base leading-8 text-muted"><p>Je viens de la tech. J’ai commencé par développer, puis j’ai évolué vers le produit, la delivery et l’accompagnement de projets. J’aime autant comprendre comment un produit est construit que pourquoi il mérite d’exister, comment il se vend et ce qu’il change réellement pour ses utilisateurs.</p><p>Altruisme.DEV part d’une idée simple : internet ne manque pas de contenu, mais il manque souvent de contexte, de nuance et de profondeur. Je veux donc construire un média indépendant qui privilégie les contenus que l’on garde, que l’on relit et qui aident réellement à prendre de meilleures décisions.</p><p>Le nom Altruisme n’est pas un positionnement marketing. C’est la direction que je veux donner au projet : transmettre ce que j’apprends, mettre en avant ceux qui ont quelque chose à partager et créer un espace où la valeur produite compte davantage que le bruit généré.</p></div></div></BaseContainer></section>
 
-    <!-- Manière d'accompagner -->
-    <AboutPrinciples />
+    <section class="bg-mist py-20 sm:py-24"><BaseContainer><div class="mx-auto max-w-5xl"><div class="max-w-3xl"><p class="text-sm font-semibold uppercase tracking-[0.18em] text-petrol">Ce que je veux construire</p><h2 class="mt-4 text-3xl font-bold tracking-tight text-ink sm:text-5xl">Un média qui grandit par couches.</h2></div><div class="mt-12 grid gap-5 sm:grid-cols-2"><article v-for="item in [{n:'01',t:'Des guides de référence',d:'Des contenus longs et maintenus dans le temps sur les grands sujets de la tech et du business.'},{n:'02',t:'Une actualité utile',d:'Une sélection hebdomadaire pour comprendre les mouvements importants sans courir après chaque annonce.'},{n:'03',t:'Un podcast de terrain',d:'Des conversations longues avec des personnes qui construisent, dirigent, expérimentent et apprennent.'},{n:'04',t:'Une vraie communauté',d:'Un espace où lecteurs, contributeurs et profils tech peuvent continuer les discussions et partager leurs expériences.'}]" :key="item.n" class="rounded-3xl border border-petrol/15 bg-sand/70 p-7"><span class="text-sm font-semibold text-petrol">{{ item.n }}</span><h3 class="mt-4 text-xl font-bold text-ink">{{ item.t }}</h3><p class="mt-3 text-sm leading-6 text-muted">{{ item.d }}</p></article></div></div></BaseContainer></section>
 
-    <!-- Plus personnel -->
-    <AboutPersonal />
-
-    <!-- Final CTA -->
-    <section class="relative overflow-hidden bg-[#f4efe7] py-20 sm:py-24 lg:py-28">
-      <BaseContainer>
-        <div
-          class="relative isolate mx-auto max-w-4xl overflow-hidden rounded-[2rem] border border-[#4f7774]/20 bg-[#31413f] px-6 py-14 text-center shadow-2xl shadow-[#31413f]/10 sm:px-10 sm:py-16"
-        >
-          <div class="pointer-events-none absolute left-1/2 top-[-260px] -z-10 h-[560px] w-[760px] -translate-x-1/2 rounded-full bg-[#668c89]/30 blur-[140px]" />
-          <div class="pointer-events-none absolute -bottom-48 -left-28 -z-10 h-96 w-96 rounded-full bg-[#d6b98f]/12 blur-[120px]" />
-
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[#a9c1bd]">
-            Et maintenant ?
-          </p>
-
-          <h2
-            class="mx-auto mt-4 max-w-3xl text-3xl font-bold tracking-tight text-[#f7f2e9] sm:text-4xl lg:text-5xl"
-          >
-            Si tu cherches ta prochaine mission,
-            <span class="text-[#a9c1bd]"> on peut simplement en parler. </span>
-          </h2>
-
-          <p class="mx-auto mt-5 max-w-2xl text-base leading-7 text-[#d8e1de] sm:text-lg">
-            On fait le point sur ta situation, ce qui bloque aujourd’hui et les actions qui peuvent
-            réellement faire la différence.
-          </p>
-
-          <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <BaseButton
-              to="/contact"
-              size="large"
-              class="!bg-[#f4efe7] !text-[#31413f] hover:!bg-white"
-            >
-              Échanger avec Nicolas
-            </BaseButton>
-
-            <BaseButton
-              href="/#vsl"
-              variant="secondary"
-              size="large"
-              class="!border-white/15 !bg-white/8 !text-[#f7f2e9] hover:!bg-white/12"
-            >
-              Découvrir la méthode
-            </BaseButton>
-          </div>
-
-          <p class="mt-6 text-sm text-[#aebdb9]">
-            Aucun engagement · Pas de vente forcée · Un échange concret
-          </p>
-        </div>
-      </BaseContainer>
-    </section>
+    <section class="py-20 sm:py-24"><BaseContainer><div class="mx-auto max-w-4xl rounded-[2rem] bg-[#31413f] px-7 py-12 text-center sm:px-12"><p class="text-sm font-semibold uppercase tracking-[0.18em] !text-[#a9c1bd]">La suite se construit maintenant</p><h2 class="mt-4 text-3xl font-bold tracking-tight !text-[#f7f2e9] sm:text-4xl">Lire, participer, challenger, contribuer.</h2><p class="mx-auto mt-5 max-w-2xl text-base leading-7 !text-[#d8e1de]">Altruisme.DEV n’a pas vocation à être un média descendant. Si le projet t’intéresse, la communauté et les contributions font partie de l’aventure dès le départ.</p><div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row"><BaseButton to="/communaute" class="!bg-[#f4efe7] !text-[#31413f] hover:!bg-white">Rejoindre la communauté</BaseButton><BaseButton to="/contribuer" variant="secondary" class="!border-white/15 !bg-white/8 !text-[#f7f2e9] hover:!bg-white/12">Contribuer</BaseButton></div></div></BaseContainer></section>
   </main>
 </template>

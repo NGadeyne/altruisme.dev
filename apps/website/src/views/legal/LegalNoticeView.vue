@@ -5,14 +5,14 @@ import LegalPageLayout from '@/components/legal/LegalPageLayout.vue'
 <template>
   <LegalPageLayout
     title="Mentions légales"
-    description="Informations relatives à l’éditeur, à l’hébergement et à l’utilisation du site Acquisition."
+    description="Informations relatives à l’éditeur, à l’hébergement et à l’utilisation du site Altruisme.DEV."
     updated-at="19 août 2026"
   >
     <section>
       <h2>1. Éditeur du site</h2>
 
       <div class="mt-5 space-y-2">
-        <p>Le site <strong>Acquisition</strong> est édité par :</p>
+        <p>Le site <strong>Altruisme.DEV</strong> est édité par :</p>
 
         <p>
           <strong>Altruisme</strong><br />
@@ -25,7 +25,7 @@ import LegalPageLayout from '@/components/legal/LegalPageLayout.vue'
 
         <p>
           Adresse email :
-          <a href="mailto:TON_EMAIL">contact@altruisme.dev</a>
+          <a href="mailto:contact@altruisme.dev">contact@altruisme.dev</a>
         </p>
 
         <p>
@@ -72,7 +72,7 @@ import LegalPageLayout from '@/components/legal/LegalPageLayout.vue'
 
       <div class="mt-5 space-y-4">
         <p>
-          Les informations publiées sur Acquisition ont une vocation informative et pédagogique.
+          Les informations publiées sur Altruisme.DEV ont une vocation informative et pédagogique.
           Elles ne constituent pas une garantie de résultat ni un conseil juridique, fiscal ou
           financier individualisé.
         </p>
