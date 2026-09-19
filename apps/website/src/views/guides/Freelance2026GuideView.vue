@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import BaseButton from '@/components/ui/BaseButton.vue'
 import BaseContainer from '@/components/ui/BaseContainer.vue'
-import { onMounted } from 'vue'
+import { onBeforeUnmount, onMounted } from 'vue'
 
 type GuideBlock = {
   type: 'paragraph' | 'question'
@@ -7706,12 +7706,12 @@ const seo = {
   description:
     'Le guide complet du freelancing en 2026 : se lancer, choisir son statut, fixer son TJM, trouver des clients, vendre, réussir ses missions, gérer ses finances et construire une activité durable.',
   keywords:
-    'freelance 2026, devenir freelance, guide freelance, TJM freelance, trouver des clients freelance, statut freelance, micro-entreprise freelance, SASU freelance, prospection freelance, activité freelance',
+    'freelance 2026, devenir freelance, guide freelance, TJM freelance, trouver des clients freelance, statut freelance, prospection freelance, activité freelance',
   url: 'https://altruisme.dev/guides/freelance-2026',
+  image: 'https://altruisme.dev/images/guides/guide-freelance.png',
 }
 
 const setMeta = (
-  selector: string,
   attribute: 'name' | 'property',
   value: string,
   content: string,
@@ -7729,21 +7729,160 @@ const setMeta = (
   element.setAttribute('content', content)
 }
 
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: 'Freelance 2026 : Guide complet pour devenir freelance',
+  description: seo.description,
+  url: seo.url,
+
+  image: {
+    '@type': 'ImageObject',
+    url: seo.image,
+    width: 1200,
+    height: 630,
+  },
+
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': seo.url,
+  },
+
+  author: {
+    '@type': 'Person',
+    name: 'Nicolas Gadeyne',
+    url: 'https://www.linkedin.com/in/nicolas-gadeyne/',
+  },
+
+  publisher: {
+    '@type': 'Organization',
+    name: 'Altruisme.DEV',
+    url: 'https://altruisme.dev',
+  },
+
+  datePublished: '2026-09-19',
+  dateModified: '2026-09-19',
+  inLanguage: 'fr-FR',
+  articleSection: 'Freelance',
+
+  keywords: [
+    'freelance',
+    'freelancing',
+    'devenir freelance',
+    'TJM',
+    'prospection freelance',
+    'activité indépendante',
+    'freelance 2026',
+  ],
+
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'Altruisme.DEV',
+    url: 'https://altruisme.dev',
+  },
+}
+
+const breadcrumbStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Accueil',
+      item: 'https://altruisme.dev/',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Guides',
+      item: 'https://altruisme.dev/guides',
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Freelance 2026 : Guide complet',
+      item: seo.url,
+    },
+  ],
+}
+
+const setCanonical = (url: string) => {
+  let element = document.querySelector(
+    'link[rel="canonical"]',
+  ) as HTMLLinkElement | null
+
+  if (!element) {
+    element = document.createElement('link')
+    element.rel = 'canonical'
+    document.head.appendChild(element)
+  }
+
+  element.href = url
+}
+
+const addStructuredData = (
+  id: string,
+  data: Record<string, unknown>,
+) => {
+  document.getElementById(id)?.remove()
+
+  const script = document.createElement('script')
+  script.id = id
+  script.type = 'application/ld+json'
+  script.textContent = JSON.stringify(data)
+
+  document.head.appendChild(script)
+}
+
 onMounted(() => {
   document.title = seo.title
 
-  setMeta('', 'name', 'description', seo.description)
-  setMeta('', 'name', 'keywords', seo.keywords)
+  // SEO classique
+  setMeta('name', 'description', seo.description)
+  setMeta('name', 'keywords', seo.keywords)
 
-  setMeta('', 'property', 'og:title', seo.title)
-  setMeta('', 'property', 'og:description', seo.description)
-  setMeta('', 'property', 'og:type', 'article')
-  setMeta('', 'property', 'og:url', seo.url)
+  // Canonical
+  setCanonical(seo.url)
 
-  setMeta('', 'name', 'twitter:card', 'summary_large_image')
-  setMeta('', 'name', 'twitter:title', seo.title)
-  setMeta('', 'name', 'twitter:description', seo.description)
+  // Open Graph
+  setMeta('property', 'og:title', seo.title)
+  setMeta('property', 'og:description', seo.description)
+  setMeta('property', 'og:type', 'article')
+  setMeta('property', 'og:url', seo.url)
+  setMeta('property', 'og:site_name', 'Altruisme.DEV')
+  setMeta('property', 'og:locale', 'fr_FR')
+  setMeta('property', 'og:image', seo.image)
+  setMeta('property', 'og:image:type', 'image/png')
+  setMeta('property', 'og:image:width', '1200')
+  setMeta('property', 'og:image:height', '630')
+  setMeta(
+    'property',
+    'og:image:alt',
+    'Freelance 2026 : Guide complet — Altruisme.DEV',
+  )
+
+  // Twitter / X
+  setMeta('name', 'twitter:card', 'summary_large_image')
+  setMeta('name', 'twitter:title', seo.title)
+  setMeta('name', 'twitter:description', seo.description)
+  setMeta('name', 'twitter:image', seo.image)
+  setMeta(
+    'name',
+    'twitter:image:alt',
+    'Freelance 2026 : Guide complet — Altruisme.DEV',
+  )
+
+  // Données structurées
+  addStructuredData('freelance-guide-structured-data', structuredData)
+  addStructuredData('freelance-guide-breadcrumb-data', breadcrumbStructuredData)
 })
+
+onBeforeUnmount(() => {
+  document.getElementById('freelance-guide-structured-data')?.remove()
+  document.getElementById('freelance-guide-breadcrumb-data')?.remove()
+})
+
 </script>
 
 <template>
@@ -7827,6 +7966,19 @@ onMounted(() => {
             Aller au sommaire <span aria-hidden="true">↓</span>
           </a>
         </div>
+
+        <figure class="mx-auto mt-10 max-w-5xl sm:mt-12">
+          <img
+            src="/images/guides/guide-freelance.png"
+            alt="Couverture du guide Freelance 2026 : Guide complet par Altruisme.DEV"
+            width="1200"
+            height="630"
+            loading="lazy"
+            decoding="async"
+            fetchpriority="low"
+            class="aspect-[40/21] w-full rounded-2xl border border-petrol/10 object-cover shadow-[0_20px_60px_rgba(34,40,38,0.08)] sm:rounded-3xl"
+          />
+        </figure>
       </BaseContainer>
     </section>
 
@@ -7862,7 +8014,7 @@ onMounted(() => {
               v-for="(section, sectionIndex) in guideSections"
               :id="section.id"
               :key="section.id"
-              class="scroll-mt-28 border-b border-petrol/12 pb-16 last:border-b-0 last:pb-0 sm:pb-20"
+              class="guide-section scroll-mt-28 border-b border-petrol/12 pb-16 last:border-b-0 last:pb-0 sm:pb-20"
               :class="sectionIndex > 0 ? 'pt-16 sm:pt-20' : ''"
             >
               <header class="mb-8 sm:mb-10">
@@ -7986,5 +8138,10 @@ onMounted(() => {
   color: #31413f;
   text-decoration-color: #31413f;
   background-color: rgba(79, 119, 116, 0.06);
+}
+
+.guide-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1000px;
 }
 </style>

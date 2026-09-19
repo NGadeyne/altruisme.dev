@@ -1,0 +1,36 @@
+# Altruisme.DEV
+
+> Média tech indépendant francophone consacré aux produits, métiers, modèles économiques et technologies qui façonnent la tech. Altruisme.DEV publie des guides de fond, des analyses, des actualités contextualisées, des interviews et des ressources pratiques destinées aux professionnels de la tech.
+
+Altruisme.DEV privilégie les contenus approfondis, pédagogiques et fondés sur l'expérience terrain.
+
+Les sujets principaux sont le Product Management, le SaaS, l'intelligence artificielle, l'automatisation, le freelancing, le développement logiciel, le Cloud, l'infrastructure, les ESN, l'e-commerce et les marketplaces.
+
+## Guides de référence
+
+- [Freelance 2026 : Guide complet](https://altruisme.dev/guides/freelance-2026): Guide approfondi sur le lancement, le positionnement, le pricing, l'acquisition, la vente, le delivery, les finances et la construction d'une activité freelance durable.
+- [SaaS 2026 : Guide complet](https://altruisme.dev/guides/saas-2026): Guide approfondi consacré à la création, au développement et au pilotage d'un produit SaaS.
+- [Tous les guides](https://altruisme.dev/guides): Index des guides de fond publiés par Altruisme.DEV.
+
+## Actualités et analyses
+
+- [Actualités](https://altruisme.dev/actualites): Actualités tech sélectionnées, analysées et contextualisées.
+
+## Podcast
+
+- [Podcast](https://altruisme.dev/podcast): Conversations avec des CTO, dirigeants et professionnels de la tech autour du produit, de la technologie, du management et de leurs parcours.
+
+## Communauté et contributions
+
+- [Communauté](https://altruisme.dev/communaute): Espace communautaire Altruisme.DEV pour poursuivre les discussions autour des sujets publiés.
+- [Contribuer](https://altruisme.dev/contribuer): Informations pour proposer un retour d'expérience, une analyse, une étude de cas ou un sujet à Altruisme.DEV.
+
+## À propos
+
+- [À propos d'Altruisme.DEV](https://altruisme.dev/apropos): Présentation du média, de sa ligne éditoriale et de son fonctionnement.
+- [Contact](https://altruisme.dev/contact): Contacter Altruisme.DEV.
+
+## Optional
+
+- [Accueil](https://altruisme.dev/): Page d'accueil et principaux contenus du média.
+- [LinkedIn](https://www.linkedin.com/in/nicolas-gadeyne/): Profil LinkedIn du fondateur d'Altruisme.DEV.

@@ -1,12 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://altruisme.dev/</loc></url>
-  <url><loc>https://altruisme.dev/actualites</loc></url>
-  <url><loc>https://altruisme.dev/guides</loc></url>
-  <url><loc>https://altruisme.dev/guides/freelance-2026</loc></url>
-  <url><loc>https://altruisme.dev/guides/saas-2026</loc></url>
-  <url><loc>https://altruisme.dev/podcast</loc></url>
-  <url><loc>https://altruisme.dev/communaute</loc></url>
-  <url><loc>https://altruisme.dev/contribuer</loc></url>
-  <url><loc>https://altruisme.dev/apropos</loc></url>
+
+  <url>
+    <loc>https://altruisme.dev/</loc>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+
+  <url>
+    <loc>https://altruisme.dev/actualites</loc>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+
+  <url>
+    <loc>https://altruisme.dev/guides</loc>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+
+  <url>
+    <loc>https://altruisme.dev/guides/freelance-2026</loc>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+
+  <url>
+    <loc>https://altruisme.dev/guides/saas-2026</loc>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+
+  <url>
+    <loc>https://altruisme.dev/podcast</loc>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+
+  <url>
+    <loc>https://altruisme.dev/communaute</loc>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+
+  <url>
+    <loc>https://altruisme.dev/contribuer</loc>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+
+  <url>
+    <loc>https://altruisme.dev/apropos</loc>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+
+  <url>
+    <loc>https://altruisme.dev/contact</loc>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+
 </urlset>
