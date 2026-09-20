@@ -9,9 +9,11 @@
   "scripts": {
     "dev:website": "npm run dev --workspace=@acquisition/website",
     "dev:builder": "npm run dev --workspace=@acquisition/builder",
+    "dev:cloud": "npm run dev --workspace=@acquisition/cloud",
     "dev:learn": "npm run dev --workspace=@acquisition/learn",
     "build:website": "npm run build --workspace=@acquisition/website",
     "build:builder": "npm run build --workspace=@acquisition/builder",
+    "build:cloud": "npm run build --workspace=@acquisition/cloud",
     "build:learn": "npm run build --workspace=@acquisition/learn",
     "test:website": "npm run test:unit --workspace=@acquisition/website",
     "test:learn": "npm run test:unit --workspace=@acquisition/learn",
