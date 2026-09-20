@@ -1,5 +1,5 @@
 {
-  // Static assets are built by Cloudflare Workers Builds before deployment.
+  // Cloudflare Workers Builds produces the static assets before deployment.
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "altruisme-cloud",
   "compatibility_date": "2026-09-20",
