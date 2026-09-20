@@ -7886,7 +7886,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <main class="min-h-screen bg-sand">
+  <main class="min-h-screen flex-1 bg-sand">
     <!-- HERO -->
     <section class="relative isolate overflow-hidden border-b border-petrol/10">
       <div

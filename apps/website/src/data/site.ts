@@ -10,14 +10,14 @@ export const featuredGuides = [
     title: 'Freelance 2026 : Guide complet',
     description: 'Construire une activité freelance solide : positionnement, offre, acquisition, vente, TJM, organisation et développement.',
     status: 'available' as const,
-    to: '/guides/freelance-2026',
+    to: '/guides/freelance',
     label: 'Freelance',
   },
   {
     title: 'SaaS 2026 : Guide complet',
     description: 'De l’idée au produit : comprendre le modèle SaaS, valider un problème, construire, lancer, mesurer et faire grandir un produit.',
     status: 'available' as const,
-    to: '/guides/saas-2026',
+    to: '/guides/saas',
     label: 'SaaS',
   },
   {
