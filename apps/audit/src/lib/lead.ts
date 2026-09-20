@@ -9,6 +9,7 @@ const API_URL =
 type SaveLeadPayload = {
   email: string
   newsletterConsent: boolean
+  turnstileToken: string
   answers: AuditAnswers
   result: AuditResult
 }
@@ -31,6 +32,9 @@ export async function saveLead(
       email: payload.email,
       newsletterConsent:
         payload.newsletterConsent,
+
+      turnstileToken:
+        payload.turnstileToken,
       answers: payload.answers,
       result: payload.result,
     }),

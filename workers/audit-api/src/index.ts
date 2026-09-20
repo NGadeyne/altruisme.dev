@@ -1,5 +1,6 @@
 interface Env {
   BREVO_API_KEY: string
+  TURNSTILE_SECRET: string
 }
 
 type Dimension =
@@ -12,6 +13,7 @@ type Dimension =
 type DiagnosticPayload = {
   email: string
   newsletterConsent: boolean
+  turnstileToken: string
 
   result: {
     globalScore: number
@@ -28,6 +30,12 @@ type DiagnosticPayload = {
 
 const TEMPLATE_ID = 58
 const NEWSLETTER_LIST_ID = 2
+const turnstileHostnames = new Set([
+  'altruisme.dev',
+  'audit.altruisme.dev',
+  'localhost',
+  '127.0.0.1',
+])
 
 const dimensionLabels: Record<Dimension, string> = {
   positionnement: 'Positionnement',
@@ -92,6 +100,14 @@ function isDimension(value: unknown): value is Dimension {
   )
 }
 
+function isStringList(value: unknown, maximumLength: number) {
+  return (
+    Array.isArray(value) &&
+    value.length <= maximumLength &&
+    value.every((item) => typeof item === 'string' && item.length <= 1000)
+  )
+}
+
 function isValidPayload(
   payload: unknown,
 ): payload is DiagnosticPayload {
@@ -104,7 +120,10 @@ function isValidPayload(
   if (
     !data.email ||
     typeof data.email !== 'string' ||
-    !isValidEmail(data.email)
+    !isValidEmail(data.email) ||
+    typeof data.turnstileToken !== 'string' ||
+    data.turnstileToken.length === 0 ||
+    data.turnstileToken.length > 2048
   ) {
     return false
   }
@@ -147,14 +166,54 @@ function isValidPayload(
 
   if (
     typeof data.result.summary !== 'string' ||
-    !Array.isArray(data.result.why) ||
-    !Array.isArray(data.result.priorities) ||
-    !Array.isArray(data.result.stopDoing)
+    data.result.summary.length > 4000 ||
+    !isStringList(data.result.why, 3) ||
+    !isStringList(data.result.priorities, 3) ||
+    !isStringList(data.result.stopDoing, 2)
   ) {
     return false
   }
 
   return true
+}
+
+async function isValidTurnstileToken(
+  env: Env,
+  token: string,
+  remoteIp: string | null,
+) {
+  const formData = new FormData()
+  formData.set('secret', env.TURNSTILE_SECRET)
+  formData.set('response', token)
+
+  if (remoteIp) {
+    formData.set('remoteip', remoteIp)
+  }
+
+  const response = await fetch(
+    'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+    {
+      method: 'POST',
+      body: formData,
+    },
+  )
+
+  if (!response.ok) {
+    return false
+  }
+
+  const result = await response.json() as {
+    success?: boolean
+    action?: string
+    hostname?: string
+  }
+
+  return (
+    result.success === true &&
+    result.action === 'send-diagnostic' &&
+    typeof result.hostname === 'string' &&
+    turnstileHostnames.has(result.hostname)
+  )
 }
 
 async function sendDiagnosticEmail(
@@ -373,6 +432,22 @@ export default {
             error: 'Invalid payload',
           },
           400,
+          corsHeaders,
+        )
+      }
+
+      const isHuman = await isValidTurnstileToken(
+        env,
+        payload.turnstileToken,
+        request.headers.get('CF-Connecting-IP'),
+      )
+
+      if (!isHuman) {
+        return json(
+          {
+            error: 'Verification failed',
+          },
+          403,
           corsHeaders,
         )
       }

@@ -6,6 +6,7 @@ const secretKeys = JSON.parse(Deno.env.get('SUPABASE_SECRET_KEYS') ?? '{}')
 
 const supabaseSecretKey = secretKeys.default
 const ownerId = Deno.env.get('COACHING_OWNER_ID')!
+const calendlySigningKey = Deno.env.get('CALENDLY_WEBHOOK_SIGNING_KEY')
 
 if (!supabaseSecretKey) {
   throw new Error('Supabase secret key unavailable.')
@@ -13,6 +14,10 @@ if (!supabaseSecretKey) {
 
 if (!ownerId) {
   throw new Error('COACHING_OWNER_ID unavailable.')
+}
+
+if (!calendlySigningKey) {
+  throw new Error('CALENDLY_WEBHOOK_SIGNING_KEY unavailable.')
 }
 
 const supabase = createClient(supabaseUrl, supabaseSecretKey)
@@ -100,6 +105,102 @@ function parseDailyRate(value: string | null) {
   return Number.isFinite(dailyRate) ? dailyRate : null
 }
 
+function normalizeLinkedInUrl(value: string | null) {
+  if (!value) {
+    return null
+  }
+
+  try {
+    const url = new URL(value)
+    const hostname = url.hostname.toLowerCase()
+
+    if (
+      url.protocol !== 'https:' ||
+      (hostname !== 'linkedin.com' && hostname !== 'www.linkedin.com') ||
+      url.port ||
+      url.username ||
+      url.password
+    ) {
+      return null
+    }
+
+    return url.href
+  } catch {
+    return null
+  }
+}
+
+function parseSignatureHeader(value: string | null) {
+  if (!value) {
+    return null
+  }
+
+  const parts = new Map(
+    value.split(',').map((part) => {
+      const [key, ...rest] = part.trim().split('=')
+      return [key, rest.join('=')]
+    }),
+  )
+
+  const timestamp = parts.get('t')
+  const signature = parts.get('v1')
+
+  if (!timestamp || !signature || !/^\d+$/.test(timestamp) || !/^[a-f0-9]{64}$/i.test(signature)) {
+    return null
+  }
+
+  return { timestamp, signature: signature.toLowerCase() }
+}
+
+function constantTimeEqual(left: string, right: string) {
+  if (left.length !== right.length) {
+    return false
+  }
+
+  let difference = 0
+
+  for (let index = 0; index < left.length; index += 1) {
+    difference |= left.charCodeAt(index) ^ right.charCodeAt(index)
+  }
+
+  return difference === 0
+}
+
+async function isValidCalendlyWebhook(request: Request, rawBody: string) {
+  const parsedSignature = parseSignatureHeader(
+    request.headers.get('Calendly-Webhook-Signature'),
+  )
+
+  if (!parsedSignature) {
+    return false
+  }
+
+  const timestamp = Number(parsedSignature.timestamp)
+  const now = Math.floor(Date.now() / 1000)
+
+  if (!Number.isSafeInteger(timestamp) || Math.abs(now - timestamp) > 180) {
+    return false
+  }
+
+  const key = await crypto.subtle.importKey(
+    'raw',
+    new TextEncoder().encode(calendlySigningKey),
+    { name: 'HMAC', hash: 'SHA-256' },
+    false,
+    ['sign'],
+  )
+  const signature = await crypto.subtle.sign(
+    'HMAC',
+    key,
+    new TextEncoder().encode(`${parsedSignature.timestamp}.${rawBody}`),
+  )
+  const expected = Array.from(new Uint8Array(signature), (byte) =>
+    byte.toString(16).padStart(2, '0'),
+  ).join('')
+
+  return constantTimeEqual(expected, parsedSignature.signature)
+}
+
 Deno.serve(async (req) => {
   if (req.method !== 'POST') {
     return Response.json(
@@ -113,7 +214,20 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const body = (await req.json()) as CalendlyWebhook
+    const rawBody = await req.text()
+
+    if (!(await isValidCalendlyWebhook(req, rawBody))) {
+      return Response.json(
+        {
+          error: 'Invalid webhook signature',
+        },
+        {
+          status: 401,
+        },
+      )
+    }
+
+    const body = JSON.parse(rawBody) as CalendlyWebhook
 
     // =========================
     // Annulation
@@ -202,7 +316,9 @@ Deno.serve(async (req) => {
 
       const dailyRateAnswer = getAnswer(questions, 'Quel est ton TJM actuel ?')
 
-      const linkedinUrl = getAnswer(questions, 'Quel est le lien de ton profil LinkedIn ?')
+      const linkedinUrl = normalizeLinkedInUrl(
+        getAnswer(questions, 'Quel est le lien de ton profil LinkedIn ?'),
+      )
 
       const additionalContext = getAnswer(
         questions,

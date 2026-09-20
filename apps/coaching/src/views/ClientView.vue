@@ -8,6 +8,8 @@ import BaseContainer from '@/components/ui/BaseContainer.vue'
 
 import { useClientsStore } from '@/stores/clients'
 
+import { getSafeLinkedInUrl } from '@/lib/linkedInUrl'
+
 import type { Client } from '@/types/client'
 
 const route = useRoute()
@@ -74,6 +76,8 @@ const form = reactive<Client>({
     negotiation: false,
   },
 })
+
+const safeLinkedInUrl = computed(() => getSafeLinkedInUrl(form.linkedinUrl))
 
 watch(
   client,
@@ -342,8 +346,8 @@ async function deleteClient() {
             />
 
             <a
-              v-if="form.linkedinUrl"
-              :href="form.linkedinUrl"
+              v-if="safeLinkedInUrl"
+              :href="safeLinkedInUrl"
               target="_blank"
               rel="noopener noreferrer"
               class="mt-3 inline-flex text-sm font-semibold text-fuchsia-600 transition hover:text-fuchsia-500"

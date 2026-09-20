@@ -9,6 +9,8 @@ import BaseContainer from '@/components/ui/BaseContainer.vue'
 import { useClientsStore } from '@/stores/clients'
 import { useProspectsStore } from '@/stores/prospects'
 
+import { getSafeLinkedInUrl } from '@/lib/linkedInUrl'
+
 import type { Client } from '@/types/client'
 
 import type {
@@ -74,6 +76,10 @@ const form = reactive<Prospect>({
 
   notes: '',
   createdAt: '',
+})
+
+const safeLinkedInUrl = computed(() => {
+  return getSafeLinkedInUrl(form.linkedinUrl)
 })
 
 watch(
@@ -375,8 +381,8 @@ async function deleteProspect() {
           </div>
 
           <a
-            v-if="form.linkedinUrl"
-            :href="form.linkedinUrl"
+            v-if="safeLinkedInUrl"
+            :href="safeLinkedInUrl"
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex shrink-0 items-center justify-center rounded-xl border border-fuchsia-200 bg-white px-4 py-2.5 text-sm font-semibold text-fuchsia-700 transition hover:border-fuchsia-300 hover:bg-fuchsia-50"
@@ -499,8 +505,8 @@ async function deleteProspect() {
                 />
 
                 <a
-                  v-if="form.linkedinUrl"
-                  :href="form.linkedinUrl"
+                  v-if="safeLinkedInUrl"
+                  :href="safeLinkedInUrl"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="inline-flex shrink-0 items-center justify-center rounded-xl border border-zinc-300 bg-white px-4 py-3 text-sm font-semibold text-zinc-700 transition hover:border-zinc-400 hover:bg-zinc-50"

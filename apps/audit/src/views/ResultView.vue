@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, nextTick, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 import AppShell from '@/components/AppShell.vue'
@@ -22,11 +22,16 @@ const answers = ref<AuditAnswers>({})
 
 const email = ref('')
 const newsletterConsent = ref(false)
+const emailForm = ref<HTMLFormElement | null>(null)
+const turnstileContainer = ref<HTMLElement | null>(null)
+const turnstileWidgetId = ref<string | null>(null)
 
 const sent = ref(false)
 const submitting = ref(false)
+const submitError = ref('')
 
 const coachingUrl = 'https://altruisme.dev'
+const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY
 
 const dimensionLabels: Record<Dimension, string> = {
   positionnement: 'Positionnement',
@@ -42,7 +47,33 @@ const priorityLabel = computed(() =>
     : '',
 )
 
-onMounted(() => {
+function renderTurnstile() {
+  if (
+    !turnstileSiteKey ||
+    !turnstileContainer.value ||
+    turnstileWidgetId.value ||
+    !window.turnstile
+  ) {
+    return
+  }
+
+  turnstileWidgetId.value = window.turnstile.render(turnstileContainer.value, {
+    sitekey: turnstileSiteKey,
+    action: 'send-diagnostic',
+    size: 'flexible',
+    callback: () => {
+      submitError.value = ''
+    },
+  })
+}
+
+function resetTurnstile() {
+  if (turnstileWidgetId.value && window.turnstile) {
+    window.turnstile.reset(turnstileWidgetId.value)
+  }
+}
+
+onMounted(async () => {
   const storedResult = sessionStorage.getItem('audit-result')
   const storedAnswers = sessionStorage.getItem('audit-answers')
 
@@ -56,22 +87,45 @@ onMounted(() => {
   if (storedAnswers) {
     answers.value = JSON.parse(storedAnswers)
   }
+
+  await nextTick()
+
+  if (window.turnstile) {
+    renderTurnstile()
+  } else {
+    window.addEventListener('turnstile-ready', renderTurnstile, { once: true })
+  }
 })
 
 async function submitLead() {
   if (!result.value || !email.value) return
 
+  const turnstileToken = new FormData(emailForm.value ?? undefined).get(
+    'cf-turnstile-response',
+  )
+
+  if (typeof turnstileToken !== 'string' || !turnstileToken) {
+    submitError.value = 'La vérification anti-spam est nécessaire avant l’envoi.'
+    return
+  }
+
   submitting.value = true
+  submitError.value = ''
 
   try {
     await saveLead({
       email: email.value,
       newsletterConsent: newsletterConsent.value,
+      turnstileToken,
       answers: answers.value,
       result: result.value,
     })
 
     sent.value = true
+  } catch (error) {
+    console.error('Erreur lors de l’envoi du diagnostic :', error)
+    submitError.value = 'L’envoi a échoué. Réessaie dans un instant.'
+    resetTurnstile()
   } finally {
     submitting.value = false
   }
@@ -350,6 +404,7 @@ async function submitLead() {
                 </p>
 
                 <form
+                  ref="emailForm"
                   class="mt-6"
                   @submit.prevent="submitLead"
                 >
@@ -375,6 +430,12 @@ async function submitLead() {
                       ressources pour signer une mission freelance.
                     </span>
                   </label>
+
+                  <div ref="turnstileContainer" class="mt-4" />
+
+                  <p v-if="submitError" class="mt-3 text-sm text-red-700" role="alert">
+                    {{ submitError }}
+                  </p>
 
                   <BaseButton
                     type="submit"
