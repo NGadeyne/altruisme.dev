@@ -299,13 +299,13 @@ const topics = ['Produit', 'SaaS', 'IA', 'Automatisation', 'Freelance', 'ESN', '
 
               <div class="relative flex items-center justify-between gap-4">
                 <span class="text-xs font-semibold uppercase tracking-[0.16em]" :class="index === 0 ? 'text-[#a9c1bd]' : 'text-petrol'">{{ guide.label }}</span>
-                <span class="rounded-full px-3 py-1 text-xs font-semibold" :class="index === 0 ? 'bg-white/8 text-[#d8e1de]' : 'bg-petrol/8 text-petrol'">Publié</span>
+                <span class="rounded-full px-3 py-1 text-xs font-semibold" :class="index === 0 ? 'bg-white/8 text-[#d8e1de]' : 'bg-petrol/8 text-petrol'">{{ guide.status === 'available' ? 'Publié' : 'Bientôt disponible' }}</span>
               </div>
 
               <div class="relative mt-auto pt-20">
                 <h3 class="text-2xl font-bold leading-tight sm:text-3xl" :class="index === 0 ? '!text-[#f7f2e9]' : 'text-ink'">{{ guide.title }}</h3>
                 <p class="mt-4 max-w-xl text-sm leading-7 sm:text-base" :class="index === 0 ? '!text-[#d8e1de]' : 'text-muted'">{{ guide.description }}</p>
-                <RouterLink :to="guide.to!" class="mt-7 inline-flex items-center gap-2 text-sm font-semibold" :class="index === 0 ? '!text-[#f7f2e9]' : 'text-petrol'">
+                <RouterLink v-if="guide.to" :to="guide.to" class="mt-7 inline-flex items-center gap-2 text-sm font-semibold" :class="index === 0 ? '!text-[#f7f2e9]' : 'text-petrol'">
                   Lire le guide <span class="transition-transform group-hover:translate-x-1">→</span>
                 </RouterLink>
               </div>

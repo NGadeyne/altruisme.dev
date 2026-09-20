@@ -4,7 +4,7 @@ import { featuredGuides } from '@/data/site'
 </script>
 
 <template>
-  <main class="min-h-screen bg-sand">
+  <div class="min-h-screen bg-sand">
     <section class="relative isolate overflow-hidden py-20 sm:py-24">
       <div
         class="pointer-events-none absolute inset-0 -z-20 bg-[linear-gradient(125deg,#f7f2e9_0%,#f3ede3_50%,#e4ece8_100%)]" />
@@ -36,5 +36,5 @@ import { featuredGuides } from '@/data/site'
         </div>
       </BaseContainer>
     </section>
-  </main>
+  </div>
 </template>
