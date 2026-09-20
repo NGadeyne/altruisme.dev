@@ -17,7 +17,7 @@ const estimatedReadingMinutes = computed(() => readingMinutes(props.sections))
 </script>
 
 <template>
-  <div class="min-h-screen bg-sand">
+  <div class="guide-page min-h-screen bg-sand">
     <GuideHeader
       :guide="guide"
       :chapter-count="chapterCount"
@@ -31,6 +31,7 @@ const estimatedReadingMinutes = computed(() => readingMinutes(props.sections))
         >
           <GuideTableOfContents :sections="sections" :active-id="activeId" />
           <article
+            v-once
             class="guide-content min-w-0 max-w-[72ch] text-base leading-8 text-muted sm:text-lg"
           >
             <GuideSection
@@ -49,6 +50,12 @@ const estimatedReadingMinutes = computed(() => readingMinutes(props.sections))
 </template>
 
 <style scoped>
+/* Keep the editorial palette while meeting contrast on sand and mist surfaces. */
+.guide-page {
+  --color-petrol: #3e6461;
+  --color-muted: #52605c;
+}
+
 .guide-content :deep(.guide-link) {
   color: var(--color-petrol);
   font-weight: 600;

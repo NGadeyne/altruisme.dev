@@ -116,6 +116,8 @@ const formatDate = (value: string) =>
       <figure v-if="guide.image" class="mx-auto mt-10 max-w-5xl sm:mt-12">
         <img
           :src="guide.image"
+          :srcset="guide.imageSrcset"
+          sizes="(min-width: 1152px) 1024px, calc(100vw - 48px)"
           :alt="`Couverture : ${guide.title}`"
           width="1200"
           height="630"

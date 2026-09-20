@@ -30,6 +30,7 @@ export type GuideMetadata = {
   status: 'available' | 'soon'
   seoTitle?: string
   image?: string
+  imageSrcset?: string
   author?: { name: string; url: string }
   publishedAt?: string
   updatedAt?: string

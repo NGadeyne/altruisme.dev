@@ -12,6 +12,8 @@ export const guides: GuideDefinition[] = [
     edition: '2026',
     seoTitle: 'Freelance 2026 : Guide complet pour devenir freelance | Altruisme.DEV',
     image: '/images/guides/guide-freelance.webp',
+    imageSrcset:
+      '/images/guides/guide-freelance-640.webp 640w, /images/guides/guide-freelance.webp 1200w',
     author: {
       name: 'Nicolas Gadeyne',
       url: 'https://www.linkedin.com/in/nicolas-gadeyne/',
