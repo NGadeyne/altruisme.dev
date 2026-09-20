@@ -1,11 +1,10 @@
 import './assets/main.css'
-
-import { createApp } from 'vue'
+import { createApp, createSSRApp } from 'vue'
 import App from './App.vue'
-import router from './router'
+import { createWebsiteRouter } from './router'
 
-const app = createApp(App)
-
+const router = createWebsiteRouter()
+const prerendered = document.getElementById('app')?.hasChildNodes()
+const app = prerendered ? createSSRApp(App) : createApp(App)
 app.use(router)
-
-app.mount('#app')
+router.isReady().then(() => app.mount('#app'))

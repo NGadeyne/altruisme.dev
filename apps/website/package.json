@@ -8,12 +8,13 @@
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "test:unit": "vitest",
-    "build-only": "vite build",
+    "build-only": "vite build && vite build --ssr src/entry-server.ts --outDir node_modules/.prerender && node scripts/prerender.mjs",
     "type-check": "vue-tsc --build",
     "lint": "run-s \"lint:*\"",
     "lint:oxlint": "oxlint . --fix",
     "lint:eslint": "eslint . --fix --cache",
-    "format": "prettier --write --experimental-cli src/"
+    "format": "prettier --write --experimental-cli src/",
+    "test:prerender": "node scripts/check-prerender.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",

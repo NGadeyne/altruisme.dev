@@ -8,7 +8,7 @@ Les sujets principaux sont le Product Management, le SaaS, l'intelligence artifi
 
 ## Guides de référence
 
-- [Freelance 2026 : Guide complet](https://altruisme.dev/guides/freelance-2026): Guide approfondi sur le lancement, le positionnement, le pricing, l'acquisition, la vente, le delivery, les finances et la construction d'une activité freelance durable.
+- [Freelance 2026 : Guide complet](https://altruisme.dev/guides/freelance): Guide approfondi sur le lancement, le positionnement, le pricing, l'acquisition, la vente, le delivery, les finances et la construction d'une activité freelance durable.
 - [SaaS 2026 : Guide complet](https://altruisme.dev/guides/saas-2026): Guide approfondi consacré à la création, au développement et au pilotage d'un produit SaaS.
 - [Tous les guides](https://altruisme.dev/guides): Index des guides de fond publiés par Altruisme.DEV.
 
@@ -28,7 +28,6 @@ Les sujets principaux sont le Product Management, le SaaS, l'intelligence artifi
 ## À propos
 
 - [À propos d'Altruisme.DEV](https://altruisme.dev/apropos): Présentation du média, de sa ligne éditoriale et de son fonctionnement.
-- [Contact](https://altruisme.dev/contact): Contacter Altruisme.DEV.
 
 ## Optional
 

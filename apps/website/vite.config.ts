@@ -6,6 +6,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
+  build: { manifest: true },
   plugins: [vue(), vueDevTools(), tailwindcss()],
   resolve: {
     alias: {
