@@ -1,11 +1,11 @@
 <script setup lang="ts">
+import CookieConsent from '@/components/cookies/CookieConsent.vue'
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
-// import CookieConsent from './components/cookies/CookieConsent.vue'
 </script>
 
 <template>
   <DefaultLayout>
     <RouterView />
-    <!-- <CookieConsent /> -->
+    <CookieConsent />
   </DefaultLayout>
 </template>

@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import LegalPageLayout from '@/components/legal/LegalPageLayout.vue'
+import { OPEN_COOKIE_SETTINGS_EVENT } from '@/composables/useCookieConsent'
 
 function openCookieSettings() {
-  window.dispatchEvent(new Event('open-cookie-settings'))
+  window.dispatchEvent(new Event(OPEN_COOKIE_SETTINGS_EVENT))
 }
 </script>
 
@@ -182,7 +183,7 @@ function openCookieSettings() {
       <div class="mt-5 space-y-4">
         <p>
           Ton choix concernant les cookies est enregistré localement afin d’éviter de te présenter
-          le bandeau à chaque visite.
+          le bandeau à chaque visite. Il est conservé pendant six mois.
         </p>
 
         <p>
