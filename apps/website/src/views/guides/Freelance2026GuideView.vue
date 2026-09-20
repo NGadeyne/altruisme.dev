@@ -7708,7 +7708,7 @@ const seo = {
   keywords:
     'freelance 2026, devenir freelance, guide freelance, TJM freelance, trouver des clients freelance, statut freelance, prospection freelance, activité freelance',
   url: 'https://altruisme.dev/guides/freelance-2026',
-  image: 'https://altruisme.dev/images/guides/guide-freelance.png',
+  image: 'https://altruisme.dev/images/guides/guide-freelance.webp',
 }
 
 const setMeta = (
@@ -7853,7 +7853,7 @@ onMounted(() => {
   setMeta('property', 'og:site_name', 'Altruisme.DEV')
   setMeta('property', 'og:locale', 'fr_FR')
   setMeta('property', 'og:image', seo.image)
-  setMeta('property', 'og:image:type', 'image/png')
+  setMeta('property', 'og:image:type', 'image/webp')
   setMeta('property', 'og:image:width', '1200')
   setMeta('property', 'og:image:height', '630')
   setMeta(
@@ -7969,7 +7969,7 @@ onBeforeUnmount(() => {
 
         <figure class="mx-auto mt-10 max-w-5xl sm:mt-12">
           <img
-            src="/images/guides/guide-freelance.png"
+            src="/images/guides/guide-freelance.webp"
             alt="Couverture du guide Freelance 2026 : Guide complet par Altruisme.DEV"
             width="1200"
             height="630"
@@ -8140,8 +8140,10 @@ onBeforeUnmount(() => {
   background-color: rgba(79, 119, 116, 0.06);
 }
 
-.guide-section {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 1000px;
+@media (max-width: 1023px) {
+  .guide-section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 1000px;
+  }
 }
 </style>
