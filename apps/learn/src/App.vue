@@ -6,11 +6,13 @@ import AppLayout from '@/layouts/AppLayout.vue'
 
 const route = useRoute()
 
-const isAuthPage = computed(() => route.meta.layout === 'auth')
+const usesStandaloneLayout = computed(
+  () => route.meta.layout === 'auth' || route.meta.layout === 'landing',
+)
 </script>
 
 <template>
-  <RouterView v-if="isAuthPage" />
+  <RouterView v-if="usesStandaloneLayout" />
 
   <AppLayout v-else>
     <RouterView />

@@ -90,7 +90,7 @@ watch(
       </h1>
 
       <RouterLink
-        to="/"
+        to="/app"
         class="mt-6 inline-flex rounded-xl bg-zinc-950 px-5 py-3 text-sm font-semibold text-white"
       >
         Retour à la formation
@@ -100,7 +100,7 @@ watch(
     <!-- Lesson -->
     <div v-else class="mx-auto max-w-4xl">
       <RouterLink
-        to="/"
+        to="/app"
         class="inline-flex items-center gap-2 text-sm font-medium text-zinc-500 transition hover:text-zinc-950"
       >
         ← Formation
@@ -212,7 +212,7 @@ watch(
 
         <RouterLink
           v-else
-          to="/"
+          to="/app"
           class="rounded-2xl bg-zinc-950 p-5 text-right text-white transition hover:bg-zinc-800"
         >
           <p class="text-xs font-semibold uppercase tracking-wide text-zinc-400">

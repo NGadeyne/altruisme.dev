@@ -11,7 +11,7 @@ const router = useRouter()
 const resource = computed(() => getResourceBySlug(String(route.params.resourceSlug)))
 
 function goBack() {
-  router.push('/')
+  router.push('/app')
 }
 </script>
 

@@ -9,7 +9,7 @@ const whatsappUrl = 'TON_LIEN_WHATSAPP'
   >
     <!-- Logo -->
     <div class="flex h-16 shrink-0 items-center border-b border-zinc-200 px-6">
-      <RouterLink to="/" class="text-lg font-bold tracking-tight text-zinc-950">
+      <RouterLink to="/app" class="text-lg font-bold tracking-tight text-zinc-950">
         Acquisition Learn
       </RouterLink>
     </div>
@@ -19,7 +19,7 @@ const whatsappUrl = 'TON_LIEN_WHATSAPP'
       <nav class="space-y-1 p-4" aria-label="Navigation principale">
         <!-- Formation -->
         <RouterLink
-          to="/"
+          to="/app"
           class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-zinc-600 transition hover:bg-zinc-100 hover:text-zinc-950"
           active-class="bg-fuchsia-50 text-fuchsia-700"
         >
