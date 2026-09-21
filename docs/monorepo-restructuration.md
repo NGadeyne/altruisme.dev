@@ -48,6 +48,21 @@ et coaching. Website conserve un échec préexistant dans `vitest.config.ts`
 (`tailwindcss` importé mais inutilisé) ; son `.oxlintrc.json` est aussi absent,
 ce qui était déjà signalé avant cette extraction.
 
+## Quatrième lot réalisé
+
+`packages/supabase` exporte la seule fabrique générique identique dans learn et
+coaching : création d'un client navigateur après validation de l'URL et de la
+clé publique. Les deux applications conservent leurs propres variables
+`VITE_SUPABASE_*`, leur instance exportée, leurs stores Pinia, leurs tables,
+leur configuration Supabase et leur logique métier. La Edge Function Calendly
+de coaching reste inchangée.
+
+Validation : builds et contrôles TypeScript de learn et coaching réussis ; la
+dépendance Supabase reste dédupliquée entre les deux consommateurs. Aucun secret
+ni paramètre de déploiement n'est déplacé ou exposé. Learn ne contient pas de
+test unitaire et le test de montage de coaching échoue déjà faute de route
+injectée ; ils ne sont donc pas utilisés comme validation de ce lot.
+
 Contrôle navigateur local effectué ensuite avec les serveurs Vite website (5173)
 et audit (5174) : accueils desktop, navigation website vers les guides, accueil
 website et page communauté en largeur mobile 390 px, ouverture du menu mobile et
@@ -102,7 +117,7 @@ Aucun workflow GitHub versionné n'a été trouvé. Les réglages Cloudflare dis
 | `packages/ui` | `BaseButton.vue` et `BaseContainer.vue` identiques octet pour octet dans website et audit, et effectivement importés | Premier lot : extraire uniquement ces deux composants et migrer ces deux consommateurs |
 | `packages/brand` | Même palette `@theme` dans website et audit ; builder en reprend un sous-ensemble, et la typographie est récurrente | Deuxième lot : tokens CSS communs, sans déplacer les styles globaux ni les styles de pages |
 | `packages/config` | Configurations ESLint identiques dans website, learn, coaching ; plusieurs tsconfig identiques | Lot ultérieur : options communes uniquement, en gardant chemins, includes, alias et caches locaux |
-| `packages/supabase` | `lib/supabase.ts` et `stores/auth.ts` identiques dans learn et coaching | Reporter : le SDK fournit déjà la factory ; garder les clients, variables d'environnement et stores dans chaque application pour le moment |
+| `packages/supabase` | `lib/supabase.ts` identique dans learn et coaching | Réalisé : partager la fabrique de client, tout en gardant instances, variables, stores et accès métier dans chaque app |
 | `packages/utils` | Pas de fonction générique répétée justifiant un premier package | Ne pas créer pour l'instant |
 | `packages/types` | Types de guides, CRM et apprentissage propres à leurs applications ; `Dimension` répété dans audit et son API | Ne pas créer de fourre-tout ; envisager plus tard un contrat audit ciblé si son maintien partagé devient utile |
 

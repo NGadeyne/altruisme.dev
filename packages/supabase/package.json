@@ -1,0 +1,12 @@
+{
+  "name": "@altruisme/supabase",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "peerDependencies": {
+    "@supabase/supabase-js": "^2.112.4"
+  }
+}
