@@ -29,7 +29,10 @@ export type GuideMetadata = {
   edition: string
   status: 'available' | 'soon'
   seoTitle?: string
+  ogTitle?: string
+  ogDescription?: string
   image?: string
+  imageAlt?: string
   imageSrcset?: string
   author?: { name: string; url: string }
   publishedAt?: string

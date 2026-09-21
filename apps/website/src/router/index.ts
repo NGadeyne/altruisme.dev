@@ -38,8 +38,8 @@ export const routes: RouteRecordRaw[] = [
   },
   ...guideRoutes,
   {
-    path: '/guides/saas-2026',
-    redirect: (to) => ({ path: '/guides/saas', hash: to.hash, query: to.query }),
+    path: '/guides/saas',
+    redirect: (to) => ({ path: '/guides/saas-2026', hash: to.hash, query: to.query }),
   },
   {
     path: '/actualites',

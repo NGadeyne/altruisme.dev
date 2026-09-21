@@ -22,13 +22,28 @@ export const guides: GuideDefinition[] = [
     updatedAt: '2026-09-19',
   },
   {
-    slug: 'saas',
-    title: 'SaaS 2026 : Guide complet',
+    slug: 'saas-2026',
+    loadSections: () => import('@/content/guides/saas').then((module) => module.default),
+    title: 'SaaS 2026 : le guide ultime',
     description:
-      'De l’idée au produit : comprendre le modèle SaaS, valider un problème, construire, lancer, mesurer et faire grandir un produit.',
-    status: 'soon',
+      'Le guide complet pour créer un SaaS en 2026 : idée, validation, MVP, produit, tech, IA, pricing, acquisition, vente, métriques, finance et croissance.',
+    status: 'available',
     label: 'SaaS',
     edition: '2026',
+    seoTitle: 'SaaS 2026 : le guide ultime pour créer et lancer son SaaS',
+    ogTitle: 'SaaS 2026 : le guide ultime',
+    ogDescription:
+      'De l’idée aux premiers clients, puis à la croissance : le guide complet pour concevoir, lancer, vendre et faire grandir un SaaS en 2026.',
+    image: '/images/guides/guide-saas-2026.webp',
+    imageSrcset:
+      '/images/guides/guide-saas-2026-640.webp 640w, /images/guides/guide-saas-2026.webp 1672w',
+    imageAlt: 'SaaS 2026 : le guide ultime pour créer, lancer et développer un SaaS',
+    author: {
+      name: 'Nicolas Gadeyne',
+      url: 'https://www.linkedin.com/in/nicolas-gadeyne/',
+    },
+    publishedAt: '2026-09-21',
+    updatedAt: '2026-09-21',
   },
   {
     slug: 'automatisation',

@@ -25,6 +25,8 @@ export function renderPageMetadata(to: RouteLocationNormalizedLoaded) {
   const description = String(
     to.meta.description || 'Média tech indépendant : guides, actualités, podcast et communauté.',
   )
+  const ogTitle = String(to.meta.ogTitle || title)
+  const ogDescription = String(to.meta.ogDescription || description)
   const url = path === '/' ? SITE_URL : `${SITE_URL}${path}`
   const tags = [`<title data-page-meta>${escapeHtml(title)}</title>`]
   const meta = (name: string, content: string, attribute = 'name') => {
@@ -36,22 +38,22 @@ export function renderPageMetadata(to: RouteLocationNormalizedLoaded) {
   meta('robots', String(to.meta.robots || 'index, follow'))
   if (to.name !== 'not-found')
     tags.push(`<link data-page-meta rel="canonical" href="${escapeHtml(url)}">`)
-  meta('og:title', title, 'property')
-  meta('og:description', description, 'property')
+  meta('og:title', ogTitle, 'property')
+  meta('og:description', ogDescription, 'property')
   meta('og:type', published ? 'article' : 'website', 'property')
   if (to.name !== 'not-found') meta('og:url', url, 'property')
   meta('og:site_name', SITE_NAME, 'property')
   meta('og:locale', 'fr_FR', 'property')
   meta('twitter:card', published && guide.image ? 'summary_large_image' : 'summary')
-  meta('twitter:title', title)
-  meta('twitter:description', description)
+  meta('twitter:title', ogTitle)
+  meta('twitter:description', ogDescription)
   if (published && guide) {
     if (guide.image) {
       const image = new URL(guide.image, SITE_URL).href
       meta('og:image', image, 'property')
-      meta('og:image:alt', guide.title, 'property')
+      meta('og:image:alt', guide.imageAlt ?? guide.title, 'property')
       meta('twitter:image', image)
-      meta('twitter:image:alt', guide.title)
+      meta('twitter:image:alt', guide.imageAlt ?? guide.title)
     }
     if (guide.publishedAt) meta('article:published_time', guide.publishedAt, 'property')
     if (guide.updatedAt) meta('article:modified_time', guide.updatedAt, 'property')

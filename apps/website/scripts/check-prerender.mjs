@@ -43,6 +43,22 @@ for (const path of [...prerenderPaths, '/404']) {
       'Guide styles must be present before hydration',
     )
   }
+  if (path === '/guides/saas-2026') {
+    assert.equal(document.querySelectorAll('.guide-section').length, 21)
+    assert.ok(document.querySelector('#partie-18'))
+    assert.ok(document.querySelector('#conclusion'))
+    assert.ok(document.querySelector('#faq'))
+    assert.ok(document.querySelector('#partie-18').compareDocumentPosition(document.querySelector('#conclusion')) & 4)
+    assert.equal(
+      document.querySelector('link[rel="canonical"]').getAttribute('href'),
+      'https://altruisme.dev/guides/saas-2026',
+    )
+    assert.equal(document.querySelector('meta[property="og:title"]').content, 'SaaS 2026 : le guide ultime')
+    assert.equal(
+      document.querySelector('meta[property="og:image:alt"]').content,
+      'SaaS 2026 : le guide ultime pour créer, lancer et développer un SaaS',
+    )
+  }
 }
 for (const retired of ['contact', 'guides/freelance-2026']) {
   await assert.rejects(access(resolve(output, `${retired}.html`)))
