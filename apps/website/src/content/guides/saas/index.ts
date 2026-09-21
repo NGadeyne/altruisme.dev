@@ -1,5 +1,6 @@
 import type { GuideBlock, GuideSection, GuideSubsection } from '@/types/guide'
 import sourceFile from './source.txt?raw'
+import takeawaysFile from './takeaways.txt?raw'
 
 type SectionKind = GuideSection['kind']
 
@@ -100,6 +101,30 @@ const matches = [...article.matchAll(headings)]
 const parsed = matches.map((match, index) =>
   parseSection(match[0], article.slice((match.index ?? 0) + match[0].length, matches[index + 1]?.index)),
 )
+
+const takeaways = new Map(
+  [...takeawaysFile.matchAll(/^### Partie (\d+) — À retenir\n+([\s\S]*?)(?=^### Partie|$)/gm)].map(
+    ([, number, content]) => [
+      Number(number),
+      content!
+        .trim()
+        .split(/\n\s*\n/)
+        .map((text) => block(text.trim())),
+    ],
+  ),
+)
+
+for (const section of parsed) {
+  if (!section.number) continue
+  const blocks = takeaways.get(section.number)
+  if (!blocks) continue
+  section.subsections.push({
+    id: `${section.id}-a-retenir`,
+    title: 'À retenir',
+    kind: 'takeaway',
+    blocks,
+  })
+}
 
 const order = [
   'introduction',
