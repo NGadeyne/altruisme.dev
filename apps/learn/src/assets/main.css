@@ -1,4 +1,6 @@
 @import 'tailwindcss';
+@import '@altruisme/brand/tokens.css';
+@source '../../../../packages/ui/src';
 
 :root {
   font-family:

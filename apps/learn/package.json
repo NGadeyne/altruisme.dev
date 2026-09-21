@@ -16,6 +16,8 @@
     "format": "prettier --write --experimental-cli src/"
   },
   "dependencies": {
+    "@altruisme/brand": "0.0.0",
+    "@altruisme/ui": "0.0.0",
     "@altruisme/supabase": "0.0.0",
     "@supabase/supabase-js": "^2.112.4",
     "@tailwindcss/vite": "^4.3.3",

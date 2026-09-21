@@ -1,2 +1,6 @@
 export { default as BaseButton } from './BaseButton.vue'
 export { default as BaseContainer } from './BaseContainer.vue'
+export { default as FaqList } from './FaqList.vue'
+export { default as PublicFooter } from './PublicFooter.vue'
+export { default as PublicHeader } from './PublicHeader.vue'
+export { default as PublicProductLanding } from './PublicProductLanding.vue'

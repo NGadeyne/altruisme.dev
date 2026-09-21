@@ -1,80 +1,24 @@
-<template>
-  <div class="flex min-h-screen flex-col bg-[#f4efe7] text-[#222826]">
-    <header class="relative z-10 px-5 py-5 sm:px-8">
-      <div class="mx-auto flex max-w-6xl items-center justify-between">
-        <a
-          href="https://altruisme.dev"
-          class="inline-flex items-center gap-3 text-sm font-semibold text-[#31413f]"
-          ><span
-            class="flex h-9 w-9 items-center justify-center rounded-xl border border-[#4f7774]/20 bg-[#4f7774]/10"
-            >A.</span
-          >Altruisme.DEV</a
-        >
-        <RouterLink
-          to="/login"
-          class="rounded-full bg-[#31413f] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#222826]"
-          >Se connecter</RouterLink
-        >
-      </div>
-    </header>
-    <main class="relative flex flex-1 items-center overflow-hidden px-5 py-20 sm:px-8 lg:py-28">
-      <div
-        class="pointer-events-none absolute inset-0 bg-[linear-gradient(125deg,#f7f2e9_0%,#f3ede3_48%,#e4ece8_100%)]"
-      />
-      <div
-        class="pointer-events-none absolute -right-24 top-8 h-72 w-72 rounded-full bg-[#4f7774]/15 blur-[100px]"
-      />
-      <div class="relative mx-auto w-full max-w-6xl">
-        <div class="max-w-3xl">
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[#4f7774]">Learn</p>
-          <h1 class="mt-5 text-5xl font-bold tracking-tight sm:text-7xl">
-            Apprendre en construisant.
-          </h1>
-          <p class="mt-7 max-w-2xl text-lg leading-8 text-[#52605c] sm:text-xl">
-            Un espace de formation et de pilotage pour transformer les connaissances en décisions,
-            puis en progrès concrets.
-          </p>
-          <div class="mt-10">
-            <RouterLink
-              to="/login"
-              class="inline-flex rounded-full bg-[#31413f] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#222826]"
-              >Accéder à mon espace</RouterLink
-            >
-          </div>
-        </div>
-      </div>
-    </main>
-    <footer class="border-t border-white/10 bg-[#31413f] px-5 py-7 sm:px-8">
-      <div
-        class="mx-auto flex max-w-6xl flex-col gap-5 text-sm sm:flex-row sm:items-center sm:justify-between"
-      >
-        <p class="text-[#aebfba]">© 2026 Altruisme.DEV. Tous droits réservés.</p>
-        <nav aria-label="Liens légaux">
-          <ul class="flex flex-wrap gap-x-5 gap-y-2">
-            <li>
-              <a
-                href="https://altruisme.dev/mentions-legales"
-                class="text-[#b9cac5] transition hover:text-white"
-                >Mentions légales</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://altruisme.dev/politique-de-confidentialite"
-                class="text-[#b9cac5] transition hover:text-white"
-                >Politique de confidentialité</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://altruisme.dev/cookies"
-                class="text-[#b9cac5] transition hover:text-white"
-                >Gestion des cookies</a
-              >
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </footer>
-  </div>
-</template>
+<script setup lang="ts">
+import { PublicProductLanding } from '@altruisme/ui'
+
+const landing = {
+  product: 'Learn' as const,
+  actionHref: '#formations', actionLabel: 'Découvrir les formations', tagline: 'Altruisme Learn — Comprendre. Construire. Maîtriser.',
+  title: 'Apprenez en construisant pour de vrai.', subtitle: 'Pas en regardant 14 heures de vidéos.',
+  intro: 'Vous apprenez à créer quelque chose de concret : un SaaS, une activité freelance, une automatisation, une infrastructure ou un produit utilisable.',
+  promise: 'Des formations pratiques, pensées pour passer de la compréhension à l’exécution.',
+  contextTitle: 'Vous n’avez probablement pas besoin d’une formation de plus.', context: 'Vous avez surtout besoin d’aller jusqu’au bout. Comprendre une notion est utile. Savoir l’appliquer sur un vrai projet l’est beaucoup plus.',
+  contextPoints: ['Un projet terminé.', 'Une méthode comprise.', 'Des erreurs dans un cadre d’apprentissage.', 'La capacité de recommencer seul.'],
+  riskTitle: 'Moins de cours. Plus de pratique.', risk: 'Une bonne formation ne devrait pas vous laisser avec 47 onglets ouverts et une liste de vidéos à regarder plus tard. Elle devrait vous permettre de dire : je sais maintenant comment faire ça. Et mieux encore : je l’ai fait.',
+  methodTitle: 'Comprendre. Construire. Maîtriser.', method: [{ title: 'Comprendre', text: 'Les concepts essentiels : pourquoi, quand et quand ne pas les utiliser.' }, { title: 'Construire', text: 'Chaque apprentissage est appliqué à un cas concret.' }, { title: 'Maîtriser', text: 'Être capable de recommencer seul sur son propre projet.' }],
+  capabilityTitle: 'Des formations construites autour d’un résultat.', capabilities: [{ title: 'Développer un SaaS', text: 'Idée, MVP, données, authentification, services, déploiement et première version en production.' }, { title: 'Devenir freelance', text: 'Positionnement, offre, prix, prospection, rendez-vous, vente et structuration.' }, { title: 'Automatiser son activité', text: 'Identifier les bons workflows, connecter les outils, APIs, webhooks et IA pertinente.' }],
+  philosophyTitle: 'Vous ne trouverez pas tout. Et c’est volontaire.', philosophy: 'Learn ne cherche pas à devenir une bibliothèque de 800 formations. Produit, développement, freelance, Cloud, automatisation, observabilité et IA appliquée : moins de formations, mais des formations qu’on termine et qu’on utilise.',
+  offerTitle: 'Des formations faites pour être utilisées.', offer: 'Modules courts, démonstrations, projet fil rouge, exercices, modèles, ressources, code, checklists et cas réels. L’objectif est que vous n’ayez rapidement plus besoin de la formation.',
+  ownership: 'Vous gardez les méthodes, le code, les modèles et surtout la capacité d’appliquer ce que vous avez appris sur votre propre projet.',
+  audience: ['Vous aimez apprendre en faisant.', 'Vous voulez construire un vrai projet.', 'Vous cherchez une compétence applicable immédiatement.', 'Vous acceptez de tester et parfois vous tromper.', 'Vous voulez repartir avec plus qu’un certificat.'],
+  faq: [{ question: 'Les formations sont-elles réservées aux développeurs ?', answer: 'Non. Le niveau et les prérequis sont précisés pour chaque parcours.' }, { question: 'Faut-il savoir coder pour la formation SaaS ?', answer: 'Cela dépendra du parcours choisi.' }, { question: 'Est-ce uniquement de la vidéo ?', answer: 'Non. Les formations privilégient le projet, les exercices et les ressources utilisables.' }, { question: 'Les formations sont-elles mises à jour ?', answer: 'Elles le sont lorsque le fond évolue ou qu’une amélioration est utile.' }, { question: 'Puis-je ensuite faire appel à Builder ?', answer: 'Oui, les offres sont complémentaires mais indépendantes.' }],
+  finalTitle: 'Apprendre est utile. Construire change beaucoup plus de choses.', finalText: 'Votre premier SaaS, votre première mission freelance, votre première automatisation ou votre premier déploiement : apprenez quelque chose que vous pourrez réellement utiliser.',
+}
+</script>
+
+<template><PublicProductLanding v-bind="landing" /></template>
