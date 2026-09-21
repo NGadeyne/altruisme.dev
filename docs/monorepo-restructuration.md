@@ -29,6 +29,25 @@ réussis, 5 tests website réussis, pré-rendu des 17 pages et de la 404 vérifi
 et présence des tokens dans les deux bundles CSS contrôlée. Le workspace est
 résolu par npm dans les deux consommateurs. Aucun déploiement effectué.
 
+## Troisième lot réalisé
+
+`packages/config` centralise les bases TypeScript Vue et Node, ainsi que la
+factory ESLint Vue commune. Website, learn, coaching, builder et cloud étendent
+la base TypeScript Vue ; website, learn et coaching étendent aussi la base Node
+et la factory ESLint. Audit reste local car sa configuration TypeScript diffère.
+
+Les listes de fichiers, alias `@`, chemins des fichiers incrémentaux et la
+référence `.oxlintrc.json` sont conservés dans les applications. La factory
+ESLint reçoit le chemin absolu de chaque `.oxlintrc.json`, car le plugin Oxlint
+le résout depuis le module qui l'appelle. `@altruisme/config` reste une
+dépendance de développement sans Worker ni déploiement.
+
+Validation : builds et contrôles TypeScript des cinq consommateurs réussis,
+5 tests website et le contrôle de pré-rendu réussis. ESLint réussit pour learn
+et coaching. Website conserve un échec préexistant dans `vitest.config.ts`
+(`tailwindcss` importé mais inutilisé) ; son `.oxlintrc.json` est aussi absent,
+ce qui était déjà signalé avant cette extraction.
+
 Contrôle navigateur local effectué ensuite avec les serveurs Vite website (5173)
 et audit (5174) : accueils desktop, navigation website vers les guides, accueil
 website et page communauté en largeur mobile 390 px, ouverture du menu mobile et

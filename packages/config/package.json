@@ -1,0 +1,11 @@
+{
+  "name": "@altruisme/config",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./eslint/vue": "./eslint/vue.ts",
+    "./tsconfig/vue-app.json": "./tsconfig/vue-app.json",
+    "./tsconfig/node.json": "./tsconfig/node.json"
+  }
+}
