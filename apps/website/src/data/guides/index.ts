@@ -22,7 +22,7 @@ export const guides: GuideDefinition[] = [
     updatedAt: '2026-09-19',
   },
   {
-    slug: 'saas-2026',
+    slug: 'saas',
     loadSections: () => import('@/content/guides/saas').then((module) => module.default),
     title: 'SaaS 2026 : le guide ultime',
     description:

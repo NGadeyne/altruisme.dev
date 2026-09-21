@@ -43,7 +43,7 @@ for (const path of [...prerenderPaths, '/404']) {
       'Guide styles must be present before hydration',
     )
   }
-  if (path === '/guides/saas-2026') {
+  if (path === '/guides/saas') {
     assert.equal(document.querySelectorAll('.guide-section').length, 21)
     assert.ok(document.querySelector('#partie-18'))
     assert.ok(document.querySelector('#conclusion'))
@@ -51,7 +51,7 @@ for (const path of [...prerenderPaths, '/404']) {
     assert.ok(document.querySelector('#partie-18').compareDocumentPosition(document.querySelector('#conclusion')) & 4)
     assert.equal(
       document.querySelector('link[rel="canonical"]').getAttribute('href'),
-      'https://altruisme.dev/guides/saas-2026',
+      'https://altruisme.dev/guides/saas',
     )
     assert.equal(document.querySelector('meta[property="og:title"]').content, 'SaaS 2026 : le guide ultime')
     assert.equal(
