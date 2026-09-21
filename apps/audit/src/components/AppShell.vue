@@ -70,5 +70,5 @@
 </template>
 
 <script setup lang="ts">
-import BaseContainer from '@/components/ui/BaseContainer.vue'
+import { BaseContainer } from '@altruisme/ui'
 </script>

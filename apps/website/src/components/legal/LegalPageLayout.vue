@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BaseContainer from '@/components/ui/BaseContainer.vue'
+import { BaseContainer } from '@altruisme/ui'
 
 defineProps<{
   title: string

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import BaseContainer from '@/components/ui/BaseContainer.vue'
-import BaseButton from '@/components/ui/BaseButton.vue'
+import { BaseContainer } from '@altruisme/ui'
+import { BaseButton } from '@altruisme/ui'
 </script>
 
 <template>

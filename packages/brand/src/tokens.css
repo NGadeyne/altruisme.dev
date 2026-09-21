@@ -1,0 +1,22 @@
+/* Tokens de marque partagés par les applications Altruisme.DEV. */
+@theme {
+  --font-sans: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --color-ink: #222826;
+  --color-ink-soft: #46504d;
+
+  --color-muted: #64706c;
+  --color-muted-light: #78827e;
+
+  --color-petrol: #4f7774;
+  --color-petrol-dark: #31413f;
+  --color-petrol-hover: #456b68;
+  --color-petrol-light: #668c89;
+
+  --color-sand: #f4efe7;
+  --color-sand-light: #f7f2e9;
+  --color-sand-warm: #eadfce;
+
+  --color-mist: #edf3f0;
+  --color-mist-deep: #dce8e4;
+}

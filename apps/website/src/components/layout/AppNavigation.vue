@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import BaseButton from '@/components/ui/BaseButton.vue'
+import { BaseButton } from '@altruisme/ui'
 
 const isOpen = ref(false)
 const links = [

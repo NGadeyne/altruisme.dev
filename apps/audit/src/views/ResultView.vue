@@ -3,8 +3,7 @@ import { computed, nextTick, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 import AppShell from '@/components/AppShell.vue'
-import BaseButton from '@/components/ui/BaseButton.vue'
-import BaseContainer from '@/components/ui/BaseContainer.vue'
+import { BaseButton, BaseContainer } from '@altruisme/ui'
 import ScoreBar from '@/components/ScoreBar.vue'
 
 import { saveLead } from '@/lib/lead'

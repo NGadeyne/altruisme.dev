@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import BaseButton from '@/components/ui/BaseButton.vue'
-import BaseContainer from '@/components/ui/BaseContainer.vue'
+import { BaseButton, BaseContainer } from '@altruisme/ui'
 import type { GuideMetadata } from '@/types/guide'
 defineProps<{
   guide: GuideMetadata

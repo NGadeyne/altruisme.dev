@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import BaseContainer from '@/components/ui/BaseContainer.vue'
+import { BaseContainer } from '@altruisme/ui'
 import GuideHeader from '@/components/guides/GuideHeader.vue'
 import GuideTableOfContents from '@/components/guides/GuideTableOfContents.vue'
 import GuideSection from '@/components/guides/GuideSection.vue'

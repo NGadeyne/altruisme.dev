@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BaseContainer from '@/components/ui/BaseContainer.vue'
+import { BaseContainer } from '@altruisme/ui'
 import { OPEN_COOKIE_SETTINGS_EVENT } from '@/composables/useCookieConsent'
 import { siteLinks } from '@/data/site'
 const currentYear = new Date().getFullYear()

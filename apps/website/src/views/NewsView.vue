@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BaseContainer from '@/components/ui/BaseContainer.vue'
+import { BaseContainer } from '@altruisme/ui'
 
 const stories = [
   { category: 'Sélection hebdo', title: 'Les actualités tech de la semaine', description: 'Chaque semaine, une sélection courte des annonces et mouvements qui méritent vraiment d’être suivis.', status: 'Prochaine édition' },

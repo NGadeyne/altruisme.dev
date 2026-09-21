@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import BaseButton from '@/components/ui/BaseButton.vue'
-import BaseContainer from '@/components/ui/BaseContainer.vue'
+import { BaseButton, BaseContainer } from '@altruisme/ui'
 </script>
 <template>
   <section class="relative overflow-hidden border-t border-petrol/10 bg-mist py-16 sm:py-20">

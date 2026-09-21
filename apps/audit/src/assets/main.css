@@ -1,42 +1,11 @@
 @import 'tailwindcss';
+@import '@altruisme/brand/tokens.css';
+@source '../../../../packages/ui/src';
 
 /* =========================================================
    DESIGN SYSTEM
    Tailwind v4
    ========================================================= */
-
-@theme {
-  /* Typography */
-  --font-sans:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    sans-serif;
-
-  /* Ink */
-  --color-ink: #222826;
-  --color-ink-soft: #46504d;
-
-  /* Muted */
-  --color-muted: #64706c;
-  --color-muted-light: #78827e;
-
-  /* Petrol */
-  --color-petrol: #4f7774;
-  --color-petrol-dark: #31413f;
-  --color-petrol-hover: #456b68;
-  --color-petrol-light: #668c89;
-
-  /* Sand */
-  --color-sand: #f4efe7;
-  --color-sand-light: #f7f2e9;
-  --color-sand-warm: #eadfce;
-
-  /* Mist */
-  --color-mist: #edf3f0;
-  --color-mist-deep: #dce8e4;
-}
 
 /* =========================================================
    ROOT
