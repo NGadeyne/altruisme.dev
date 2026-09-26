@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import '@altruisme/brand/tokens.css';
+@import './landing.css';
 @source '../../../../packages/ui/src';
 
 :root {
