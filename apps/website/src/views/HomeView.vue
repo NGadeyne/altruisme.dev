@@ -35,7 +35,7 @@ const topics = ['Produit', 'SaaS', 'IA', 'Automatisation', 'Freelance', 'ESN', '
 
 <template>
   <div class="media-home">
-    <!-- Hero / édition à la une -->
+    <!-- Hero -->
     <section class="media-hero" aria-labelledby="media-hero-title">
       <BaseContainer size="large">
         <div class="media-hero-intro">
@@ -62,21 +62,6 @@ const topics = ['Produit', 'SaaS', 'IA', 'Automatisation', 'Freelance', 'ESN', '
           </div>
         </div>
 
-        <article class="media-feature">
-          <div class="media-feature-heading">
-            <div class="media-feature-overline">
-              <p class="media-eyebrow">À la une</p>
-              <span>Cette semaine</span>
-            </div>
-            <p class="media-feature-edition">{{ week39.format }}</p>
-            <h2>{{ week39.title }}</h2>
-            <p class="media-feature-summary">{{ week39.excerpt }}</p>
-            <RouterLink :to="week39Path" class="media-text-link">Lire l’édition <span aria-hidden="true">↗</span></RouterLink>
-          </div>
-          <RouterLink :to="week39Path" class="media-feature-image-link" :aria-label="`Lire ${week39.editorialTitle}`">
-            <img :src="week39.image" :alt="week39.imageAlt" width="1731" height="909" />
-          </RouterLink>
-        </article>
       </BaseContainer>
     </section>
 

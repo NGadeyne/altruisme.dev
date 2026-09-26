@@ -68,10 +68,7 @@ for (const path of [...prerenderPaths, '/404']) {
   }
   if (path === '/') {
     assert.equal(document.querySelectorAll('.media-news-list article').length, 1)
-    assert.equal(
-      document.querySelector('.media-feature-image-link')?.getAttribute('href'),
-      '/actualites/semaine-39-2026',
-    )
+    assert.equal(document.querySelector('.media-feature'), null)
     assert.equal(
       document.querySelector('.media-news-list .media-arrow-link')?.getAttribute('href'),
       '/actualites/semaine-39-2026',
