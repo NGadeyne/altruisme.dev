@@ -20,7 +20,7 @@ const escapeHtml = (text: string) =>
 export function renderPageMetadata(to: RouteLocationNormalizedLoaded) {
   const path = to.path.replace(/\/+$/, '') || '/'
   const guide = guides.find((item) => guidePath(item) === path)
-  const published = guide?.status === 'available'
+  const published = guide?.status === 'available' || to.meta.article === true
   const title = String(to.meta.title || SITE_NAME)
   const description = String(
     to.meta.description || 'Média tech indépendant : guides, actualités, podcast et communauté.',
@@ -44,9 +44,35 @@ export function renderPageMetadata(to: RouteLocationNormalizedLoaded) {
   if (to.name !== 'not-found') meta('og:url', url, 'property')
   meta('og:site_name', SITE_NAME, 'property')
   meta('og:locale', 'fr_FR', 'property')
-  meta('twitter:card', published && guide.image ? 'summary_large_image' : 'summary')
+  meta(
+    'twitter:card',
+    published && (guide?.image || to.meta.image) ? 'summary_large_image' : 'summary',
+  )
   meta('twitter:title', ogTitle)
   meta('twitter:description', ogDescription)
+  if (to.meta.article === true && to.meta.image) {
+    const image = new URL(String(to.meta.image), SITE_URL).href
+    const imageAlt = String(to.meta.imageAlt || ogTitle)
+    meta('og:image', image, 'property')
+    meta('og:image:alt', imageAlt, 'property')
+    meta('twitter:image', image)
+    meta('twitter:image:alt', imageAlt)
+    const structuredData = {
+      '@context': 'https://schema.org',
+      '@type': 'NewsArticle',
+      headline: ogTitle,
+      description,
+      url,
+      mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+      image,
+      publisher: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
+      inLanguage: 'fr-FR',
+      articleSection: String(to.meta.articleSection || 'Actualités'),
+    }
+    tags.push(
+      `<script data-page-meta id="news-structured-data" type="application/ld+json">${JSON.stringify(structuredData).replace(/</g, '\\u003c')}</script>`,
+    )
+  }
   if (published && guide) {
     if (guide.image) {
       const image = new URL(guide.image, SITE_URL).href

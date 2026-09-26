@@ -1,33 +1,15 @@
 <script setup lang="ts">
 import { BaseButton, BaseContainer } from '@altruisme/ui'
 import { featuredGuides } from '@/data/site'
+import { week39 } from '@/content/news/week39Metadata'
+
+const week39Path = `/actualites/${week39.slug}`
 
 const editorialStats = [
   { value: '2', label: 'guides de référence publiés' },
   { value: '5', label: 'grands guides en préparation' },
   { value: '1× / semaine', label: 'une sélection d’actualités utile' },
   { value: '100 %', label: 'indépendant dans la ligne éditoriale' },
-]
-
-const weeklyStories = [
-  {
-    category: 'Produit & SaaS',
-    title: 'Ce qu’il faut vraiment retenir cette semaine côté produit',
-    description:
-      'Les annonces passent vite. Les changements de fond beaucoup moins. On trie les signaux qui méritent ton attention.',
-  },
-  {
-    category: 'IA & automatisation',
-    title: 'Les usages qui avancent plus vite que les effets d’annonce',
-    description:
-      'Outils, agents, automatisations et nouveaux workflows : ce qui commence réellement à changer la façon de construire et de travailler.',
-  },
-  {
-    category: 'Freelance & ESN',
-    title: 'Le marché tech vu depuis le terrain',
-    description:
-      'Missions, recrutement, indépendance, ESN : comprendre les mouvements derrière les discours et les chiffres.',
-  },
 ]
 
 const principles = [
@@ -70,7 +52,7 @@ const topics = ['Produit', 'SaaS', 'IA', 'Automatisation', 'Freelance', 'ESN', '
             </p>
             <div class="media-hero-actions">
               <div class="media-button-row">
-                <BaseButton to="/actualites" size="large">Lire l’édition de la semaine</BaseButton>
+                <BaseButton :to="week39Path" size="large">Lire l’édition de la semaine</BaseButton>
                 <BaseButton to="/guides" variant="secondary" size="large">Explorer les guides</BaseButton>
               </div>
               <div class="media-topics">
@@ -86,23 +68,14 @@ const topics = ['Produit', 'SaaS', 'IA', 'Automatisation', 'Freelance', 'ESN', '
               <p class="media-eyebrow">À la une</p>
               <span>Cette semaine</span>
             </div>
-            <p class="media-feature-edition">Édition hebdomadaire</p>
-            <h2>Les actualités tech de la semaine, triées et expliquées.</h2>
-            <p class="media-feature-summary">
-              Une sélection courte sur le SaaS, l’IA, le produit, l’automatisation et le marché tech.
-              L’objectif : comprendre ce qui compte, pas collectionner les notifications.
-            </p>
-            <RouterLink to="/actualites" class="media-text-link">Ouvrir l’édition <span aria-hidden="true">↗</span></RouterLink>
+            <p class="media-feature-edition">{{ week39.format }}</p>
+            <h2>{{ week39.title }}</h2>
+            <p class="media-feature-summary">{{ week39.excerpt }}</p>
+            <RouterLink :to="week39Path" class="media-text-link">Lire l’édition <span aria-hidden="true">↗</span></RouterLink>
           </div>
-          <div class="media-feature-stories">
-            <div v-for="(story, index) in weeklyStories" :key="story.category" class="media-feature-story">
-              <span class="media-feature-index" aria-hidden="true">0{{ index + 1 }}</span>
-              <div>
-                <p class="media-feature-category">{{ story.category }}</p>
-                <p class="media-feature-title">{{ story.title }}</p>
-              </div>
-            </div>
-          </div>
+          <RouterLink :to="week39Path" class="media-feature-image-link" :aria-label="`Lire ${week39.editorialTitle}`">
+            <img :src="week39.image" :alt="week39.imageAlt" width="1731" height="909" />
+          </RouterLink>
         </article>
       </BaseContainer>
     </section>
@@ -134,14 +107,14 @@ const topics = ['Produit', 'SaaS', 'IA', 'Automatisation', 'Freelance', 'ESN', '
             <BaseButton to="/actualites" variant="secondary" class="media-section-button">Voir toutes les actualités</BaseButton>
           </div>
           <div class="media-news-list">
-            <article v-for="(story, index) in weeklyStories" :key="story.title" class="media-news-story">
-              <span class="media-news-number" aria-hidden="true">0{{ index + 1 }}</span>
+            <article class="media-news-story">
+              <span class="media-news-number" aria-hidden="true">#39</span>
               <div class="media-news-copy">
-                <p class="media-eyebrow">{{ story.category }}</p>
-                <h3>{{ story.title }}</h3>
-                <p>{{ story.description }}</p>
+                <p class="media-eyebrow">{{ week39.format }}</p>
+                <h3>{{ week39.title }}</h3>
+                <p>{{ week39.excerpt }}</p>
               </div>
-              <RouterLink to="/actualites" class="media-arrow-link" :aria-label="`Lire l’actualité : ${story.title}`">↗</RouterLink>
+              <RouterLink :to="week39Path" class="media-arrow-link" :aria-label="`Lire ${week39.editorialTitle}`">↗</RouterLink>
             </article>
           </div>
         </div>

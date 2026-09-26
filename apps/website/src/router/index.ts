@@ -4,6 +4,7 @@ import { nextTick } from 'vue'
 import type { RouteRecordRaw } from 'vue-router'
 import { guideRoutes } from './guides'
 import { updatePageMetadata } from '@/lib/pageMetadata'
+import { week39 } from '@/content/news/week39Metadata'
 
 export const routes: RouteRecordRaw[] = [
   {
@@ -49,6 +50,21 @@ export const routes: RouteRecordRaw[] = [
       title: 'Actualités tech de la semaine | Altruisme.DEV',
       description:
         'Une sélection hebdomadaire des actualités produit, SaaS, IA, automatisation, freelance et entreprises tech, expliquées avec du contexte.',
+    },
+  },
+  {
+    path: `/actualites/${week39.slug}`,
+    name: 'news-week-39',
+    component: () => import('../views/news/Week39View.vue'),
+    meta: {
+      title: 'Actu Tech de la semaine #39 : Claude, IA et cybersécurité',
+      description:
+        'L’essentiel de l’actu Tech de la semaine #39 : Claude et la recherche scientifique, cybersécurité, Databricks, IA et datacenters.',
+      ogTitle: week39.title,
+      image: week39.image,
+      imageAlt: week39.imageAlt,
+      article: true,
+      articleSection: week39.format,
     },
   },
   {

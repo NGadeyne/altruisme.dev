@@ -97,11 +97,8 @@
 .media-feature-summary { max-width: 34rem; margin-top: 1.35rem !important; color: var(--media-muted); font-size: 1rem; line-height: 1.8; }
 .media-text-link { display: inline-flex; align-items: center; gap: 1rem; width: fit-content; margin-top: 1.75rem; border-bottom: 1px solid rgb(49 93 97 / 0.38); padding-bottom: 0.35rem; color: var(--media-ocean); font-size: 0.9rem; font-weight: 650; line-height: 1.35; transition: border-color 220ms ease, gap 220ms ease; }
 .media-text-link:hover { gap: 1.35rem; border-color: currentColor; }
-.media-feature-stories { align-self: end; border-top: 1px solid var(--media-line); }
-.media-feature-story { display: grid; grid-template-columns: 2.6rem minmax(0, 1fr); gap: 1.5rem; padding: 1.25rem 0; border-bottom: 1px solid var(--media-line); }
-.media-feature-index { color: #76928b; font-size: 0.75rem; font-weight: 600; }
-.media-feature-category { color: var(--color-petrol); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; }
-.media-feature-title { max-width: 30rem; margin-top: 0.45rem !important; color: var(--color-ink); font-size: clamp(1rem, 1.35vw, 1.17rem); font-weight: 570; line-height: 1.5; }
+.media-feature-image-link { display: block; align-self: center; overflow: hidden; border: 1px solid var(--media-line); border-radius: 1.5rem; box-shadow: 0 30px 70px -55px rgb(33 73 75 / 0.4); }
+.media-feature-image-link img { width: 100%; height: auto; }
 
 .media-proof { border-block: 1px solid var(--media-line); background: linear-gradient(145deg, #edf3ef, #f4f5ef 56%, #f8f4ec); }
 .media-proof-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding-block: 2.4rem; }
@@ -254,7 +251,7 @@
   .media-hero { padding-top: 5rem; }
   .media-feature { grid-template-columns: 1fr; }
   .media-feature-edition { margin-top: 2rem !important; }
-  .media-feature-stories { margin-top: 0.3rem; }
+  .media-feature-image-link { margin-top: 0.3rem; }
   .media-proof-list { grid-template-columns: repeat(2, minmax(0, 1fr)); padding-block: 0.7rem; }
   .media-proof-item { padding: 1.25rem 1rem; }
   .media-proof-item:nth-child(odd) { padding-left: 0; border-left: 0; }
