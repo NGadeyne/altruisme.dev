@@ -154,6 +154,18 @@ for (const path of [...prerenderPaths, '/404']) {
       ),
     )
   }
+  if (path === '/lancement') {
+    assert.equal(document.title, 'Lance-toi — La checklist de l’idée au premier euro | Altruisme.dev')
+    assert.equal(document.querySelector('meta[property="og:title"]').content, document.title)
+    assert.equal(document.querySelector('h1')?.textContent.replace(/\s+/g, '').trim(), 'Lance-toi.')
+    assert.equal(document.querySelectorAll('.launch-step').length, 9)
+    assert.ok(document.querySelector('form input[type="email"][required]'))
+    assert.ok(document.querySelector('form input[type="checkbox"]'))
+  }
+  if (path === '/lancement/checklist') {
+    assert.equal(document.querySelector('meta[name="robots"]').content, 'noindex, follow')
+    assert.equal(document.querySelectorAll('.checklist-steps li').length, 9)
+  }
 }
 for (const retired of ['contact', 'guides/freelance-2026']) {
   await assert.rejects(access(resolve(output, `${retired}.html`)))

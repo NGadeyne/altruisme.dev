@@ -1,8 +1,14 @@
 {
   "name": "altruisme-website",
+  "main": "./worker/index.ts",
   "compatibility_date": "2026-09-10",
+  "vars": {
+    "BREVO_LIST_ID": "2"
+  },
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"],
     "not_found_handling": "404-page",
     "html_handling": "drop-trailing-slash"
   }

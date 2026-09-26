@@ -128,3 +128,10 @@ video {
 .cookie-secondary-button:hover {
   background: #fff;
 }
+
+@media print {
+  #app:has(.checklist-page) > div > header,
+  #app:has(.checklist-page) > div > footer {
+    display: none;
+  }
+}
