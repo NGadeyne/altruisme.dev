@@ -2,8 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://altruisme.dev/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <loc>https://altruisme.dev</loc>
+    <lastmod>2026-09-26</lastmod>
   </url>
 
   <url>
@@ -18,7 +18,7 @@
 
   <url>
     <loc>https://altruisme.dev/guides</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-26</lastmod>
   </url>
 
   <url>
@@ -29,6 +29,26 @@
   <url>
     <loc>https://altruisme.dev/guides/saas</loc>
     <lastmod>2026-09-21</lastmod>
+  </url>
+
+  <url>
+    <loc>https://altruisme.dev/guides/automatisation</loc>
+    <lastmod>2026-09-26</lastmod>
+  </url>
+
+  <url>
+    <loc>https://altruisme.dev/guides/esn</loc>
+    <lastmod>2026-09-26</lastmod>
+  </url>
+
+  <url>
+    <loc>https://altruisme.dev/guides/e-commerce</loc>
+    <lastmod>2026-09-26</lastmod>
+  </url>
+
+  <url>
+    <loc>https://altruisme.dev/guides/ia</loc>
+    <lastmod>2026-09-26</lastmod>
   </url>
 
   <url>

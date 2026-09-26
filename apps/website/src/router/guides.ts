@@ -7,9 +7,12 @@ export const guideRoutes: RouteRecordRaw[] = guides.map((guide) => ({
   name: `guide-${guide.slug}`,
   meta: {
     title: guide.seoTitle ?? `${guide.title} | Altruisme.DEV`,
-    description: guide.description,
+    description: guide.metaDescription ?? guide.description,
     ogTitle: guide.ogTitle,
     ogDescription: guide.ogDescription,
+    twitterTitle: guide.twitterTitle,
+    twitterDescription: guide.twitterDescription,
+    keywords: guide.keywords,
     robots: guide.status === 'available' ? 'index, follow' : 'noindex, follow',
   },
   component: async () => {

@@ -32,8 +32,12 @@ export type GuideMetadata = {
   edition: string
   status: 'available' | 'soon'
   seoTitle?: string
+  metaDescription?: string
   ogTitle?: string
   ogDescription?: string
+  twitterTitle?: string
+  twitterDescription?: string
+  keywords?: string
   image?: string
   imageAlt?: string
   imageSrcset?: string

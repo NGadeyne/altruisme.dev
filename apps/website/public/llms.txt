@@ -9,12 +9,17 @@ Les sujets principaux sont le Product Management, le SaaS, l'intelligence artifi
 ## Guides de référence
 
 - [Freelance 2026 : Guide complet](https://altruisme.dev/guides/freelance): Guide approfondi sur le lancement, le positionnement, le pricing, l'acquisition, la vente, le delivery, les finances et la construction d'une activité freelance durable.
-- [SaaS 2026 : Guide complet](https://altruisme.dev/guides/saas-2026): Guide approfondi consacré à la création, au développement et au pilotage d'un produit SaaS.
+- [SaaS 2026 : le guide ultime](https://altruisme.dev/guides/saas): Guide approfondi consacré à la création, au développement et au pilotage d'un produit SaaS.
+- [Automatisation 2026 : Guide complet](https://altruisme.dev/guides/automatisation): Workflows, API, webhooks, no-code, IA et agents pour automatiser des processus de manière fiable.
+- [ESN 2026 : Guide complet](https://altruisme.dev/guides/esn): Modèle économique, vente, recrutement, staffing, pilotage des missions et évolution du secteur.
+- [E-commerce 2026 : Guide complet](https://altruisme.dev/guides/e-commerce): Offre, plateforme, acquisition, conversion, logistique, fidélisation et rentabilité.
+- [IA 2026 : Guide complet](https://altruisme.dev/guides/ia): Modèles, prompting, RAG, API, agents, sécurité et intégration dans les produits et les entreprises.
 - [Tous les guides](https://altruisme.dev/guides): Index des guides de fond publiés par Altruisme.DEV.
 
 ## Actualités et analyses
 
 - [Actualités](https://altruisme.dev/actualites): Actualités tech sélectionnées, analysées et contextualisées.
+- [Actu Tech de la semaine #39](https://altruisme.dev/actualites/semaine-39-2026): Claude dans un laboratoire, cybersécurité, Databricks et datacenters.
 
 ## Podcast
 
@@ -31,5 +36,5 @@ Les sujets principaux sont le Product Management, le SaaS, l'intelligence artifi
 
 ## Optional
 
-- [Accueil](https://altruisme.dev/): Page d'accueil et principaux contenus du média.
+- [Accueil](https://altruisme.dev): Page d'accueil et principaux contenus du média.
 - [LinkedIn](https://www.linkedin.com/in/nicolas-gadeyne/): Profil LinkedIn du fondateur d'Altruisme.DEV.

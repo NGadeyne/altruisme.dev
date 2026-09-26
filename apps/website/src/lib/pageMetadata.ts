@@ -35,6 +35,7 @@ export function renderPageMetadata(to: RouteLocationNormalizedLoaded) {
     )
   }
   meta('description', description)
+  if (to.meta.keywords) meta('keywords', String(to.meta.keywords))
   meta('robots', String(to.meta.robots || 'index, follow'))
   if (to.name !== 'not-found')
     tags.push(`<link data-page-meta rel="canonical" href="${escapeHtml(url)}">`)
@@ -48,8 +49,8 @@ export function renderPageMetadata(to: RouteLocationNormalizedLoaded) {
     'twitter:card',
     published && (guide?.image || to.meta.image) ? 'summary_large_image' : 'summary',
   )
-  meta('twitter:title', ogTitle)
-  meta('twitter:description', ogDescription)
+  meta('twitter:title', String(to.meta.twitterTitle || ogTitle))
+  meta('twitter:description', String(to.meta.twitterDescription || ogDescription))
   if (to.meta.article === true && to.meta.image) {
     const image = new URL(String(to.meta.image), SITE_URL).href
     const imageAlt = String(to.meta.imageAlt || ogTitle)
