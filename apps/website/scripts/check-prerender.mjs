@@ -76,6 +76,12 @@ for (const path of [...prerenderPaths, '/404']) {
   }
   if (path === '/actualites') {
     assert.equal(document.querySelectorAll('main article').length, 1)
+    assert.equal(document.querySelector('main h1')?.textContent.trim(), 'Actu Tech de la semaine')
+    assert.equal(
+      document.querySelector('main article h2')?.textContent.trim(),
+      'Actu Tech de la semaine #39 : Claude sort de l’écran',
+    )
+    assert.equal(document.querySelector('main article img'), null)
     assert.equal(
       document.querySelector('main article a')?.getAttribute('href'),
       '/actualites/semaine-39-2026',

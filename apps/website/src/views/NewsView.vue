@@ -6,69 +6,37 @@ const week39Path = `/actualites/${week39.slug}`
 </script>
 
 <template>
-  <main class="min-h-screen bg-sand">
-    <section class="relative isolate overflow-hidden py-20 sm:py-24">
-      <div
-        class="pointer-events-none absolute inset-0 -z-20 bg-[linear-gradient(125deg,#f7f2e9_0%,#f3ede3_50%,#e4ece8_100%)]"
-      />
-      <BaseContainer>
-        <div class="mx-auto max-w-4xl text-center">
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-petrol">Actualités</p>
-          <h1 class="mt-4 text-4xl font-bold tracking-tight text-ink sm:text-6xl">
-            Les actualités tech de la semaine,
-            <span class="text-petrol">triées et expliquées.</span>
+  <main class="relative min-h-screen overflow-hidden bg-sand py-20 sm:py-28">
+    <div
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_85%_10%,#dceae5_0%,transparent_45%),linear-gradient(145deg,#f8f5ed_0%,#f1f2eb_100%)]"
+    />
+    <BaseContainer>
+      <div class="relative mx-auto max-w-5xl">
+        <header class="max-w-3xl">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-petrol">Actualités</p>
+          <h1 class="mt-5 text-4xl font-semibold tracking-tight text-ink sm:text-6xl">
+            {{ week39.format }}
           </h1>
-          <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-muted sm:text-lg">
-            Une sélection éditoriale hebdomadaire sur le produit, le SaaS, l’IA, l’automatisation,
-            le freelancing et les entreprises tech.
-          </p>
-        </div>
-      </BaseContainer>
-    </section>
-    <section class="pb-24">
-      <BaseContainer>
-        <div class="grid gap-5 md:grid-cols-2">
-          <article
-            class="overflow-hidden rounded-3xl border border-petrol/15 bg-white/60 md:col-span-2 md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]"
-          >
+        </header>
+        <article
+          class="mt-14 grid gap-6 border-t border-petrol/25 pt-8 sm:mt-20 sm:gap-10 sm:pt-10 md:grid-cols-[10rem_minmax(0,1fr)]"
+        >
+          <p class="text-sm font-semibold uppercase tracking-[0.15em] text-petrol">Édition #39</p>
+          <div class="max-w-3xl">
+            <h2 class="text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">
+              {{ week39.title }}
+            </h2>
+            <p class="mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">
+              {{ week39.excerpt }}
+            </p>
             <RouterLink
               :to="week39Path"
-              :aria-label="`Lire ${week39.editorialTitle}`"
-              class="block overflow-hidden"
+              class="mt-8 inline-flex border-b border-petrol/50 pb-1 text-sm font-semibold text-petrol transition-colors hover:border-petrol focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-petrol"
+              >Lire l’édition <span aria-hidden="true" class="ml-3">↗</span></RouterLink
             >
-              <img
-                :src="week39.image"
-                :alt="week39.imageAlt"
-                width="1731"
-                height="909"
-                class="h-full w-full object-cover"
-              />
-            </RouterLink>
-            <div class="flex flex-col justify-center p-7 sm:p-9">
-              <p class="text-xs font-semibold uppercase tracking-[0.15em] text-petrol">
-                {{ week39.format }}
-              </p>
-              <h2 class="mt-5 text-3xl font-bold leading-tight text-ink">
-                {{ week39.editorialTitle }}
-              </h2>
-              <p class="mt-2 text-lg font-medium text-petrol">Claude sort de l’écran</p>
-              <p class="mt-5 text-sm leading-7 text-muted">{{ week39.excerpt }}</p>
-              <RouterLink
-                :to="week39Path"
-                class="mt-7 self-start text-sm font-semibold text-petrol underline-offset-4 hover:underline"
-                >Lire l’actualité →</RouterLink
-              >
-            </div>
-          </article>
-        </div>
-        <div class="mx-auto mt-12 max-w-3xl border-l-2 border-petrol/30 pl-6">
-          <p class="text-sm font-semibold text-petrol">Principe éditorial</p>
-          <p class="mt-2 text-lg font-semibold leading-8 text-ink">
-            Mieux vaut cinq sujets compris que cinquante titres survolés. La page Actualités est
-            pensée comme un rendez-vous hebdomadaire, pas comme un fil continu.
-          </p>
-        </div>
-      </BaseContainer>
-    </section>
+          </div>
+        </article>
+      </div>
+    </BaseContainer>
   </main>
 </template>
