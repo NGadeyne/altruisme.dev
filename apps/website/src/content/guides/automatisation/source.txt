@@ -21,7 +21,7 @@ Partie 16 — Automatiser la donnée et le reporting
 Partie 17 — Construire des automatisations fiables et sécurisées
 Partie 18 — Industrialiser son système d’automatisation
 Conclusion — Automatiser moins, mais mieux
-FAQ — Automatisation en 2026
+FAQ — Les questions que l’on se pose encore sur l’automatisation
 
 Introduction — Pourquoi l’automatisation change de dimension en 2026
 Pendant longtemps, automatiser signifiait surtout gagner quelques minutes sur une tâche répétitive. Envoyer automatiquement un email après un formulaire, déplacer une ligne dans un tableur, créer une facture lorsqu’un paiement arrivait ou ajouter un contact dans un CRM. C’était utile, parfois très efficace, mais souvent limité à des scénarios simples, rigides et parfaitement prévisibles.
@@ -1591,7 +1591,7 @@ Il sera plutôt celui d’organisations où les humains interviennent moins souv
 C’est là que l’automatisation prend tout son sens.
 Pas lorsqu’elle remplace l’humain partout.
 Lorsqu’elle lui rend de l’attention.
-FAQ — Automatisation en 2026
+FAQ — Les questions que l’on se pose encore sur l’automatisation
 Quelle est la différence entre automatisation et intelligence artificielle ?
 L’automatisation consiste à faire exécuter automatiquement une action ou un processus selon des règles définies. L’intelligence artificielle ajoute une capacité d’interprétation : elle peut comprendre un texte, classer une demande, extraire des informations ou générer une réponse. Une automatisation peut donc fonctionner parfaitement sans IA. L’IA devient surtout utile lorsqu’une étape est difficile à décrire avec des règles classiques.
 Quel est le meilleur outil d’automatisation en 2026 ?

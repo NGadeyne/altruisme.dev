@@ -21,7 +21,7 @@ Partie 16 — Coût, infrastructure et performance
 Partie 17 — Transformer une entreprise avec l’IA
 Partie 18 — Construire avec l’IA sans perdre l’essentiel
 Conclusion — L’IA devient une nouvelle couche du travail et du logiciel
-FAQ — Intelligence artificielle en 2026
+FAQ — Les questions que l’on se pose encore sur l’intelligence artificielle
 Introduction — Comprendre l’intelligence artificielle au-delà du phénomène ChatGPT
 Pendant longtemps, l’intelligence artificielle est restée un sujet relativement abstrait pour le grand public.
 Elle existait déjà dans les moteurs de recommandation, la détection de fraude, la traduction automatique ou la reconnaissance d’image, mais elle restait largement invisible. On utilisait ses résultats sans forcément savoir qu’une forme d’intelligence artificielle intervenait derrière.
@@ -926,7 +926,7 @@ Mais l’avantage ne viendra probablement pas de l’accès aux modèles eux-mê
 L’intelligence artificielle devient donc progressivement moins un produit isolé qu’une infrastructure capable de s’intégrer partout. Elle se glisse dans les logiciels, les entreprises et les habitudes de travail jusqu’à devenir presque invisible.
 Le véritable changement ne sera peut-être pas le moment où tout le monde utilisera une IA. Ce sera le moment où nous arrêterons de distinguer systématiquement les outils « avec IA » des autres, parce que cette capacité sera simplement devenue une composante normale de ce que nous construisons.
 Comprendre l’intelligence artificielle en 2026 ne consiste donc pas à mémoriser la liste des outils disponibles aujourd’hui. Il s’agit de comprendre suffisamment ses principes pour continuer à construire avec elle demain.
-FAQ — Intelligence artificielle en 2026
+FAQ — Les questions que l’on se pose encore sur l’intelligence artificielle
 Qu’est-ce que l’intelligence artificielle ?
 L’intelligence artificielle désigne un ensemble de techniques permettant à des systèmes informatiques de réaliser des tâches qui demandent habituellement certaines capacités humaines : reconnaître des informations, prédire, comprendre du langage, générer du contenu ou prendre des décisions à partir de données. Elle englobe de nombreuses approches, du machine learning aux modèles génératifs modernes.
 L’IA ne se limite donc pas aux assistants conversationnels. Les moteurs de recommandation, la détection de fraude, la reconnaissance d’images ou certains systèmes prédictifs utilisent également des formes d’intelligence artificielle.

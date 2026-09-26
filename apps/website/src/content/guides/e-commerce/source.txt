@@ -21,7 +21,7 @@ Partie 16 — Automatiser les opérations e-commerce
 Partie 17 — Intelligence artificielle et e-commerce en 2026
 Partie 18 — Construire un e-commerce durable en 2026
 Conclusion — Le e-commerce ne se résume plus à vendre des produits en ligne
-FAQ — E-commerce en 2026
+FAQ — Les questions que l’on se pose encore sur l’e-commerce
 
 Introduction — Comprendre le e-commerce dans un marché devenu plus exigeant
 Créer une boutique en ligne n’a probablement jamais été aussi simple.
@@ -1842,7 +1842,7 @@ Et de meilleurs processus rendent la prochaine vente plus facile à délivrer qu
 C’est à ce moment que le e-commerce cesse d’être une simple boutique.
 Il devient une entreprise.
 Une entreprise capable de transformer durablement de l’attention en confiance, de la confiance en commandes et des commandes en relations suffisamment solides pour continuer à créer de la valeur dans le temps.
-FAQ — E-commerce en 2026
+FAQ — Les questions que l’on se pose encore sur l’e-commerce
 Qu’est-ce que le e-commerce ?
 Le e-commerce désigne l’ensemble des transactions commerciales réalisées en ligne. Il peut concerner des produits physiques, des produits numériques, des abonnements ou des services. Une activité e-commerce ne se limite pas au site : elle englobe aussi l’acquisition, le paiement, la logistique, le service client et la fidélisation.
 Comment fonctionne un site e-commerce ?

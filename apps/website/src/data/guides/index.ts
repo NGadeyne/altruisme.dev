@@ -25,27 +25,27 @@ export const guides: GuideDefinition[] = [
   {
     slug: 'saas',
     loadSections: () => import('@/content/guides/saas').then((module) => module.default),
-    title: 'SaaS 2026 : le guide ultime',
+    title: 'SaaS 2026 : Guide complet',
     description:
       'Le guide complet pour créer un SaaS en 2026 : idée, validation, MVP, produit, tech, IA, pricing, acquisition, vente, métriques, finance et croissance.',
     status: 'available',
     label: 'SaaS',
     category: 'entreprendre',
     edition: '2026',
-    seoTitle: 'SaaS 2026 : le guide ultime pour créer et lancer son SaaS',
-    ogTitle: 'SaaS 2026 : le guide ultime',
+    seoTitle: 'SaaS 2026 : Guide complet',
+    ogTitle: 'SaaS 2026 : Guide complet',
     ogDescription:
       'De l’idée aux premiers clients, puis à la croissance : le guide complet pour concevoir, lancer, vendre et faire grandir un SaaS en 2026.',
     image: '/images/guides/guide-saas-2026.webp',
     imageSrcset:
       '/images/guides/guide-saas-2026-640.webp 640w, /images/guides/guide-saas-2026.webp 1672w',
-    imageAlt: 'SaaS 2026 : le guide ultime pour créer, lancer et développer un SaaS',
+    imageAlt: 'SaaS 2026 : Guide complet pour créer, lancer et développer un SaaS',
     author: {
       name: 'Nicolas Gadeyne',
       url: 'https://www.linkedin.com/in/nicolas-gadeyne/',
     },
     publishedAt: '2026-09-21',
-    updatedAt: '2026-09-21',
+    updatedAt: '2026-09-26',
   },
   {
     slug: 'automatisation',
@@ -151,6 +151,116 @@ export const guides: GuideDefinition[] = [
     status: 'soon',
     label: 'Marketplace',
     category: 'entreprendre',
+    edition: '2026',
+  },
+  {
+    slug: 'linkedin',
+    title: 'LinkedIn 2026 : Guide complet',
+    description:
+      'Construire une présence forte sur LinkedIn, développer sa visibilité, créer du contenu utile et transformer son audience en opportunités.',
+    status: 'soon',
+    label: 'LinkedIn',
+    category: 'acquerir',
+    edition: '2026',
+  },
+  {
+    slug: 'seo',
+    title: 'SEO 2026 : Guide complet',
+    description:
+      'Comprendre le référencement naturel, construire une stratégie SEO durable et améliorer la visibilité d’un site sur les moteurs de recherche.',
+    status: 'soon',
+    label: 'SEO',
+    category: 'acquerir',
+    edition: '2026',
+  },
+  {
+    slug: 'prospection',
+    title: 'Prospection 2026 : Guide complet',
+    description:
+      'Structurer sa prospection, identifier les bons prospects, créer des approches efficaces et transformer les échanges en opportunités commerciales.',
+    status: 'soon',
+    label: 'Prospection',
+    category: 'acquerir',
+    edition: '2026',
+  },
+  {
+    slug: 'youtube',
+    title: 'YouTube 2026 : Guide complet',
+    description:
+      'Comprendre YouTube, construire une stratégie de contenu, développer son audience et transformer ses vidéos en véritable canal d’acquisition.',
+    status: 'soon',
+    label: 'YouTube',
+    category: 'acquerir',
+    edition: '2026',
+  },
+  {
+    slug: 'newsletter',
+    title: 'Newsletter 2026 : Guide complet',
+    description:
+      'Construire une audience par email, créer une newsletter utile, développer sa liste et transformer l’attention en relation durable.',
+    status: 'soon',
+    label: 'Newsletter',
+    category: 'acquerir',
+    edition: '2026',
+  },
+  {
+    slug: 'landing-page',
+    title: 'Landing Page 2026 : Guide complet',
+    description:
+      'Comprendre les principes d’une landing page efficace, structurer le message, rassurer, convaincre et améliorer progressivement la conversion.',
+    status: 'soon',
+    label: 'Landing Page',
+    category: 'acquerir',
+    edition: '2026',
+  },
+  {
+    slug: 'cloud',
+    title: 'Cloud 2026 : Guide complet',
+    description:
+      'Comprendre le cloud, ses principaux services, les architectures modernes, le déploiement, la scalabilité, la sécurité et les coûts.',
+    status: 'soon',
+    label: 'Cloud',
+    category: 'construire',
+    edition: '2026',
+  },
+  {
+    slug: 'api',
+    title: 'API 2026 : Guide complet',
+    description:
+      'Comprendre le fonctionnement des API, leur conception, leur sécurité, leur documentation et leur rôle dans les architectures modernes.',
+    status: 'soon',
+    label: 'API',
+    category: 'construire',
+    edition: '2026',
+  },
+  {
+    slug: 'python',
+    title: 'Python 2026 : Guide complet',
+    description:
+      'Comprendre Python, sa syntaxe, ses usages, son écosystème et les bonnes pratiques pour développer des scripts, applications et projets modernes.',
+    status: 'soon',
+    label: 'Python',
+    category: 'construire',
+    edition: '2026',
+  },
+  {
+    slug: 'javascript',
+    title: 'JavaScript 2026 : Guide complet',
+    description:
+      'Comprendre JavaScript, son fonctionnement, son écosystème et les bonnes pratiques pour construire des applications web modernes.',
+    status: 'soon',
+    label: 'JavaScript',
+    category: 'construire',
+    edition: '2026',
+  },
+  {
+    slug: 'typescript',
+    title: 'TypeScript 2026 : Guide complet',
+    description:
+      'Comprendre TypeScript, son typage, son intégration avec JavaScript et les bonnes pratiques pour développer des applications plus robustes et maintenables.',
+    status: 'soon',
+    label: 'TypeScript',
+    category: 'construire',
     edition: '2026',
   },
 ]

@@ -21,7 +21,7 @@ Partie 16 — Construire les opérations et les outils d’une ESN
 Partie 17 — Intelligence artificielle : comment l’ESN doit évoluer
 Partie 18 — Construire une ESN durable en 2026
 Conclusion — L’ESN ne peut plus simplement vendre du temps
-FAQ — ESN en 2026
+FAQ — Les questions que l’on se pose encore sur les ESN
 
 Introduction — Comprendre les ESN dans un marché qui change
 Les ESN occupent une place particulière dans le paysage technologique français. Elles recrutent des développeurs, des chefs de projet, des experts cloud, des consultants data ou cybersécurité, puis les accompagnent sur des missions chez des entreprises clientes. Vu de l’extérieur, le modèle paraît simple : trouver des compétences, les positionner sur une mission et facturer leur intervention.
@@ -1640,7 +1640,7 @@ Pas le nombre de consultants.
 Pas le chiffre d’affaires.
 Pas le nombre de CV envoyés.
 Mais la valeur qui reste lorsque l’on retire simplement le temps vendu.
-FAQ — ESN en 2026
+FAQ — Les questions que l’on se pose encore sur les ESN
 Qu’est-ce qu’une ESN ?
 Une ESN est une Entreprise de Services du Numérique. Elle fournit à d’autres entreprises des compétences, du conseil ou des prestations autour du développement, du cloud, de la data, de la cybersécurité, des infrastructures ou de la transformation numérique. Elle peut intervenir en régie, au forfait, via un centre de services ou avec des offres managées.
 Quelle est la différence entre une ESN et une SSII ?

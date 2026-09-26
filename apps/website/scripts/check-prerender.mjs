@@ -60,11 +60,11 @@ for (const path of [...prerenderPaths, '/404']) {
     )
     assert.equal(
       document.querySelector('meta[property="og:title"]').content,
-      'SaaS 2026 : le guide ultime',
+      'SaaS 2026 : Guide complet',
     )
     assert.equal(
       document.querySelector('meta[property="og:image:alt"]').content,
-      'SaaS 2026 : le guide ultime pour créer, lancer et développer un SaaS',
+      'SaaS 2026 : Guide complet pour créer, lancer et développer un SaaS',
     )
   }
   if (path === '/') {
