@@ -61,7 +61,7 @@ Le contenu, les métadonnées et les styles des pages sont présents avant JavaS
 
 Après le build, `npm run test:prerender` vérifie le contenu initial, les métadonnées, les ressources et les URL retirées. `npm run test:unit -- --run` couvre les tests unitaires.
 
-Cloudflare sert les fichiers HTML sans extension, avec `html_handling: drop-trailing-slash`. Le mode `not_found_handling: 404-page` sert `dist/404.html` avec un vrai statut 404. `/contact` et `/guides/freelance-2026` sont retirées sans redirection ; `/communaute` reste indépendante. Les autres alias du routeur sont exportés dans `_redirects` au build.
+Cloudflare sert les fichiers HTML sans extension, avec `html_handling: drop-trailing-slash`. Le mode `not_found_handling: 404-page` sert `dist/404.html` avec un vrai statut 404. `/contact` et `/guides/freelance-2026` sont retirées sans redirection ; `/communaute` redirige vers `/lancement`. Les autres alias du routeur sont exportés dans `_redirects` au build.
 
 Une nouvelle page statique déclarée dans le routeur est automatiquement prérendue. Une future route à paramètres devra fournir explicitement sa liste d'URL au générateur. Le sitemap doit contenir uniquement les URL canoniques indexables.
 

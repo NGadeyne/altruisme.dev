@@ -20,9 +20,9 @@ Les sujets principaux sont le Product Management, le SaaS, l'intelligence artifi
 
 - [Podcast](https://altruisme.dev/podcast): Conversations avec des CTO, dirigeants et professionnels de la tech autour du produit, de la technologie, du management et de leurs parcours.
 
-## Communauté et contributions
+## Contributions et ressources
 
-- [Communauté](https://altruisme.dev/communaute): Espace communautaire Altruisme.DEV pour poursuivre les discussions autour des sujets publiés.
+- [Lance-toi](https://altruisme.dev/lancement): Checklist gratuite pour passer d’une idée à un premier projet concret.
 - [Contribuer](https://altruisme.dev/contribuer): Informations pour proposer un retour d'expérience, une analyse, une étude de cas ou un sujet à Altruisme.DEV.
 
 ## Écosystème

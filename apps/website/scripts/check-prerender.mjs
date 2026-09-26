@@ -16,6 +16,7 @@ for (const path of [...prerenderPaths, '/404']) {
     `Missing initial content: ${path}`,
   )
   assert.ok(!document.title.includes('Signons ensemble'), path)
+  assert.equal(document.querySelectorAll('a[href="/communaute"]').length, 0, path)
   if (path === '/404') {
     assert.equal(document.querySelector('meta[name="robots"]').content, 'noindex, follow')
     assert.equal(document.querySelector('link[rel="canonical"]'), null)
@@ -73,6 +74,8 @@ for (const path of [...prerenderPaths, '/404']) {
       document.querySelector('.media-news-list .media-arrow-link')?.getAttribute('href'),
       '/actualites/semaine-39-2026',
     )
+    assert.equal(document.querySelector('.media-resource .base-button')?.getAttribute('href'), '/lancement')
+    assert.equal(document.querySelectorAll('nav[aria-label="Navigation principale"] a[href="/lancement"]').length, 1)
   }
   if (path === '/actualites') {
     assert.equal(document.querySelectorAll('main article').length, 1)
@@ -167,10 +170,13 @@ for (const path of [...prerenderPaths, '/404']) {
     assert.equal(document.querySelectorAll('.checklist-steps li').length, 9)
   }
 }
-for (const retired of ['contact', 'guides/freelance-2026']) {
+for (const retired of ['contact', 'guides/freelance-2026', 'communaute']) {
   await assert.rejects(access(resolve(output, `${retired}.html`)))
 }
-assert.ok(!(await readFile(resolve(output, 'sitemap.xml'), 'utf8')).includes('/contact'))
+const sitemap = await readFile(resolve(output, 'sitemap.xml'), 'utf8')
+assert.ok(!sitemap.includes('/contact'))
+assert.ok(!sitemap.includes('/communaute'))
+assert.ok((await readFile(resolve(output, '_redirects'), 'utf8')).includes('/communaute /lancement 301'))
 console.log(
   `Verified initial HTML, metadata and assets for ${prerenderPaths.length} pages and the 404 page.`,
 )

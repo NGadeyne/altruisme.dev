@@ -7,7 +7,7 @@ const navigationLinks = [
   { label: 'Actualités', to: '/actualites' },
   { label: 'Guides', to: '/guides' },
   { label: 'Podcast', to: '/podcast' },
-  { label: 'Communauté', to: '/communaute' },
+  { label: 'Lance-toi', to: '/lancement' },
   { label: 'Contribuer', to: '/contribuer' },
   { label: 'Écosystème', to: '/apropos' },
 ]
@@ -39,8 +39,8 @@ function openCookieSettings() {
             </div>
           </RouterLink>
           <p class="mt-5 max-w-md text-sm leading-6 text-[#c8d5d1]">
-            Des guides de fond, des actualités expliquées, des conversations utiles et une
-            communauté pour mieux comprendre et construire la tech.
+            Des guides de fond, des actualités expliquées et des ressources utiles pour mieux
+            comprendre et construire la tech.
           </p>
         </div>
         <div>

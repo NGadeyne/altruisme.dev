@@ -48,7 +48,7 @@ const topics = ['Produit', 'SaaS', 'IA', 'Automatisation', 'Freelance', 'ESN', '
             <p class="media-lead">
               Altruisme.DEV décrypte les produits, les modèles et les métiers qui façonnent la tech.
               Des <strong>guides de fond</strong>, une <strong>actualité contextualisée</strong>, des
-              <strong>conversations utiles</strong> et une communauté de gens qui construisent.
+              <strong>conversations utiles</strong> et des ressources pour celles et ceux qui construisent.
             </p>
             <div class="media-hero-actions">
               <div class="media-button-row">
@@ -179,7 +179,6 @@ const topics = ['Produit', 'SaaS', 'IA', 'Automatisation', 'Freelance', 'ESN', '
             </p>
             <div class="media-button-row">
               <BaseButton to="/podcast" size="large" class="media-inverse-button">Découvrir le podcast</BaseButton>
-              <BaseButton to="/communaute" variant="secondary" size="large" class="media-outline-button">Voir les prochains lives</BaseButton>
             </div>
           </div>
           <div class="media-podcast-stage">
@@ -230,25 +229,25 @@ const topics = ['Produit', 'SaaS', 'IA', 'Automatisation', 'Freelance', 'ESN', '
       </BaseContainer>
     </section>
 
-    <!-- Communauté -->
-    <section class="media-section media-community media-deep" aria-labelledby="media-community-title">
+    <!-- Ressource gratuite -->
+    <section class="media-section media-resource media-deep" aria-labelledby="media-resource-title">
       <BaseContainer size="large">
-        <div class="media-community-content">
-          <p class="media-eyebrow media-deep-eyebrow"><span class="media-eyebrow-dot" aria-hidden="true" />La communauté Altruisme.DEV</p>
-          <h2 id="media-community-title" class="media-title">Le média est le point de départ.<br /><span>La communauté, c’est là où ça continue.</span></h2>
+        <div class="media-resource-content">
+          <p class="media-eyebrow media-deep-eyebrow"><span class="media-eyebrow-dot" aria-hidden="true" />Ressource gratuite</p>
+          <h2 id="media-resource-title" class="media-title">Une idée en tête ?<br /><span>Commence par le premier pas.</span></h2>
           <p class="media-copy">
-            Rejoins le Discord pour discuter des actualités, prolonger les guides, suivre les prochains lives,
-            proposer des sujets, partager tes projets et rencontrer d’autres personnes qui construisent dans la tech.
+            Lance-toi est une checklist courte pour passer d’une idée à un projet concret,
+            du cadrage aux premiers retours.
           </p>
-          <div class="media-community-notes">
-            <div><strong>Actualités</strong><span>Débattre sans le bruit des réseaux.</span></div>
-            <div><strong>Lives</strong><span>Suivre les prochains épisodes.</span></div>
-            <div><strong>Entraide</strong><span>Produit, dev, business, carrière.</span></div>
-            <div><strong>Contributions</strong><span>Faire vivre le média ensemble.</span></div>
+          <div class="media-resource-notes">
+            <div><strong>Clarifier</strong><span>Définir l’idée et le problème.</span></div>
+            <div><strong>Valider</strong><span>Parler aux bonnes personnes.</span></div>
+            <div><strong>Construire</strong><span>Créer une première version.</span></div>
+            <div><strong>Avancer</strong><span>Apprendre des premiers retours.</span></div>
           </div>
           <div class="media-button-row">
-            <BaseButton to="/communaute" size="large" class="media-inverse-button">Rejoindre la communauté</BaseButton>
-            <BaseButton to="/contribuer" variant="secondary" size="large" class="media-outline-button">Contribuer au média</BaseButton>
+            <BaseButton to="/lancement" size="large" class="media-inverse-button">Recevoir Lance-toi</BaseButton>
+            <BaseButton to="/guides" variant="secondary" size="large" class="media-outline-button">Explorer les guides</BaseButton>
           </div>
         </div>
       </BaseContainer>

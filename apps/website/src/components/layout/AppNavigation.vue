@@ -22,7 +22,7 @@ function closeMenu() { isOpen.value = false }
           </RouterLink>
         </li>
       </ul>
-      <BaseButton to="/communaute" variant="primary" size="small">Rejoindre la communauté</BaseButton>
+      <BaseButton to="/lancement" variant="primary" size="small">Lance-toi</BaseButton>
     </div>
 
     <button type="button" class="flex h-10 w-10 items-center justify-center rounded-xl border border-petrol/15 bg-white/45 text-petrol-dark transition hover:bg-white/70 md:hidden" :aria-expanded="isOpen" :aria-label="isOpen ? 'Fermer le menu' : 'Ouvrir le menu'" @click="isOpen = !isOpen">
@@ -36,7 +36,7 @@ function closeMenu() { isOpen.value = false }
           <RouterLink :to="link.to" class="block rounded-xl px-4 py-3 text-sm font-medium text-muted transition hover:bg-petrol/8 hover:text-ink" active-class="!bg-petrol/12 !text-petrol" @click="closeMenu">{{ link.label }}</RouterLink>
         </li>
       </ul>
-      <BaseButton to="/communaute" variant="primary" size="medium" class="mt-4 w-full" @click="closeMenu">Rejoindre la communauté</BaseButton>
+      <BaseButton to="/lancement" variant="primary" size="medium" class="mt-4 w-full" @click="closeMenu">Lance-toi</BaseButton>
     </div>
   </nav>
 </template>

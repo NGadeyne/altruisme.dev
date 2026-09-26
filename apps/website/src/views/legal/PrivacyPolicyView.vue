@@ -36,7 +36,7 @@ import LegalPageLayout from '@/components/legal/LegalPageLayout.vue'
           <li>ton numéro de téléphone lorsqu’il est communiqué ;</li>
           <li>les informations que tu renseignes lors d’une prise de rendez-vous ;</li>
           <li>
-            les informations renseignées lors d’une contribution, d’une inscription à la communauté ou d’un échange avec le média
+            les informations renseignées lors d’une contribution ou d’un échange avec le média
             ;
           </li>
           <li>les informations nécessaires à la gestion d’une commande ou d’un accompagnement ;</li>
@@ -73,10 +73,10 @@ import LegalPageLayout from '@/components/legal/LegalPageLayout.vue'
             </tr>
 
             <tr class="border-b border-[#4f7774]/10">
-              <td class="py-4 pr-6">Communauté / contributions</td>
+              <td class="py-4 pr-6">Contributions</td>
 
               <td class="py-4 pr-6">
-                Gérer ton inscription et t’envoyer les informations liées au live
+                Traiter ta proposition et échanger à son sujet
               </td>
 
               <td class="py-4">Exécution de ta demande</td>
@@ -148,7 +148,7 @@ import LegalPageLayout from '@/components/legal/LegalPageLayout.vue'
 
         <p>
           Les durées précises peuvent varier selon qu’il s’agit d’un simple prospect, d’un
-          membre de la communauté, d’un contributeur ou d’un interlocuteur du média.
+          contributeur ou interlocuteur du média.
         </p>
       </div>
     </section>

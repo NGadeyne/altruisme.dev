@@ -14,7 +14,7 @@ export const routes: RouteRecordRaw[] = [
     meta: {
       title: 'Altruisme.DEV | Média tech indépendant',
       description:
-        'Guides de fond, actualités expliquées, podcast et communauté autour du produit, du SaaS, de l’IA, de l’automatisation, du freelancing et de la tech.',
+        'Guides de fond, actualités expliquées, podcast et ressources autour du produit, du SaaS, de l’IA, de l’automatisation, du freelancing et de la tech.',
     },
   },
   {
@@ -99,13 +99,7 @@ export const routes: RouteRecordRaw[] = [
   },
   {
     path: '/communaute',
-    name: 'community',
-    component: () => import('../views/CommunityView.vue'),
-    meta: {
-      title: 'Communauté | Altruisme.DEV',
-      description:
-        'Rejoins la communauté Altruisme.DEV pour échanger autour du produit, du code, du SaaS, de l’IA, du freelancing et de la tech.',
-    },
+    redirect: '/lancement',
   },
   {
     path: '/contribuer',

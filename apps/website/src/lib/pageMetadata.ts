@@ -23,7 +23,7 @@ export function renderPageMetadata(to: RouteLocationNormalizedLoaded) {
   const published = guide?.status === 'available' || to.meta.article === true
   const title = String(to.meta.title || SITE_NAME)
   const description = String(
-    to.meta.description || 'Média tech indépendant : guides, actualités, podcast et communauté.',
+    to.meta.description || 'Média tech indépendant : guides, actualités, podcast et ressources.',
   )
   const ogTitle = String(to.meta.ogTitle || title)
   const ogDescription = String(to.meta.ogDescription || description)
