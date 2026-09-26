@@ -1,0 +1,10 @@
+{
+  "extends": "@altruisme/config/tsconfig/vue-app.json",
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo"
+  }
+}
