@@ -103,7 +103,7 @@ const parsed = matches.map((match, index) =>
 )
 
 const takeaways = new Map(
-  [...takeawaysFile.matchAll(/^### Partie (\d+) — À retenir\n+([\s\S]*?)(?=^### Partie|$)/gm)].map(
+  [...takeawaysFile.matchAll(/^### Partie (\d+) — À retenir\n+([\s\S]*?)(?=^### Partie|(?![\s\S]))/gm)].map(
     ([, number, content]) => [
       Number(number),
       content!

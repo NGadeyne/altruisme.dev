@@ -4,6 +4,7 @@ import { guides, guidePath } from '@/data/guides'
 import { renderInline, readingMinutes } from '@/lib/guide'
 import { updatePageMetadata } from '@/lib/pageMetadata'
 import sections from '@/content/guides/freelance'
+import saasSections from '@/content/guides/saas'
 
 describe('published guides', () => {
   it('keeps every anchor unique and every published guide loadable', async () => {
@@ -24,6 +25,14 @@ describe('published guides', () => {
     expect(sections).toHaveLength(21)
     expect(sections.flatMap((section) => section.subsections)).toHaveLength(157)
     expect(readingMinutes(sections)).toBe(229)
+  })
+
+  it('keeps all five paragraphs in each SaaS takeaway', () => {
+    const takeaways = saasSections.flatMap((section) =>
+      section.subsections.filter((subsection) => subsection.kind === 'takeaway'),
+    )
+    expect(takeaways).toHaveLength(18)
+    expect(takeaways.every((subsection) => subsection.blocks.length === 5)).toBe(true)
   })
 
   it('escapes embedded HTML while rendering supported inline markup', () => {

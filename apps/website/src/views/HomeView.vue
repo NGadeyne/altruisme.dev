@@ -4,10 +4,17 @@ import { featuredGuides } from '@/data/site'
 import { week39 } from '@/content/news/week39Metadata'
 
 const week39Path = `/actualites/${week39.slug}`
+const publishedGuideCount = featuredGuides.filter((guide) => guide.status === 'available').length
+const upcomingGuideCount = featuredGuides.length - publishedGuideCount
+const secondaryGuides = featuredGuides.slice(2)
+const compactGuides = [
+  ...secondaryGuides.filter((guide) => guide.status === 'available'),
+  ...secondaryGuides.filter((guide) => guide.status !== 'available'),
+].slice(0, 5)
 
 const editorialStats = [
-  { value: '2', label: 'guides de référence publiés' },
-  { value: '5', label: 'grands guides en préparation' },
+  { value: String(publishedGuideCount), label: 'guides de référence publiés' },
+  { value: String(upcomingGuideCount), label: 'grands guides en préparation' },
   { value: '1× / semaine', label: 'une sélection d’actualités utile' },
   { value: '100 %', label: 'indépendant dans la ligne éditoriale' },
 ]
@@ -132,10 +139,11 @@ const topics = ['Produit', 'SaaS', 'IA', 'Automatisation', 'Freelance', 'ESN', '
           </article>
         </div>
         <div class="media-guide-index">
-          <article v-for="guide in featuredGuides.slice(2)" :key="guide.title" class="media-guide-index-item">
+          <article v-for="guide in compactGuides" :key="guide.title" class="media-guide-index-item">
             <span class="media-eyebrow">{{ guide.label }}</span>
             <h3>{{ guide.title }}</h3>
-            <p>Bientôt disponible</p>
+            <RouterLink v-if="guide.to" :to="guide.to" class="media-guide-index-link">Publié · Lire le guide →</RouterLink>
+            <p v-else>Bientôt disponible</p>
           </article>
         </div>
       </BaseContainer>

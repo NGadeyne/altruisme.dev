@@ -147,7 +147,9 @@
 .media-guide-index-item { min-width: 0; padding: 1.5rem 1rem 1.5rem 1.2rem; border-left: 1px solid var(--media-line); }
 .media-guide-index-item:first-child { padding-left: 0; border-left: 0; }
 .media-guide-index-item h3 { margin-top: 1.6rem !important; color: var(--color-ink); font-size: 1rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.4; }
-.media-guide-index-item > p { margin-top: 1.6rem !important; color: var(--color-muted); font-size: 0.75rem; font-weight: 600; }
+.media-guide-index-item > :is(p, .media-guide-index-link) { margin-top: 1.6rem !important; color: var(--color-muted); font-size: 0.75rem; font-weight: 600; }
+.media-guide-index-link { display: inline-block; text-underline-offset: 0.2em; }
+.media-guide-index-link:hover { text-decoration: underline; }
 
 .media-manifesto-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr); column-gap: clamp(3rem, 9vw, 10rem); }
 .media-manifesto-intro > .media-eyebrow { grid-column: 1 / -1; }
