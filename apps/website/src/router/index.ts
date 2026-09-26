@@ -19,12 +19,12 @@ export const routes: RouteRecordRaw[] = [
   },
   {
     path: '/apropos',
-    name: 'about',
+    name: 'ecosystem',
     component: () => import('../views/AboutView.vue'),
     meta: {
-      title: 'À propos | Nicolas Gadeyne & Altruisme.DEV',
+      title: 'Écosystème Altruisme — Learn, Builder, Cloud, OS & Consulting',
       description:
-        'Découvre Nicolas Gadeyne, l’origine d’Altruisme.DEV et la vision derrière ce média tech indépendant.',
+        'Découvrez l’écosystème Altruisme : média, formations, consulting et produits pour apprendre, construire, héberger et développer des projets numériques.',
     },
   },
   {

@@ -151,7 +151,7 @@ const topics = ['Produit', 'SaaS', 'IA', 'Automatisation', 'Freelance', 'ESN', '
             Altruisme.DEV ne cherche pas à couvrir toute la tech. Il cherche à mieux couvrir les sujets qui
             touchent directement ceux qui créent des produits, des entreprises et des carrières dans la tech.
           </p>
-          <RouterLink to="/apropos" class="media-text-link">Découvrir l’histoire d’Altruisme.DEV <span aria-hidden="true">↗</span></RouterLink>
+          <RouterLink to="/apropos" class="media-text-link">Découvrir l’écosystème Altruisme <span aria-hidden="true">↗</span></RouterLink>
         </div>
         <div class="media-principles">
           <article v-for="principle in principles" :key="principle.number" class="media-principle">

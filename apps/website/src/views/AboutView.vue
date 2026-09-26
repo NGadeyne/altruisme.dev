@@ -1,15 +1,323 @@
 <script setup lang="ts">
 import { BaseButton, BaseContainer } from '@altruisme/ui'
+
+const bricks = [
+  {
+    name: 'Altruisme.dev',
+    promise: 'Comprendre.',
+    description: 'Des guides et des actualités pour rendre les sujets tech plus accessibles.',
+    detail: 'Le média, point d’entrée de l’écosystème.',
+    status: 'Disponible',
+    className: 'ecosystem-brick--media',
+  },
+  {
+    name: 'Learn',
+    promise: 'Apprendre.',
+    description: 'Des formations pratiques pour acquérir une compétence et passer à l’action.',
+    detail: 'La priorité produit actuelle.',
+    status: 'En construction',
+    className: 'ecosystem-brick--learn',
+  },
+  {
+    name: 'Consulting',
+    promise: 'Être accompagné.',
+    description: 'À terme, un nombre limité de spécialistes pour intervenir sur un besoin précis.',
+    detail: 'Product · UX/UI · Développement · Automatisation · SEO · Cloud / DevOps',
+    status: 'Collectif à structurer',
+    className: 'ecosystem-brick--consulting',
+  },
+  {
+    name: 'Builder',
+    promise: 'Concevoir, puis construire.',
+    description:
+      'D’abord cadrer un produit et prendre les bonnes décisions. Plus tard, aider à le produire.',
+    detail: 'Product · UX/UI · Développement · Automatisation · SEO · Architecture / Cloud · Audit',
+    status: 'Vision produit',
+    className: 'ecosystem-brick--builder',
+  },
+  {
+    name: 'OS',
+    promise: 'Piloter.',
+    description: 'Un espace simple pour suivre prospects, clients, missions, finances et indicateurs.',
+    detail: 'Des outils de pilotage existent déjà en interne.',
+    status: 'Prototype interne',
+    className: 'ecosystem-brick--os',
+  },
+  {
+    name: 'Cloud',
+    promise: 'Héberger.',
+    description: 'Mettre un SaaS en production sans devoir devenir expert DevOps.',
+    detail: 'À terme : hébergement, données, déploiement, logs et sauvegardes.',
+    status: 'Vision long terme',
+    className: 'ecosystem-brick--cloud',
+  },
+] as const
+
+const flow = [
+  { action: 'Comprendre', product: 'Altruisme.dev' },
+  { action: 'Apprendre', product: 'Learn' },
+  { action: 'Construire', product: 'Builder' },
+  { action: 'Héberger', product: 'Cloud' },
+  { action: 'Piloter', product: 'OS' },
+] as const
+
+const journey = [
+  { action: 'Découvrir', description: 'Un guide SaaS donne envie d’aller plus loin.' },
+  { action: 'Apprendre', description: 'Learn transforme cette envie en savoir-faire.' },
+  { action: 'Concevoir', description: 'Builder aide à cadrer le produit et ses choix.' },
+  { action: 'Déployer', description: 'Cloud propose un chemin vers la production.' },
+  { action: 'Piloter', description: 'OS rassemble l’activité et ses indicateurs.' },
+  { action: 'Débloquer', description: 'Consulting intervient sur un point précis.' },
+] as const
 </script>
 
 <template>
-  <main class="min-h-screen bg-sand">
-    <section class="relative isolate overflow-hidden py-20 sm:py-24 lg:py-28"><div class="pointer-events-none absolute inset-0 -z-20 bg-[linear-gradient(125deg,#f7f2e9_0%,#f3ede3_45%,#e4ece8_100%)]"/><BaseContainer><div class="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center"><div><p class="text-sm font-semibold uppercase tracking-[0.18em] text-petrol">À propos</p><h1 class="mt-4 text-4xl font-bold tracking-tight text-ink sm:text-6xl">Je m’appelle Nicolas Gadeyne.<br><span class="text-petrol">Altruisme.DEV est le média que j’ai envie de lire.</span></h1><p class="mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">Un média tech indépendant, curieux, accessible et exigeant. Un endroit où l’on peut parler produit, code, SaaS, IA, automatisation, entrepreneuriat ou freelancing sans réduire chaque sujet à une punchline.</p></div><div class="mx-auto w-full max-w-sm overflow-hidden rounded-[2rem] border border-petrol/15 bg-mist p-3 shadow-xl shadow-petrol/10"><img src="/src/assets/nico.png" alt="Nicolas Gadeyne" class="aspect-[4/5] w-full rounded-[1.5rem] object-cover" /></div></div></BaseContainer></section>
+  <main class="ecosystem-page">
+    <section class="ecosystem-hero" aria-labelledby="ecosystem-title">
+      <BaseContainer size="large">
+        <div class="ecosystem-hero-content">
+          <p class="ecosystem-eyebrow ecosystem-glass ecosystem-hero-eyebrow">
+            <span class="ecosystem-dot" aria-hidden="true" />Écosystème Altruisme
+          </p>
+          <h1 id="ecosystem-title" class="ecosystem-display">
+            Altruisme n’est pas un produit.
+            <span>C’est un écosystème.</span>
+          </h1>
+          <p class="ecosystem-lead">
+            Un ensemble de produits et de services pour comprendre, apprendre, construire,
+            développer et piloter des projets numériques.
+          </p>
+          <a class="ecosystem-text-link" href="#les-briques">
+            Explorer les briques <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </BaseContainer>
+    </section>
 
-    <section class="py-20 sm:py-24"><BaseContainer><div class="mx-auto max-w-4xl"><p class="text-sm font-semibold uppercase tracking-[0.18em] text-petrol">Pourquoi Altruisme ?</p><h2 class="mt-4 text-3xl font-bold tracking-tight text-ink sm:text-5xl">Créer quelque chose d’utile avant de chercher à capter l’attention.</h2><div class="mt-8 space-y-6 text-base leading-8 text-muted"><p>Je viens de la tech. J’ai commencé par développer, puis j’ai évolué vers le produit, la delivery et l’accompagnement de projets. J’aime autant comprendre comment un produit est construit que pourquoi il mérite d’exister, comment il se vend et ce qu’il change réellement pour ses utilisateurs.</p><p>Altruisme.DEV part d’une idée simple : internet ne manque pas de contenu, mais il manque souvent de contexte, de nuance et de profondeur. Je veux donc construire un média indépendant qui privilégie les contenus que l’on garde, que l’on relit et qui aident réellement à prendre de meilleures décisions.</p><p>Le nom Altruisme n’est pas un positionnement marketing. C’est la direction que je veux donner au projet : transmettre ce que j’apprends, mettre en avant ceux qui ont quelque chose à partager et créer un espace où la valeur produite compte davantage que le bruit généré.</p></div></div></BaseContainer></section>
+    <section class="ecosystem-section ecosystem-why" aria-labelledby="ecosystem-why-title">
+      <BaseContainer size="large">
+        <div class="ecosystem-why-grid">
+          <div>
+            <p class="ecosystem-eyebrow">Pourquoi un écosystème ?</p>
+            <h2 id="ecosystem-why-title" class="ecosystem-title">
+              Les problèmes tech ne vivent <span>pas en silos.</span>
+            </h2>
+          </div>
+          <div class="ecosystem-why-copy">
+            <p>
+              On peut découvrir un sujet dans un guide, l’approfondir avec Learn, concevoir un
+              produit avec Builder, puis l’héberger, le piloter ou demander un regard expert.
+            </p>
+            <p>
+              Chaque brique répond à un besoin précis. Leur intérêt grandit quand elles se
+              transmettent connaissances, outils et retours du terrain.
+            </p>
+          </div>
+        </div>
+      </BaseContainer>
+    </section>
 
-    <section class="bg-mist py-20 sm:py-24"><BaseContainer><div class="mx-auto max-w-5xl"><div class="max-w-3xl"><p class="text-sm font-semibold uppercase tracking-[0.18em] text-petrol">Ce que je veux construire</p><h2 class="mt-4 text-3xl font-bold tracking-tight text-ink sm:text-5xl">Un média qui grandit par couches.</h2></div><div class="mt-12 grid gap-5 sm:grid-cols-2"><article v-for="item in [{n:'01',t:'Des guides de référence',d:'Des contenus longs et maintenus dans le temps sur les grands sujets de la tech et du business.'},{n:'02',t:'Une actualité utile',d:'Une sélection hebdomadaire pour comprendre les mouvements importants sans courir après chaque annonce.'},{n:'03',t:'Un podcast de terrain',d:'Des conversations longues avec des personnes qui construisent, dirigent, expérimentent et apprennent.'},{n:'04',t:'Une vraie communauté',d:'Un espace où lecteurs, contributeurs et profils tech peuvent continuer les discussions et partager leurs expériences.'}]" :key="item.n" class="rounded-3xl border border-petrol/15 bg-sand/70 p-7"><span class="text-sm font-semibold text-petrol">{{ item.n }}</span><h3 class="mt-4 text-xl font-bold text-ink">{{ item.t }}</h3><p class="mt-3 text-sm leading-6 text-muted">{{ item.d }}</p></article></div></div></BaseContainer></section>
+    <section
+      id="les-briques"
+      class="ecosystem-section ecosystem-products"
+      aria-labelledby="ecosystem-products-title"
+    >
+      <BaseContainer size="large">
+        <div class="ecosystem-section-heading">
+          <p class="ecosystem-eyebrow">Les briques</p>
+          <h2 id="ecosystem-products-title" class="ecosystem-title">
+            Plusieurs expertises. <span>Une même direction.</span>
+          </h2>
+          <p class="ecosystem-section-intro">
+            Sept façons d’avancer, selon le moment où l’on se trouve.
+          </p>
+        </div>
+        <div class="ecosystem-bricks">
+          <article
+            v-for="(brick, index) in bricks"
+            :key="brick.name"
+            class="ecosystem-brick"
+            :class="brick.className"
+          >
+            <div class="ecosystem-brick-topline">
+              <span class="ecosystem-brick-index">0{{ index + 1 }}</span>
+              <span class="ecosystem-status">{{ brick.status }}</span>
+            </div>
+            <div class="ecosystem-brick-content">
+              <p class="ecosystem-brick-name">{{ brick.name }}</p>
+              <h3>{{ brick.promise }}</h3>
+              <p class="ecosystem-brick-description">{{ brick.description }}</p>
+            </div>
+            <p class="ecosystem-brick-detail">{{ brick.detail }}</p>
+          </article>
+        </div>
+        <article class="ecosystem-foundation">
+          <div>
+            <p class="ecosystem-eyebrow">07 / La partie impact</p>
+            <h3>Fondation Altruisme</h3>
+          </div>
+          <div>
+            <p class="ecosystem-foundation-promise">Contribuer.</p>
+            <p>
+              À terme, une partie de la valeur créée par l’écosystème pourrait soutenir des projets
+              utiles pour l’éducation, l’accès au numérique ou l’open source.
+            </p>
+            <span>Vision long terme · distincte des produits commerciaux</span>
+          </div>
+        </article>
+      </BaseContainer>
+    </section>
 
-    <section class="py-20 sm:py-24"><BaseContainer><div class="mx-auto max-w-4xl rounded-[2rem] bg-[#31413f] px-7 py-12 text-center sm:px-12"><p class="text-sm font-semibold uppercase tracking-[0.18em] !text-[#a9c1bd]">La suite se construit maintenant</p><h2 class="mt-4 text-3xl font-bold tracking-tight !text-[#f7f2e9] sm:text-4xl">Lire, participer, challenger, contribuer.</h2><p class="mx-auto mt-5 max-w-2xl text-base leading-7 !text-[#d8e1de]">Altruisme.DEV n’a pas vocation à être un média descendant. Si le projet t’intéresse, la communauté et les contributions font partie de l’aventure dès le départ.</p><div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row"><BaseButton to="/communaute" class="!bg-[#f4efe7] !text-[#31413f] hover:!bg-white">Rejoindre la communauté</BaseButton><BaseButton to="/contribuer" variant="secondary" class="!border-white/15 !bg-white/8 !text-[#f7f2e9] hover:!bg-white/12">Contribuer</BaseButton></div></div></BaseContainer></section>
+    <section
+      class="ecosystem-section ecosystem-connections"
+      aria-labelledby="ecosystem-connections-title"
+    >
+      <BaseContainer size="large">
+        <div class="ecosystem-section-heading">
+          <p class="ecosystem-eyebrow">Les connexions</p>
+          <h2 id="ecosystem-connections-title" class="ecosystem-title">
+            Une brique ouvre <span>la suivante.</span>
+          </h2>
+          <p class="ecosystem-section-intro">
+            Ce chemin est un exemple, pas un parcours imposé. On entre là où l’on en a besoin.
+          </p>
+        </div>
+        <ol class="ecosystem-flow">
+          <li v-for="(step, index) in flow" :key="step.product">
+            <span class="ecosystem-flow-number">0{{ index + 1 }}</span>
+            <strong>{{ step.action }}</strong>
+            <span>{{ step.product }}</span>
+          </li>
+        </ol>
+        <div class="ecosystem-connections-notes">
+          <p>
+            <strong>Consulting</strong> peut intervenir à chaque étape lorsqu’une expertise précise
+            manque.
+          </p>
+          <p>
+            <strong>Fondation Altruisme</strong> pourrait, à terme, faire revenir une partie de la
+            valeur créée vers des projets utiles.
+          </p>
+        </div>
+        <p class="ecosystem-return">
+          Et les expériences vécues nourrissent de nouveaux contenus Altruisme.dev ↗
+        </p>
+      </BaseContainer>
+    </section>
+
+    <section class="ecosystem-section ecosystem-journey" aria-labelledby="ecosystem-journey-title">
+      <BaseContainer size="large">
+        <div class="ecosystem-journey-grid">
+          <div class="ecosystem-journey-intro">
+            <p class="ecosystem-eyebrow">Un parcours possible</p>
+            <h2 id="ecosystem-journey-title" class="ecosystem-title">
+              D’un premier guide <span>à un produit en ligne.</span>
+            </h2>
+            <p class="ecosystem-section-intro">
+              Une histoire simple pour montrer comment les briques pourraient se répondre.
+            </p>
+          </div>
+          <ol class="ecosystem-journey-steps">
+            <li v-for="(step, index) in journey" :key="step.action">
+              <span>0{{ index + 1 }}</span>
+              <div>
+                <strong>{{ step.action }}</strong>
+                <p>{{ step.description }}</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </BaseContainer>
+    </section>
+
+    <section class="ecosystem-section ecosystem-roadmap" aria-labelledby="ecosystem-roadmap-title">
+      <BaseContainer size="large">
+        <div class="ecosystem-section-heading">
+          <p class="ecosystem-eyebrow">Le temps du projet</p>
+          <h2 id="ecosystem-roadmap-title" class="ecosystem-title">
+            Ce qui existe. <span>Ce qui se construit.</span>
+          </h2>
+          <p class="ecosystem-section-intro">
+            La vision est large. Les produits disponibles aujourd’hui sont plus ciblés.
+          </p>
+        </div>
+        <div class="ecosystem-roadmap-grid">
+          <div class="ecosystem-roadmap-stage">
+            <span>01 / Aujourd’hui</span>
+            <h3>Le média est en ligne.</h3>
+            <p>
+              Altruisme.dev publie des guides et des actualités. C’est le point de départ accessible
+              à tous.
+            </p>
+          </div>
+          <div class="ecosystem-roadmap-stage">
+            <span>02 / En construction</span>
+            <h3>Learn prend forme.</h3>
+            <p>
+              Un premier parcours et un espace connecté existent. Le catalogue de formations reste à
+              développer. Des outils de pilotage sont aussi explorés en interne.
+            </p>
+          </div>
+          <div class="ecosystem-roadmap-stage">
+            <span>03 / Vision long terme</span>
+            <h3>La suite reste à bâtir.</h3>
+            <p>
+              Le SaaS Builder, un OS public, une plateforme Cloud, un collectif Consulting et la
+              Fondation font partie de cette direction.
+            </p>
+          </div>
+        </div>
+      </BaseContainer>
+    </section>
+
+    <section class="ecosystem-section ecosystem-origin" aria-labelledby="ecosystem-origin-title">
+      <BaseContainer size="large">
+        <div class="ecosystem-origin-grid">
+          <div>
+            <p class="ecosystem-eyebrow">Pourquoi Altruisme ?</p>
+            <h2 id="ecosystem-origin-title" class="ecosystem-title">
+              Construire quelque chose <span>d’utile.</span>
+            </h2>
+          </div>
+          <p>
+            Le projet vient du parcours de Nicolas Gadeyne entre développement, produit et
+            accompagnement. Son fil conducteur : transmettre ce que l’on apprend, donner du contexte
+            aux décisions et créer de la valeur avant de chercher à capter l’attention.
+          </p>
+        </div>
+      </BaseContainer>
+    </section>
+
+    <section class="ecosystem-section ecosystem-final" aria-labelledby="ecosystem-final-title">
+      <BaseContainer size="large">
+        <div class="ecosystem-final-content">
+          <p class="ecosystem-eyebrow">La prochaine étape</p>
+          <h2 id="ecosystem-final-title" class="ecosystem-title">
+            Commencer par apprendre. <span>Puis construire la suite.</span>
+          </h2>
+          <p>
+            Learn est la priorité du moment. Le catalogue s’étoffera progressivement autour de
+            formations concrètes.
+          </p>
+          <div class="ecosystem-actions">
+            <BaseButton
+              href="https://learn.altruisme.dev/"
+              size="large"
+              class="ecosystem-inverse-button"
+              >Découvrir Learn</BaseButton
+            >
+            <BaseButton
+              to="/guides"
+              variant="secondary"
+              size="large"
+              class="ecosystem-outline-button"
+              >Explorer les guides</BaseButton
+            >
+          </div>
+        </div>
+      </BaseContainer>
+    </section>
   </main>
 </template>
+
+<style scoped src="./AboutView.css"></style>

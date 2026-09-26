@@ -131,6 +131,29 @@ for (const path of [...prerenderPaths, '/404']) {
       'Actu Tech de la semaine #39 sur Altruisme.DEV : Claude sort de l’écran',
     )
   }
+  if (path === '/apropos') {
+    assert.equal(
+      document.querySelector('h1')?.textContent.replace(/\s+/g, ' ').trim(),
+      'Altruisme n’est pas un produit. C’est un écosystème.',
+    )
+    assert.equal(document.querySelectorAll('.ecosystem-brick').length, 6)
+    assert.ok(document.querySelector('.ecosystem-foundation'))
+    assert.equal(document.querySelectorAll('.ecosystem-flow li').length, 5)
+    assert.equal(document.querySelectorAll('.ecosystem-journey-steps li').length, 6)
+    assert.equal(
+      document.querySelector('.ecosystem-actions a')?.getAttribute('href'),
+      'https://learn.altruisme.dev/',
+    )
+    assert.equal(
+      document.querySelector('meta[name="description"]').content,
+      'Découvrez l’écosystème Altruisme : média, formations, consulting et produits pour apprendre, construire, héberger et développer des projets numériques.',
+    )
+    assert.ok(
+      [...document.querySelectorAll('nav a')].some(
+        (link) => link.textContent.trim() === 'Écosystème',
+      ),
+    )
+  }
 }
 for (const retired of ['contact', 'guides/freelance-2026']) {
   await assert.rejects(access(resolve(output, `${retired}.html`)))

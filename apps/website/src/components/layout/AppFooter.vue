@@ -9,7 +9,7 @@ const navigationLinks = [
   { label: 'Podcast', to: '/podcast' },
   { label: 'Communauté', to: '/communaute' },
   { label: 'Contribuer', to: '/contribuer' },
-  { label: 'À propos', to: '/apropos' },
+  { label: 'Écosystème', to: '/apropos' },
 ]
 const legalLinks = [
   { label: 'Mentions légales', to: '/mentions-legales' },

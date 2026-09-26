@@ -25,9 +25,9 @@ Les sujets principaux sont le Product Management, le SaaS, l'intelligence artifi
 - [Communauté](https://altruisme.dev/communaute): Espace communautaire Altruisme.DEV pour poursuivre les discussions autour des sujets publiés.
 - [Contribuer](https://altruisme.dev/contribuer): Informations pour proposer un retour d'expérience, une analyse, une étude de cas ou un sujet à Altruisme.DEV.
 
-## À propos
+## Écosystème
 
-- [À propos d'Altruisme.DEV](https://altruisme.dev/apropos): Présentation du média, de sa ligne éditoriale et de son fonctionnement.
+- [Écosystème Altruisme](https://altruisme.dev/apropos): Présentation du média, de Learn, Consulting, Builder, OS, Cloud et de la vision de la Fondation Altruisme.
 
 ## Optional
 

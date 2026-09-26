@@ -7,7 +7,7 @@ const links = [
   { label: 'Actualités', to: '/actualites' },
   { label: 'Guides', to: '/guides' },
   { label: 'Podcast', to: '/podcast' },
-  { label: 'À propos', to: '/apropos' },
+  { label: 'Écosystème', to: '/apropos' },
 ]
 function closeMenu() { isOpen.value = false }
 </script>
