@@ -6,6 +6,7 @@ const currentYear = new Date().getFullYear()
 const navigationLinks = [
   { label: 'Actualités', to: '/actualites' },
   { label: 'Guides', to: '/guides' },
+  { label: 'Outils', to: '/outils' },
   { label: 'Podcast', to: '/podcast' },
   { label: 'Lance-toi', to: '/lancement' },
   { label: 'Contribuer', to: '/contribuer' },

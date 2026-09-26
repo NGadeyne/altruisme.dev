@@ -57,6 +57,16 @@ export const routes: RouteRecordRaw[] = [
         'Guides complets sur le freelancing, le SaaS, l’automatisation, les ESN, l’e-commerce, l’IA et les marketplaces.',
     },
   },
+  {
+    path: '/outils',
+    name: 'tools',
+    component: () => import('../views/ToolsView.vue'),
+    meta: {
+      title: 'Outils tech 2026 | Altruisme.DEV',
+      description:
+        'Des guides pratiques à venir sur Semrush, Brevo, Supabase, Cloudflare, Payfit et Revolut pour acquérir, construire et gérer.',
+    },
+  },
   ...guideRoutes,
   {
     path: '/guides/saas-2026',

@@ -16,6 +16,10 @@ Les sujets principaux sont le Product Management, le SaaS, l'intelligence artifi
 - [IA 2026 : Guide complet](https://altruisme.dev/guides/ia): Modèles, prompting, RAG, API, agents, sécurité et intégration dans les produits et les entreprises.
 - [Tous les guides](https://altruisme.dev/guides): Index des guides de fond publiés par Altruisme.DEV.
 
+## Outils
+
+- [Tous les outils](https://altruisme.dev/outils): Guides à venir sur des outils pour acquérir, construire et gérer une activité numérique.
+
 ## Actualités et analyses
 
 - [Actualités](https://altruisme.dev/actualites): Actualités tech sélectionnées, analysées et contextualisées.

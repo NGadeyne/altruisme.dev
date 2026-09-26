@@ -6,6 +6,7 @@ const isOpen = ref(false)
 const links = [
   { label: 'Actualités', to: '/actualites' },
   { label: 'Guides', to: '/guides' },
+  { label: 'Outils', to: '/outils' },
   { label: 'Podcast', to: '/podcast' },
   { label: 'Écosystème', to: '/apropos' },
 ]
@@ -14,7 +15,7 @@ function closeMenu() { isOpen.value = false }
 
 <template>
   <nav aria-label="Navigation principale" class="relative">
-    <div class="hidden items-center gap-3 md:flex">
+    <div class="hidden items-center gap-3 lg:flex">
       <ul class="flex items-center gap-1 rounded-xl border border-petrol/12 bg-white/35 p-1 backdrop-blur-sm">
         <li v-for="link in links" :key="link.to">
           <RouterLink :to="link.to" class="block rounded-lg px-3 py-1.5 text-sm font-medium text-muted transition hover:bg-petrol/8 hover:text-ink" active-class="!bg-petrol/12 !text-petrol">
@@ -25,12 +26,12 @@ function closeMenu() { isOpen.value = false }
       <BaseButton to="/lancement" variant="primary" size="small">Lance-toi</BaseButton>
     </div>
 
-    <button type="button" class="flex h-10 w-10 items-center justify-center rounded-xl border border-petrol/15 bg-white/45 text-petrol-dark transition hover:bg-white/70 md:hidden" :aria-expanded="isOpen" :aria-label="isOpen ? 'Fermer le menu' : 'Ouvrir le menu'" @click="isOpen = !isOpen">
+    <button type="button" class="flex h-10 w-10 items-center justify-center rounded-xl border border-petrol/15 bg-white/45 text-petrol-dark transition hover:bg-white/70 lg:hidden" :aria-expanded="isOpen" :aria-label="isOpen ? 'Fermer le menu' : 'Ouvrir le menu'" @click="isOpen = !isOpen">
       <svg v-if="!isOpen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" /></svg>
       <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18" /></svg>
     </button>
 
-    <div v-if="isOpen" class="absolute right-0 top-[calc(100%+0.75rem)] z-50 w-[min(22rem,calc(100vw-2rem))] rounded-2xl border border-petrol/10 bg-sand-light/95 p-4 shadow-xl shadow-petrol/10 backdrop-blur-xl md:hidden">
+    <div v-if="isOpen" class="absolute right-0 top-[calc(100%+0.75rem)] z-50 w-[min(22rem,calc(100vw-2rem))] rounded-2xl border border-petrol/10 bg-sand-light/95 p-4 shadow-xl shadow-petrol/10 backdrop-blur-xl lg:hidden">
       <ul class="space-y-1">
         <li v-for="link in links" :key="link.to">
           <RouterLink :to="link.to" class="block rounded-xl px-4 py-3 text-sm font-medium text-muted transition hover:bg-petrol/8 hover:text-ink" active-class="!bg-petrol/12 !text-petrol" @click="closeMenu">{{ link.label }}</RouterLink>
