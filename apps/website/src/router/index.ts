@@ -64,7 +64,7 @@ export const routes: RouteRecordRaw[] = [
     meta: {
       title: 'Outils tech 2026 | Altruisme.DEV',
       description:
-        'Des guides pratiques à venir sur Semrush, Brevo, Supabase, Cloudflare, Payfit et Revolut pour acquérir, construire et gérer.',
+        'Des guides d’outils et des projets Altruisme à venir pour acquérir, construire et gérer une activité numérique.',
     },
   },
   ...guideRoutes,

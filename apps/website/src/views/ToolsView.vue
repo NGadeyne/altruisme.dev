@@ -24,15 +24,27 @@ const tools: { label: string; title: string; description: string; category: Tool
     category: 'acquerir',
   },
   {
+    label: 'Projet Altruisme',
+    title: 'Consulting',
+    description: 'Un accompagnement ciblé par des spécialistes pour répondre à un besoin précis.',
+    category: 'acquerir',
+  },
+  {
     label: 'Supabase',
     title: 'Supabase 2026 : Guide complet',
     description: 'Prendre en main Supabase pour créer un backend, gérer les données et l’authentification.',
     category: 'construire',
   },
   {
-    label: 'Cloudflare',
-    title: 'Cloudflare 2026 : Guide complet',
-    description: 'Comprendre Cloudflare pour déployer, accélérer et sécuriser ses projets web.',
+    label: 'Datadog',
+    title: 'Datadog 2026 : Guide complet',
+    description: 'Comprendre Datadog pour surveiller ses applications, son infrastructure et leurs performances.',
+    category: 'construire',
+  },
+  {
+    label: 'Projet Altruisme',
+    title: 'Builder',
+    description: 'Cadrer un produit, prendre les bonnes décisions et préparer sa construction.',
     category: 'construire',
   },
   {
@@ -45,6 +57,12 @@ const tools: { label: string; title: string; description: string; category: Tool
     label: 'Revolut',
     title: 'Revolut 2026 : Guide complet',
     description: 'Comprendre Revolut pour organiser ses comptes, ses paiements et ses dépenses professionnelles.',
+    category: 'gerer',
+  },
+  {
+    label: 'Projet Altruisme',
+    title: 'OS',
+    description: 'Un espace simple pour suivre prospects, clients, missions, finances et indicateurs.',
     category: 'gerer',
   },
 ]
@@ -91,7 +109,7 @@ const visibleTools = computed(() => tools.filter((tool) => tool.category === act
           </div>
         </div>
         <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          <article v-for="tool in visibleTools" :key="tool.label"
+          <article v-for="tool in visibleTools" :key="tool.title"
             class="flex min-h-[300px] flex-col rounded-3xl border border-petrol/15 bg-white/40 p-7">
             <div class="flex items-center justify-between gap-4"><span
                 class="text-xs font-semibold uppercase tracking-[0.15em] text-petrol">{{ tool.label }}</span><span

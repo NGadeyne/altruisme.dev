@@ -18,7 +18,7 @@ Les sujets principaux sont le Product Management, le SaaS, l'intelligence artifi
 
 ## Outils
 
-- [Tous les outils](https://altruisme.dev/outils): Guides à venir sur des outils pour acquérir, construire et gérer une activité numérique.
+- [Tous les outils](https://altruisme.dev/outils): Guides d’outils et projets Altruisme à venir pour acquérir, construire et gérer une activité numérique.
 
 ## Actualités et analyses
 
