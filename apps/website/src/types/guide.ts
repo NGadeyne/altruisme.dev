@@ -21,11 +21,14 @@ export type GuideSection = {
   subsections: GuideSubsection[]
 }
 
+export type GuideCategory = 'entreprendre' | 'construire' | 'acquerir'
+
 export type GuideMetadata = {
   slug: string
   title: string
   description: string
   label: string
+  category: GuideCategory
   edition: string
   status: 'available' | 'soon'
   seoTitle?: string

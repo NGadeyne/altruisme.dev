@@ -9,6 +9,7 @@ export const guides: GuideDefinition[] = [
       'Construire une activité freelance solide : positionnement, offre, acquisition, vente, TJM, organisation et développement.',
     status: 'available',
     label: 'Freelance',
+    category: 'entreprendre',
     edition: '2026',
     seoTitle: 'Freelance 2026 : Guide complet pour devenir freelance | Altruisme.DEV',
     image: '/images/guides/guide-freelance.webp',
@@ -29,6 +30,7 @@ export const guides: GuideDefinition[] = [
       'Le guide complet pour créer un SaaS en 2026 : idée, validation, MVP, produit, tech, IA, pricing, acquisition, vente, métriques, finance et croissance.',
     status: 'available',
     label: 'SaaS',
+    category: 'entreprendre',
     edition: '2026',
     seoTitle: 'SaaS 2026 : le guide ultime pour créer et lancer son SaaS',
     ogTitle: 'SaaS 2026 : le guide ultime',
@@ -52,6 +54,7 @@ export const guides: GuideDefinition[] = [
       'Concevoir des automatisations utiles, fiables et maintenables pour les produits, les équipes et les opérations.',
     status: 'soon',
     label: 'Automatisation',
+    category: 'construire',
     edition: '2026',
   },
   {
@@ -61,6 +64,7 @@ export const guides: GuideDefinition[] = [
       'Comprendre le modèle ESN, ses métiers, son économie, ses forces, ses limites et ses évolutions.',
     status: 'soon',
     label: 'ESN',
+    category: 'entreprendre',
     edition: '2026',
   },
   {
@@ -70,6 +74,7 @@ export const guides: GuideDefinition[] = [
       'Construire une activité e-commerce moderne : modèle, acquisition, produit, marge, opérations et fidélisation.',
     status: 'soon',
     label: 'E-commerce',
+    category: 'entreprendre',
     edition: '2026',
   },
   {
@@ -79,6 +84,7 @@ export const guides: GuideDefinition[] = [
       'Comprendre l’IA moderne, ses usages, ses limites et la façon de l’intégrer réellement dans un produit ou une organisation.',
     status: 'soon',
     label: 'IA',
+    category: 'entreprendre',
     edition: '2026',
   },
   {
@@ -88,6 +94,7 @@ export const guides: GuideDefinition[] = [
       'Comprendre les effets de réseau, la liquidité, la confiance, la monétisation et les défis propres aux marketplaces.',
     status: 'soon',
     label: 'Marketplace',
+    category: 'entreprendre',
     edition: '2026',
   },
 ]

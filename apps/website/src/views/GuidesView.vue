@@ -1,6 +1,23 @@
 <script setup lang="ts">
+import { computed, ref } from 'vue'
 import { BaseContainer } from '@altruisme/ui'
 import { featuredGuides } from '@/data/site'
+import type { GuideCategory } from '@/types/guide'
+
+type GuideFilter = GuideCategory | 'all'
+
+const filters: { label: string; value: GuideFilter }[] = [
+  { label: 'Tous', value: 'all' },
+  { label: 'Entreprendre', value: 'entreprendre' },
+  { label: 'Construire', value: 'construire' },
+  { label: 'Acquérir', value: 'acquerir' },
+]
+const activeFilter = ref<GuideFilter>('all')
+const visibleGuides = computed(() =>
+  activeFilter.value === 'all'
+    ? featuredGuides
+    : featuredGuides.filter((guide) => guide.category === activeFilter.value),
+)
 </script>
 
 <template>
@@ -20,8 +37,29 @@ import { featuredGuides } from '@/data/site'
     </section>
     <section class="pb-24">
       <BaseContainer>
-        <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          <article v-for="guide in featuredGuides" :key="guide.title"
+        <div class="mb-8 flex flex-col gap-5 border-b border-petrol/15 pb-6 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.15em] text-petrol">Explorer les guides</p>
+            <p class="mt-2 text-sm text-muted">Choisis le sujet qui t’aide à avancer.</p>
+          </div>
+          <div role="group" aria-label="Filtrer les guides" class="flex flex-wrap gap-2">
+            <button
+              v-for="filter in filters"
+              :key="filter.value"
+              type="button"
+              :aria-pressed="activeFilter === filter.value"
+              :class="[
+                'rounded-full border px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-petrol',
+                activeFilter === filter.value
+                  ? 'border-petrol bg-petrol text-white'
+                  : 'border-petrol/20 bg-white/45 text-petrol hover:border-petrol/45 hover:bg-white/75',
+              ]"
+              @click="activeFilter = filter.value"
+            >{{ filter.label }}</button>
+          </div>
+        </div>
+        <div v-if="visibleGuides.length" class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <article v-for="guide in visibleGuides" :key="guide.title"
             class="flex min-h-[300px] flex-col rounded-3xl border border-petrol/15 bg-white/40 p-7">
             <div class="flex items-center justify-between gap-4"><span
                 class="text-xs font-semibold uppercase tracking-[0.15em] text-petrol">{{ guide.label }}</span><span
@@ -33,6 +71,11 @@ import { featuredGuides } from '@/data/site'
               le guide →</RouterLink>
             <p v-else class="mt-7 text-sm font-semibold text-muted-light">Publication à venir</p>
           </article>
+        </div>
+        <div v-else class="rounded-3xl border border-petrol/15 bg-white/40 px-7 py-12 text-center" role="status">
+          <p class="text-lg font-semibold text-ink">Aucun guide dans cette catégorie pour le moment.</p>
+          <p class="mt-2 text-sm text-muted">Les prochains guides apparaîtront ici.</p>
+          <button type="button" class="mt-6 text-sm font-semibold text-petrol underline underline-offset-4" @click="activeFilter = 'all'">Voir tous les guides</button>
         </div>
       </BaseContainer>
     </section>
