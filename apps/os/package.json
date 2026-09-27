@@ -1,5 +1,5 @@
 {
-  "name": "@altruisme/website",
+  "name": "@altruisme/os",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -8,18 +8,18 @@
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "test:unit": "vitest",
-    "build-only": "vite build && vite build --ssr src/entry-server.ts --outDir node_modules/.prerender && node scripts/prerender.mjs",
+    "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint": "run-s \"lint:*\"",
     "lint:oxlint": "oxlint . --fix",
     "lint:eslint": "eslint . --fix --cache",
-    "format": "prettier --write --experimental-cli src/",
-    "test:prerender": "node scripts/check-prerender.mjs"
+    "format": "prettier --write --experimental-cli src/"
   },
   "dependencies": {
-    "@altruisme/brand": "0.0.0",
-    "@altruisme/ui": "0.0.0",
+    "@altruisme/supabase": "0.0.0",
+    "@supabase/supabase-js": "^2.112.4",
     "@tailwindcss/vite": "^4.3.3",
+    "pinia": "^4.0.2",
     "tailwindcss": "^4.3.3",
     "vue": "^3.5.40",
     "vue-router": "^5.2.0"
@@ -41,7 +41,7 @@
     "jiti": "^2.7.0",
     "jsdom": "^29.1.1",
     "npm-run-all2": "^9.0.2",
-    "oxlint": "~1.73.0",
+    "oxlint": "~1.74.0",
     "prettier": "3.9.5",
     "typescript": "~6.0.0",
     "vite": "^8.1.5",

@@ -1,5 +1,7 @@
 # Restructuration progressive du monorepo
 
+> Document historique rédigé lors des migrations de septembre 2026. Les sections « État actuel » et « Étapes suivantes » décrivent la situation à leur date de rédaction. Pour les applications, Workers et domaines en service, consulter [l'architecture actuelle](architecture.md).
+
 ## Premier lot réalisé
 
 Le premier lot est maintenant implémenté : `packages/ui` exporte `BaseButton`

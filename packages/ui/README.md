@@ -1,8 +1,9 @@
 # @altruisme/ui
 
-Composants Vue partagés par `apps/website` et `apps/audit` : `BaseButton` et
-`BaseContainer`. Leurs props, styles et comportements sont conservés lors de
-l'extraction. Les variantes propres à learn et coaching restent dans ces apps.
+Composants Vue partagés par `apps/website`, `apps/builder`, `apps/cloud`,
+`apps/learn`, `apps/fondation` et `apps/consulting`. `BaseButton` et
+`BaseContainer` ont été extraits du site et de l'ancienne application Audit.
+Les variantes propres à Learn et OS restent dans ces applications.
 
 ```ts
 import { BaseButton, BaseContainer } from '@altruisme/ui'
@@ -25,12 +26,12 @@ Dans `apps/<app>/src/assets/main.css`, déclarer les sources Tailwind :
 Vérification des consommateurs actuels depuis la racine :
 
 ```sh
-npm run build --workspace=@acquisition/website --workspace=@acquisition/audit
-npm run test:unit --workspace=@acquisition/website -- --run
-npm run test:prerender --workspace=@acquisition/website
+npm run build --workspace=@altruisme/website --workspace=@altruisme/builder --workspace=@altruisme/cloud --workspace=@altruisme/learn --workspace=@altruisme/fondation --workspace=@altruisme/consulting
+npm run test:unit --workspace=@altruisme/website -- --run
+npm run test:prerender --workspace=@altruisme/website
 ```
 
 Les builds Cloudflare doivent disposer du dépôt complet et installer depuis le
 lockfile racine. Les commandes et configurations de déploiement restent propres
 à chaque application. Si des filtres de chemins sont configurés dans Cloudflare,
-inclure `packages/ui/**` pour les deux consommateurs.
+inclure `packages/ui/**` pour tous les consommateurs concernés.
