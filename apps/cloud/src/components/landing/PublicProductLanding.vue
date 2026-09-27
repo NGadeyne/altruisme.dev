@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BaseContainer from './BaseContainer.vue'
+import { BaseContainer } from '@altruisme/ui'
 import FaqList from './FaqList.vue'
 import PublicFooter from './PublicFooter.vue'
 import PublicHeader from './PublicHeader.vue'

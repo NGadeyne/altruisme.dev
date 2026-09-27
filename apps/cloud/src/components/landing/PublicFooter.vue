@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BaseContainer from './BaseContainer.vue'
+import { BaseContainer } from '@altruisme/ui'
 
 const props = defineProps<{ tagline: string; legalLinks?: boolean; cookieEventName?: string; borderless?: boolean }>()
 const year = new Date().getFullYear()

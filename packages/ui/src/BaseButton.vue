@@ -36,9 +36,9 @@ const baseClasses = [
   'duration-200',
   'focus-visible:outline-none',
   'focus-visible:ring-2',
-  'focus-visible:ring-[#4f7774]/35',
+  'focus-visible:ring-petrol/35',
   'focus-visible:ring-offset-2',
-  'focus-visible:ring-offset-[#f4efe7]',
+  'focus-visible:ring-offset-sand',
   'disabled:pointer-events-none',
   'disabled:opacity-50',
 ].join(' ')
@@ -106,7 +106,7 @@ const baseClasses = [
    ========================================================= */
 
 .base-button--primary {
-  background-color: #4f7774 !important;
+  background-color: var(--color-petrol) !important;
   color: #ffffff !important;
 
   box-shadow:
@@ -115,7 +115,7 @@ const baseClasses = [
 }
 
 .base-button--primary:hover {
-  background-color: #456b68 !important;
+  background-color: var(--color-petrol-hover) !important;
   color: #ffffff !important;
 
   transform: translateY(-2px);
@@ -134,7 +134,7 @@ const baseClasses = [
   border: 1px solid rgb(79 119 116 / 0.25);
 
   background-color: rgb(255 255 255 / 0.72) !important;
-  color: #31413f !important;
+  color: var(--color-petrol-dark) !important;
 
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -144,7 +144,7 @@ const baseClasses = [
   border-color: rgb(79 119 116 / 0.4);
 
   background-color: #ffffff !important;
-  color: #222826 !important;
+  color: var(--color-ink) !important;
 
   transform: translateY(-2px);
 }
@@ -155,12 +155,12 @@ const baseClasses = [
 
 .base-button--ghost {
   background-color: transparent !important;
-  color: #64706c !important;
+  color: var(--color-muted) !important;
 }
 
 .base-button--ghost:hover {
   background-color: rgb(79 119 116 / 0.08) !important;
-  color: #222826 !important;
+  color: var(--color-ink) !important;
 
   transform: translateY(-2px);
 }

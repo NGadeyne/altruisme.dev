@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BaseContainer from './BaseContainer.vue'
+import { BaseContainer } from '@altruisme/ui'
 
 defineProps<{ product: 'Builder' | 'Cloud' | 'Learn'; actionHref: string; actionLabel: string }>()
 

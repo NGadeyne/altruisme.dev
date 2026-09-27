@@ -1,12 +1,8 @@
 @import 'tailwindcss';
+@import '@altruisme/brand/tokens.css';
 
 :root {
-  font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    sans-serif;
+  font-family: var(--font-sans);
 
   color: #18181b;
   background: #f4f4f5;
