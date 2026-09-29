@@ -10,6 +10,55 @@ const showVideo = ref(false)
 const openFaq = ref<number | null>(null)
 const landingRoot = ref<HTMLElement | null>(null)
 let revealObserver: IntersectionObserver | undefined
+let calendlyLoad: Promise<void> | undefined
+
+type CalendlyWindow = Window & {
+  Calendly?: { initPopupWidget: (options: { url: string }) => void }
+}
+
+function loadCalendly() {
+  if ((window as CalendlyWindow).Calendly) return Promise.resolve()
+  if (calendlyLoad) return calendlyLoad
+
+  const stylesheet = document.createElement('link')
+  stylesheet.rel = 'stylesheet'
+  stylesheet.href = 'https://assets.calendly.com/assets/external/widget.css'
+
+  const script = document.createElement('script')
+  script.src = 'https://assets.calendly.com/assets/external/widget.js'
+  script.async = true
+
+  calendlyLoad = Promise.all([
+    new Promise<void>((resolve, reject) => {
+      stylesheet.onload = () => resolve()
+      stylesheet.onerror = () => reject(new Error('Calendly stylesheet failed to load'))
+      document.head.append(stylesheet)
+    }),
+    new Promise<void>((resolve, reject) => {
+      script.onload = () => resolve()
+      script.onerror = () => reject(new Error('Calendly script failed to load'))
+      document.head.append(script)
+    }),
+  ]).then(() => undefined).catch((error: unknown) => {
+    stylesheet.remove()
+    script.remove()
+    calendlyLoad = undefined
+    throw error
+  })
+
+  return calendlyLoad
+}
+
+async function openCalendly() {
+  try {
+    await loadCalendly()
+    const calendly = (window as CalendlyWindow).Calendly
+    if (!calendly) throw new Error('Calendly popup is unavailable')
+    calendly.initPopupWidget({ url: props.actionHref })
+  } catch {
+    window.location.assign(props.actionHref)
+  }
+}
 
 onMounted(() => {
   if (!landingRoot.value || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
@@ -206,7 +255,7 @@ const faqs = [
             </div>
             <h1 class="mx-auto mt-7 max-w-[52rem] text-[2.45rem] font-semibold leading-[1.12] tracking-[-0.045em] text-ink sm:text-[3.35rem] lg:text-[3.85rem] lg:leading-[1.08]">
               Ton site ne devrait pas simplement exister.
-              <span class="mt-1 block text-petrol sm:mt-2">Il devrait t’apporter des clients.</span>
+              <span class="mt-1 block text-petrol sm:mt-2">Il devrait t’apporter des clients&nbsp;!</span>
             </h1>
             <div class="builder-player-wrap relative mx-auto mt-10 max-w-3xl sm:mt-11">
               <div class="builder-player-shell rounded-[1.35rem] p-1 sm:rounded-[1.7rem] sm:p-1.5">
@@ -225,7 +274,7 @@ const faqs = [
               J’identifie ce qui freine ta visibilité sur Google, je priorise les actions qui peuvent réellement faire progresser ton site et, si besoin, je les implémente.
             </p>
             <div class="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
-              <a :href="props.actionHref" class="builder-button builder-button--primary">{{ props.actionLabel }}<span class="ml-2" aria-hidden="true">↗</span></a>
+              <a :href="props.actionHref" class="builder-button builder-button--primary" @click.prevent="openCalendly">{{ props.actionLabel }}<span class="ml-2" aria-hidden="true">↗</span></a>
               <a href="#sprint-seo" class="builder-button builder-button--secondary">Découvrir le Sprint SEO</a>
             </div>
             <p class="mt-7 text-sm font-medium text-muted-light">Audit SEO <span class="mx-2 font-bold text-petrol/80">·</span> Stratégie <span class="mx-2 font-bold text-petrol/80">·</span> Contenu <span class="mx-2 font-bold text-petrol/80">·</span> Technique</p>
@@ -458,7 +507,7 @@ const faqs = [
           </div>
           <div class="mt-10 flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-center">
             <p class="max-w-lg leading-7 text-muted">Pas besoin de choisir maintenant. Le premier échange sert justement à voir ce qui a du sens.</p>
-            <a :href="props.actionHref" class="builder-button builder-button--primary shrink-0">{{ props.actionLabel }} <span class="ml-2" aria-hidden="true">↗</span></a>
+            <a :href="props.actionHref" class="builder-button builder-button--primary shrink-0" @click.prevent="openCalendly">{{ props.actionLabel }} <span class="ml-2" aria-hidden="true">↗</span></a>
           </div>
         </BaseContainer>
       </section>
@@ -475,7 +524,7 @@ const faqs = [
               <p class="mt-6 text-lg leading-8 text-muted">On parle de ton site, de tes objectifs, des blocages possibles et des prochaines actions utiles. Pas besoin d’arriver avec un cahier des charges.</p>
               <p class="mt-5 text-lg leading-8 text-muted">La suite peut être un Sprint, une implémentation directe… ou aucune mission si le SEO n’est pas ta priorité.</p>
               <p class="mt-6 text-sm font-medium text-[#53777a]">Sans engagement · Avec un premier regard concret sur ton site</p>
-              <a :href="props.actionHref" class="builder-button builder-button--primary mt-8">{{ props.actionLabel }} <span class="ml-2" aria-hidden="true">↗</span></a>
+              <a :href="props.actionHref" class="builder-button builder-button--primary mt-8" @click.prevent="openCalendly">{{ props.actionLabel }} <span class="ml-2" aria-hidden="true">↗</span></a>
             </div>
           </div>
         </BaseContainer>
@@ -509,7 +558,7 @@ const faqs = [
           <div data-builder-reveal class="builder-reveal relative mx-auto max-w-4xl text-center">
             <h2 class="mx-auto max-w-3xl text-3xl font-semibold leading-[1.12] tracking-[-0.04em] sm:text-5xl">Et si on commençait simplement par regarder ton site&nbsp;?</h2>
             <p class="mx-auto mt-6 max-w-lg text-lg leading-8 text-[#dbe8e4]">En 45 minutes, on identifie ce qui freine ton SEO et les premières actions qui méritent vraiment ton attention.</p>
-            <a :href="props.actionHref" class="builder-button builder-button--inverse mt-9">{{ props.actionLabel }} <span class="ml-2" aria-hidden="true">↗</span></a>
+            <a :href="props.actionHref" class="builder-button builder-button--inverse mt-9" @click.prevent="openCalendly">{{ props.actionLabel }} <span class="ml-2" aria-hidden="true">↗</span></a>
             <p class="mt-5 text-sm text-[#bdd1c9]">Sans engagement</p>
           </div>
         </BaseContainer>
