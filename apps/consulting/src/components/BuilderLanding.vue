@@ -42,20 +42,20 @@ function openCookieSettings() {
 const seoSignals = [
   { title: 'Peu visible', text: 'Tes pages importantes restent trop loin dans les résultats.' },
   { title: 'Peu clair', text: 'Tu ne sais pas quelles requêtes ou quelles pages prioriser.' },
-  { title: 'Peu actif', text: 'Ton site présente bien ton activité, mais génère peu de demandes.' },
+  { title: 'Peu performant', text: 'Ton site présente ton activité, mais transforme encore trop peu de visiteurs en opportunités.' },
 ]
 
 const diagnosticAxes = [
-  { title: 'Positionnement', text: 'Google comprend mal ce que tu proposes.' },
+  { title: 'Positionnement', text: 'Ton offre et tes sujets prioritaires ne sont pas assez clairs.' },
   { title: 'Contenu', text: 'Tes pages ne répondent pas aux bonnes intentions.' },
-  { title: 'Structure', text: 'Les pages importantes ne sont pas assez mises en avant.' },
+  { title: 'Structure', text: 'Google et tes visiteurs accèdent difficilement aux pages qui comptent.' },
   { title: 'Technique', text: 'Certains freins limitent l’indexation ou la performance.' },
   { title: 'Conversion', text: 'Le trafic existe parfois, sans vraiment devenir une opportunité.' },
 ]
 const methodSteps = [
   { title: 'Comprendre', text: 'Ton activité, ton marché, tes clients — et le rôle que ton site doit réellement jouer.' },
   { title: 'Diagnostiquer', text: 'Repérer les freins et les opportunités qui méritent vraiment ton attention.' },
-  { title: 'Prioriser', text: 'Transformer l’analyse en actions concrètes, classées selon leur impact et leur effort.' },
+  { title: 'Prioriser', text: 'Transformer le diagnostic en roadmap : quoi corriger, quoi créer et dans quel ordre.' },
 ]
 const caseStudies = [
   {
@@ -222,13 +222,13 @@ const faqs = [
               </div>
             </div>
             <p class="mx-auto mt-8 max-w-[41rem] text-base leading-7 text-muted sm:text-lg sm:leading-8">
-              J’identifie ce qui bloque, je t’aide à savoir quoi améliorer en priorité et, si besoin, je l’implémente.
+              J’identifie ce qui freine ta visibilité sur Google, je priorise les actions qui peuvent réellement faire progresser ton site et, si besoin, je les implémente.
             </p>
             <div class="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
               <a :href="props.actionHref" class="builder-button builder-button--primary">{{ props.actionLabel }}<span class="ml-2" aria-hidden="true">↗</span></a>
               <a href="#sprint-seo" class="builder-button builder-button--secondary">Découvrir le Sprint SEO</a>
             </div>
-            <p class="mt-7 text-sm font-medium text-muted-light">Audit SEO <span class="mx-2 font-bold text-petrol/80">·</span> Stratégie SEO <span class="mx-2 font-bold text-petrol/80">·</span> Backlinks SEO</p>
+            <p class="mt-7 text-sm font-medium text-muted-light">Audit SEO <span class="mx-2 font-bold text-petrol/80">·</span> Stratégie <span class="mx-2 font-bold text-petrol/80">·</span> Contenu <span class="mx-2 font-bold text-petrol/80">·</span> Technique</p>
           </div>
         </BaseContainer>
       </section>
@@ -297,7 +297,7 @@ const faqs = [
           <div class="relative">
             <div class="max-w-2xl">
               <h2 class="text-3xl font-semibold leading-[1.12] tracking-[-0.04em] sm:text-5xl">Le trafic seul ne suffit pas</h2>
-              <p class="mt-5 max-w-lg text-lg leading-8 text-[#d8e7e2]">Le bon référencement crée un chemin, pas seulement une visite.</p>
+              <p class="mt-5 max-w-lg text-lg leading-8 text-[#d8e7e2]">Un bon référencement ne génère pas seulement du trafic. Il crée un chemin jusqu’à ton offre.</p>
             </div>
             <ol data-builder-sequence class="builder-journey mt-16 sm:mt-20">
               <li data-builder-reveal class="builder-reveal builder-journey-step">
@@ -354,8 +354,8 @@ const faqs = [
               <p class="mt-7 text-lg leading-8 text-muted">Et trop de possibilités pour savoir où commencer.</p>
             </div>
             <div class="builder-transformation-after relative overflow-hidden rounded-[1.75rem] p-8 sm:p-11">
-              <h3 class="text-sm font-medium tracking-[.16em] text-[#527779]">Après le diagnostic</h3>
-              <p class="mt-8 text-2xl font-semibold leading-snug tracking-tight text-[#2b555b] sm:text-3xl">Les bonnes pages.<br>Les bons sujets.<br>Les corrections utiles.</p>
+              <h3 class="text-sm font-medium tracking-[.16em] text-[#527779]">Après le Sprint</h3>
+              <p class="mt-8 text-2xl font-semibold leading-snug tracking-tight text-[#2b555b] sm:text-3xl">Les pages à travailler.<br>Les sujets à développer.<br>Les corrections prioritaires.</p>
               <p class="mt-7 max-w-md text-lg leading-8 text-muted">Une roadmap claire pour les prochaines semaines, dans le bon ordre.</p>
             </div>
           </div>
@@ -370,8 +370,8 @@ const faqs = [
             </div>
             <div data-builder-reveal class="builder-reveal builder-personal-copy max-w-xl">
               <h2 class="text-3xl font-semibold leading-[1.13] tracking-[-0.04em] sm:text-5xl">Je regarde ton site <span class="text-petrol">dans son ensemble</span></h2>
-              <p class="mt-8 text-lg leading-8 text-muted">Je travaille le SEO depuis 2019. Avant ça, et toujours aujourd’hui, je construis aussi des sites et des produits web.</p>
-              <p class="mt-5 text-lg leading-8 text-muted">Cette double lecture change le diagnostic : je vois les contenus, mais aussi la structure, la technique, l’offre et ce qui transforme une visite en demande.</p>
+              <p class="mt-8 text-lg leading-8 text-muted">Je travaille le SEO depuis 2019, avec une particularité : je viens aussi du développement et du produit.</p>
+              <p class="mt-5 text-lg leading-8 text-muted">Cette double lecture change le diagnostic : je ne regarde pas seulement tes mots-clés et tes contenus. Je regarde aussi la structure du site, sa technique, ton offre et le chemin qui transforme une recherche Google en opportunité.</p>
               <p class="mt-8 max-w-md border-l-2 border-[#6c9291]/45 pl-5 text-xl font-medium leading-8 text-[#315d61]">Pas une couche de SEO ajoutée au site. Une direction cohérente pour le faire progresser.</p>
             </div>
           </div>
@@ -406,7 +406,6 @@ const faqs = [
                 <p class="builder-case-copy-stack"><span v-for="(study, index) in caseStudies" :key="study.client" class="builder-case-copy-item" :class="{ 'builder-case-copy-item--active': activeCaseIndex === index }" :aria-hidden="activeCaseIndex !== index">{{ study.result }}</span></p>
               </div>
             </div>
-            <p class="mt-12 max-w-2xl text-lg font-medium leading-8 text-[#315d61] lg:ml-auto lg:mt-16">Pas de recette magique : une stratégie mieux structurée et des actions mieux ciblées.</p>
           </article>
           <nav class="builder-case-navigation mt-8 flex justify-end gap-2" aria-label="Parcourir les cas clients">
             <button v-if="!prefersReducedMotion" type="button" class="builder-case-arrow" :aria-label="isCasePaused ? 'Reprendre le défilement automatique' : 'Mettre en pause le défilement automatique'" :aria-pressed="isCasePaused" @click="toggleCaseAutoplay">
@@ -426,7 +425,7 @@ const faqs = [
           <div class="grid gap-10 md:grid-cols-2 md:gap-20">
             <div class="builder-fit-territory">
               <h3 class="text-2xl font-semibold tracking-tight text-[#315d61]">Pour toi, si…</h3>
-              <p class="mt-4 max-w-md text-lg leading-8 text-muted">Tu es freelance, consultant ou tu développes une activité B2B avec un site déjà en ligne. Tu veux savoir où concentrer tes efforts SEO.</p>
+              <p class="mt-4 max-w-md text-lg leading-8 text-muted">Tu développes une entreprise, un SaaS ou une activité de service B2B avec un site déjà en ligne, mais tu ne sais pas où concentrer tes efforts SEO.</p>
             </div>
             <div class="builder-fit-territory builder-fit-territory--quiet">
               <h3 class="text-2xl font-semibold tracking-tight text-ink">Moins adapté, si…</h3>
@@ -446,8 +445,8 @@ const faqs = [
               <p class="text-sm font-medium text-[#597e80]">Sprint SEO</p>
               <h3 class="mt-5 text-3xl font-semibold leading-tight tracking-tight text-[#254e54] sm:text-4xl">Faire le point</h3>
               <p class="mt-6 max-w-md text-lg leading-8 text-muted">Comprendre ce qui bloque, prioriser et repartir avec une roadmap claire.</p>
-              <p class="builder-offer-scope mt-8 max-w-md text-sm leading-7 text-[#547174]">Audit technique et sémantique <span>·</span> Priorités page par page <span>·</span> Roadmap 90 jours <span>·</span> Restitution</p>
-              <p class="mt-auto pt-10 text-sm font-medium text-[#315d61]">À partir de 990 € HT</p>
+              <p class="builder-offer-scope mt-8 max-w-md text-sm leading-7 text-[#547174]">Audit technique + sémantique <span>·</span> Analyse des opportunités <span>·</span> Priorités page par page <span>·</span> Roadmap SEO 90 jours <span>·</span> Restitution 1:1</p>
+              <p class="mt-auto pt-10 text-sm font-medium text-[#315d61]">Sur devis, selon le périmètre</p>
             </article>
             <article data-builder-reveal class="builder-reveal builder-offer-secondary flex flex-col rounded-[1.75rem] p-7 sm:p-10 lg:min-h-[27rem]">
               <p class="text-sm font-medium text-[#597e80]">Implémentation SEO</p>
@@ -475,7 +474,7 @@ const faqs = [
               <h2 class="text-3xl font-semibold leading-tight tracking-tight sm:text-5xl">D’abord, comprendre ton site</h2>
               <p class="mt-6 text-lg leading-8 text-muted">On parle de ton site, de tes objectifs, des blocages possibles et des prochaines actions utiles. Pas besoin d’arriver avec un cahier des charges.</p>
               <p class="mt-5 text-lg leading-8 text-muted">La suite peut être un Sprint, une implémentation directe… ou aucune mission si le SEO n’est pas ta priorité.</p>
-              <p class="mt-6 text-sm font-medium text-[#53777a]">Sans engagement. Sans tunnel commercial.</p>
+              <p class="mt-6 text-sm font-medium text-[#53777a]">Sans engagement · Avec un premier regard concret sur ton site</p>
               <a :href="props.actionHref" class="builder-button builder-button--primary mt-8">{{ props.actionLabel }} <span class="ml-2" aria-hidden="true">↗</span></a>
             </div>
           </div>
@@ -509,9 +508,9 @@ const faqs = [
         <BaseContainer>
           <div data-builder-reveal class="builder-reveal relative mx-auto max-w-4xl text-center">
             <h2 class="mx-auto max-w-3xl text-3xl font-semibold leading-[1.12] tracking-[-0.04em] sm:text-5xl">Et si on commençait simplement par regarder ton site&nbsp;?</h2>
-            <p class="mx-auto mt-6 max-w-lg text-lg leading-8 text-[#dbe8e4]">On verra ensemble ce qui mérite vraiment ton attention.</p>
+            <p class="mx-auto mt-6 max-w-lg text-lg leading-8 text-[#dbe8e4]">En 45 minutes, on identifie ce qui freine ton SEO et les premières actions qui méritent vraiment ton attention.</p>
             <a :href="props.actionHref" class="builder-button builder-button--inverse mt-9">{{ props.actionLabel }} <span class="ml-2" aria-hidden="true">↗</span></a>
-            <p class="mt-5 text-sm text-[#bdd1c9]">45 min · sans engagement</p>
+            <p class="mt-5 text-sm text-[#bdd1c9]">Sans engagement</p>
           </div>
         </BaseContainer>
       </section>
