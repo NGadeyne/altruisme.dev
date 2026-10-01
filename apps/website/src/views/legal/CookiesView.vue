@@ -158,7 +158,7 @@ function openCookieSettings() {
         <div class="relative">
           <p class="text-sm font-semibold text-[#4f7774]">Tes préférences</p>
 
-          <h2 class="mt-2">Tu peux changer d’avis à tout moment.</h2>
+          <h2 class="mt-2">Tu peux changer d’avis à tout moment</h2>
 
           <p class="mt-3 max-w-2xl text-sm leading-6 text-[#64706c]">
             Ouvre le gestionnaire de cookies pour consulter ou modifier les choix enregistrés sur

@@ -27,8 +27,8 @@ const steps = [
       </div>
       <header class="checklist-header">
         <p>Altruisme.DEV / Ressource gratuite</p>
-        <h1>La checklist<span>.</span></h1>
-        <h2>De l’idée au premier euro.</h2>
+        <h1>La checklist</h1>
+        <h2>De l’idée au premier euro</h2>
         <p>Un premier pas à la fois. Coche ce que tu as fait et note ce qu’il te reste à tester.</p>
       </header>
       <ol class="checklist-steps">

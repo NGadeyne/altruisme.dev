@@ -80,7 +80,7 @@ const visibleTools = computed(() => tools.filter((tool) => tool.category === act
         <div class="mx-auto max-w-4xl text-center">
           <p class="text-sm font-semibold uppercase tracking-[0.18em] text-petrol">Outils Altruisme.DEV</p>
           <h1 class="mt-4 text-4xl font-bold tracking-tight text-ink sm:text-6xl">Des guides complets pour <span
-              class="text-petrol">choisir et maîtriser ses outils.</span></h1>
+              class="text-petrol">choisir et maîtriser ses outils</span></h1>
           <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-muted sm:text-lg">Des ressources pour comprendre les outils, les choisir avec méthode et les utiliser dans des projets concrets.</p>
         </div>
       </BaseContainer>

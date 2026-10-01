@@ -29,7 +29,7 @@ const visibleGuides = computed(() =>
         <div class="mx-auto max-w-4xl text-center">
           <p class="text-sm font-semibold uppercase tracking-[0.18em] text-petrol">Guides Altruisme.DEV</p>
           <h1 class="mt-4 text-4xl font-bold tracking-tight text-ink sm:text-6xl">Des guides complets pour <span
-              class="text-petrol">comprendre et construire.</span></h1>
+              class="text-petrol">comprendre et construire</span></h1>
           <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-muted sm:text-lg">Chaque guide est conçu comme une
             ressource de référence : long format, concret, structuré et mis à jour avec le temps.</p>
         </div>

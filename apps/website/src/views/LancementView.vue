@@ -96,7 +96,7 @@ async function submit() {
             <div id="formulaire" class="launch-form-panel launch-glass">
               <div v-if="result" class="launch-success" role="status" aria-live="polite">
                 <span class="launch-success-mark" aria-hidden="true">✓</span>
-                <h2>{{ result === 'already_registered' ? 'Tu es déjà inscrit.' : 'C’est parti.' }}</h2>
+                <h2>{{ result === 'already_registered' ? 'Tu es déjà inscrit' : 'C’est parti' }}</h2>
                 <p>Ta checklist est prête. Tu peux la consulter et l’enregistrer en PDF depuis ton navigateur.</p>
                 <BaseButton :to="checklistUrl" size="large">Ouvrir la checklist <span aria-hidden="true">↗</span></BaseButton>
               </div>

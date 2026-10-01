@@ -15,6 +15,9 @@ for (const path of [...prerenderPaths, '/404']) {
     document.querySelector('#app h1')?.textContent.trim(),
     `Missing initial content: ${path}`,
   )
+  for (const heading of document.querySelectorAll('#app h1, #app h2')) {
+    assert.ok(!heading.textContent.trim().endsWith('.'), `Final period in ${heading.tagName}: ${path}`)
+  }
   assert.ok(!document.title.includes('Signons ensemble'), path)
   assert.equal(document.querySelectorAll('a[href="/communaute"]').length, 0, path)
   assert.equal(document.querySelectorAll('a[href^="/lancement"]').length, 0, path)
@@ -138,7 +141,7 @@ for (const path of [...prerenderPaths, '/404']) {
   if (path === '/apropos') {
     assert.equal(
       document.querySelector('h1')?.textContent.replace(/\s+/g, ' ').trim(),
-      'Altruisme n’est pas un produit. C’est un écosystème.',
+      'Altruisme n’est pas un produit. C’est un écosystème',
     )
     assert.equal(document.querySelectorAll('.ecosystem-brick').length, 6)
     assert.ok(document.querySelector('.ecosystem-foundation'))

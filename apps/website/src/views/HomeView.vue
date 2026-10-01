@@ -49,7 +49,7 @@ const topics = ['Produit', 'SaaS', 'IA', 'Automatisation', 'Freelance', 'ESN', '
           <p class="media-eyebrow media-glass media-hero-eyebrow"><span class="media-eyebrow-dot" aria-hidden="true" />Média tech indépendant</p>
           <h1 id="media-hero-title" class="media-display">
             La tech mérite mieux
-            <span>que du bruit.</span>
+            <span>que du bruit</span>
           </h1>
           <div class="media-hero-bottom">
             <p class="media-lead">
@@ -90,7 +90,7 @@ const topics = ['Produit', 'SaaS', 'IA', 'Automatisation', 'Freelance', 'ESN', '
         <div class="media-split">
           <div class="media-section-intro media-sticky">
             <p class="media-eyebrow">Le rendez-vous hebdo</p>
-            <h2 id="media-news-title" class="media-title">Comprendre l’actualité. <span>Pas la subir.</span></h2>
+            <h2 id="media-news-title" class="media-title">Comprendre l’actualité. <span>Pas la subir</span></h2>
             <p class="media-copy">
               Chaque semaine, Altruisme.DEV sélectionne les sujets qui méritent vraiment quelques minutes
               de ton attention. Pas de course au clic : du tri, du contexte et un point de vue assumé sur ce
@@ -119,7 +119,7 @@ const topics = ['Produit', 'SaaS', 'IA', 'Automatisation', 'Freelance', 'ESN', '
         <div class="media-guides-heading">
           <div>
             <p class="media-eyebrow">Guides de référence</p>
-            <h2 id="media-guides-title" class="media-title">Des sujets complexes. <span>Enfin traités en profondeur.</span></h2>
+            <h2 id="media-guides-title" class="media-title">Des sujets complexes. <span>Enfin traités en profondeur</span></h2>
             <p class="media-copy">Pensés comme des ressources à garder sous la main : complets, structurés, lisibles et mis à jour.</p>
           </div>
           <BaseButton to="/guides" variant="secondary">Voir la bibliothèque</BaseButton>
@@ -154,7 +154,7 @@ const topics = ['Produit', 'SaaS', 'IA', 'Automatisation', 'Freelance', 'ESN', '
       <BaseContainer size="large">
         <div class="media-manifesto-intro">
           <p class="media-eyebrow">La ligne éditoriale</p>
-          <h2 id="media-manifesto-title" class="media-title">Un média pensé pour <span>les gens qui font.</span></h2>
+          <h2 id="media-manifesto-title" class="media-title">Un média pensé pour <span>les gens qui font</span></h2>
           <p class="media-copy">
             Altruisme.DEV ne cherche pas à couvrir toute la tech. Il cherche à mieux couvrir les sujets qui
             touchent directement ceux qui créent des produits, des entreprises et des carrières dans la tech.
@@ -177,7 +177,7 @@ const topics = ['Produit', 'SaaS', 'IA', 'Automatisation', 'Freelance', 'ESN', '
         <div class="media-podcast-grid">
           <div class="media-podcast-copy">
             <p class="media-eyebrow media-deep-eyebrow"><span class="media-eyebrow-dot" aria-hidden="true" />Le podcast Altruisme.DEV</p>
-            <h2 id="media-podcast-title" class="media-title">Un CTO. Un jeu indé.<br /><span>Et aucune langue de bois.</span></h2>
+            <h2 id="media-podcast-title" class="media-title">Un CTO. Un jeu indé.<br /><span>Et aucune langue de bois</span></h2>
             <p class="media-copy">
               J’invite des CTO et des figures de la tech française à venir jouer en live à un jeu vidéo indépendant.
               Entre deux parties, on parle produit, équipe, architecture, management, carrière, erreurs et quotidien réel.
@@ -215,7 +215,7 @@ const topics = ['Produit', 'SaaS', 'IA', 'Automatisation', 'Freelance', 'ESN', '
         <div class="media-contribute-grid">
           <div>
             <p class="media-eyebrow">Contribuer à Altruisme.DEV</p>
-            <h2 id="media-contribute-title" class="media-title">Les meilleures histoires tech <span>ne viennent pas toujours des médias.</span></h2>
+            <h2 id="media-contribute-title" class="media-title">Les meilleures histoires tech <span>ne viennent pas toujours des médias</span></h2>
           </div>
           <div class="media-contribute-content">
             <p class="media-copy">
@@ -242,7 +242,7 @@ const topics = ['Produit', 'SaaS', 'IA', 'Automatisation', 'Freelance', 'ESN', '
       <BaseContainer size="large">
         <div class="media-resource-content">
           <p class="media-eyebrow media-deep-eyebrow"><span class="media-eyebrow-dot" aria-hidden="true" />Ressource gratuite</p>
-          <h2 id="media-resource-title" class="media-title">Une idée en tête ?<br /><span>Commence par le premier pas.</span></h2>
+          <h2 id="media-resource-title" class="media-title">Une idée en tête ?<br /><span>Commence par le premier pas</span></h2>
           <p class="media-copy">
             La checklist gratuite t’aide à passer d’une idée à un projet concret,
             du cadrage aux premiers retours.

@@ -81,7 +81,7 @@ const journey = [
           </p>
           <h1 id="ecosystem-title" class="ecosystem-display">
             Altruisme n’est pas un produit.
-            <span>C’est un écosystème.</span>
+            <span>C’est un écosystème</span>
           </h1>
           <p class="ecosystem-lead">
             Un ensemble de produits et de services pour comprendre, apprendre, construire,
@@ -100,7 +100,7 @@ const journey = [
           <div>
             <p class="ecosystem-eyebrow">Pourquoi un écosystème ?</p>
             <h2 id="ecosystem-why-title" class="ecosystem-title">
-              Les problèmes tech ne vivent <span>pas en silos.</span>
+              Les problèmes tech ne vivent <span>pas en silos</span>
             </h2>
           </div>
           <div class="ecosystem-why-copy">
@@ -126,7 +126,7 @@ const journey = [
         <div class="ecosystem-section-heading">
           <p class="ecosystem-eyebrow">Les briques</p>
           <h2 id="ecosystem-products-title" class="ecosystem-title">
-            Plusieurs expertises. <span>Une même direction.</span>
+            Plusieurs expertises. <span>Une même direction</span>
           </h2>
           <p class="ecosystem-section-intro">
             Sept façons d’avancer, selon le moment où l’on se trouve.
@@ -176,7 +176,7 @@ const journey = [
         <div class="ecosystem-section-heading">
           <p class="ecosystem-eyebrow">Les connexions</p>
           <h2 id="ecosystem-connections-title" class="ecosystem-title">
-            Une brique ouvre <span>la suivante.</span>
+            Une brique ouvre <span>la suivante</span>
           </h2>
           <p class="ecosystem-section-intro">
             Ce chemin est un exemple, pas un parcours imposé. On entre là où l’on en a besoin.
@@ -211,7 +211,7 @@ const journey = [
           <div class="ecosystem-journey-intro">
             <p class="ecosystem-eyebrow">Un parcours possible</p>
             <h2 id="ecosystem-journey-title" class="ecosystem-title">
-              D’un premier guide <span>à un produit en ligne.</span>
+              D’un premier guide <span>à un produit en ligne</span>
             </h2>
             <p class="ecosystem-section-intro">
               Une histoire simple pour montrer comment les briques pourraient se répondre.
@@ -235,7 +235,7 @@ const journey = [
         <div class="ecosystem-section-heading">
           <p class="ecosystem-eyebrow">Le temps du projet</p>
           <h2 id="ecosystem-roadmap-title" class="ecosystem-title">
-            Ce qui existe. <span>Ce qui se construit.</span>
+            Ce qui existe. <span>Ce qui se construit</span>
           </h2>
           <p class="ecosystem-section-intro">
             La vision est large. Les produits disponibles aujourd’hui sont plus ciblés.
@@ -276,7 +276,7 @@ const journey = [
           <div>
             <p class="ecosystem-eyebrow">Pourquoi Altruisme ?</p>
             <h2 id="ecosystem-origin-title" class="ecosystem-title">
-              Construire quelque chose <span>d’utile.</span>
+              Construire quelque chose <span>d’utile</span>
             </h2>
           </div>
           <p>
@@ -293,7 +293,7 @@ const journey = [
         <div class="ecosystem-final-content">
           <p class="ecosystem-eyebrow">La prochaine étape</p>
           <h2 id="ecosystem-final-title" class="ecosystem-title">
-            Commencer par apprendre. <span>Puis construire la suite.</span>
+            Commencer par apprendre. <span>Puis construire la suite</span>
           </h2>
           <p>
             Learn est la priorité du moment. Le catalogue s’étoffera progressivement autour de

@@ -13,7 +13,7 @@ import { BaseButton, BaseContainer } from '@altruisme/ui'
         </p>
         <h2 class="mt-4 text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">
           Le guide s’arrête ici.
-          <span class="text-petrol">Ton projet peut commencer.</span>
+          <span class="text-petrol">Ton projet peut commencer</span>
         </h2>
         <p class="mx-auto mt-5 max-w-2xl text-base leading-8 text-muted sm:text-lg">
           Une idée à clarifier ou un premier projet à lancer ? La checklist gratuite t’aide à

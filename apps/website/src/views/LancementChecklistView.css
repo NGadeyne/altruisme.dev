@@ -5,7 +5,6 @@
 .checklist-header { max-width: 48rem; }
 .checklist-header > p:first-child { color: #4f7774; font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
 .checklist-header h1 { margin-top: 1.3rem; font-size: clamp(3.7rem, 7vw, 6.5rem); font-weight: 600; letter-spacing: -.055em; line-height: 1.04; }
-.checklist-header h1 span { color: #315d61; }
 .checklist-header h2 { margin-top: .9rem; color: #315d61; font-size: clamp(1.3rem, 2.5vw, 2rem); font-weight: 550; letter-spacing: -.03em; }
 .checklist-header > p:last-child { margin-top: 1.5rem; color: #5d6e69; font-size: 1rem; line-height: 1.7; }
 .checklist-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 3rem 0 0; border-top: 1px solid rgb(63 110 107 / .2); border-left: 1px solid rgb(63 110 107 / .2); padding: 0; list-style: none; }
