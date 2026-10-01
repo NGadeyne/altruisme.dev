@@ -16,11 +16,11 @@ import { BaseButton, BaseContainer } from '@altruisme/ui'
           <span class="text-petrol">Ton projet peut commencer.</span>
         </h2>
         <p class="mx-auto mt-5 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-          Une idée à clarifier ou un premier projet à lancer ? La checklist Lance-toi t’aide à
+          Une idée à clarifier ou un premier projet à lancer ? La checklist gratuite t’aide à
           avancer étape par étape, de l’idée aux premiers retours.
         </p>
         <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-          <BaseButton to="/lancement" size="large">Découvrir Lance-toi</BaseButton>
+          <BaseButton to="/checklist" size="large">Découvrir la checklist</BaseButton>
           <BaseButton to="/guides" variant="secondary" size="large"
             >Explorer les autres guides</BaseButton
           >

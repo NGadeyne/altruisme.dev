@@ -244,7 +244,7 @@ const topics = ['Produit', 'SaaS', 'IA', 'Automatisation', 'Freelance', 'ESN', '
           <p class="media-eyebrow media-deep-eyebrow"><span class="media-eyebrow-dot" aria-hidden="true" />Ressource gratuite</p>
           <h2 id="media-resource-title" class="media-title">Une idée en tête ?<br /><span>Commence par le premier pas.</span></h2>
           <p class="media-copy">
-            Lance-toi est une checklist courte pour passer d’une idée à un projet concret,
+            La checklist gratuite t’aide à passer d’une idée à un projet concret,
             du cadrage aux premiers retours.
           </p>
           <div class="media-resource-notes">
@@ -254,7 +254,7 @@ const topics = ['Produit', 'SaaS', 'IA', 'Automatisation', 'Freelance', 'ESN', '
             <div><strong>Avancer</strong><span>Apprendre des premiers retours.</span></div>
           </div>
           <div class="media-button-row">
-            <BaseButton to="/lancement" size="large" class="media-inverse-button">Recevoir Lance-toi</BaseButton>
+            <BaseButton to="/checklist" size="large" class="media-inverse-button">Recevoir la checklist</BaseButton>
             <BaseButton to="/guides" variant="secondary" size="large" class="media-outline-button">Explorer les guides</BaseButton>
           </div>
         </div>

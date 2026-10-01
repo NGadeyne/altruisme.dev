@@ -28,21 +28,21 @@ export const routes: RouteRecordRaw[] = [
     },
   },
   {
-    path: '/lancement',
-    name: 'launch',
+    path: '/checklist',
+    name: 'checklist',
     component: () => import('../views/LancementView.vue'),
     meta: {
-      title: 'Lance-toi — La checklist de l’idée au premier euro | Altruisme.dev',
+      title: 'Checklist gratuite : de l’idée au premier euro | Altruisme.DEV',
       description:
-        'Une checklist gratuite pour passer d’une idée à un projet concret : freelance, SaaS, e-commerce, automatisation ou produit numérique.',
+        'Une checklist gratuite pour passer d’une idée de SaaS, d’e-commerce, d’automatisation ou de produit numérique à une première version, des utilisateurs et une première vente.',
     },
   },
   {
-    path: '/lancement/checklist',
-    name: 'launch-checklist',
+    path: '/checklist/etapes',
+    name: 'checklist-steps',
     component: () => import('../views/LancementChecklistView.vue'),
     meta: {
-      title: 'Lance-toi — La checklist | Altruisme.dev',
+      title: 'La checklist : les neuf étapes | Altruisme.DEV',
       description: 'Les neuf étapes pratiques pour passer de ton idée à un premier projet concret.',
       robots: 'noindex, follow',
     },
@@ -109,7 +109,7 @@ export const routes: RouteRecordRaw[] = [
   },
   {
     path: '/communaute',
-    redirect: '/lancement',
+    redirect: '/checklist',
   },
   {
     path: '/contribuer',

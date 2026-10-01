@@ -22,13 +22,13 @@ const steps = [
   <div class="checklist-page">
     <BaseContainer size="large">
       <div class="checklist-toolbar">
-        <RouterLink to="/lancement">← Retour à Lance-toi</RouterLink>
+        <RouterLink to="/checklist">← Retour à la checklist</RouterLink>
         <BaseButton type="button" variant="secondary" @click="printChecklist">Imprimer / enregistrer en PDF</BaseButton>
       </div>
       <header class="checklist-header">
         <p>Altruisme.DEV / Ressource gratuite</p>
-        <h1>Lance-toi<span>.</span></h1>
-        <h2>La checklist de l’idée au premier euro.</h2>
+        <h1>La checklist<span>.</span></h1>
+        <h2>De l’idée au premier euro.</h2>
         <p>Un premier pas à la fois. Coche ce que tu as fait et note ce qu’il te reste à tester.</p>
       </header>
       <ol class="checklist-steps">

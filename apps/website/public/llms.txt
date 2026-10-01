@@ -31,7 +31,7 @@ Les sujets principaux sont le Product Management, le SaaS, l'intelligence artifi
 
 ## Contributions et ressources
 
-- [Lance-toi](https://altruisme.dev/lancement): Checklist gratuite pour passer d’une idée à un premier projet concret.
+- [Checklist](https://altruisme.dev/checklist): Checklist gratuite pour passer d’une idée à une première version, des utilisateurs et une première vente.
 - [Contribuer](https://altruisme.dev/contribuer): Informations pour proposer un retour d'expérience, une analyse, une étude de cas ou un sujet à Altruisme.DEV.
 
 ## Écosystème

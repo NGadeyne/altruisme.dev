@@ -13,10 +13,30 @@ const steps = [
   'Obtenir les premiers retours',
   'Faire la première vente',
 ]
-const projects = ['Freelance', 'SaaS', 'E-commerce', 'Automatisation', 'Produit numérique']
-
+const faqs = [
+  {
+    question: 'À qui s’adresse cette checklist ?',
+    answer: 'À celles et ceux qui veulent transformer une idée de SaaS, d’automatisation, d’e-commerce ou de produit numérique en quelque chose de concret.',
+  },
+  {
+    question: 'Est-ce que je dois déjà savoir coder ?',
+    answer: 'Non. La checklist est pensée pour t’aider à structurer ton projet, valider la demande et avancer dans le bon ordre, quel que soit ton niveau technique.',
+  },
+  {
+    question: 'Est-ce vraiment gratuit ?',
+    answer: 'Oui. Tu reçois la checklist gratuitement en laissant ton adresse email. Aucun paiement n’est demandé.',
+  },
+  {
+    question: 'Est-ce utile si j’ai déjà commencé mon projet ?',
+    answer: 'Oui. Tu peux l’utiliser comme feuille de route ou comme checklist de contrôle pour voir ce qu’il te manque avant d’aller chercher tes premiers utilisateurs ou ta première vente.',
+  },
+  {
+    question: 'Qu’est-ce que je vais recevoir ensuite ?',
+    answer: 'La checklist, puis ponctuellement les prochains contenus d’Altruisme.DEV : guides, ressources et actualités utiles autour de la tech, du produit, de l’acquisition et de la construction de projets.',
+  },
+]
 // Remplacer par l’URL du PDF quand il sera disponible. La version web est utilisable dès maintenant.
-const checklistUrl = '/lancement/checklist'
+const checklistUrl = '/checklist/etapes'
 const email = ref('')
 const consent = ref(false)
 const website = ref('')
@@ -67,11 +87,10 @@ async function submit() {
         <div class="launch-hero-grid">
           <div class="launch-hero-copy">
             <p class="launch-eyebrow launch-glass launch-pill"><span aria-hidden="true" />Ressource gratuite</p>
-            <h1 id="launch-title" class="launch-display">Lance-toi<span>.</span></h1>
-            <p class="launch-subtitle">La checklist de l’idée au premier euro.</p>
+            <h1 id="launch-title" class="launch-display">La checklist SaaS</h1>
+            <p class="launch-subtitle">De l’idée au premier euro.</p>
             <p class="launch-lead">
-              Tu as une idée de SaaS, d’activité freelance, d’e-commerce ou simplement l’envie de construire quelque chose ?
-              Cette checklist t’aide à passer de l’idée à l’action, étape par étape.
+              Tu as une idée de SaaS, d’e-commerce, d’automatisation ou de produit numérique ? Cette checklist t’aide à passer de l’idée à quelque chose de concret, étape par étape.
             </p>
 
             <div id="formulaire" class="launch-form-panel launch-glass">
@@ -79,7 +98,7 @@ async function submit() {
                 <span class="launch-success-mark" aria-hidden="true">✓</span>
                 <h2>{{ result === 'already_registered' ? 'Tu es déjà inscrit.' : 'C’est parti.' }}</h2>
                 <p>Ta checklist est prête. Tu peux la consulter et l’enregistrer en PDF depuis ton navigateur.</p>
-                <BaseButton :to="checklistUrl" size="large">Ouvrir Lance-toi <span aria-hidden="true">↗</span></BaseButton>
+                <BaseButton :to="checklistUrl" size="large">Ouvrir la checklist <span aria-hidden="true">↗</span></BaseButton>
               </div>
               <form v-else novalidate @submit.prevent="submit">
                 <p class="launch-form-title">Reçois la checklist gratuitement.</p>
@@ -117,18 +136,18 @@ async function submit() {
             </div>
           </div>
 
-          <div class="launch-preview" aria-label="Aperçu de la checklist Lance-toi">
+          <div class="launch-preview" aria-label="Aperçu de la checklist">
             <div class="launch-sheet launch-sheet-back" aria-hidden="true" />
             <div class="launch-sheet launch-sheet-front">
               <div class="launch-sheet-top"><span>Altruisme.DEV</span><span>01 / 09</span></div>
               <p class="launch-sheet-label">La checklist</p>
-              <p class="launch-sheet-title">Lance-toi<span>.</span></p>
-              <p class="launch-sheet-subtitle">De l’idée au premier euro.</p>
+              <p class="launch-sheet-title">De l’idée au premier euro<span>.</span></p>
+              <p class="launch-sheet-subtitle">9 étapes pour passer à l’action.</p>
               <div class="launch-sheet-rule" />
-              <div v-for="(step, index) in steps.slice(0, 4)" :key="step" class="launch-sheet-step">
+              <div v-for="stepNumber in [1, 5, 7, 9]" :key="stepNumber" class="launch-sheet-step">
                 <span class="launch-sheet-box" aria-hidden="true" />
-                <span>{{ step }}</span>
-                <small>0{{ index + 1 }}</small>
+                <span>{{ steps[stepNumber - 1] }}</span>
+                <small>0{{ stepNumber }}</small>
               </div>
               <p class="launch-sheet-foot">Commence petit. Continue d’avancer.</p>
             </div>
@@ -140,7 +159,7 @@ async function submit() {
     <section class="launch-section launch-steps" aria-labelledby="launch-steps-title">
       <BaseContainer size="large">
         <p class="launch-eyebrow">À l’intérieur</p>
-        <h2 id="launch-steps-title" class="launch-title">De l’idée à <span>quelque chose de réel.</span></h2>
+        <h2 id="launch-steps-title" class="launch-title">De l’idée à <span>quelque chose de réel</span></h2>
         <div class="launch-steps-grid">
           <div v-for="(step, index) in steps" :key="step" class="launch-step">
             <span>{{ String(index + 1).padStart(2, '0') }}</span><p>{{ step }}</p>
@@ -152,12 +171,39 @@ async function submit() {
     <section class="launch-section launch-projects" aria-labelledby="launch-projects-title">
       <BaseContainer size="large">
         <div class="launch-projects-grid">
-          <div>
-            <p class="launch-eyebrow">Pour avancer à ton rythme</p>
-            <h2 id="launch-projects-title" class="launch-title">Quelque chose à construire ? <span>Commence ici.</span></h2>
+          <div class="launch-projects-heading">
+            <p class="launch-eyebrow">Pourquoi Altruisme.DEV</p>
+            <h2 id="launch-projects-title" class="launch-title">Construire, tester, apprendre. <span>Pour de vrai</span></h2>
           </div>
-          <div class="launch-project-list" aria-label="Types de projets">
-            <span v-for="project in projects" :key="project">{{ project }}</span>
+          <div>
+            <p class="launch-lead">Altruisme.DEV est un média indépendant consacré à celles et ceux qui construisent dans la tech.</p>
+            <p class="launch-lead">Les contenus sont pensés à partir de l’expérience terrain : produit, développement, acquisition, freelancing et lancement de projets numériques.</p>
+            <p class="launch-lead">Pas de recette magique ni de promesse de réussite rapide. Cette checklist rassemble simplement les étapes essentielles pour transformer une idée en quelque chose de concret, le confronter au réel et avancer avec méthode.</p>
+            <div class="launch-project-list mt-6" aria-label="Pourquoi choisir Altruisme.DEV">
+              <span><strong>Des années d’expérience dans la tech</strong><br /><small>Produit, développement, acquisition et accompagnement de projets.</small></span>
+              <span><strong>Une approche terrain</strong><br /><small>Des ressources conçues pour être utilisées, pas seulement consommées.</small></span>
+              <span><strong>Indépendant</strong><br /><small>Pas de méthode miracle. Pas de bullshit. Des contenus utiles, accessibles et applicables.</small></span>
+            </div>
+          </div>
+        </div>
+      </BaseContainer>
+    </section>
+
+    <section class="launch-section launch-faq" aria-labelledby="launch-faq-title">
+      <BaseContainer size="large">
+        <div class="launch-faq-grid">
+          <div>
+            <p class="launch-eyebrow">Questions fréquentes</p>
+            <h2 id="launch-faq-title" class="launch-title">Avant de te lancer</h2>
+          </div>
+          <div class="launch-faq-list">
+            <details v-for="faq in faqs" :key="faq.question" class="launch-faq-item">
+              <summary>
+                <span>{{ faq.question }}</span>
+                <span class="launch-faq-icon" aria-hidden="true">+</span>
+              </summary>
+              <p>{{ faq.answer }}</p>
+            </details>
           </div>
         </div>
       </BaseContainer>
@@ -167,9 +213,9 @@ async function submit() {
       <BaseContainer size="large">
         <div class="launch-final-inner">
           <p class="launch-eyebrow">Le premier pas</p>
-          <h2 id="launch-final-title" class="launch-title">Une idée ne vaut pas grand-chose <span>tant qu’elle reste une idée.</span></h2>
+          <h2 id="launch-final-title" class="launch-title">Une idée ne vaut pas grand-chose <span>tant qu’elle reste une idée</span></h2>
           <p>Commence petit. Teste. Apprends. Améliore.</p>
-          <BaseButton href="#formulaire" size="large">Recevoir gratuitement la checklist</BaseButton>
+          <BaseButton href="/checklist#formulaire" size="large">Recevoir gratuitement la checklist</BaseButton>
           <small>Gratuit. Pas de spam. Désinscription en un clic.</small>
         </div>
       </BaseContainer>

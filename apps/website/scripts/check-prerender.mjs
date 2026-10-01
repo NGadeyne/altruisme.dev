@@ -17,6 +17,7 @@ for (const path of [...prerenderPaths, '/404']) {
   )
   assert.ok(!document.title.includes('Signons ensemble'), path)
   assert.equal(document.querySelectorAll('a[href="/communaute"]').length, 0, path)
+  assert.equal(document.querySelectorAll('a[href^="/lancement"]').length, 0, path)
   if (path === '/404') {
     assert.equal(document.querySelector('meta[name="robots"]').content, 'noindex, follow')
     assert.equal(document.querySelector('link[rel="canonical"]'), null)
@@ -74,8 +75,8 @@ for (const path of [...prerenderPaths, '/404']) {
       document.querySelector('.media-news-list .media-arrow-link')?.getAttribute('href'),
       '/actualites/semaine-39-2026',
     )
-    assert.equal(document.querySelector('.media-resource .base-button')?.getAttribute('href'), '/lancement')
-    assert.equal(document.querySelectorAll('nav[aria-label="Navigation principale"] a[href="/lancement"]').length, 1)
+    assert.equal(document.querySelector('.media-resource .base-button')?.getAttribute('href'), '/checklist')
+    assert.equal(document.querySelectorAll('nav[aria-label="Navigation principale"] a[href="/checklist"]').length, 1)
   }
   if (path === '/actualites') {
     assert.equal(document.querySelectorAll('main article').length, 1)
@@ -157,15 +158,85 @@ for (const path of [...prerenderPaths, '/404']) {
       ),
     )
   }
-  if (path === '/lancement') {
-    assert.equal(document.title, 'Lance-toi — La checklist de l’idée au premier euro | Altruisme.dev')
+  if (path === '/checklist') {
+    assert.equal(document.title, 'Checklist gratuite : de l’idée au premier euro | Altruisme.DEV')
+    assert.equal(
+      document.querySelector('meta[name="description"]').content,
+      'Une checklist gratuite pour passer d’une idée de SaaS, d’e-commerce, d’automatisation ou de produit numérique à une première version, des utilisateurs et une première vente.',
+    )
     assert.equal(document.querySelector('meta[property="og:title"]').content, document.title)
-    assert.equal(document.querySelector('h1')?.textContent.replace(/\s+/g, '').trim(), 'Lance-toi.')
+    assert.equal(
+      document.querySelector('meta[property="og:description"]').content,
+      document.querySelector('meta[name="description"]').content,
+    )
+    assert.equal(document.querySelector('meta[property="og:url"]').content, 'https://altruisme.dev/checklist')
+    assert.equal(document.querySelector('meta[name="twitter:title"]').content, document.title)
+    assert.equal(
+      document.querySelector('meta[name="twitter:description"]').content,
+      document.querySelector('meta[name="description"]').content,
+    )
+    assert.equal(document.querySelector('h1')?.textContent.replace(/\s+/g, ' ').trim(), 'La checklist SaaS')
+    assert.equal(document.querySelector('.launch-subtitle')?.textContent.trim(), 'De l’idée au premier euro.')
+    assert.equal(
+      document.querySelector('.launch-lead')?.textContent.trim(),
+      'Tu as une idée de SaaS, d’e-commerce, d’automatisation ou de produit numérique ? Cette checklist t’aide à passer de l’idée à quelque chose de concret, étape par étape.',
+    )
+    assert.equal(document.querySelector('.launch-sheet-title')?.textContent.trim(), 'De l’idée au premier euro.')
+    assert.deepEqual(
+      [...document.querySelectorAll('.launch-sheet-step')].map((item) => [
+        item.children[1]?.textContent.trim(),
+        item.querySelector('small')?.textContent.trim(),
+      ]),
+      [
+        ['Clarifier l’idée', '01'],
+        ['Valider la demande', '05'],
+        ['Trouver les premiers utilisateurs', '07'],
+        ['Faire la première vente', '09'],
+      ],
+    )
     assert.equal(document.querySelectorAll('.launch-step').length, 9)
+    assert.equal(document.querySelector('.launch-projects .launch-eyebrow')?.textContent.trim(), 'Pourquoi Altruisme.DEV')
+    assert.equal(document.querySelector('#launch-projects-title')?.textContent.replace(/\s+/g, ' ').trim(), 'Construire, tester, apprendre. Pour de vrai')
+    assert.deepEqual(
+      [...document.querySelectorAll('.launch-projects-grid > div:last-child > .launch-lead')].map((item) => item.textContent.trim()),
+      [
+        'Altruisme.DEV est un média indépendant consacré à celles et ceux qui construisent dans la tech.',
+        'Les contenus sont pensés à partir de l’expérience terrain : produit, développement, acquisition, freelancing et lancement de projets numériques.',
+        'Pas de recette magique ni de promesse de réussite rapide. Cette checklist rassemble simplement les étapes essentielles pour transformer une idée en quelque chose de concret, le confronter au réel et avancer avec méthode.',
+      ],
+    )
+    assert.deepEqual(
+      [...document.querySelectorAll('.launch-project-list > span')].map((item) => [
+        item.querySelector('strong')?.textContent,
+        item.querySelector('small')?.textContent,
+      ]),
+      [
+        ['Des années d’expérience dans la tech', 'Produit, développement, acquisition et accompagnement de projets.'],
+        ['Une approche terrain', 'Des ressources conçues pour être utilisées, pas seulement consommées.'],
+        ['Indépendant', 'Pas de méthode miracle. Pas de bullshit. Des contenus utiles, accessibles et applicables.'],
+      ],
+    )
+    assert.equal(document.querySelector('.launch-faq .launch-eyebrow')?.textContent.trim(), 'Questions fréquentes')
+    assert.equal(document.querySelector('#launch-faq-title')?.textContent.trim(), 'Avant de te lancer')
+    assert.deepEqual(
+      [...document.querySelectorAll('.launch-faq-item')].map((item) => [
+        item.querySelector('summary span')?.textContent.trim(),
+        item.querySelector('p')?.textContent.trim(),
+      ]),
+      [
+        ['À qui s’adresse cette checklist ?', 'À celles et ceux qui veulent transformer une idée de SaaS, d’automatisation, d’e-commerce ou de produit numérique en quelque chose de concret.'],
+        ['Est-ce que je dois déjà savoir coder ?', 'Non. La checklist est pensée pour t’aider à structurer ton projet, valider la demande et avancer dans le bon ordre, quel que soit ton niveau technique.'],
+        ['Est-ce vraiment gratuit ?', 'Oui. Tu reçois la checklist gratuitement en laissant ton adresse email. Aucun paiement n’est demandé.'],
+        ['Est-ce utile si j’ai déjà commencé mon projet ?', 'Oui. Tu peux l’utiliser comme feuille de route ou comme checklist de contrôle pour voir ce qu’il te manque avant d’aller chercher tes premiers utilisateurs ou ta première vente.'],
+        ['Qu’est-ce que je vais recevoir ensuite ?', 'La checklist, puis ponctuellement les prochains contenus d’Altruisme.DEV : guides, ressources et actualités utiles autour de la tech, du produit, de l’acquisition et de la construction de projets.'],
+      ],
+    )
+    assert.ok(document.querySelector('.launch-faq').compareDocumentPosition(document.querySelector('.launch-final')) & 4)
+    assert.equal(document.querySelector('.launch-final .base-button')?.getAttribute('href'), '/checklist#formulaire')
     assert.ok(document.querySelector('form input[type="email"][required]'))
     assert.ok(document.querySelector('form input[type="checkbox"]'))
   }
-  if (path === '/lancement/checklist') {
+  if (path === '/checklist/etapes') {
     assert.equal(document.querySelector('meta[name="robots"]').content, 'noindex, follow')
     assert.equal(document.querySelectorAll('.checklist-steps li').length, 9)
   }
@@ -176,7 +247,9 @@ for (const retired of ['contact', 'guides/freelance-2026', 'communaute']) {
 const sitemap = await readFile(resolve(output, 'sitemap.xml'), 'utf8')
 assert.ok(!sitemap.includes('/contact'))
 assert.ok(!sitemap.includes('/communaute'))
-assert.ok((await readFile(resolve(output, '_redirects'), 'utf8')).includes('/communaute /lancement 301'))
+assert.ok(sitemap.includes('https://altruisme.dev/checklist</loc>'))
+assert.ok(!sitemap.includes('/lancement'))
+assert.ok((await readFile(resolve(output, '_redirects'), 'utf8')).includes('/communaute /checklist 301'))
 console.log(
   `Verified initial HTML, metadata and assets for ${prerenderPaths.length} pages and the 404 page.`,
 )

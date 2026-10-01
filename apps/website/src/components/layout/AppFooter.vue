@@ -8,7 +8,7 @@ const navigationLinks = [
   { label: 'Guides', to: '/guides' },
   { label: 'Outils', to: '/outils' },
   { label: 'Podcast', to: '/podcast' },
-  { label: 'Lance-toi', to: '/lancement' },
+  { label: 'Checklist', to: '/checklist' },
   { label: 'Contribuer', to: '/contribuer' },
   { label: 'Écosystème', to: '/apropos' },
 ]
