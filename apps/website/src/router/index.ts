@@ -5,6 +5,7 @@ import type { RouteRecordRaw } from 'vue-router'
 import { guideRoutes } from './guides'
 import { updatePageMetadata } from '@/lib/pageMetadata'
 import { week39 } from '@/content/news/week39Metadata'
+import { week40 } from '@/content/news/week40Metadata'
 
 export const routes: RouteRecordRaw[] = [
   {
@@ -80,6 +81,21 @@ export const routes: RouteRecordRaw[] = [
       title: 'Actualités tech de la semaine | Altruisme.DEV',
       description:
         'Une sélection hebdomadaire des actualités produit, SaaS, IA, automatisation, freelance et entreprises tech, expliquées avec du contexte.',
+    },
+  },
+  {
+    path: `/actualites/${week40.slug}`,
+    name: 'news-week-40',
+    component: () => import('../views/news/Week40View.vue'),
+    meta: {
+      title: 'Actu Tech semaine #40 : l’IA ne veut plus seulement discuter',
+      description:
+        'OpenAI DevDay, agents IA, sécurité, Gemini 4 et infrastructure : découvre les actualités Tech à retenir de la semaine #40.',
+      ogTitle: week40.title,
+      image: week40.image,
+      imageAlt: week40.imageAlt,
+      article: true,
+      articleSection: week40.format,
     },
   },
   {

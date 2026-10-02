@@ -23,6 +23,7 @@ Les sujets principaux sont le Product Management, le SaaS, l'intelligence artifi
 ## Actualités et analyses
 
 - [Actualités](https://altruisme.dev/actualites): Actualités tech sélectionnées, analysées et contextualisées.
+- [Actu Tech de la semaine #40](https://altruisme.dev/actualites/semaine-40-2026): OpenAI DevDay, agents autonomes, sécurité, Gemini 4 et infrastructure IA.
 - [Actu Tech de la semaine #39](https://altruisme.dev/actualites/semaine-39-2026): Claude dans un laboratoire, cybersécurité, Databricks et datacenters.
 
 ## Podcast

@@ -72,27 +72,50 @@ for (const path of [...prerenderPaths, '/404']) {
     )
   }
   if (path === '/') {
-    assert.equal(document.querySelectorAll('.media-news-list article').length, 1)
+    assert.equal(document.querySelectorAll('.media-news-list article').length, 2)
     assert.equal(document.querySelector('.media-feature'), null)
     assert.equal(
       document.querySelector('.media-news-list .media-arrow-link')?.getAttribute('href'),
-      '/actualites/semaine-39-2026',
+      '/actualites/semaine-40-2026',
     )
     assert.equal(document.querySelector('.media-resource .base-button')?.getAttribute('href'), '/checklist')
     assert.equal(document.querySelectorAll('nav[aria-label="Navigation principale"] a[href="/checklist"]').length, 1)
   }
   if (path === '/actualites') {
-    assert.equal(document.querySelectorAll('main article').length, 1)
+    assert.equal(document.querySelectorAll('main article').length, 2)
     assert.equal(document.querySelector('main h1')?.textContent.trim(), 'Actu Tech de la semaine')
     assert.equal(
       document.querySelector('main article h2')?.textContent.trim(),
-      'Actu Tech de la semaine #39 : Claude sort de l’écran',
+      'Actu Tech de la semaine #40 : l’IA ne veut plus seulement discuter',
     )
     assert.equal(document.querySelector('main article img'), null)
     assert.equal(
       document.querySelector('main article a')?.getAttribute('href'),
-      '/actualites/semaine-39-2026',
+      '/actualites/semaine-40-2026',
     )
+  }
+  if (path === '/actualites/semaine-40-2026') {
+    const source = await readFile(resolve('src/content/news/actu-tech-semaine-40-2026.txt'), 'utf8')
+    const publishedBlocks = [...document.querySelectorAll('.news-body h2, .news-body p:not(.news-sources)')]
+      .map((element) => element.textContent.trim())
+    assert.deepEqual(
+      publishedBlocks,
+      source.trim().split(/\r?\n\s*\r?\n/).map((block) =>
+        block.replace(/^## /, '').replace(/\*\*/g, '').replace(/\r?\n/g, ' '),
+      ),
+    )
+    assert.equal(document.title, 'Actu Tech semaine #40 : l’IA ne veut plus seulement discuter')
+    assert.equal(
+      document.querySelector('meta[name="description"]').content,
+      'OpenAI DevDay, agents IA, sécurité, Gemini 4 et infrastructure : découvre les actualités Tech à retenir de la semaine #40.',
+    )
+    assert.equal(document.querySelector('main h1')?.textContent.trim(),
+      'Actu Tech de la semaine #40 : l’IA ne veut plus seulement discuter')
+    assert.equal(document.querySelector('meta[property="og:type"]').content, 'article')
+    assert.equal(document.querySelector('meta[property="og:image:alt"]').content,
+      'Actu Tech de la semaine #40 : l’IA ne veut plus seulement discuter')
+    assert.equal(document.querySelector('main img')?.getAttribute('src'),
+      '/images/news/actu-tech-semaine-40-2026.webp')
   }
   if (path === '/actualites/semaine-39-2026') {
     const source = await readFile(resolve('src/content/news/actu-tech-semaine-39-2026.txt'), 'utf8')
