@@ -79,7 +79,7 @@ const visibleTools = computed(() => tools.filter((tool) => tool.category === act
       <template #title>Des guides complets pour <span>choisir et maîtriser ses outils</span></template>
       <template #lead>Des ressources pour comprendre les outils, les choisir avec méthode et les utiliser dans des projets concrets.</template>
     </PageHero>
-    <section class="pb-24">
+    <section class="pb-24 pt-20 sm:pt-28">
       <BaseContainer>
         <div class="mb-8 flex flex-col gap-5 border-b border-petrol/15 pb-6 sm:flex-row sm:items-end sm:justify-between">
           <div>

@@ -29,7 +29,7 @@ const visibleGuides = computed(() =>
       <template #lead>Chaque guide est conçu comme une
         ressource de référence : long format, concret, structuré et mis à jour avec le temps.</template>
     </PageHero>
-    <section class="pb-24">
+    <section class="pb-24 pt-20 sm:pt-28">
       <BaseContainer>
         <div class="mb-8 flex flex-col gap-5 border-b border-petrol/15 pb-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
