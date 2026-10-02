@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { BaseContainer } from '@altruisme/ui'
+import PageHero from '@/components/PageHero.vue'
 import { featuredGuides } from '@/data/site'
 import type { GuideCategory } from '@/types/guide'
 
@@ -22,19 +23,12 @@ const visibleGuides = computed(() =>
 
 <template>
   <div class="min-h-screen bg-sand">
-    <section class="relative isolate overflow-hidden py-20 sm:py-24">
-      <div
-        class="pointer-events-none absolute inset-0 -z-20 bg-[linear-gradient(125deg,#f7f2e9_0%,#f3ede3_50%,#e4ece8_100%)]" />
-      <BaseContainer>
-        <div class="mx-auto max-w-4xl text-center">
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-petrol">Guides Altruisme.DEV</p>
-          <h1 class="mt-4 text-4xl font-bold tracking-tight text-ink sm:text-6xl">Des guides complets pour <span
-              class="text-petrol">comprendre et construire</span></h1>
-          <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-muted sm:text-lg">Chaque guide est conçu comme une
-            ressource de référence : long format, concret, structuré et mis à jour avec le temps.</p>
-        </div>
-      </BaseContainer>
-    </section>
+    <PageHero title-id="guides-title">
+      <template #eyebrow>Guides Altruisme.DEV</template>
+      <template #title>Des guides complets pour <span>comprendre et construire</span></template>
+      <template #lead>Chaque guide est conçu comme une
+        ressource de référence : long format, concret, structuré et mis à jour avec le temps.</template>
+    </PageHero>
     <section class="pb-24">
       <BaseContainer>
         <div class="mb-8 flex flex-col gap-5 border-b border-petrol/15 pb-6 sm:flex-row sm:items-end sm:justify-between">

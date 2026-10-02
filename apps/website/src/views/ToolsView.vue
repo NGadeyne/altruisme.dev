@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { BaseContainer } from '@altruisme/ui'
+import PageHero from '@/components/PageHero.vue'
 
 type ToolCategory = 'acquerir' | 'construire' | 'gerer'
 
@@ -73,18 +74,11 @@ const visibleTools = computed(() => tools.filter((tool) => tool.category === act
 
 <template>
   <div class="min-h-screen bg-sand">
-    <section class="relative isolate overflow-hidden py-20 sm:py-24">
-      <div
-        class="pointer-events-none absolute inset-0 -z-20 bg-[linear-gradient(125deg,#f7f2e9_0%,#f3ede3_50%,#e4ece8_100%)]" />
-      <BaseContainer>
-        <div class="mx-auto max-w-4xl text-center">
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-petrol">Outils Altruisme.DEV</p>
-          <h1 class="mt-4 text-4xl font-bold tracking-tight text-ink sm:text-6xl">Des guides complets pour <span
-              class="text-petrol">choisir et maîtriser ses outils</span></h1>
-          <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-muted sm:text-lg">Des ressources pour comprendre les outils, les choisir avec méthode et les utiliser dans des projets concrets.</p>
-        </div>
-      </BaseContainer>
-    </section>
+    <PageHero title-id="tools-title">
+      <template #eyebrow>Outils Altruisme.DEV</template>
+      <template #title>Des guides complets pour <span>choisir et maîtriser ses outils</span></template>
+      <template #lead>Des ressources pour comprendre les outils, les choisir avec méthode et les utiliser dans des projets concrets.</template>
+    </PageHero>
     <section class="pb-24">
       <BaseContainer>
         <div class="mb-8 flex flex-col gap-5 border-b border-petrol/15 pb-6 sm:flex-row sm:items-end sm:justify-between">
