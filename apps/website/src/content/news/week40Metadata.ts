@@ -1,3 +1,5 @@
+import { newsAuthor } from './newsAuthor'
+
 export const week40 = {
   format: 'Actu Tech de la semaine',
   editorialTitle: 'Actu Tech de la semaine #40',
@@ -7,4 +9,7 @@ export const week40 = {
   image: '/images/news/actu-tech-semaine-40-2026.webp',
   imageAlt: 'Actu Tech de la semaine #40 : l’IA ne veut plus seulement discuter',
   slug: 'semaine-40-2026',
+  publishedAt: '2026-10-02',
+  modifiedAt: '2026-10-02',
+  author: newsAuthor,
 } as const

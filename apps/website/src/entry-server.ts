@@ -4,6 +4,8 @@ import App from './App.vue'
 import { createWebsiteRouter, routes } from './router'
 import { renderPageMetadata } from './lib/pageMetadata'
 
+export { routes }
+
 export const prerenderPaths = routes
   .filter((route) => !route.redirect && !route.path.includes(':'))
   .map((route) => route.path)

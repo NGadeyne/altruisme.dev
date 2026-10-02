@@ -1,4 +1,5 @@
 import { afterEach, expect, it, vi } from 'vitest'
+import { JSDOM } from 'jsdom'
 import worker from './index'
 
 const env = {
@@ -15,7 +16,60 @@ function request(body: object) {
   })
 }
 
-afterEach(() => vi.restoreAllMocks())
+afterEach(() => {
+  vi.useRealTimers()
+  vi.restoreAllMocks()
+})
+
+it('serves only news from the last two days as valid XML', async () => {
+  vi.useFakeTimers()
+  vi.setSystemTime(new Date('2026-10-02T15:00:00Z'))
+  const articles = [
+    {
+      url: 'https://altruisme.dev/actualites/semaine-39-2026',
+      publishedAt: '2026-09-26',
+      title: 'Semaine 39',
+    },
+    {
+      url: 'https://altruisme.dev/actualites/semaine-40-2026',
+      publishedAt: '2026-10-02',
+      title: 'IA & agents <autonomes>',
+    },
+  ]
+  const assets = {
+    fetch: vi.fn(async () => new Response(JSON.stringify(articles))),
+  }
+  const newsRequest = new Request('https://altruisme.dev/news-sitemap.xml')
+  const response = await worker.fetch(newsRequest, { ...env, ASSETS: assets })
+
+  expect(response.status).toBe(200)
+  expect(response.headers.get('Content-Type')).toBe('application/xml; charset=utf-8')
+  expect(response.headers.get('Cache-Control')).toBe('no-store')
+  expect(assets.fetch).toHaveBeenCalledWith(
+    expect.objectContaining({ url: 'https://altruisme.dev/news-sitemap-articles.json' }),
+  )
+
+  const document = new JSDOM(await response.text(), { contentType: 'application/xml' }).window
+    .document
+  const sitemapNamespace = 'http://www.sitemaps.org/schemas/sitemap/0.9'
+  const newsNamespace = 'http://www.google.com/schemas/sitemap-news/0.9'
+  const value = (namespace: string, name: string) =>
+    document.getElementsByTagNameNS(namespace, name)[0]?.textContent
+  expect(document.getElementsByTagNameNS(sitemapNamespace, 'url')).toHaveLength(1)
+  expect(value(sitemapNamespace, 'loc')).toBe(
+    'https://altruisme.dev/actualites/semaine-40-2026',
+  )
+  expect(value(newsNamespace, 'name')).toBe('Altruisme.DEV')
+  expect(value(newsNamespace, 'language')).toBe('fr')
+  expect(value(newsNamespace, 'publication_date')).toBe('2026-10-02')
+  expect(value(newsNamespace, 'title')).toBe('IA & agents <autonomes>')
+
+  vi.setSystemTime(new Date('2026-10-04T00:00:00Z'))
+  const expired = await worker.fetch(newsRequest, { ...env, ASSETS: assets })
+  const expiredDocument = new JSDOM(await expired.text(), { contentType: 'application/xml' })
+    .window.document
+  expect(expiredDocument.getElementsByTagNameNS(sitemapNamespace, 'url')).toHaveLength(0)
+})
 
 it('rejects invalid addresses and missing consent without calling Brevo', async () => {
   const brevo = vi.spyOn(globalThis, 'fetch')

@@ -1,6 +1,11 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
-import { prerenderPaths, redirectPaths, render } from '../node_modules/.prerender/entry-server.js'
+import {
+  prerenderPaths,
+  redirectPaths,
+  render,
+  routes,
+} from '../node_modules/.prerender/entry-server.js'
 
 const output = resolve('dist')
 const template = await readFile(resolve(output, 'index.html'), 'utf8')
@@ -35,6 +40,27 @@ for (const path of [...prerenderPaths, '/404']) {
   await writeFile(file, page)
 }
 console.log(`Prerendered ${prerenderPaths.length} pages and 404.html.`)
+
+// The Worker filters this route-derived manifest at request time so old news expires without a rebuild.
+const newsArticles = routes
+  .filter((route) => route.path.startsWith('/actualites/') && route.meta?.article === true)
+  .map((route) => {
+    const publishedAt = route.meta.publishedAt
+    const title = route.meta.ogTitle || route.meta.title
+    if (
+      typeof publishedAt !== 'string' ||
+      !/^\d{4}-\d{2}-\d{2}$/.test(publishedAt) ||
+      Number.isNaN(Date.parse(publishedAt)) ||
+      new Date(publishedAt).toISOString().slice(0, 10) !== publishedAt ||
+      typeof title !== 'string' ||
+      !title.trim() ||
+      route.path.includes(':')
+    ) {
+      throw new Error(`Invalid News sitemap metadata for ${route.path}`)
+    }
+    return { url: `https://altruisme.dev${route.path}`, publishedAt, title }
+  })
+await writeFile(resolve(output, 'news-sitemap-articles.json'), JSON.stringify(newsArticles))
 
 // Preserve remaining route aliases at the HTTP layer; retired URLs are not registered routes.
 const redirects = []

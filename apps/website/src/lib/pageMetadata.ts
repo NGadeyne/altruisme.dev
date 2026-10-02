@@ -54,10 +54,15 @@ export function renderPageMetadata(to: RouteLocationNormalizedLoaded) {
   if (to.meta.article === true && to.meta.image) {
     const image = new URL(String(to.meta.image), SITE_URL).href
     const imageAlt = String(to.meta.imageAlt || ogTitle)
+    const publishedAt = String(to.meta.publishedAt)
+    const modifiedAt = String(to.meta.modifiedAt)
+    const author = String(to.meta.author)
     meta('og:image', image, 'property')
     meta('og:image:alt', imageAlt, 'property')
     meta('twitter:image', image)
     meta('twitter:image:alt', imageAlt)
+    meta('article:published_time', publishedAt, 'property')
+    meta('article:modified_time', modifiedAt, 'property')
     const structuredData = {
       '@context': 'https://schema.org',
       '@type': 'NewsArticle',
@@ -66,6 +71,9 @@ export function renderPageMetadata(to: RouteLocationNormalizedLoaded) {
       url,
       mainEntityOfPage: { '@type': 'WebPage', '@id': url },
       image,
+      datePublished: publishedAt,
+      dateModified: modifiedAt,
+      author: { '@type': 'Person', name: author },
       publisher: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
       inLanguage: 'fr-FR',
       articleSection: String(to.meta.articleSection || 'Actualités'),

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { BaseContainer } from '@altruisme/ui'
+import NewsByline from '@/components/news/NewsByline.vue'
 import { externalLinks, week39, week39Sections } from '@/content/news/week39'
 
 function linkedParts(heading: string, paragraph: string) {
@@ -34,6 +35,7 @@ function linkedParts(heading: string, paragraph: string) {
             {{ week39.title }}
           </h1>
           <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-muted">{{ week39.excerpt }}</p>
+          <NewsByline :published-at="week39.publishedAt" :author="week39.author" />
         </header>
         <img
           :src="week39.image"

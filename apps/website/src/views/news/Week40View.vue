@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { BaseContainer } from '@altruisme/ui'
+import NewsByline from '@/components/news/NewsByline.vue'
 import { inlineParts, week40, week40Sections } from '@/content/news/week40'
 </script>
 
@@ -21,6 +22,7 @@ import { inlineParts, week40, week40Sections } from '@/content/news/week40'
             {{ week40.title }}
           </h1>
           <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-muted">{{ week40.excerpt }}</p>
+          <NewsByline :published-at="week40.publishedAt" :author="week40.author" />
         </header>
         <img
           :src="week40.image"

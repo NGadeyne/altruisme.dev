@@ -96,6 +96,9 @@ export const routes: RouteRecordRaw[] = [
       imageAlt: week40.imageAlt,
       article: true,
       articleSection: week40.format,
+      publishedAt: week40.publishedAt,
+      modifiedAt: week40.modifiedAt,
+      author: week40.author,
     },
   },
   {
@@ -111,6 +114,9 @@ export const routes: RouteRecordRaw[] = [
       imageAlt: week39.imageAlt,
       article: true,
       articleSection: week39.format,
+      publishedAt: week39.publishedAt,
+      modifiedAt: week39.modifiedAt,
+      author: week39.author,
     },
   },
   {

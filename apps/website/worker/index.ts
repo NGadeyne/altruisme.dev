@@ -1,3 +1,5 @@
+import { renderNewsSitemap, type NewsSitemapArticle } from './newsSitemap'
+
 interface Env {
   ASSETS: { fetch(request: Request): Promise<Response> }
   BREVO_API_KEY?: string
@@ -25,6 +27,23 @@ const validEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url)
+    if (url.pathname === '/news-sitemap.xml') {
+      if (request.method !== 'GET' && request.method !== 'HEAD')
+        return new Response(null, { status: 405, headers: { Allow: 'GET, HEAD' } })
+
+      const manifestUrl = new URL('/news-sitemap-articles.json', url)
+      const manifestResponse = await env.ASSETS.fetch(new Request(manifestUrl))
+      if (!manifestResponse.ok) return new Response(null, { status: 503 })
+      const articles = (await manifestResponse.json()) as NewsSitemapArticle[]
+      const xml = renderNewsSitemap(articles)
+      return new Response(request.method === 'HEAD' ? null : xml, {
+        headers: {
+          'Content-Type': 'application/xml; charset=utf-8',
+          'Cache-Control': 'no-store',
+          'X-Content-Type-Options': 'nosniff',
+        },
+      })
+    }
     if (url.pathname !== '/api/lancement') return env.ASSETS.fetch(request)
     if (request.method !== 'POST') return json({ status: 'method_not_allowed' }, 405)
 

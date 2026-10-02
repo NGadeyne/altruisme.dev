@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import { readFile, access } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { JSDOM } from 'jsdom'
-import { prerenderPaths } from '../node_modules/.prerender/entry-server.js'
+import { prerenderPaths, routes } from '../node_modules/.prerender/entry-server.js'
 
 const output = resolve('dist')
 for (const path of [...prerenderPaths, '/404']) {
@@ -93,6 +93,60 @@ for (const path of [...prerenderPaths, '/404']) {
       document.querySelector('main article a')?.getAttribute('href'),
       '/actualites/semaine-40-2026',
     )
+    assert.equal(document.querySelectorAll('script[type="application/ld+json"]').length, 0)
+  }
+  if (path === '/actualites/semaine-39-2026' || path === '/actualites/semaine-40-2026') {
+    const publishedAt = path.endsWith('semaine-39-2026') ? '2026-09-26' : '2026-10-02'
+    const canonical = document.querySelector('link[rel="canonical"]')?.getAttribute('href')
+    assert.equal(document.querySelectorAll('link[rel="canonical"]').length, 1, path)
+    assert.equal(document.querySelectorAll('script[type="application/ld+json"]').length, 1, path)
+    for (const property of [
+      'og:title', 'og:description', 'og:type', 'og:url', 'og:site_name', 'og:locale',
+      'og:image', 'og:image:alt',
+    ]) {
+      assert.equal(
+        document.querySelectorAll(`meta[property="${property}"]`).length,
+        1,
+        `${property}: ${path}`,
+      )
+    }
+    for (const name of [
+      'twitter:card', 'twitter:title', 'twitter:description', 'twitter:image', 'twitter:image:alt',
+    ]) {
+      assert.equal(
+        document.querySelectorAll(`meta[name="${name}"]`).length,
+        1,
+        `${name}: ${path}`,
+      )
+    }
+    const data = JSON.parse(document.querySelector('#news-structured-data').textContent)
+    assert.equal(data['@context'], 'https://schema.org')
+    assert.equal(data['@type'], 'NewsArticle')
+    assert.equal(data.headline, document.querySelector('main h1')?.textContent.trim())
+    assert.equal(data.description, document.querySelector('meta[name="description"]')?.content)
+    assert.equal(
+      data.image,
+      new URL(document.querySelector('main img')?.getAttribute('src'), canonical).href,
+    )
+    assert.equal(data.datePublished, publishedAt)
+    assert.equal(data.dateModified, publishedAt)
+    assert.deepEqual(data.author, { '@type': 'Person', name: 'Nicolas Gadeyne' })
+    assert.deepEqual(data.publisher, {
+      '@type': 'Organization',
+      name: 'Altruisme.DEV',
+      url: 'https://altruisme.dev',
+    })
+    assert.equal(data.mainEntityOfPage['@id'], canonical)
+    assert.equal(
+      document.querySelector('article header time')?.getAttribute('datetime'),
+      publishedAt,
+    )
+    assert.match(document.querySelector('article header')?.textContent, /Par Nicolas Gadeyne/)
+    for (const property of ['article:published_time', 'article:modified_time']) {
+      const tags = document.querySelectorAll(`meta[property="${property}"]`)
+      assert.equal(tags.length, 1, `${property}: ${path}`)
+      assert.equal(tags[0].content, publishedAt)
+    }
   }
   if (path === '/actualites/semaine-40-2026') {
     const source = await readFile(resolve('src/content/news/actu-tech-semaine-40-2026.txt'), 'utf8')
@@ -275,6 +329,23 @@ assert.ok(!sitemap.includes('/contact'))
 assert.ok(!sitemap.includes('/communaute'))
 assert.ok(sitemap.includes('https://altruisme.dev/checklist</loc>'))
 assert.ok(!sitemap.includes('/lancement'))
+
+const newsArticles = JSON.parse(await readFile(resolve(output, 'news-sitemap-articles.json'), 'utf8'))
+const newsRoutes = routes.filter((route) => route.path.startsWith('/actualites/') && route.meta?.article === true)
+assert.equal(newsArticles.length, newsRoutes.length)
+for (const article of newsArticles) {
+  const path = new URL(article.url).pathname
+  const route = newsRoutes.find((item) => item.path === path)
+  assert.ok(route, `Missing News route for ${article.url}`)
+  assert.equal(article.url, `https://altruisme.dev${route.path}`)
+  assert.equal(article.title, route.meta.ogTitle || route.meta.title)
+  assert.equal(article.publishedAt, route.meta.publishedAt)
+  assert.match(article.publishedAt, /^\d{4}-\d{2}-\d{2}$/)
+  const html = await readFile(resolve(output, `${path.slice(1)}.html`), 'utf8')
+  const { document } = new JSDOM(html).window
+  assert.equal(document.querySelector('link[rel="canonical"]').getAttribute('href'), article.url)
+  assert.equal(document.querySelector('h1').textContent.trim(), article.title)
+}
 assert.ok((await readFile(resolve(output, '_redirects'), 'utf8')).includes('/communaute /checklist 301'))
 console.log(
   `Verified initial HTML, metadata and assets for ${prerenderPaths.length} pages and the 404 page.`,

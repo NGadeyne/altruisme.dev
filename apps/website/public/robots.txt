@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://altruisme.dev/sitemap.xml
+Sitemap: https://altruisme.dev/news-sitemap.xml
