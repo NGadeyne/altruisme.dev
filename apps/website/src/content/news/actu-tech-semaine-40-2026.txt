@@ -1,261 +1,93 @@
-Une semaine de plus dans la Tech, et une impression devient de plus en plus difficile à ignorer.
+Une semaine de plus dans la Tech, et un changement devient de plus en plus visible. Pendant plusieurs années, la grande bataille de l’intelligence artificielle consistait surtout à construire le meilleur modèle possible. Celui qui raisonnait le mieux, écrivait le meilleur code ou obtenait les meilleurs scores sur les benchmarks. Cette semaine, OpenAI, NVIDIA et Google ont chacun montré à leur manière que cette compétition est peut-être en train de se déplacer.
 
-Le chatbot commence doucement à devenir secondaire.
+Les modèles restent évidemment essentiels. Mais la question devient progressivement moins « que peut répondre cette IA ? » que « que peut-elle réellement faire ? ». Les agents obtiennent désormais des outils, de la mémoire, des environnements d’exécution et même leurs propres ordinateurs dans le Cloud. Et à mesure qu’ils gagnent en autonomie, toute une nouvelle couche d’infrastructure commence à apparaître autour d’eux.
 
-Pendant plusieurs années, la grande question autour de l’intelligence artificielle était de savoir quel modèle produisait les meilleures réponses. Cette semaine, OpenAI, Google et NVIDIA ont chacun montré à leur manière que la prochaine bataille pourrait se jouer ailleurs.
+## OpenAI veut donner un véritable environnement de travail aux agents
 
-Dans les outils.
+OpenAI organisait cette semaine son DevDay 2026. Comme souvent avec ce type d’événement, l’entreprise a présenté beaucoup de nouveautés : de nouveaux modèles, de nouvelles API, des évolutions de Codex et plusieurs outils destinés aux développeurs. Mais derrière l’accumulation d’annonces, une direction ressort assez clairement. OpenAI ne veut plus seulement construire une intelligence artificielle avec laquelle nous discutons. L’entreprise cherche à construire une infrastructure dans laquelle des agents peuvent réellement travailler.
 
-Dans les environnements.
+Cette évolution se voit notamment avec l’[Agents API](https://openai.com/index/introducing-the-agents-api/). Elle permet de créer des agents disposant d’un environnement d’exécution hébergé, d’une mémoire, d’outils et même de mécanismes permettant à plusieurs agents de collaborer. OpenAI y ajoute également le computer use, qui permet à un agent d’utiliser un navigateur hébergé pour interagir directement avec l’interface d’un logiciel ou d’un site web. Autrement dit, l’agent ne se contente plus de générer du texte ou du code : il peut commencer à agir dans un environnement informatique.
 
-Et surtout dans la capacité des intelligences artificielles à agir.
+C’est une évolution importante parce que toutes les applications ne disposent pas nécessairement d’une API complète ou facilement exploitable. Jusqu’ici, automatiser un logiciel signifiait souvent construire une intégration spécifique entre plusieurs systèmes. Un agent capable d’utiliser directement une interface graphique peut théoriquement travailler avec beaucoup plus d’outils, parfois de la même manière qu’un humain le ferait. Cela ne rend évidemment pas les API inutiles, mais cela ajoute une nouvelle possibilité lorsqu’elles sont absentes ou trop limitées.
 
-## OpenAI veut donner un travail aux agents
+OpenAI pousse encore plus loin cette logique avec les [Dots](https://help.openai.com/en/articles/20001530-getting-started-with-your-dot). L’entreprise les présente comme des agents persistants capables d’être connectés à différentes applications et de disposer de leur propre ordinateur dans le Cloud. Une version destinée aux entreprises, baptisée Specialist Dots, doit également permettre d’attribuer des responsabilités précises à certains agents au sein d’une organisation.
 
-OpenAI organisait le 29 septembre son DevDay 2026 à San Francisco.
+La différence avec un chatbot classique devient alors assez nette. Lorsque ChatGPT est apparu, le fonctionnement était relativement simple : l’utilisateur envoyait une demande, le modèle répondait, puis attendait la prochaine instruction. Un agent persistant fonctionne davantage comme un processus auquel on confie un objectif ou une responsabilité. Il conserve davantage de contexte, utilise plusieurs outils et peut enchaîner un certain nombre d’actions sans avoir besoin que l’utilisateur lui décrive chaque étape.
 
-Comme souvent avec ce genre d’événement, il y avait beaucoup d’annonces : nouveaux modèles, nouvelles API, nouvelles intégrations et améliorations de Codex.
+On pourrait par exemple imaginer un agent chargé de préparer chaque semaine un rapport commercial. Plutôt que de lui demander successivement d’ouvrir un fichier, d’extraire des données, de les analyser puis de rédiger un document, on pourrait lui confier directement le résultat attendu. L’agent choisirait ensuite les outils nécessaires pour accomplir la tâche, dans les limites des permissions qui lui ont été attribuées.
 
-Mais lorsqu’on prend un peu de recul, toutes ces nouveautés racontent finalement une histoire assez simple.
+Codex évolue exactement dans la même direction. Avec Codex Cloud, OpenAI propose désormais des environnements réutilisables contenant le repository d’un projet, ses dépendances, ses scripts et ses paramètres. Une tâche peut continuer à s’exécuter dans le Cloud même lorsque l’ordinateur de l’utilisateur est éteint, puis être suivie ou reprise depuis un autre appareil.
 
-OpenAI ne veut plus seulement construire une intelligence artificielle à laquelle nous parlons. L’entreprise veut construire une infrastructure dans laquelle des agents peuvent travailler.
+Pris séparément, chacun de ces produits peut sembler être une amélioration supplémentaire d’un assistant existant. Mais lorsqu’on les regarde ensemble, ils racontent quelque chose de plus profond. Nous sommes progressivement en train de construire une nouvelle abstraction informatique dans laquelle le modèle n’est plus simplement une interface capable de produire une réponse. Il devient une sorte de moteur capable d’utiliser lui-même plusieurs logiciels pour tenter d’atteindre un objectif.
 
-La différence peut sembler subtile. Elle ne l’est pas vraiment.
+C’est d’ailleurs probablement pour cette raison que la question des modèles commence légèrement à perdre son exclusivité dans le débat. Pendant longtemps, toute l’attention se concentrait sur le nombre de paramètres, la taille de la fenêtre de contexte ou les performances sur les benchmarks. Ces éléments restent importants, mais ils ne suffisent plus. Un agent réellement utile a également besoin d’un environnement, de données, de mémoire, d’outils et surtout d’un système permettant de contrôler ce qu’il peut réellement faire.
 
-Lorsque ChatGPT est apparu, le fonctionnement était relativement simple. Tu écrivais quelque chose, le modèle produisait une réponse, puis attendait ton prochain message.
+Et c’est précisément là que NVIDIA entre dans l’histoire.
 
-Les agents changent progressivement cette relation.
+## NVIDIA construit des garde-fous pour les agents IA
 
-OpenAI développe désormais des systèmes capables de recevoir un objectif, conserver du contexte, utiliser plusieurs outils, manipuler des fichiers, exécuter du code, naviguer dans des logiciels et continuer à travailler pendant une période beaucoup plus longue.
+NVIDIA a présenté cette semaine son [Open Agent Safety Platform](https://nvidianews.nvidia.com/news/open-agent-safety-platform), un ensemble de technologies destinées à mieux contrôler les agents autonomes lorsqu’ils commencent à agir dans des environnements réels. La plateforme repose notamment sur OpenShell, un runtime open source capable d’exécuter les agents dans des environnements isolés et de contrôler les fichiers, réseaux ou services auxquels ils peuvent accéder.
 
-L’une des annonces qui illustre le mieux cette évolution concerne les **Dots**.
+L’idée de fond est particulièrement intéressante : la sécurité d’un agent ne doit pas dépendre uniquement de sa capacité à respecter correctement une instruction. NVIDIA déplace une partie de cette sécurité vers l’environnement lui-même. Les permissions sont définies en dehors du processus de l’agent, les accès peuvent être limités par défaut et les actions autorisées ou bloquées peuvent être auditées. Même si le modèle interprète mal une consigne ou tente une action inattendue, il reste enfermé dans un périmètre défini techniquement.
 
-Un Dot est un agent persistant auquel il est possible de connecter des applications et de fournir son propre environnement informatique dans le Cloud. OpenAI prévoit également des « Specialist Dots » destinés aux entreprises : des agents auxquels une organisation pourra attribuer des responsabilités particulières.
+Pour les développeurs, la logique est finalement assez familière. Nous ne faisons déjà pas confiance aveuglément à une application simplement parce qu’elle semble bien fonctionner. Nous utilisons des permissions, des conteneurs, des politiques réseau, des systèmes d’authentification et des mécanismes d’observabilité pour limiter les conséquences d’une erreur. Les agents commencent simplement à nécessiter la même chose.
 
-On commence donc à s’éloigner sérieusement du simple chatbot.
+NVIDIA va même plus loin avec Sentry, un système de surveillance indépendant conçu pour observer l’activité d’un agent depuis une couche extérieure à son propre environnement d’exécution et, si nécessaire, l’isoler lorsqu’il dépasse certaines limites.
 
-Imagine par exemple un agent chargé de préparer chaque semaine un rapport commercial.
-
-Il pourrait récupérer des informations dans plusieurs outils, analyser les données, produire le document, identifier certaines anomalies puis préparer les actions suivantes.
-
-L’humain ne lui demanderait plus nécessairement chaque opération individuellement.
-
-Il lui donnerait une responsabilité.
-
-Et cette distinction est probablement beaucoup plus importante que le passage d’un benchmark de 82 % à 85 %.
-
-OpenAI pousse exactement la même logique du côté des développeurs avec son Agents API.
-
-L’objectif est de permettre aux développeurs de construire des agents disposant d’un environnement d’exécution, d'une mémoire, d’outils et même de sous-agents capables de prendre en charge certaines parties d’une tâche.
-
-À cela s’ajoute désormais le **computer use**.
-
-Un agent peut utiliser un navigateur hébergé par OpenAI, observer l’interface d’un site et interagir avec celle-ci pour accomplir une tâche.
-
-Cela change considérablement les possibilités d’automatisation.
-
-Jusqu’ici, automatiser correctement un logiciel nécessitait généralement une API ou une intégration dédiée. Mais énormément de logiciels possèdent une interface graphique sans forcément exposer toutes leurs fonctionnalités de manière facilement programmable.
-
-Un agent capable d’utiliser cette interface comme un humain peut théoriquement travailler avec une quantité beaucoup plus importante de logiciels.
-
-Et OpenAI applique également cette philosophie à Codex.
-
-Avec Codex Cloud, les environnements de développement peuvent maintenant rester disponibles dans le Cloud avec le repository, les dépendances, les scripts et les différents outils nécessaires au projet.
-
-Tu peux lancer une tâche, fermer ton ordinateur et laisser l’agent continuer à travailler.
-
-Puis reprendre son travail depuis un autre ordinateur ou depuis ton téléphone.
-
-Pris séparément, chacun de ces changements pourrait sembler relativement anecdotique.
-
-Pris ensemble, ils montrent quelque chose de beaucoup plus intéressant.
-
-Nous sommes progressivement en train de construire une nouvelle abstraction informatique.
-
-Pendant longtemps, nous avons eu des applications.
-
-Puis des API ont permis aux applications de communiquer entre elles.
-
-Les modèles de langage ont ensuite ajouté une nouvelle interface permettant de transformer des instructions humaines en actions informatiques.
-
-Les agents commencent maintenant à assembler tout cela.
-
-Ils disposent d’un objectif, d’un raisonnement, d’outils, d’un environnement d’exécution et progressivement d’une mémoire suffisamment persistante pour travailler pendant des périodes de plus en plus longues.
-
-Le logiciel ne disparaît évidemment pas.
-
-Mais notre manière de l’utiliser pourrait changer.
-
-Dans certains cas, nous continuerons probablement à ouvrir une application et à cliquer sur des boutons.
-
-Dans d’autres, nous pourrions simplement confier un résultat attendu à un agent capable de choisir lui-même les logiciels et les outils nécessaires pour l’obtenir.
-
-Et c’est précisément à ce moment qu’un autre problème apparaît.
-
-Plus un agent possède de capacités, plus les conséquences d'une erreur deviennent importantes.
-
-## NVIDIA construit une cage pour les agents IA
-
-NVIDIA a présenté cette semaine son **Open Agent Safety Platform**, une infrastructure destinée à mieux contrôler l’exécution des agents autonomes.
-
-L’idée est assez simple : la sécurité ne doit pas dépendre uniquement du fait que le modèle accepte de respecter les instructions qu’on lui donne.
-
-NVIDIA veut placer des barrières autour de lui.
-
-OpenShell permet ainsi d’exécuter un agent dans un environnement isolé et de contrôler précisément les fichiers, réseaux, identifiants ou services auxquels il peut accéder.
-
-Le principe est proche de mécanismes que les développeurs connaissent déjà très bien.
-
-On ne donne pas toutes les permissions à une application simplement parce qu’on lui fait confiance.
-
-On limite son environnement.
-
-On surveille ce qu’elle fait.
-
-Et on considère qu’elle pourrait un jour se comporter d’une manière inattendue.
-
-NVIDIA pousse même cette logique jusqu’au matériel avec Sentry, un système indépendant capable de surveiller le comportement des agents et de les isoler lorsqu’ils dépassent certaines limites.
-
-C’est une évolution assez révélatrice.
-
-Nous sommes en train de construire pour les agents IA l’équivalent de décennies d’infrastructure de sécurité informatique : sandboxing, permissions, politiques d’accès, isolation, observabilité et mécanismes d’arrêt.
-
-La question n’est donc progressivement plus seulement : « Est-ce que l’agent est intelligent ? »
-
-Elle devient aussi : « Jusqu’où avons-nous le droit de le laisser agir ? »
+Ce mouvement est assez révélateur de la maturité que commence à atteindre l’écosystème. Nous sommes déjà en train de reconstruire autour des agents une partie des mécanismes que l’informatique traditionnelle a mis des décennies à développer : sandboxing, permissions, contrôle réseau, observabilité et systèmes d’arrêt. Plus les agents deviennent capables d’agir, plus la question importante n’est donc plus seulement de savoir s’ils comprennent correctement une instruction. Il faut également décider jusqu’où nous voulons réellement les laisser aller.
 
 ## Google présente Gemini 4 Argon
 
-Google a également dévoilé cette semaine **Gemini 4 Argon**, son nouveau modèle de pointe.
+Google a également dévoilé [Gemini 4 Argon](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/) cette semaine. Le nouveau modèle est destiné aux tâches professionnelles complexes nécessitant du raisonnement sur une longue durée, notamment dans le développement logiciel, la finance, le juridique ou encore la cybersécurité.
 
-Le modèle est notamment conçu pour travailler sur des tâches complexes et longues dans le développement logiciel, la finance, le juridique et la cybersécurité.
+Mais ce qui est presque plus intéressant que les performances annoncées du modèle, c’est la manière dont Google choisit de le distribuer. Gemini 4 Argon n’est pas immédiatement accessible à tout le monde pour toutes ses capacités. Google commence notamment par le proposer à certains professionnels de la cybersécurité sélectionnés.
 
-Mais la manière dont Google le déploie est presque aussi intéressante que ses performances.
+La raison est assez simple à comprendre. Un modèle suffisamment performant pour analyser automatiquement un système, identifier une vulnérabilité ou proposer une correction peut être extrêmement utile pour défendre une infrastructure. Les mêmes capacités peuvent également devenir sensibles lorsqu’elles sont utilisées dans un autre contexte. Google préfère donc commencer par une diffusion contrôlée auprès de professionnels identifiés.
 
-Argon n’est pas immédiatement distribué massivement au public. Google commence par le proposer à un groupe sélectionné de spécialistes de la cybersécurité dans le cadre de son programme Fairwind.
+Cette approche rejoint finalement le sujet soulevé par NVIDIA. Les capacités des modèles progressent suffisamment vite pour que la question de leur déploiement devienne presque aussi importante que celle de leur performance. Construire un modèle plus puissant reste un objectif, mais décider qui peut l’utiliser, avec quels outils et dans quelles limites devient progressivement une partie centrale du produit lui-même.
 
-La raison est assez évidente.
+## Anthropic montre combien coûte réellement la course à l’IA
 
-Un modèle suffisamment performant pour rechercher automatiquement des vulnérabilités peut être extrêmement utile pour défendre une infrastructure.
+Anthropic a également été au centre de l’actualité cette semaine après la publication de plusieurs informations issues de son dossier préparatoire à une éventuelle introduction en Bourse. Les chiffres donnent surtout une idée assez spectaculaire de l’échelle financière prise par la course à l’intelligence artificielle.
 
-Les mêmes capacités peuvent également devenir problématiques lorsqu’elles sont utilisées dans l’autre sens.
+Une grande partie de ces engagements concerne les géants du Cloud et du calcul. Anthropic dépend notamment fortement de partenaires comme Amazon, Google ou d’autres fournisseurs d’infrastructure pour disposer de la capacité nécessaire à l’entraînement et à l’exécution de ses modèles. Ce qui est intéressant, c’est que ces entreprises peuvent être à la fois partenaires, investisseurs et concurrents sur le marché de l’intelligence artificielle.
 
-Google choisit donc une diffusion progressive avant un déploiement plus large.
+Ces chiffres montrent à quel point l’intelligence artificielle est en train de devenir une industrie extrêmement capitalistique. Lorsque l’on utilise un chatbot, l’expérience paraît presque entièrement logicielle. En réalité, derrière chaque requête se trouvent des datacenters, des accélérateurs spécialisés, des réseaux à très haut débit, des systèmes de refroidissement et des contrats d’infrastructure représentant désormais des montants considérables.
 
-Une nouvelle fois, la frontière entre capacité et sécurité devient de plus en plus difficile à séparer.
+C’est aussi ce qui rend la compétition actuelle si particulière. Pendant longtemps, une startup logicielle pouvait théoriquement se développer avec une infrastructure relativement limitée avant d’atteindre une très grande échelle. Pour les entreprises qui cherchent aujourd’hui à construire les meilleurs modèles du monde, l’accès au calcul devient presque une matière première stratégique.
 
-## Anthropic prépare une introduction en Bourse… et révèle surtout combien coûte réellement l’IA
-
-Anthropic a également beaucoup fait parler cette semaine après que Reuters a pu consulter des éléments de son dossier confidentiel préparant une possible introduction en Bourse.
-
-Au-delà de l’opération financière elle-même, les chiffres donnent surtout une idée de l’échelle prise par la course à l’intelligence artificielle.
-
-Anthropic prévoit des investissements considérables en capacité de calcul au cours des prochaines années.
-
-Un autre document révélé cette semaine indique notamment que Broadcom pourrait financer jusqu’à 42 milliards de dollars afin d’aider Anthropic à louer les puces nécessaires à son infrastructure.
-
-Cela illustre un changement que nous évoquions déjà la semaine dernière avec les datacenters.
-
-L’IA n’est plus seulement une industrie logicielle.
-
-Elle devient une industrie extrêmement capitalistique.
-
-Construire les meilleurs modèles nécessite des datacenters, des GPU ou accélérateurs spécialisés, des réseaux extrêmement rapides, énormément d’électricité et désormais des montages financiers représentant plusieurs dizaines de milliards de dollars.
-
-La bataille entre OpenAI, Anthropic, Google et les autres ressemble donc de moins en moins à une simple compétition entre startups.
-
-Elle commence à ressembler à une véritable industrie lourde numérique.
+La bataille entre OpenAI, Anthropic, Google ou les autres grands laboratoires ne se joue donc plus uniquement sur la qualité des chercheurs ou des modèles. Elle se joue également sur la capacité à réserver suffisamment de puces, sécuriser des datacenters, financer les infrastructures et obtenir suffisamment d’énergie pour les faire fonctionner.
 
 ## ElevenLabs vaut désormais 22 milliards de dollars
 
-Autre chiffre impressionnant de la semaine : ElevenLabs a annoncé une opération permettant à certains salariés de vendre leurs actions sur la base d’une valorisation de **22 milliards de dollars**.
+ElevenLabs a annoncé cette semaine une opération permettant à certains salariés et actionnaires existants de vendre une partie de leurs titres sur la base d’une [valorisation de 22 milliards de dollars](https://www.reuters.com/legal/transactional/elevenlabs-valuation-doubles-22-billion-surging-ai-voice-agent-demand-2026-09-30/). La société spécialisée dans la génération vocale avait encore une valorisation nettement inférieure quelques mois auparavant.
 
-L’entreprise spécialisée dans la génération vocale avait encore une valorisation deux fois inférieure quelques mois auparavant.
+Cette croissance est notamment alimentée par un usage qui dépasse désormais largement la simple génération de voix pour des vidéos ou des contenus. Les agents vocaux commencent à être utilisés pour traiter des demandes clients, organiser des rendez-vous, accompagner certaines opérations commerciales ou automatiser une partie du support.
 
-Cette croissance est notamment portée par l’utilisation de la voix dans les agents IA.
+C’est un détail intéressant parce qu’il montre que la voix est elle aussi en train de devenir une couche d’interface pour les agents. Pendant longtemps, la synthèse vocale était surtout considérée comme un produit permettant de générer un enregistrement. Lorsqu’elle est connectée à un agent capable de raisonner et d’utiliser des outils, elle devient un moyen pour celui-ci d’interagir directement avec des humains dans un contexte professionnel.
 
-Et ce détail est intéressant.
-
-La voix synthétique a longtemps été considérée comme un produit presque indépendant : générer une voix pour une vidéo, un podcast ou un doublage.
-
-Avec les agents, elle devient une interface.
-
-Un agent capable de raisonner, utiliser des outils et manipuler des logiciels peut également discuter avec un client par téléphone.
-
-La génération vocale devient alors une nouvelle couche permettant aux agents de sortir encore davantage des interfaces traditionnelles.
+On retrouve finalement la même évolution que pour le computer use. Les agents commencent progressivement à disposer des mêmes canaux d’interaction que nous : texte, interfaces graphiques, voix et logiciels. Plus ces différentes briques deviennent accessibles, plus la frontière entre un assistant conversationnel et un système réellement capable d’effectuer du travail devient difficile à tracer.
 
 ## Pourquoi ça compte pour les gens de la Tech
 
-Parce que la valeur commence progressivement à se déplacer.
+Parce que toute cette semaine montre que la valeur commence progressivement à se déplacer. Pendant les premières années de l’IA générative, énormément d’attention s’est concentrée sur les modèles eux-mêmes. GPT contre Claude, Claude contre Gemini, puis un nouveau benchmark apparaissait quelques semaines plus tard et l’ordre pouvait à nouveau changer.
 
-Pendant les premières années de l’IA générative, énormément d’attention s’est concentrée sur le modèle.
+Les modèles restent évidemment fondamentaux, mais plus leurs capacités augmentent, plus une autre question devient importante : qu’est-ce qu’on construit autour d’eux ? Un agent réellement utile a besoin d’un environnement d’exécution, de données, de mémoire, d’API, d’identifiants, de permissions et d’outils permettant de vérifier son travail.
 
-GPT contre Claude.
+Cette problématique ressemble finalement beaucoup à ce que la Tech sait déjà faire. Une application classique a besoin d’une infrastructure fiable, de droits d’accès correctement configurés, de logs, de mécanismes de sécurité et d’une architecture permettant d’éviter qu’une erreur locale ne devienne un incident global. La grande différence est qu’un agent ne suit pas toujours un chemin entièrement défini à l’avance par ses développeurs. Il peut choisir une partie des actions qu’il réalise pour atteindre son objectif.
 
-Claude contre Gemini.
+Cela crée de nouveaux problèmes d’architecture. Il faut savoir comment donner à un agent suffisamment de permissions pour être utile sans lui ouvrir l’ensemble du système, comment vérifier ce qu’il a réellement modifié, comment gérer plusieurs agents travaillant simultanément sur les mêmes ressources ou encore comment limiter les coûts lorsqu’un processus autonome tourne pendant plusieurs heures. Il faut aussi déterminer à quel moment une validation humaine devient nécessaire.
 
-Puis un nouveau benchmark apparaissait et l’ordre changeait quelques semaines plus tard.
+Ce sont probablement ces sujets qui vont occuper une partie croissante des développeurs, architectes Cloud, ingénieurs sécurité et équipes produit au cours des prochaines années. La compétence importante ne sera peut-être donc pas simplement de savoir « utiliser l’IA » ou écrire de bons prompts. Elle sera aussi de savoir construire l’environnement dans lequel cette intelligence peut agir de manière fiable.
 
-Les modèles restent évidemment essentiels.
-
-Mais plus leurs capacités augmentent, plus une autre question devient importante : qu’est-ce qu’on construit autour ?
-
-Un agent réellement utile a besoin d’un environnement d’exécution, de données, de mémoire, d’API, d’identifiants, de permissions, d’observabilité et de mécanismes permettant de vérifier son travail.
-
-Exactement comme une application classique.
-
-À une différence près : une application suit généralement un chemin défini par ses développeurs.
-
-Un agent choisit lui-même une partie de ce chemin.
-
-Cela crée énormément de possibilités, mais également de nouveaux problèmes d’architecture.
-
-Comment lui donner accès à une base de données sans lui donner trop de permissions ?
-
-Comment vérifier ce qu’il a réellement fait ?
-
-Comment gérer plusieurs agents qui travaillent simultanément ?
-
-Comment interrompre une tâche qui commence à dériver ?
-
-Comment limiter les coûts ?
-
-Comment garder un humain dans la boucle uniquement lorsque cela est réellement nécessaire ?
-
-Ce sont probablement ces problèmes qui vont occuper une partie importante des développeurs, architectes Cloud, ingénieurs sécurité et équipes produit au cours des prochaines années.
-
-Le métier ne consiste donc pas nécessairement à « apprendre à prompter ».
-
-Il pourrait beaucoup plus ressembler à ce que nous faisons déjà depuis des décennies dans la Tech : construire des systèmes fiables autour de composants puissants mais imparfaits.
-
-Simplement, l’un de ces composants est désormais capable de prendre certaines décisions tout seul.
+Et c’est probablement là que beaucoup de nouveaux produits et de nouvelles architectures vont apparaître.
 
 ## Ce qu’on retient de la semaine
 
-La semaine dernière, nous parlions d’une intelligence artificielle qui commençait à sortir de l’écran.
+La semaine dernière, nous parlions d’une intelligence artificielle qui commençait à sortir de l’écran. Cette semaine montre assez bien ce qui arrive juste après : on lui donne des outils, de la mémoire, un navigateur, un environnement Cloud et progressivement suffisamment d’autonomie pour continuer à travailler sans attendre chacune de nos instructions.
 
-Cette semaine montre ce qui arrive juste après.
+En parallèle, NVIDIA commence déjà à construire les mécanismes permettant de limiter ce que ces agents ont réellement le droit de faire, tandis que Google choisit de contrôler l’accès à certaines capacités particulièrement sensibles. Ce n’est probablement pas un hasard. Plus un agent devient utile, plus une erreur de sa part peut également avoir des conséquences importantes.
 
-On lui donne des outils.
+La prochaine grande bataille de l’intelligence artificielle ne sera donc peut-être pas uniquement celle du modèle le plus puissant. Elle pourrait aussi devenir celle de l’écosystème capable de transformer cette intelligence en actions réellement utiles, fiables et contrôlables.
 
-Une mémoire.
-
-Un navigateur.
-
-Un environnement Cloud.
-
-Des applications auxquelles se connecter.
-
-Et progressivement suffisamment d’autonomie pour continuer à travailler sans attendre chacune de nos instructions.
-
-En parallèle, NVIDIA construit déjà l’infrastructure permettant de limiter ce que ces agents ont le droit de faire, tandis que Google choisit de restreindre initialement l’accès à certaines capacités particulièrement sensibles.
-
-Ce n’est probablement pas un hasard.
-
-Plus les agents deviennent utiles, plus nous devons accepter qu’ils puissent également se tromper avec davantage de conséquences.
-
-La prochaine grande bataille de l’intelligence artificielle ne sera donc peut-être pas uniquement celle du modèle le plus intelligent.
-
-Elle pourrait être celle de l’écosystème capable de transformer cette intelligence en actions réellement utiles, fiables et contrôlables.
-
-Et pour les gens qui construisent des produits, des logiciels et des infrastructures, c’est probablement là que les choses commencent vraiment à devenir intéressantes.
+Et pour les gens qui construisent des logiciels, des produits et des infrastructures, c’est probablement là que les choses commencent vraiment à devenir intéressantes.

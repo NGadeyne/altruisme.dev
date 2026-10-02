@@ -52,7 +52,16 @@ import { inlineParts, week40, week40Sections } from '@/content/news/week40'
               class="mt-5 first:mt-0"
             >
               <template v-for="(part, partIndex) in inlineParts(paragraph)" :key="partIndex"
-                ><strong v-if="part.strong" class="font-semibold text-ink">{{ part.text }}</strong
+                ><a
+                  v-if="part.href"
+                  :href="part.href"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="font-medium text-petrol underline decoration-petrol/50 underline-offset-4 hover:decoration-petrol focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-petrol"
+                  >{{ part.text }}</a
+                ><strong v-else-if="part.strong" class="font-semibold text-ink">{{
+                  part.text
+                }}</strong
                 ><template v-else>{{ part.text }}</template></template
               >
             </p>

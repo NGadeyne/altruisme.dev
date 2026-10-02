@@ -155,7 +155,7 @@ for (const path of [...prerenderPaths, '/404']) {
     assert.deepEqual(
       publishedBlocks,
       source.trim().split(/\r?\n\s*\r?\n/).map((block) =>
-        block.replace(/^## /, '').replace(/\*\*/g, '').replace(/\r?\n/g, ' '),
+        block.replace(/^## /, '').replace(/\*\*/g, '').replace(/\[([^\]]+)\]\(https?:\/\/[^)]+\)/g, '$1').replace(/\r?\n/g, ' '),
       ),
     )
     assert.equal(document.title, 'Actu Tech semaine #40 : l’IA ne veut plus seulement discuter')
