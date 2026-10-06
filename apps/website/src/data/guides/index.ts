@@ -155,23 +155,52 @@ export const guides: GuideDefinition[] = [
   },
   {
     slug: 'linkedin',
+    loadSections: () => import('@/content/guides/linkedin').then((module) => module.default),
     title: 'LinkedIn 2026 : Guide complet',
     description:
       'Construire une présence forte sur LinkedIn, développer sa visibilité, créer du contenu utile et transformer son audience en opportunités.',
-    status: 'soon',
+    status: 'available',
     label: 'LinkedIn',
     category: 'acquerir',
     edition: '2026',
+    seoTitle: 'LinkedIn 2026 : le guide complet pour développer sa visibilité',
+    metaDescription:
+      'Le guide complet pour réussir sur LinkedIn en 2026 : profil, positionnement, contenu, réseau, algorithme, prospection, IA et opportunités.',
+    ogTitle: 'LinkedIn 2026 : le guide complet',
+    ogDescription:
+      'Construire une présence forte sur LinkedIn, développer sa visibilité, créer du contenu utile et transformer cette visibilité en opportunités professionnelles.',
+    image: '/images/guides/guide-linkedin-2026.webp',
+    imageSrcset:
+      '/images/guides/guide-linkedin-2026-640.webp 640w, /images/guides/guide-linkedin-2026.webp 1672w',
+    imageAlt:
+      'LinkedIn 2026 : guide complet pour développer sa visibilité et créer des opportunités',
+    author: { name: 'Nicolas Gadeyne', url: 'https://www.linkedin.com/in/nicolas-gadeyne/' },
+    publishedAt: '2026-10-06',
+    updatedAt: '2026-10-06',
   },
   {
     slug: 'seo',
+    loadSections: () => import('@/content/guides/seo').then((module) => module.default),
     title: 'SEO 2026 : Guide complet',
     description:
       'Comprendre le référencement naturel, construire une stratégie SEO durable et améliorer la visibilité d’un site sur les moteurs de recherche.',
-    status: 'soon',
+    status: 'available',
     label: 'SEO',
     category: 'acquerir',
     edition: '2026',
+    seoTitle: 'SEO 2026 : le guide complet pour réussir son référencement',
+    metaDescription:
+      'Le guide complet du SEO en 2026 : stratégie, mots-clés, contenu, technique, indexation, backlinks, autorité, IA et mesure des performances.',
+    ogTitle: 'SEO 2026 : le guide complet',
+    ogDescription:
+      'Comprendre et maîtriser le SEO en 2026 : stratégie, contenu, technique, indexation, autorité, backlinks, IA et croissance organique durable.',
+    image: '/images/guides/guide-seo-2026.webp',
+    imageSrcset:
+      '/images/guides/guide-seo-2026-640.webp 640w, /images/guides/guide-seo-2026.webp 1672w',
+    imageAlt: 'SEO 2026 : guide complet pour réussir son référencement naturel',
+    author: { name: 'Nicolas Gadeyne', url: 'https://www.linkedin.com/in/nicolas-gadeyne/' },
+    publishedAt: '2026-10-06',
+    updatedAt: '2026-10-06',
   },
   {
     slug: 'prospection',

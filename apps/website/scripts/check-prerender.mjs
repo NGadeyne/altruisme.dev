@@ -71,6 +71,56 @@ for (const path of [...prerenderPaths, '/404']) {
       'SaaS 2026 : Guide complet pour créer, lancer et développer un SaaS',
     )
   }
+  if (path === '/guides/linkedin') {
+    assert.equal(document.querySelectorAll('.guide-section').length, 21)
+    assert.ok(document.querySelector('#partie-18'))
+    assert.ok(document.querySelector('#faq'))
+    assert.ok(document.querySelector('#faq')?.textContent.includes(
+      'Elle se mesure aussi au nombre de bonnes personnes qui savent pourquoi elles devraient penser à vous.',
+    ))
+    assert.equal(document.title, 'LinkedIn 2026 : le guide complet pour développer sa visibilité')
+    assert.equal(
+      document.querySelector('meta[name="description"]').content,
+      'Le guide complet pour réussir sur LinkedIn en 2026 : profil, positionnement, contenu, réseau, algorithme, prospection, IA et opportunités.',
+    )
+    assert.equal(document.querySelector('main h1')?.textContent.trim(), 'LinkedIn 2026 : Guide complet')
+    assert.equal(document.querySelector('meta[property="og:title"]').content, 'LinkedIn 2026 : le guide complet')
+    assert.equal(
+      document.querySelector('meta[property="og:description"]').content,
+      'Construire une présence forte sur LinkedIn, développer sa visibilité, créer du contenu utile et transformer cette visibilité en opportunités professionnelles.',
+    )
+    assert.equal(
+      document.querySelector('main img')?.getAttribute('src'),
+      '/images/guides/guide-linkedin-2026.webp',
+    )
+    assert.equal(
+      document.querySelector('main img')?.getAttribute('alt'),
+      'LinkedIn 2026 : guide complet pour développer sa visibilité et créer des opportunités',
+    )
+  }
+  if (path === '/guides/seo') {
+    assert.equal(document.querySelectorAll('.guide-section').length, 21)
+    assert.ok(document.querySelector('#partie-18'))
+    assert.ok(document.querySelector('#faq')?.textContent.includes(
+      'Trouvez le prochain problème le plus important, résolvez-le correctement, mesurez ce qui change puis recommencez.',
+    ))
+    assert.equal(document.title, 'SEO 2026 : le guide complet pour réussir son référencement')
+    assert.equal(
+      document.querySelector('meta[name="description"]').content,
+      'Le guide complet du SEO en 2026 : stratégie, mots-clés, contenu, technique, indexation, backlinks, autorité, IA et mesure des performances.',
+    )
+    assert.equal(document.querySelector('main h1')?.textContent.trim(), 'SEO 2026 : Guide complet')
+    assert.equal(document.querySelector('link[rel="canonical"]').href, 'https://altruisme.dev/guides/seo')
+    assert.equal(document.querySelector('meta[property="og:title"]').content, 'SEO 2026 : le guide complet')
+    assert.equal(
+      document.querySelector('meta[property="og:description"]').content,
+      'Comprendre et maîtriser le SEO en 2026 : stratégie, contenu, technique, indexation, autorité, backlinks, IA et croissance organique durable.',
+    )
+    assert.equal(document.querySelector('meta[property="og:url"]').content, 'https://altruisme.dev/guides/seo')
+    assert.equal(document.querySelector('meta[property="og:type"]').content, 'article')
+    assert.equal(document.querySelector('meta[name="twitter:card"]').content, 'summary_large_image')
+    assert.equal(document.querySelector('main img')?.getAttribute('src'), '/images/guides/guide-seo-2026.webp')
+  }
   if (path === '/') {
     assert.equal(document.querySelectorAll('.media-news-list article').length, 2)
     assert.equal(document.querySelector('.media-feature'), null)
