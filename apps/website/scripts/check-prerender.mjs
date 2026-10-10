@@ -383,7 +383,7 @@ for (const path of [...prerenderPaths, '/404']) {
       'Ton site est en ligne, mais est-il vraiment visible ? Découvre les 9 points essentiels à vérifier pour améliorer ton référencement sur Google et ta visibilité dans les moteurs IA.',
     )
     assert.equal(document.querySelector('form .base-button')?.textContent.trim(), 'Recevoir la checklist gratuitement')
-    assert.equal(document.querySelector('.launch-sheet-title')?.textContent.replace(/\u00ad/g, '').trim(), "Les fondamentaux d'un SEO solide.")
+    assert.equal(document.querySelector('.launch-sheet-title')?.textContent.replace(/\u00ad/g, '').trim(), "Fondamentaux d'un SEO solide.")
     assert.equal(document.querySelector('.launch-sheet-subtitle')?.textContent.trim(), '9 vérifications pour identifier les problèmes et savoir par où commencer.')
     assert.deepEqual(
       [...document.querySelectorAll('.launch-sheet-step')].map((item) => [

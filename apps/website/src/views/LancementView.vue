@@ -147,7 +147,7 @@ async function submit() {
             <div class="launch-sheet launch-sheet-front">
               <div class="launch-sheet-top"><span>Altruisme.DEV</span><span>01 / 09</span></div>
               <p class="launch-sheet-label">La checklist SEO</p>
-              <p class="launch-sheet-title">Les fondamen&shy;taux d'un SEO solide<span>.</span></p>
+              <p class="launch-sheet-title">Fondamen&shy;taux d'un SEO solide<span>.</span></p>
               <p class="launch-sheet-subtitle">9 vérifications pour identifier les problèmes et savoir par où commencer.</p>
               <div class="launch-sheet-rule" />
               <div v-for="step in previewSteps" :key="step.number" class="launch-sheet-step">
