@@ -121,6 +121,30 @@ for (const path of [...prerenderPaths, '/404']) {
     assert.equal(document.querySelector('meta[name="twitter:card"]').content, 'summary_large_image')
     assert.equal(document.querySelector('main img')?.getAttribute('src'), '/images/guides/guide-seo-2026.webp')
   }
+  if (path === '/guides/prospection') {
+    assert.equal(document.querySelectorAll('.guide-section').length, 21)
+    assert.ok(document.querySelector('#partie-18'))
+    assert.ok(document.querySelector('#faq')?.textContent.includes(
+      'La bonne prospection combine donc patience et réactivité',
+    ))
+    assert.ok(!document.querySelector('main')?.textContent.includes('Bien sûr. Je garde exactement'))
+    assert.equal(document.title, 'Prospection 2026 : le guide complet pour trouver des clients')
+    assert.equal(
+      document.querySelector('meta[name="description"]').content,
+      'Le guide complet de la prospection en 2026 : stratégie, ciblage, messages, LinkedIn, email, relances, CRM, automatisation et intelligence artificielle.',
+    )
+    assert.equal(document.querySelector('main h1')?.textContent.trim(), 'Prospection 2026 : Guide complet')
+    assert.equal(document.querySelector('link[rel="canonical"]').href, 'https://altruisme.dev/guides/prospection')
+    assert.equal(document.querySelector('meta[property="og:title"]').content, 'Prospection 2026 : le guide complet')
+    assert.equal(
+      document.querySelector('meta[property="og:description"]').content,
+      'Construire une prospection efficace en 2026 : ciblage, proposition de valeur, messages, séquences, qualification, CRM, automatisation et IA.',
+    )
+    assert.equal(document.querySelector('meta[property="og:url"]').content, 'https://altruisme.dev/guides/prospection')
+    assert.equal(document.querySelector('meta[property="og:type"]').content, 'article')
+    assert.equal(document.querySelector('meta[name="twitter:card"]').content, 'summary_large_image')
+    assert.equal(document.querySelector('main img')?.getAttribute('src'), '/images/guides/guide-prospection-2026.webp')
+  }
   if (path === '/') {
     assert.equal(document.querySelectorAll('.media-news-list article').length, 2)
     assert.equal(document.querySelector('.media-feature'), null)

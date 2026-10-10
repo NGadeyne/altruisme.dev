@@ -204,13 +204,27 @@ export const guides: GuideDefinition[] = [
   },
   {
     slug: 'prospection',
+    loadSections: () => import('@/content/guides/prospection').then((module) => module.default),
     title: 'Prospection 2026 : Guide complet',
     description:
       'Structurer sa prospection, identifier les bons prospects, créer des approches efficaces et transformer les échanges en opportunités commerciales.',
-    status: 'soon',
+    status: 'available',
     label: 'Prospection',
     category: 'acquerir',
     edition: '2026',
+    seoTitle: 'Prospection 2026 : le guide complet pour trouver des clients',
+    metaDescription:
+      'Le guide complet de la prospection en 2026 : stratégie, ciblage, messages, LinkedIn, email, relances, CRM, automatisation et intelligence artificielle.',
+    ogTitle: 'Prospection 2026 : le guide complet',
+    ogDescription:
+      'Construire une prospection efficace en 2026 : ciblage, proposition de valeur, messages, séquences, qualification, CRM, automatisation et IA.',
+    image: '/images/guides/guide-prospection-2026.webp',
+    imageSrcset:
+      '/images/guides/guide-prospection-2026-640.webp 640w, /images/guides/guide-prospection-2026.webp 1672w',
+    imageAlt: 'Prospection 2026 : guide complet pour trouver des clients',
+    author: { name: 'Nicolas Gadeyne', url: 'https://www.linkedin.com/in/nicolas-gadeyne/' },
+    publishedAt: '2026-10-10',
+    updatedAt: '2026-10-10',
   },
   {
     slug: 'youtube',
