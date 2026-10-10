@@ -169,6 +169,80 @@ for (const path of [...prerenderPaths, '/404']) {
     assert.equal(document.querySelector('meta[name="twitter:card"]').content, 'summary_large_image')
     assert.equal(document.querySelector('main img')?.getAttribute('src'), '/images/guides/guide-prospection-2026.webp')
   }
+  if (path === '/guides/api') {
+    assert.equal(document.querySelectorAll('.guide-section').length, 21)
+    assert.ok(document.querySelector('#partie-18'))
+    assert.ok(document.querySelector('#faq')?.textContent.includes(
+      'En 2026, la meilleure architecture n’est donc pas nécessairement la plus distribuée',
+    ))
+    assert.equal(document.title, 'API 2026 : le guide complet des API modernes')
+    assert.equal(
+      document.querySelector('meta[name="description"]').content,
+      'Comprendre et concevoir une API en 2026 : HTTP, REST, GraphQL, sécurité, authentification, versioning, documentation, performance et IA.',
+    )
+    assert.equal(
+      document.querySelector('meta[name="keywords"]').content,
+      'API, API REST, créer une API, architecture API, API HTTP, GraphQL, gRPC, sécurité API, documentation API, versioning API',
+    )
+    assert.equal(document.querySelector('main h1')?.textContent.trim(), 'API 2026 : Guide complet')
+    assert.equal(document.querySelector('link[rel="canonical"]').href, 'https://altruisme.dev/guides/api')
+    assert.equal(document.querySelector('meta[property="og:title"]').content, 'API 2026 : le guide complet')
+    assert.equal(
+      document.querySelector('meta[property="og:description"]').content,
+      'Le guide complet pour comprendre et concevoir une API moderne : HTTP, REST, GraphQL, sécurité, documentation, performance, architecture et IA.',
+    )
+    assert.equal(document.querySelector('meta[property="og:url"]').content, 'https://altruisme.dev/guides/api')
+    assert.equal(document.querySelector('meta[property="og:type"]').content, 'article')
+    assert.equal(document.querySelector('meta[name="twitter:card"]').content, 'summary_large_image')
+    assert.equal(document.querySelector('main img')?.getAttribute('src'), '/images/guides/guide-api-2026.webp')
+  }
+  if (path === '/guides/cloud') {
+    assert.equal(document.querySelectorAll('.guide-section').length, 21)
+    assert.ok(document.querySelector('#partie-18'))
+    assert.ok(document.querySelector('#faq')?.textContent.includes(
+      'La meilleure architecture pour lancer une application est donc rarement celle qui pourrait théoriquement supporter cent millions d’utilisateurs',
+    ))
+    assert.equal(document.title, 'Cloud 2026 : le guide complet du cloud computing')
+    assert.equal(
+      document.querySelector('meta[name="description"]').content,
+      'Comprendre le cloud en 2026 : serveurs, réseau, Docker, Kubernetes, CI/CD, sécurité, observabilité, coûts, IA et architectures modernes.',
+    )
+    assert.equal(document.querySelector('meta[name="keywords"]').content, 'cloud')
+    assert.equal(document.querySelector('main h1')?.textContent.trim(), 'Cloud 2026 : Guide complet')
+    assert.equal(document.querySelector('link[rel="canonical"]').href, 'https://altruisme.dev/guides/cloud')
+    assert.equal(document.querySelector('meta[property="og:title"]').content, 'Cloud 2026 : le guide complet')
+    assert.equal(
+      document.querySelector('meta[property="og:description"]').content,
+      'Comprendre et maîtriser le cloud en 2026 : infrastructure, Docker, Kubernetes, réseau, sécurité, CI/CD, observabilité, coûts et intelligence artificielle.',
+    )
+    assert.equal(document.querySelector('meta[property="og:url"]').content, 'https://altruisme.dev/guides/cloud')
+    assert.equal(document.querySelector('meta[property="og:type"]').content, 'article')
+    assert.equal(document.querySelector('meta[name="twitter:card"]').content, 'summary_large_image')
+    assert.equal(document.querySelector('main img')?.getAttribute('src'), '/images/guides/guide-cloud-2026.webp')
+  }
+  if (path === '/guides/marketplace') {
+    assert.equal(document.querySelectorAll('.guide-section').length, 21)
+    assert.ok(document.querySelector('#partie-18'))
+    assert.ok(document.querySelector('#faq')?.textContent.includes(
+      'La meilleure validation reste finalement la plus concrète',
+    ))
+    assert.equal(document.title, 'Marketplace 2026 : le guide complet pour lancer sa plateforme')
+    assert.equal(
+      document.querySelector('meta[name="description"]').content,
+      'Le guide complet pour créer une marketplace en 2026 : modèle, offre, demande, liquidité, confiance, monétisation, acquisition, technologie et IA.',
+    )
+    assert.equal(document.querySelector('main h1')?.textContent.trim(), 'Marketplace 2026 : Guide complet')
+    assert.equal(document.querySelector('link[rel="canonical"]').href, 'https://altruisme.dev/guides/marketplace')
+    assert.equal(document.querySelector('meta[property="og:title"]').content, 'Marketplace 2026 : le guide complet')
+    assert.equal(
+      document.querySelector('meta[property="og:description"]').content,
+      'Comprendre, lancer et développer une marketplace en 2026 : offre, demande, liquidité, confiance, monétisation, acquisition, technologie et IA.',
+    )
+    assert.equal(document.querySelector('meta[property="og:url"]').content, 'https://altruisme.dev/guides/marketplace')
+    assert.equal(document.querySelector('meta[property="og:type"]').content, 'article')
+    assert.equal(document.querySelector('meta[name="twitter:card"]').content, 'summary_large_image')
+    assert.equal(document.querySelector('main img')?.getAttribute('src'), '/images/guides/guide-marketplace-2026.webp')
+  }
   if (path === '/') {
     assert.equal(document.querySelectorAll('.media-news-list article').length, 2)
     assert.equal(document.querySelector('.media-feature'), null)
@@ -512,7 +586,9 @@ for (const article of newsArticles) {
   assert.equal(document.querySelector('link[rel="canonical"]').getAttribute('href'), article.url)
   assert.equal(document.querySelector('h1').textContent.trim(), article.title)
 }
-assert.ok((await readFile(resolve(output, '_redirects'), 'utf8')).includes('/communaute /checklist 301'))
+const redirects = await readFile(resolve(output, '_redirects'), 'utf8')
+assert.ok(redirects.includes('/communaute /checklist 301'))
+assert.ok(redirects.includes('/guides/cloud-2026 /guides/cloud 301'))
 console.log(
   `Verified initial HTML, metadata and assets for ${prerenderPaths.length} pages and the 404 page.`,
 )

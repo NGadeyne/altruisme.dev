@@ -80,6 +80,10 @@ export const routes: RouteRecordRaw[] = [
     redirect: (to) => ({ path: '/guides/saas', hash: to.hash, query: to.query }),
   },
   {
+    path: '/guides/cloud-2026',
+    redirect: (to) => ({ path: '/guides/cloud', hash: to.hash, query: to.query }),
+  },
+  {
     path: '/actualites',
     name: 'news',
     component: () => import('../views/NewsView.vue'),

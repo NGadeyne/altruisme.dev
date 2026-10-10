@@ -145,13 +145,27 @@ export const guides: GuideDefinition[] = [
   },
   {
     slug: 'marketplace',
+    loadSections: () => import('@/content/guides/marketplace').then((module) => module.default),
     title: 'Marketplace 2026 : Guide complet',
     description:
       'Comprendre les effets de réseau, la liquidité, la confiance, la monétisation et les défis propres aux marketplaces.',
-    status: 'soon',
+    status: 'available',
     label: 'Marketplace',
     category: 'entreprendre',
     edition: '2026',
+    seoTitle: 'Marketplace 2026 : le guide complet pour lancer sa plateforme',
+    metaDescription:
+      'Le guide complet pour créer une marketplace en 2026 : modèle, offre, demande, liquidité, confiance, monétisation, acquisition, technologie et IA.',
+    ogTitle: 'Marketplace 2026 : le guide complet',
+    ogDescription:
+      'Comprendre, lancer et développer une marketplace en 2026 : offre, demande, liquidité, confiance, monétisation, acquisition, technologie et IA.',
+    image: '/images/guides/guide-marketplace-2026.webp',
+    imageSrcset:
+      '/images/guides/guide-marketplace-2026-640.webp 640w, /images/guides/guide-marketplace-2026.webp 1672w',
+    imageAlt: 'Marketplace 2026 : guide complet pour lancer sa plateforme',
+    author: { name: 'Nicolas Gadeyne', url: 'https://www.linkedin.com/in/nicolas-gadeyne/' },
+    publishedAt: '2026-10-10',
+    updatedAt: '2026-10-10',
   },
   {
     slug: 'linkedin',
@@ -258,23 +272,54 @@ export const guides: GuideDefinition[] = [
   },
   {
     slug: 'cloud',
+    loadSections: () => import('@/content/guides/cloud').then((module) => module.default),
     title: 'Cloud 2026 : Guide complet',
     description:
       'Comprendre le cloud, ses principaux services, les architectures modernes, le déploiement, la scalabilité, la sécurité et les coûts.',
-    status: 'soon',
+    status: 'available',
     label: 'Cloud',
     category: 'construire',
     edition: '2026',
+    seoTitle: 'Cloud 2026 : le guide complet du cloud computing',
+    metaDescription:
+      'Comprendre le cloud en 2026 : serveurs, réseau, Docker, Kubernetes, CI/CD, sécurité, observabilité, coûts, IA et architectures modernes.',
+    ogTitle: 'Cloud 2026 : le guide complet',
+    ogDescription:
+      'Comprendre et maîtriser le cloud en 2026 : infrastructure, Docker, Kubernetes, réseau, sécurité, CI/CD, observabilité, coûts et intelligence artificielle.',
+    keywords: 'cloud',
+    image: '/images/guides/guide-cloud-2026.webp',
+    imageSrcset:
+      '/images/guides/guide-cloud-2026-640.webp 640w, /images/guides/guide-cloud-2026.webp 1672w',
+    imageAlt: 'Cloud 2026 : guide complet du cloud computing',
+    author: { name: 'Nicolas Gadeyne', url: 'https://www.linkedin.com/in/nicolas-gadeyne/' },
+    publishedAt: '2026-10-10',
+    updatedAt: '2026-10-10',
   },
   {
     slug: 'api',
+    loadSections: () => import('@/content/guides/api').then((module) => module.default),
     title: 'API 2026 : Guide complet',
     description:
       'Comprendre le fonctionnement des API, leur conception, leur sécurité, leur documentation et leur rôle dans les architectures modernes.',
-    status: 'soon',
+    status: 'available',
     label: 'API',
     category: 'construire',
     edition: '2026',
+    seoTitle: 'API 2026 : le guide complet des API modernes',
+    metaDescription:
+      'Comprendre et concevoir une API en 2026 : HTTP, REST, GraphQL, sécurité, authentification, versioning, documentation, performance et IA.',
+    ogTitle: 'API 2026 : le guide complet',
+    ogDescription:
+      'Le guide complet pour comprendre et concevoir une API moderne : HTTP, REST, GraphQL, sécurité, documentation, performance, architecture et IA.',
+    keywords:
+      'API, API REST, créer une API, architecture API, API HTTP, GraphQL, gRPC, sécurité API, documentation API, versioning API',
+    image: '/images/guides/guide-api-2026.webp',
+    imageSrcset:
+      '/images/guides/guide-api-2026-640.webp 640w, /images/guides/guide-api-2026.webp 1672w',
+    imageAlt: 'API 2026 : guide complet des API modernes',
+    author: { name: 'Nicolas Gadeyne', url: 'https://www.linkedin.com/in/nicolas-gadeyne/' },
+    publishedAt: '2026-10-10',
+    updatedAt: '2026-10-10',
   },
   {
     slug: 'python',
