@@ -37,6 +37,29 @@ for (const path of [...prerenderPaths, '/404']) {
     const asset = element.getAttribute('src') ?? element.getAttribute('href')
     if (asset.startsWith('/')) await access(resolve(output, asset.slice(1)))
   }
+  const isNewsArticle = routes.some(
+    (route) => route.path === path && path.startsWith('/actualites/') && route.meta?.article === true,
+  )
+  if (document.querySelector('.guide-page') || isNewsArticle) {
+    const ctas = document.querySelectorAll('[data-checklist-cta]')
+    assert.equal(ctas.length, 1, `Checklist CTA count: ${path}`)
+    const cta = ctas[0]
+    assert.deepEqual(
+      [...cta.querySelectorAll('p')].map((paragraph) => paragraph.textContent.replace(/\s+/g, ' ').trim()),
+      [
+        'Ressource gratuite',
+        'Découvre notre checklist SEO gratuite : 9 points essentiels pour améliorer ton référencement sur Google et les moteurs IA.',
+      ],
+    )
+    assert.equal(
+      cta.querySelector('h2')?.textContent.replace(/\s+/g, ' ').trim(),
+      'Et si ton site méritait plus de visibilité ?',
+    )
+    assert.equal(cta.querySelector('a[href="/checklist"]')?.textContent.trim(), 'Recevoir la checklist SEO')
+    if (isNewsArticle) {
+      assert.ok(document.querySelector('article')?.compareDocumentPosition(cta) & 4, path)
+    }
+  }
   if (path === '/guides/freelance') {
     assert.equal(document.querySelectorAll('.guide-section').length, 21)
     assert.ok(document.querySelector('#faq-et-apres'))

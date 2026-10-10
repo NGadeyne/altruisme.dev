@@ -4,7 +4,7 @@ import { BaseContainer } from '@altruisme/ui'
 import GuideHeader from '@/components/guides/GuideHeader.vue'
 import GuideTableOfContents from '@/components/guides/GuideTableOfContents.vue'
 import GuideSection from '@/components/guides/GuideSection.vue'
-import GuideFooter from '@/components/guides/GuideFooter.vue'
+import ChecklistCta from '@/components/ChecklistCta.vue'
 import { useGuideNavigation } from '@/composables/useGuideNavigation'
 import { readingMinutes } from '@/lib/guide'
 import type { GuideMetadata, GuideSection as Section } from '@/types/guide'
@@ -45,7 +45,7 @@ const estimatedReadingMinutes = computed(() => readingMinutes(props.sections))
         </div>
       </BaseContainer>
     </section>
-    <GuideFooter />
+    <ChecklistCta />
   </div>
 </template>
 
