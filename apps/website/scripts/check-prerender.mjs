@@ -387,7 +387,6 @@ for (const path of [...prerenderPaths, '/404']) {
     assert.equal(document.querySelector('#formulaire .base-button')?.textContent.trim(), 'Gérer mes préférences')
     assert.equal(document.querySelector('#formulaire iframe'), null)
     assert.equal(document.querySelector('#formulaire form'), null)
-    assert.equal(document.querySelector('#formulaire .launch-privacy a')?.getAttribute('href'), '/politique-de-confidentialite')
     assert.equal(document.querySelector('.launch-sheet-title')?.textContent.replace(/\u00ad/g, '').trim(), "Fondamentaux d'un SEO solide.")
     assert.equal(document.querySelector('.launch-sheet-subtitle')?.textContent.trim(), '9 vérifications pour identifier les problèmes et savoir par où commencer.')
     assert.deepEqual(

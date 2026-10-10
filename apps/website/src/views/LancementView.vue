@@ -116,7 +116,6 @@ function openCookieSettings() {
                 <p>Autorise les contenus externes pour afficher le formulaire Brevo.</p>
                 <BaseButton type="button" size="medium" @click="openCookieSettings">Gérer mes préférences</BaseButton>
               </div>
-              <p class="launch-privacy">Gratuit. Pas de spam. <RouterLink to="/politique-de-confidentialite">Politique de confidentialité</RouterLink>.</p>
             </div>
           </div>
 
