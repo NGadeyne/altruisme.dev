@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { BaseButton, BaseContainer } from '@altruisme/ui'
 import { OPEN_COOKIE_SETTINGS_EVENT, useCookieConsent } from '@/composables/useCookieConsent'
 
@@ -43,8 +43,42 @@ const faqs = [
   },
 ]
 const { loadPreferences, preferences } = useCookieConsent()
+const brevoIframe = ref<HTMLIFrameElement | null>(null)
+let brevoResizeObserver: ResizeObserver | null = null
 
 onMounted(loadPreferences)
+onBeforeUnmount(stopBrevoResizeObserver)
+watch(() => preferences.value.external, (allowed) => {
+  if (!allowed) stopBrevoResizeObserver()
+})
+
+function stopBrevoResizeObserver() {
+  brevoResizeObserver?.disconnect()
+  brevoResizeObserver = null
+}
+
+function observeBrevoHeight() {
+  stopBrevoResizeObserver()
+
+  const iframe = brevoIframe.value
+  if (!iframe) return
+
+  let form: HTMLElement | null = null
+  try {
+    form = iframe.contentDocument?.querySelector<HTMLElement>('.sib-form') ?? null
+  } catch {
+    // Brevo may navigate the iframe to its own domain after submission.
+  }
+  if (!form) return
+
+  const updateHeight = () => {
+    iframe.style.height = `${Math.ceil(form.getBoundingClientRect().height)}px`
+  }
+
+  brevoResizeObserver = new ResizeObserver(updateHeight)
+  brevoResizeObserver.observe(form)
+  updateHeight()
+}
 
 function openCookieSettings() {
   window.dispatchEvent(new Event(OPEN_COOKIE_SETTINGS_EVENT))
@@ -68,14 +102,15 @@ function openCookieSettings() {
               <p class="launch-form-title">Reçois la checklist SEO gratuitement.</p>
               <iframe
                 v-if="preferences.external"
+                ref="brevoIframe"
                 class="launch-brevo-iframe"
                 width="540"
-                height="305"
-                src="https://2340d204.sibforms.com/v2/serve/MUIFAGAXjTRTB1QC5C-Jkam7Bkpmy98sh7AZeNO_lJmm7GDT0uov2M-WImpl5DwEvcNs2zhVFQKIWayAXWF7_FNDCfXDkclaAwvpV1tS0qJ6WRbRhYnCr4RWbZj1jcQIlOlTQM7UaWc_eE-vl37SJP4bB6uiQm9x4eFxJiptYS6dihe9C7Qv3CmyeLLuUUiVNMtP5rDsjA452mnHlw=="
+                height="540"
+                src="/forms/checklist-seo.html"
                 title="Formulaire Brevo pour recevoir la checklist SEO"
                 frameborder="0"
-                scrolling="auto"
-                allowfullscreen
+                scrolling="no"
+                @load="observeBrevoHeight"
               />
               <div v-else class="launch-external-placeholder">
                 <p>Autorise les contenus externes pour afficher le formulaire Brevo.</p>
