@@ -40,7 +40,7 @@
 .launch-sheet-front { position: relative; min-height: 37rem; padding: clamp(1.5rem, 3vw, 2.7rem); transform: rotate(-2deg); }
 .launch-sheet-top { display: flex; justify-content: space-between; gap: 1rem; color: var(--launch-ocean); font-size: .7rem; font-weight: 700; letter-spacing: .1em; }
 .launch-sheet-label { margin-top: 4.4rem !important; color: var(--color-petrol); font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
-.launch-sheet-title { margin-top: .5rem !important; color: var(--color-ink); font-size: clamp(3.2rem, 5vw, 4.8rem); font-weight: 600; letter-spacing: -.06em; line-height: 1.05; }
+.launch-sheet-title { margin-top: .5rem !important; color: var(--color-ink); font-size: clamp(3rem, 4.6vw, 4.5rem); font-weight: 600; letter-spacing: -.06em; line-height: 1.05; }
 .launch-sheet-title span { color: var(--launch-ocean); }
 .launch-sheet-subtitle { margin-top: .7rem !important; color: var(--launch-muted); font-size: .94rem; }
 .launch-sheet-rule { height: 1px; margin: 2.5rem 0 1rem; background: var(--launch-line); }
