@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted } from 'vue'
 import { BaseButton, BaseContainer } from '@altruisme/ui'
+import { OPEN_COOKIE_SETTINGS_EVENT, useCookieConsent } from '@/composables/useCookieConsent'
 
 const steps = [
   'Vérifier l’indexation',
@@ -41,48 +42,12 @@ const faqs = [
     answer: 'La checklist, puis ponctuellement les prochains contenus d’Altruisme.DEV : guides, ressources et actualités autour de la tech, de l’acquisition et de l’entrepreneuriat.',
   },
 ]
-// Remplacer par l’URL du PDF quand il sera disponible. La version web est utilisable dès maintenant.
-const checklistUrl = '/checklist/etapes'
-const email = ref('')
-const consent = ref(false)
-const website = ref('')
-const loading = ref(false)
-const result = ref<'success' | 'already_registered' | null>(null)
-const error = ref('')
+const { loadPreferences, preferences } = useCookieConsent()
 
-async function submit() {
-  error.value = ''
-  const normalizedEmail = email.value.trim()
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalizedEmail)) {
-    error.value = 'Entre une adresse email valide pour recevoir la checklist.'
-    return
-  }
-  if (!consent.value) {
-    error.value = 'Confirme que tu souhaites recevoir la checklist et les prochains contenus.'
-    return
-  }
+onMounted(loadPreferences)
 
-  loading.value = true
-  try {
-    const response = await fetch('/api/lancement', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: normalizedEmail, consent: consent.value, website: website.value }),
-    })
-    const data = (await response.json()) as { status?: string }
-    if (!response.ok) {
-      error.value =
-        data.status === 'invalid_email'
-          ? 'Cette adresse email ne semble pas valide.'
-          : 'Impossible de t’inscrire pour le moment. Réessaie dans quelques instants.'
-      return
-    }
-    result.value = data.status === 'already_registered' ? 'already_registered' : 'success'
-  } catch {
-    error.value = 'Impossible de t’inscrire pour le moment. Réessaie dans quelques instants.'
-  } finally {
-    loading.value = false
-  }
+function openCookieSettings() {
+  window.dispatchEvent(new Event(OPEN_COOKIE_SETTINGS_EVENT))
 }
 </script>
 
@@ -100,45 +65,23 @@ async function submit() {
             </p>
 
             <div id="formulaire" class="launch-form-panel launch-glass">
-              <div v-if="result" class="launch-success" role="status" aria-live="polite">
-                <span class="launch-success-mark" aria-hidden="true">✓</span>
-                <h2>{{ result === 'already_registered' ? 'Tu es déjà inscrit' : 'C’est parti' }}</h2>
-                <p>Ta checklist est prête. Tu peux la consulter et l’enregistrer en PDF depuis ton navigateur.</p>
-                <BaseButton :to="checklistUrl" size="large">Ouvrir la checklist <span aria-hidden="true">↗</span></BaseButton>
+              <p class="launch-form-title">Reçois la checklist SEO gratuitement.</p>
+              <iframe
+                v-if="preferences.external"
+                class="launch-brevo-iframe"
+                width="540"
+                height="305"
+                src="https://2340d204.sibforms.com/v2/serve/MUIFAGAXjTRTB1QC5C-Jkam7Bkpmy98sh7AZeNO_lJmm7GDT0uov2M-WImpl5DwEvcNs2zhVFQKIWayAXWF7_FNDCfXDkclaAwvpV1tS0qJ6WRbRhYnCr4RWbZj1jcQIlOlTQM7UaWc_eE-vl37SJP4bB6uiQm9x4eFxJiptYS6dihe9C7Qv3CmyeLLuUUiVNMtP5rDsjA452mnHlw=="
+                title="Formulaire Brevo pour recevoir la checklist SEO"
+                frameborder="0"
+                scrolling="auto"
+                allowfullscreen
+              />
+              <div v-else class="launch-external-placeholder">
+                <p>Autorise les contenus externes pour afficher le formulaire Brevo.</p>
+                <BaseButton type="button" size="medium" @click="openCookieSettings">Gérer mes préférences</BaseButton>
               </div>
-              <form v-else novalidate @submit.prevent="submit">
-                <p class="launch-form-title">Reçois la checklist SEO gratuitement.</p>
-                <div class="launch-form-row">
-                  <div class="launch-field">
-                    <label for="launch-email">Ton adresse email</label>
-                    <input
-                      id="launch-email"
-                      v-model="email"
-                      type="email"
-                      name="email"
-                      autocomplete="email"
-                      inputmode="email"
-                      placeholder="toi@exemple.fr"
-                      required
-                      :aria-invalid="error && error.includes('email') ? true : undefined"
-                      :disabled="loading"
-                    />
-                  </div>
-                  <BaseButton type="submit" size="large" :disabled="loading">
-                    {{ loading ? 'Inscription en cours…' : 'Recevoir la checklist gratuitement' }}
-                  </BaseButton>
-                </div>
-                <div class="launch-honeypot" aria-hidden="true">
-                  <label for="launch-website">Site web</label>
-                  <input id="launch-website" v-model="website" name="website" type="text" tabindex="-1" autocomplete="off" />
-                </div>
-                <label class="launch-consent">
-                  <input v-model="consent" type="checkbox" name="consent" :disabled="loading" />
-                  <span>J’accepte de recevoir la checklist et les prochains contenus d’Altruisme. Désinscription possible à tout moment.</span>
-                </label>
-                <p v-if="error" class="launch-error" role="alert">{{ error }}</p>
-                <p class="launch-privacy">Gratuit. Pas de spam. <RouterLink to="/politique-de-confidentialite">Politique de confidentialité</RouterLink>.</p>
-              </form>
+              <p class="launch-privacy">Gratuit. Pas de spam. <RouterLink to="/politique-de-confidentialite">Politique de confidentialité</RouterLink>.</p>
             </div>
           </div>
 

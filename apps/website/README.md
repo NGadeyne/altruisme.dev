@@ -69,9 +69,4 @@ Pour vérifier les statuts HTTP, utiliser `wrangler dev --local` avec la configu
 
 # Checklist : inscription Brevo
 
-La page `/checklist` envoie les inscriptions à `/api/lancement`, traité par le Worker du Website. La clé Brevo reste côté serveur.
-
-- Définir le secret `BREVO_API_KEY` sur le Worker `altruisme-website` (`npx wrangler secret put BREVO_API_KEY --config apps/website/wrangler.jsonc`).
-- `BREVO_LIST_ID` vaut `2` dans `apps/website/wrangler.jsonc`, comme la liste newsletter déjà utilisée par le Worker d’audit. Modifier cette valeur si la checklist doit utiliser une autre liste.
-- La checklist web est disponible à `/checklist/etapes` après inscription et peut être enregistrée en PDF via l’impression du navigateur. Lorsque le PDF final sera prêt, remplacer `checklistUrl` dans `src/views/LancementView.vue` par son URL.
-- Pour le développement local avec Vite, lancer aussi `npx wrangler dev --config apps/website/wrangler.jsonc --port 8787` après un build. Vite redirige `/api` vers ce Worker. Le secret peut être fourni localement dans un fichier `.dev.vars` non versionné.
+La page `/checklist` charge le formulaire d’inscription Brevo dans une iframe après accord pour les contenus externes. La confirmation et l’envoi de la checklist sont gérés dans Brevo. Le point d’accès `/api/lancement` reste présent dans le Worker, mais n’est plus utilisé par cette page.

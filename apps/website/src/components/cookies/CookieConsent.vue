@@ -67,7 +67,7 @@ onBeforeUnmount(() => {
               Ton choix, tes cookies.
             </p>
             <p class="mt-2 max-w-2xl text-sm leading-6 text-[#46504d]">
-              Les contenus externes, comme YouTube ou Calendly, ne sont chargés qu’avec ton accord.
+              Les contenus externes, comme Brevo, YouTube ou Calendly, ne sont chargés qu’avec ton accord.
               Les éléments nécessaires au fonctionnement du site restent actifs.
             </p>
             <RouterLink
@@ -131,7 +131,7 @@ onBeforeUnmount(() => {
               <span>
                 <span class="block text-sm font-semibold text-[#222826]">Contenus externes</span>
                 <span class="mt-1 block text-sm leading-6 text-[#46504d]"
-                  >Autorise le chargement de services comme YouTube et Calendly.</span
+                  >Autorise le chargement de services comme Brevo, YouTube et Calendly.</span
                 >
               </span>
               <input

@@ -85,7 +85,7 @@ function openCookieSettings() {
 
             <li>Calendly pour permettre la prise de rendez-vous ;</li>
 
-            <li>d’autres services externes qui pourraient être ajoutés ultérieurement.</li>
+            <li>Brevo pour afficher le formulaire d’inscription à la checklist ;</li>
           </ul>
 
           <p class="mt-4 text-sm leading-6 text-[#78827e]">
@@ -209,7 +209,8 @@ function openCookieSettings() {
 
         <ul class="list-disc space-y-2 pl-5">
           <li>YouTube ;</li>
-          <li>Calendly.</li>
+          <li>Calendly ;</li>
+          <li>Brevo.</li>
         </ul>
 
         <p>

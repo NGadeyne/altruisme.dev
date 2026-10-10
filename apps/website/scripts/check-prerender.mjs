@@ -382,7 +382,12 @@ for (const path of [...prerenderPaths, '/404']) {
       document.querySelector('.launch-lead')?.textContent.trim(),
       'Ton site est en ligne, mais est-il vraiment visible ? Découvre les 9 points essentiels à vérifier pour améliorer ton référencement sur Google et ta visibilité dans les moteurs IA.',
     )
-    assert.equal(document.querySelector('form .base-button')?.textContent.trim(), 'Recevoir la checklist gratuitement')
+    assert.equal(document.querySelector('#formulaire .launch-form-title')?.textContent.trim(), 'Reçois la checklist SEO gratuitement.')
+    assert.equal(document.querySelector('#formulaire .launch-external-placeholder p')?.textContent.trim(), 'Autorise les contenus externes pour afficher le formulaire Brevo.')
+    assert.equal(document.querySelector('#formulaire .base-button')?.textContent.trim(), 'Gérer mes préférences')
+    assert.equal(document.querySelector('#formulaire iframe'), null)
+    assert.equal(document.querySelector('#formulaire form'), null)
+    assert.equal(document.querySelector('#formulaire .launch-privacy a')?.getAttribute('href'), '/politique-de-confidentialite')
     assert.equal(document.querySelector('.launch-sheet-title')?.textContent.replace(/\u00ad/g, '').trim(), "Fondamentaux d'un SEO solide.")
     assert.equal(document.querySelector('.launch-sheet-subtitle')?.textContent.trim(), '9 vérifications pour identifier les problèmes et savoir par où commencer.')
     assert.deepEqual(
@@ -454,8 +459,6 @@ for (const path of [...prerenderPaths, '/404']) {
     assert.equal(document.querySelector('.launch-final .base-button')?.getAttribute('href'), '/checklist#formulaire')
     assert.equal(document.querySelector('#launch-final-title')?.textContent.replace(/\s+/g, ' ').trim(), 'Un bon référencement commence par un bon diagnostic.')
     assert.equal(document.querySelector('.launch-final-inner > p:not(.launch-eyebrow)')?.textContent.trim(), 'Identifie les points à améliorer et avance avec méthode.')
-    assert.ok(document.querySelector('form input[type="email"][required]'))
-    assert.ok(document.querySelector('form input[type="checkbox"]'))
   }
   if (path === '/checklist/etapes') {
     assert.equal(document.querySelector('meta[name="robots"]').content, 'noindex, follow')
