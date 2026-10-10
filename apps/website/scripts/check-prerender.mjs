@@ -16,7 +16,8 @@ for (const path of [...prerenderPaths, '/404']) {
     `Missing initial content: ${path}`,
   )
   for (const heading of document.querySelectorAll('#app h1, #app h2')) {
-    assert.ok(!heading.textContent.trim().endsWith('.'), `Final period in ${heading.tagName}: ${path}`)
+    const requestedChecklistTitle = path === '/checklist' && ['launch-title', 'launch-projects-title', 'launch-final-title'].includes(heading.id)
+    assert.ok(requestedChecklistTitle || !heading.textContent.trim().endsWith('.'), `Final period in ${heading.tagName}: ${path}`)
   }
   assert.ok(!document.title.includes('Signons ensemble'), path)
   assert.equal(document.querySelectorAll('a[href="/communaute"]').length, 0, path)
@@ -346,50 +347,81 @@ for (const path of [...prerenderPaths, '/404']) {
     )
   }
   if (path === '/checklist') {
-    assert.equal(document.title, 'Checklist gratuite : de l’idée au premier euro | Altruisme.DEV')
+    assert.equal(document.title, 'Checklist SEO gratuite : 9 points clés | Altruisme.DEV')
     assert.equal(
       document.querySelector('meta[name="description"]').content,
-      'Une checklist gratuite pour passer d’une idée de SaaS, d’e-commerce, d’automatisation ou de produit numérique à une première version, des utilisateurs et une première vente.',
+      'Télécharge notre checklist SEO gratuite : 9 points pour identifier les problèmes de ton site et améliorer ta visibilité sur Google et les moteurs IA.',
     )
-    assert.equal(document.querySelector('meta[property="og:title"]').content, document.title)
+    assert.equal(document.querySelector('meta[property="og:title"]').content, 'Checklist SEO gratuite — 9 points pour ton site')
     assert.equal(
       document.querySelector('meta[property="og:description"]').content,
-      document.querySelector('meta[name="description"]').content,
+      'Identifie les freins à ton référencement et découvre les 9 vérifications essentielles pour améliorer ta visibilité sur Google et les moteurs IA.',
     )
+    assert.equal(document.querySelector('meta[property="og:type"]').content, 'website')
     assert.equal(document.querySelector('meta[property="og:url"]').content, 'https://altruisme.dev/checklist')
-    assert.equal(document.querySelector('meta[name="twitter:title"]').content, document.title)
+    assert.equal(document.querySelector('meta[property="og:site_name"]').content, 'Altruisme.DEV')
+    assert.equal(document.querySelector('link[rel="canonical"]').getAttribute('href'), 'https://altruisme.dev/checklist')
+    assert.equal(document.querySelector('meta[name="robots"]').content, 'index, follow')
+    assert.equal(document.documentElement.lang, 'fr')
+    assert.equal(document.querySelector('meta[property="og:image"]').content, 'https://altruisme.dev/images/checklist-seo-og.png')
+    assert.equal(document.querySelector('meta[property="og:image:alt"]').content, 'Checklist SEO gratuite : les 9 points essentiels pour ton site')
+    assert.equal(document.querySelector('meta[name="twitter:card"]').content, 'summary_large_image')
+    assert.equal(document.querySelector('meta[name="twitter:image"]').content, 'https://altruisme.dev/images/checklist-seo-og.png')
+    assert.equal(document.querySelector('meta[name="twitter:image:alt"]').content, 'Checklist SEO gratuite : les 9 points essentiels pour ton site')
+    assert.equal(document.body.querySelector('img[src="/images/checklist-seo-og.png"]'), null)
+    await access(resolve(output, 'images/checklist-seo-og.png'))
+    assert.equal(document.querySelector('meta[name="twitter:title"]').content, 'Checklist SEO gratuite — 9 points pour ton site')
     assert.equal(
       document.querySelector('meta[name="twitter:description"]').content,
-      document.querySelector('meta[name="description"]').content,
+      'Identifie les freins à ton référencement et découvre les 9 vérifications essentielles pour améliorer ta visibilité sur Google et les moteurs IA.',
     )
-    assert.equal(document.querySelector('h1')?.textContent.replace(/\s+/g, ' ').trim(), 'La checklist SaaS')
-    assert.equal(document.querySelector('.launch-subtitle')?.textContent.trim(), 'De l’idée au premier euro.')
+    assert.equal(document.querySelector('.launch-hero .launch-eyebrow')?.textContent.trim(), 'La checklist SEO')
+    assert.equal(document.querySelector('h1')?.textContent.replace(/\s+/g, ' ').trim(), "Ton site mérite d'être trouvé.")
+    assert.equal(document.querySelector('.launch-subtitle')?.textContent.trim(), 'Fais le point sur ta visibilité.')
     assert.equal(
       document.querySelector('.launch-lead')?.textContent.trim(),
-      'Tu as une idée de SaaS, d’e-commerce, d’automatisation ou de produit numérique ? Cette checklist t’aide à passer de l’idée à quelque chose de concret, étape par étape.',
+      'Ton site est en ligne, mais est-il vraiment visible ? Découvre les 9 points essentiels à vérifier pour améliorer ton référencement sur Google et ta visibilité dans les moteurs IA.',
     )
-    assert.equal(document.querySelector('.launch-sheet-title')?.textContent.trim(), 'De l’idée au premier euro.')
+    assert.equal(document.querySelector('form .base-button')?.textContent.trim(), 'Recevoir la checklist gratuitement')
+    assert.equal(document.querySelector('.launch-sheet-title')?.textContent.replace(/\u00ad/g, '').trim(), "Les fondamentaux d'un SEO solide.")
+    assert.equal(document.querySelector('.launch-sheet-subtitle')?.textContent.trim(), '9 vérifications pour identifier les problèmes et savoir par où commencer.')
     assert.deepEqual(
       [...document.querySelectorAll('.launch-sheet-step')].map((item) => [
         item.children[1]?.textContent.trim(),
         item.querySelector('small')?.textContent.trim(),
       ]),
       [
-        ['Clarifier l’idée', '01'],
-        ['Valider la demande', '05'],
-        ['Trouver les premiers utilisateurs', '07'],
-        ['Faire la première vente', '09'],
+        ['Vérifier l’indexation', '01'],
+        ['Identifier les bonnes requêtes', '03'],
+        ['Optimiser les pages', '05'],
+        ['Mesurer les résultats', '09'],
+      ],
+    )
+    assert.equal(document.querySelector('.launch-sheet-foot')?.textContent.trim(), "Comprends ce qui bloque. Passe à l'action.")
+    assert.equal(document.querySelector('#launch-steps-title')?.textContent.replace(/\s+/g, ' ').trim(), '9 points pour faire le diagnostic de ton SEO')
+    assert.deepEqual(
+      [...document.querySelectorAll('.launch-step p')].map((item) => item.textContent.trim()),
+      [
+        'Vérifier l’indexation',
+        'Identifier les freins techniques',
+        'Comprendre les recherches de ta cible',
+        'Prioriser les pages stratégiques',
+        'Optimiser les contenus',
+        'Améliorer le maillage interne',
+        'Renforcer la crédibilité du site',
+        'Penser aussi aux moteurs IA',
+        'Mesurer et ajuster',
       ],
     )
     assert.equal(document.querySelectorAll('.launch-step').length, 9)
     assert.equal(document.querySelector('.launch-projects .launch-eyebrow')?.textContent.trim(), 'Pourquoi Altruisme.DEV')
-    assert.equal(document.querySelector('#launch-projects-title')?.textContent.replace(/\s+/g, ' ').trim(), 'Construire, tester, apprendre. Pour de vrai')
+    assert.equal(document.querySelector('#launch-projects-title')?.textContent.replace(/\s+/g, ' ').trim(), 'Du SEO concret, pas des recettes miracles.')
     assert.deepEqual(
       [...document.querySelectorAll('.launch-projects-grid > div:last-child > .launch-lead')].map((item) => item.textContent.trim()),
       [
-        'Altruisme.DEV est un média indépendant consacré à celles et ceux qui construisent dans la tech.',
-        'Les contenus sont pensés à partir de l’expérience terrain : produit, développement, acquisition, freelancing et lancement de projets numériques.',
-        'Pas de recette magique ni de promesse de réussite rapide. Cette checklist rassemble simplement les étapes essentielles pour transformer une idée en quelque chose de concret, le confronter au réel et avancer avec méthode.',
+        'Altruisme.DEV est un média indépendant consacré à la tech, à l’acquisition et à l’entrepreneuriat.',
+        'Nos contenus s’appuient sur l’expérience terrain en développement, produit et acquisition.',
+        'Cette checklist propose une approche pratique du référencement : vérifier les bases, repérer les freins et choisir les prochaines actions avec méthode.',
       ],
     )
     assert.deepEqual(
@@ -398,28 +430,30 @@ for (const path of [...prerenderPaths, '/404']) {
         item.querySelector('small')?.textContent,
       ]),
       [
-        ['Des années d’expérience dans la tech', 'Produit, développement, acquisition et accompagnement de projets.'],
-        ['Une approche terrain', 'Des ressources conçues pour être utilisées, pas seulement consommées.'],
-        ['Indépendant', 'Pas de méthode miracle. Pas de bullshit. Des contenus utiles, accessibles et applicables.'],
+        ['Des années d’expérience dans la tech', 'Développement, produit et acquisition appliqués à la visibilité des sites.'],
+        ['Une approche terrain', 'Des vérifications concrètes pour prioriser les actions SEO.'],
+        ['Indépendant', 'Une lecture claire du référencement, sans recette miracle ni jargon inutile.'],
       ],
     )
     assert.equal(document.querySelector('.launch-faq .launch-eyebrow')?.textContent.trim(), 'Questions fréquentes')
-    assert.equal(document.querySelector('#launch-faq-title')?.textContent.trim(), 'Avant de te lancer')
+    assert.equal(document.querySelector('#launch-faq-title')?.textContent.trim(), 'Avant de commencer')
     assert.deepEqual(
       [...document.querySelectorAll('.launch-faq-item')].map((item) => [
         item.querySelector('summary span')?.textContent.trim(),
         item.querySelector('p')?.textContent.trim(),
       ]),
       [
-        ['À qui s’adresse cette checklist ?', 'À celles et ceux qui veulent transformer une idée de SaaS, d’automatisation, d’e-commerce ou de produit numérique en quelque chose de concret.'],
-        ['Est-ce que je dois déjà savoir coder ?', 'Non. La checklist est pensée pour t’aider à structurer ton projet, valider la demande et avancer dans le bon ordre, quel que soit ton niveau technique.'],
+        ['À qui s’adresse cette checklist SEO ?', 'À toi si tu veux comprendre la visibilité de ton site et savoir quels points vérifier en priorité, que tu sois indépendant, entrepreneur ou responsable d’un projet.'],
+        ['Faut-il avoir des connaissances techniques ?', 'Non. Les vérifications sont accessibles sans être spécialiste du SEO. Certaines corrections techniques pourront demander de l’aide, mais tu sauras quoi regarder.'],
+        ['Est-ce utile si mon site est déjà en ligne ?', 'Oui. Elle t’aide à faire le point sur l’indexation, les contenus et la structure de ton site pour repérer ce qui peut être amélioré.'],
         ['Est-ce vraiment gratuit ?', 'Oui. Tu reçois la checklist gratuitement en laissant ton adresse email. Aucun paiement n’est demandé.'],
-        ['Est-ce utile si j’ai déjà commencé mon projet ?', 'Oui. Tu peux l’utiliser comme feuille de route ou comme checklist de contrôle pour voir ce qu’il te manque avant d’aller chercher tes premiers utilisateurs ou ta première vente.'],
-        ['Qu’est-ce que je vais recevoir ensuite ?', 'La checklist, puis ponctuellement les prochains contenus d’Altruisme.DEV : guides, ressources et actualités utiles autour de la tech, du produit, de l’acquisition et de la construction de projets.'],
+        ['Qu’est-ce que je vais recevoir ensuite ?', 'La checklist, puis ponctuellement les prochains contenus d’Altruisme.DEV : guides, ressources et actualités autour de la tech, de l’acquisition et de l’entrepreneuriat.'],
       ],
     )
     assert.ok(document.querySelector('.launch-faq').compareDocumentPosition(document.querySelector('.launch-final')) & 4)
     assert.equal(document.querySelector('.launch-final .base-button')?.getAttribute('href'), '/checklist#formulaire')
+    assert.equal(document.querySelector('#launch-final-title')?.textContent.replace(/\s+/g, ' ').trim(), 'Un bon référencement commence par un bon diagnostic.')
+    assert.equal(document.querySelector('.launch-final-inner > p:not(.launch-eyebrow)')?.textContent.trim(), 'Identifie les points à améliorer et avance avec méthode.')
     assert.ok(document.querySelector('form input[type="email"][required]'))
     assert.ok(document.querySelector('form input[type="checkbox"]'))
   }

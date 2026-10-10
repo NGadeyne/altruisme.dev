@@ -34,9 +34,14 @@ export const routes: RouteRecordRaw[] = [
     name: 'checklist',
     component: () => import('../views/LancementView.vue'),
     meta: {
-      title: 'Checklist gratuite : de l’idée au premier euro | Altruisme.DEV',
+      title: 'Checklist SEO gratuite : 9 points clés | Altruisme.DEV',
       description:
-        'Une checklist gratuite pour passer d’une idée de SaaS, d’e-commerce, d’automatisation ou de produit numérique à une première version, des utilisateurs et une première vente.',
+        'Télécharge notre checklist SEO gratuite : 9 points pour identifier les problèmes de ton site et améliorer ta visibilité sur Google et les moteurs IA.',
+      ogTitle: 'Checklist SEO gratuite — 9 points pour ton site',
+      ogDescription:
+        'Identifie les freins à ton référencement et découvre les 9 vérifications essentielles pour améliorer ta visibilité sur Google et les moteurs IA.',
+      image: '/images/checklist-seo-og.png',
+      imageAlt: 'Checklist SEO gratuite : les 9 points essentiels pour ton site',
     },
   },
   {

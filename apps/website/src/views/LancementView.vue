@@ -3,36 +3,42 @@ import { ref } from 'vue'
 import { BaseButton, BaseContainer } from '@altruisme/ui'
 
 const steps = [
-  'Clarifier l’idée',
-  'Identifier le problème',
-  'Choisir une cible',
-  'Construire une offre',
-  'Valider la demande',
-  'Créer une première version',
-  'Trouver les premiers utilisateurs',
-  'Obtenir les premiers retours',
-  'Faire la première vente',
+  'Vérifier l’indexation',
+  'Identifier les freins techniques',
+  'Comprendre les recherches de ta cible',
+  'Prioriser les pages stratégiques',
+  'Optimiser les contenus',
+  'Améliorer le maillage interne',
+  'Renforcer la crédibilité du site',
+  'Penser aussi aux moteurs IA',
+  'Mesurer et ajuster',
+]
+const previewSteps = [
+  { number: '01', label: 'Vérifier l’indexation' },
+  { number: '03', label: 'Identifier les bonnes requêtes' },
+  { number: '05', label: 'Optimiser les pages' },
+  { number: '09', label: 'Mesurer les résultats' },
 ]
 const faqs = [
   {
-    question: 'À qui s’adresse cette checklist ?',
-    answer: 'À celles et ceux qui veulent transformer une idée de SaaS, d’automatisation, d’e-commerce ou de produit numérique en quelque chose de concret.',
+    question: 'À qui s’adresse cette checklist SEO ?',
+    answer: 'À toi si tu veux comprendre la visibilité de ton site et savoir quels points vérifier en priorité, que tu sois indépendant, entrepreneur ou responsable d’un projet.',
   },
   {
-    question: 'Est-ce que je dois déjà savoir coder ?',
-    answer: 'Non. La checklist est pensée pour t’aider à structurer ton projet, valider la demande et avancer dans le bon ordre, quel que soit ton niveau technique.',
+    question: 'Faut-il avoir des connaissances techniques ?',
+    answer: 'Non. Les vérifications sont accessibles sans être spécialiste du SEO. Certaines corrections techniques pourront demander de l’aide, mais tu sauras quoi regarder.',
+  },
+  {
+    question: 'Est-ce utile si mon site est déjà en ligne ?',
+    answer: 'Oui. Elle t’aide à faire le point sur l’indexation, les contenus et la structure de ton site pour repérer ce qui peut être amélioré.',
   },
   {
     question: 'Est-ce vraiment gratuit ?',
     answer: 'Oui. Tu reçois la checklist gratuitement en laissant ton adresse email. Aucun paiement n’est demandé.',
   },
   {
-    question: 'Est-ce utile si j’ai déjà commencé mon projet ?',
-    answer: 'Oui. Tu peux l’utiliser comme feuille de route ou comme checklist de contrôle pour voir ce qu’il te manque avant d’aller chercher tes premiers utilisateurs ou ta première vente.',
-  },
-  {
     question: 'Qu’est-ce que je vais recevoir ensuite ?',
-    answer: 'La checklist, puis ponctuellement les prochains contenus d’Altruisme.DEV : guides, ressources et actualités utiles autour de la tech, du produit, de l’acquisition et de la construction de projets.',
+    answer: 'La checklist, puis ponctuellement les prochains contenus d’Altruisme.DEV : guides, ressources et actualités autour de la tech, de l’acquisition et de l’entrepreneuriat.',
   },
 ]
 // Remplacer par l’URL du PDF quand il sera disponible. La version web est utilisable dès maintenant.
@@ -86,11 +92,11 @@ async function submit() {
       <BaseContainer size="large">
         <div class="launch-hero-grid">
           <div class="launch-hero-copy">
-            <p class="launch-eyebrow launch-glass launch-pill"><span aria-hidden="true" />Ressource gratuite</p>
-            <h1 id="launch-title" class="launch-display">La checklist SaaS</h1>
-            <p class="launch-subtitle">De l’idée au premier euro.</p>
+            <p class="launch-eyebrow launch-glass launch-pill"><span aria-hidden="true" />La checklist SEO</p>
+            <h1 id="launch-title" class="launch-display">Ton site mérite d'être trouvé.</h1>
+            <p class="launch-subtitle">Fais le point sur ta visibilité.</p>
             <p class="launch-lead">
-              Tu as une idée de SaaS, d’e-commerce, d’automatisation ou de produit numérique ? Cette checklist t’aide à passer de l’idée à quelque chose de concret, étape par étape.
+              Ton site est en ligne, mais est-il vraiment visible ? Découvre les 9 points essentiels à vérifier pour améliorer ton référencement sur Google et ta visibilité dans les moteurs IA.
             </p>
 
             <div id="formulaire" class="launch-form-panel launch-glass">
@@ -101,7 +107,7 @@ async function submit() {
                 <BaseButton :to="checklistUrl" size="large">Ouvrir la checklist <span aria-hidden="true">↗</span></BaseButton>
               </div>
               <form v-else novalidate @submit.prevent="submit">
-                <p class="launch-form-title">Reçois la checklist gratuitement.</p>
+                <p class="launch-form-title">Reçois la checklist SEO gratuitement.</p>
                 <div class="launch-form-row">
                   <div class="launch-field">
                     <label for="launch-email">Ton adresse email</label>
@@ -119,7 +125,7 @@ async function submit() {
                     />
                   </div>
                   <BaseButton type="submit" size="large" :disabled="loading">
-                    {{ loading ? 'Inscription en cours…' : 'Recevoir la checklist' }}
+                    {{ loading ? 'Inscription en cours…' : 'Recevoir la checklist gratuitement' }}
                   </BaseButton>
                 </div>
                 <div class="launch-honeypot" aria-hidden="true">
@@ -140,16 +146,16 @@ async function submit() {
             <div class="launch-sheet launch-sheet-back" aria-hidden="true" />
             <div class="launch-sheet launch-sheet-front">
               <div class="launch-sheet-top"><span>Altruisme.DEV</span><span>01 / 09</span></div>
-              <p class="launch-sheet-label">La checklist</p>
-              <p class="launch-sheet-title">De l’idée au premier euro<span>.</span></p>
-              <p class="launch-sheet-subtitle">9 étapes pour passer à l’action.</p>
+              <p class="launch-sheet-label">La checklist SEO</p>
+              <p class="launch-sheet-title">Les fondamen&shy;taux d'un SEO solide<span>.</span></p>
+              <p class="launch-sheet-subtitle">9 vérifications pour identifier les problèmes et savoir par où commencer.</p>
               <div class="launch-sheet-rule" />
-              <div v-for="stepNumber in [1, 5, 7, 9]" :key="stepNumber" class="launch-sheet-step">
+              <div v-for="step in previewSteps" :key="step.number" class="launch-sheet-step">
                 <span class="launch-sheet-box" aria-hidden="true" />
-                <span>{{ steps[stepNumber - 1] }}</span>
-                <small>0{{ stepNumber }}</small>
+                <span>{{ step.label }}</span>
+                <small>{{ step.number }}</small>
               </div>
-              <p class="launch-sheet-foot">Commence petit. Continue d’avancer.</p>
+              <p class="launch-sheet-foot">Comprends ce qui bloque. Passe à l'action.</p>
             </div>
           </div>
         </div>
@@ -159,7 +165,7 @@ async function submit() {
     <section class="launch-section launch-steps" aria-labelledby="launch-steps-title">
       <BaseContainer size="large">
         <p class="launch-eyebrow">À l’intérieur</p>
-        <h2 id="launch-steps-title" class="launch-title">De l’idée à <span>quelque chose de réel</span></h2>
+        <h2 id="launch-steps-title" class="launch-title">9 points pour faire le diagnostic de <span>ton SEO</span></h2>
         <div class="launch-steps-grid">
           <div v-for="(step, index) in steps" :key="step" class="launch-step">
             <span>{{ String(index + 1).padStart(2, '0') }}</span><p>{{ step }}</p>
@@ -173,16 +179,16 @@ async function submit() {
         <div class="launch-projects-grid">
           <div class="launch-projects-heading">
             <p class="launch-eyebrow">Pourquoi Altruisme.DEV</p>
-            <h2 id="launch-projects-title" class="launch-title">Construire, tester, apprendre. <span>Pour de vrai</span></h2>
+            <h2 id="launch-projects-title" class="launch-title">Du SEO concret, <span>pas des recettes miracles.</span></h2>
           </div>
           <div>
-            <p class="launch-lead">Altruisme.DEV est un média indépendant consacré à celles et ceux qui construisent dans la tech.</p>
-            <p class="launch-lead">Les contenus sont pensés à partir de l’expérience terrain : produit, développement, acquisition, freelancing et lancement de projets numériques.</p>
-            <p class="launch-lead">Pas de recette magique ni de promesse de réussite rapide. Cette checklist rassemble simplement les étapes essentielles pour transformer une idée en quelque chose de concret, le confronter au réel et avancer avec méthode.</p>
+            <p class="launch-lead">Altruisme.DEV est un média indépendant consacré à la tech, à l’acquisition et à l’entrepreneuriat.</p>
+            <p class="launch-lead">Nos contenus s’appuient sur l’expérience terrain en développement, produit et acquisition.</p>
+            <p class="launch-lead">Cette checklist propose une approche pratique du référencement : vérifier les bases, repérer les freins et choisir les prochaines actions avec méthode.</p>
             <div class="launch-project-list mt-6" aria-label="Pourquoi choisir Altruisme.DEV">
-              <span><strong>Des années d’expérience dans la tech</strong><br /><small>Produit, développement, acquisition et accompagnement de projets.</small></span>
-              <span><strong>Une approche terrain</strong><br /><small>Des ressources conçues pour être utilisées, pas seulement consommées.</small></span>
-              <span><strong>Indépendant</strong><br /><small>Pas de méthode miracle. Pas de bullshit. Des contenus utiles, accessibles et applicables.</small></span>
+              <span><strong>Des années d’expérience dans la tech</strong><br /><small>Développement, produit et acquisition appliqués à la visibilité des sites.</small></span>
+              <span><strong>Une approche terrain</strong><br /><small>Des vérifications concrètes pour prioriser les actions SEO.</small></span>
+              <span><strong>Indépendant</strong><br /><small>Une lecture claire du référencement, sans recette miracle ni jargon inutile.</small></span>
             </div>
           </div>
         </div>
@@ -194,7 +200,7 @@ async function submit() {
         <div class="launch-faq-grid">
           <div>
             <p class="launch-eyebrow">Questions fréquentes</p>
-            <h2 id="launch-faq-title" class="launch-title">Avant de te lancer</h2>
+            <h2 id="launch-faq-title" class="launch-title">Avant de commencer</h2>
           </div>
           <div class="launch-faq-list">
             <details v-for="faq in faqs" :key="faq.question" class="launch-faq-item">
@@ -213,8 +219,8 @@ async function submit() {
       <BaseContainer size="large">
         <div class="launch-final-inner">
           <p class="launch-eyebrow">Le premier pas</p>
-          <h2 id="launch-final-title" class="launch-title">Une idée ne vaut pas grand-chose <span>tant qu’elle reste une idée</span></h2>
-          <p>Commence petit. Teste. Apprends. Améliore.</p>
+          <h2 id="launch-final-title" class="launch-title">Un bon référencement commence <span>par un bon diagnostic.</span></h2>
+          <p>Identifie les points à améliorer et avance avec méthode.</p>
           <BaseButton href="/checklist#formulaire" size="large">Recevoir gratuitement la checklist</BaseButton>
           <small>Gratuit. Pas de spam. Désinscription en un clic.</small>
         </div>

@@ -47,10 +47,18 @@ export function renderPageMetadata(to: RouteLocationNormalizedLoaded) {
   meta('og:locale', 'fr_FR', 'property')
   meta(
     'twitter:card',
-    published && (guide?.image || to.meta.image) ? 'summary_large_image' : 'summary',
+    to.meta.image || (published && guide?.image) ? 'summary_large_image' : 'summary',
   )
   meta('twitter:title', String(to.meta.twitterTitle || ogTitle))
   meta('twitter:description', String(to.meta.twitterDescription || ogDescription))
+  if (to.meta.image && to.meta.article !== true) {
+    const image = new URL(String(to.meta.image), SITE_URL).href
+    const imageAlt = String(to.meta.imageAlt || ogTitle)
+    meta('og:image', image, 'property')
+    meta('og:image:alt', String(to.meta.ogImageAlt || imageAlt), 'property')
+    meta('twitter:image', image)
+    meta('twitter:image:alt', imageAlt)
+  }
   if (to.meta.article === true && to.meta.image) {
     const image = new URL(String(to.meta.image), SITE_URL).href
     const imageAlt = String(to.meta.imageAlt || ogTitle)
