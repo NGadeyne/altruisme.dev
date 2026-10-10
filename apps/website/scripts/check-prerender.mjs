@@ -126,27 +126,28 @@ for (const path of [...prerenderPaths, '/404']) {
     assert.equal(document.querySelector('.media-feature'), null)
     assert.equal(
       document.querySelector('.media-news-list .media-arrow-link')?.getAttribute('href'),
-      '/actualites/semaine-40-2026',
+      '/actualites/semaine-41-2026',
     )
     assert.equal(document.querySelector('.media-resource .base-button')?.getAttribute('href'), '/checklist')
     assert.equal(document.querySelectorAll('nav[aria-label="Navigation principale"] a[href="/checklist"]').length, 1)
   }
   if (path === '/actualites') {
-    assert.equal(document.querySelectorAll('main article').length, 2)
+    assert.equal(document.querySelectorAll('main article').length, 3)
     assert.equal(document.querySelector('main h1')?.textContent.trim(), 'Actu Tech de la semaine')
     assert.equal(
       document.querySelector('main article h2')?.textContent.trim(),
-      'Actu Tech de la semaine #40 : l’IA ne veut plus seulement discuter',
+      'Actu Tech de la semaine #41 : Google veut faire de Gemini un collègue',
     )
     assert.equal(document.querySelector('main article img'), null)
     assert.equal(
       document.querySelector('main article a')?.getAttribute('href'),
-      '/actualites/semaine-40-2026',
+      '/actualites/semaine-41-2026',
     )
     assert.equal(document.querySelectorAll('script[type="application/ld+json"]').length, 0)
   }
-  if (path === '/actualites/semaine-39-2026' || path === '/actualites/semaine-40-2026') {
-    const publishedAt = path.endsWith('semaine-39-2026') ? '2026-09-26' : '2026-10-02'
+  if (['/actualites/semaine-39-2026', '/actualites/semaine-40-2026', '/actualites/semaine-41-2026'].includes(path)) {
+    const publishedAt = path.endsWith('semaine-39-2026') ? '2026-09-26'
+      : path.endsWith('semaine-40-2026') ? '2026-10-02' : '2026-10-10'
     const canonical = document.querySelector('link[rel="canonical"]')?.getAttribute('href')
     assert.equal(document.querySelectorAll('link[rel="canonical"]').length, 1, path)
     assert.equal(document.querySelectorAll('script[type="application/ld+json"]').length, 1, path)
@@ -197,6 +198,38 @@ for (const path of [...prerenderPaths, '/404']) {
       assert.equal(tags.length, 1, `${property}: ${path}`)
       assert.equal(tags[0].content, publishedAt)
     }
+  }
+  if (path === '/actualites/semaine-41-2026') {
+    const source = await readFile(resolve('src/content/news/actu-tech-semaine-41-2026.txt'), 'utf8')
+    const publishedBlocks = [...document.querySelectorAll('.news-body h2, .news-body p')]
+      .map((element) => element.textContent.trim())
+    assert.deepEqual(
+      publishedBlocks,
+      source.trim().split(/\r?\n\s*\r?\n/).map((block) =>
+        block.replace(/^## /, '').replace(/\[([^\]]+)\]\(https?:\/\/[^)]+\)/g, '$1').replace(/\r?\n/g, ' '),
+      ),
+    )
+    assert.equal(document.title, 'Actu Tech semaine #41 : Google veut faire de Gemini un collègue')
+    assert.equal(document.querySelector('meta[name="description"]').content,
+      'Gemini agent, IA locale, cybersécurité, traçabilité des contenus et datacenters : découvre les actualités Tech à retenir de la semaine #41.')
+    assert.equal(document.querySelector('meta[property="og:title"]').content,
+      'Actu Tech de la semaine #41 : Google veut faire de Gemini un collègue')
+    assert.equal(document.querySelector('meta[property="og:description"]').content,
+      'Google transforme Gemini en agent de travail, Microsoft pousse l’IA locale et la sécurité devient une couche essentielle de l’écosystème agentique.')
+    assert.equal(document.querySelector('meta[property="og:image:alt"]').content,
+      'Actu Tech de la semaine #41 — Altruisme.DEV')
+    assert.equal(document.querySelector('main img')?.getAttribute('src'),
+      '/images/news/actu-tech-semaine-41-2026.webp')
+    assert.deepEqual(
+      [...document.querySelectorAll('.news-body a')].map((link) => [link.textContent, link.href, link.target]),
+      [
+        ['agent universel pour le travail', 'https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-at-work/', '_blank'],
+        ['intelligence hybride', 'https://blogs.windows.com/windowsexperience/2026/10/07/building-windows-for-hybrid-intelligence/', '_blank'],
+        ['Cyber Mission', 'https://www.anthropic.com/news/anthropic-cyber-mission', '_blank'],
+        ['textGrain', 'https://openai.com/index/eu-text-provenance/', '_blank'],
+        ['abandonné cette semaine son projet d’introduction en Bourse', 'https://www.reuters.com/world/asia-pacific/australian-nvidia-backed-ai-data-centre-operator-firmus-shelves-ipo-2026-10-08/', '_blank'],
+      ],
+    )
   }
   if (path === '/actualites/semaine-40-2026') {
     const source = await readFile(resolve('src/content/news/actu-tech-semaine-40-2026.txt'), 'utf8')

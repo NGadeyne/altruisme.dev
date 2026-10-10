@@ -1,5 +1,6 @@
 import source from './actu-tech-semaine-40-2026.txt?raw'
 export { week40 } from './week40Metadata'
+export { inlineParts } from './newsRichText'
 
 export type NewsSection = {
   heading: string
@@ -46,18 +47,4 @@ for (const block of source.trim().split(/\r?\n\s*\r?\n/)) {
   } else {
     week40Sections[week40Sections.length - 1]!.paragraphs.push(block.replace(/\r?\n/g, ' '))
   }
-}
-
-export function inlineParts(paragraph: string) {
-  return paragraph
-    .split(/(\*\*[^*]+\*\*|\[[^\]]+\]\(https?:\/\/[^)]+\))/g)
-    .filter(Boolean)
-    .map((part) => {
-      const link = part.match(/^\[([^\]]+)\]\((https?:\/\/[^)]+)\)$/)
-      return {
-        text: link ? link[1]! : part.startsWith('**') ? part.slice(2, -2) : part,
-        strong: !link && part.startsWith('**'),
-        href: link?.[2],
-      }
-    })
 }

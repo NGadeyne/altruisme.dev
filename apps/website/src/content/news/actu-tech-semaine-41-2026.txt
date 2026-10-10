@@ -1,0 +1,95 @@
+Une semaine de plus dans la Tech, et encore beaucoup trop de choses à suivre. Alors on a fait le tri.
+
+Depuis quelques semaines, les annonces autour de l’intelligence artificielle racontent toutes plus ou moins la même histoire. Les modèles ne se contentent plus de devenir meilleurs : les entreprises cherchent maintenant à leur donner suffisamment de mémoire, d’outils et d’autonomie pour qu’ils puissent réellement accomplir du travail. Cette semaine, Google est allé particulièrement loin dans cette direction en présentant Gemini non plus simplement comme un assistant, mais comme un agent capable de devenir une nouvelle porte d’entrée vers une grande partie de notre environnement professionnel.
+
+## Google veut faire de Gemini un collègue
+
+Google organisait cette semaine Gemini at Work 2026, son événement consacré à l’utilisation de l’intelligence artificielle dans les entreprises. L’annonce principale pourrait presque sembler banale après deux années remplies de nouveaux assistants : Google lance un nouvel agent appelé Gemini. Mais derrière ce nom désormais très familier se cache une ambition beaucoup plus importante que l’ajout de quelques fonctionnalités supplémentaires dans Workspace.
+
+Google présente Gemini comme un [agent universel pour le travail](https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-at-work/). Il peut répondre à des questions, produire du contenu, analyser des informations, générer des images, écrire et exécuter du code, mais surtout utiliser différents outils pour accomplir un objectif donné. L’entreprise résume elle-même assez bien le changement de philosophie : l’utilisateur ne lui décrit plus nécessairement chaque étape à réaliser, il lui confie un résultat à obtenir.
+
+Cette nuance est importante. Pendant longtemps, utiliser une intelligence artificielle dans son travail signifiait essentiellement ouvrir ChatGPT ou Gemini, poser une question, récupérer une réponse puis retourner soi-même dans les logiciels nécessaires pour poursuivre la tâche. Google cherche maintenant à déplacer l’intelligence artificielle directement au milieu de cet environnement. Gemini peut fonctionner dans Gmail, Drive, Docs, Slides, Sheets, Chat ou Calendar, tout en conservant la même mémoire et le même contexte d’un outil à l’autre. Il peut également être utilisé depuis Windows, macOS, un terminal, Slack ou Microsoft 365.
+
+Autrement dit, l’agent n’est plus nécessairement une application supplémentaire qu’il faut ouvrir. Il devient une couche capable de traverser plusieurs applications existantes.
+
+Prenons un exemple assez simple. Tu dois préparer une réunion sur un projet qui dure depuis six mois. Aujourd’hui, tu pourrais chercher les derniers échanges dans Gmail, parcourir plusieurs documents sur Drive, regarder les chiffres dans Sheets, vérifier ton calendrier puis demander à une IA de synthétiser tout ce que tu as trouvé. Dans la vision proposée par Google, l’objectif serait simplement donné à Gemini. L’agent pourrait aller récupérer lui-même les éléments accessibles, comprendre le contexte du projet et préparer le résultat final dans l’environnement approprié.
+
+Cette logique devient encore plus intéressante lorsque les tâches prennent du temps. Gemini fonctionne dans le Cloud et conserve un contexte persistant entre les appareils. Une tâche peut donc continuer à s’exécuter pendant plusieurs heures, voire plusieurs jours, même après la fermeture de l’ordinateur. Tu peux commencer quelque chose depuis ton Mac, partir, puis retrouver le même agent et son travail depuis ton téléphone sans devoir tout lui expliquer à nouveau.
+
+Mais Google va plus loin encore avec les sous-agents. Lorsqu’un travail devient complexe, Gemini peut créer temporairement plusieurs agents spécialisés et répartir différentes étapes entre eux. Certaines tâches peuvent être exécutées en parallèle, d’autres successivement, tandis que l’agent principal coordonne l’ensemble du processus. Ce qui ressemblait encore récemment à une architecture expérimentale utilisée par quelques développeurs commence donc à arriver directement dans des produits destinés aux entreprises.
+
+Google introduit également ce qu’il appelle des « coworker agents ». Cette fois, l’agent n’est plus simplement créé pour accomplir une tâche ponctuelle. Il peut disposer d’un rôle persistant au sein d’une équipe, de son propre espace de stockage et même d’une identité dédiée avec une adresse en agents.company.com. L’idée peut sembler presque anecdotique, mais elle matérialise assez bien le changement qui est en train de se produire : le logiciel commence à être pensé comme quelque chose auquel on peut déléguer une responsabilité, et pas seulement comme un outil que l’on manipule.
+
+Évidemment, cela ne signifie pas que les entreprises vont remplacer leurs équipes par une armée d’adresses e-mail appartenant à des agents dès demain matin. Une grande partie de ces usages devra encore prouver sa fiabilité dans des situations réelles, et plus une tâche possède de conséquences importantes, plus la validation humaine restera essentielle. Mais la direction prise par les grands acteurs devient difficile à manquer.
+
+Il y a également un détail particulièrement intéressant dans l’architecture de Google : Gemini n’est pas nécessairement lié à un seul modèle. Google explique que l’agent peut sélectionner différents modèles en fonction de la tâche et prévoit déjà d’orchestrer aussi bien ses propres modèles Gemini que certains modèles Claude d’Anthropic. Le raisonnement est assez logique. Utiliser systématiquement le modèle le plus puissant serait coûteux et souvent inutile lorsqu’un modèle plus petit peut réaliser correctement une opération simple.
+
+Cela pourrait progressivement séparer deux notions que nous avons longtemps confondues : le modèle et l’agent. Le modèle fournit une capacité de raisonnement ou de génération. L’agent, lui, conserve le contexte, connaît les outils disponibles, orchestre les actions et choisit éventuellement quel modèle utiliser. Si cette logique s’impose, les entreprises pourraient finir par se soucier moins de savoir si leur produit utilise Gemini, Claude ou un autre modèle que de savoir si leur environnement agentique peut passer efficacement de l’un à l’autre.
+
+Google affirme déjà que près de 80 % de ses clients Cloud utilisent ses produits d’intelligence artificielle et qu’environ 90 % des entreprises du Fortune 100 utilisent Gemini Enterprise. Ce sont évidemment des chiffres communiqués par Google, mais ils montrent tout de même que la bataille se déplace progressivement de la démonstration technologique vers l’intégration de l’IA dans les processus réels des entreprises.
+
+La semaine dernière, nous parlions d’agents auxquels on commence à donner des outils et un environnement de travail. Google vient finalement d’ajouter une nouvelle étape : essayer de faire de cet environnement le point de départ du travail lui-même.
+
+## Microsoft veut faire tourner davantage d’IA directement sur ton ordinateur
+
+Google mise énormément sur des agents capables de fonctionner dans le Cloud. Microsoft explore en parallèle une approche complémentaire : faire revenir une partie de l’intelligence artificielle directement sur nos machines.
+
+L’entreprise a dévoilé cette semaine de nouveaux PC Surface équipés de matériel NVIDIA particulièrement puissant, dont le Surface Laptop Ultra et le Surface RTX Spark Dev Box. Microsoft et NVIDIA veulent permettre à ces machines d’exécuter localement des modèles beaucoup plus importants qu’auparavant, tout en utilisant le Cloud lorsque la tâche nécessite davantage de puissance. Microsoft parle ainsi d’« [intelligence hybride](https://blogs.windows.com/windowsexperience/2026/10/07/building-windows-for-hybrid-intelligence/) » : certaines opérations sont réalisées localement pour gagner en rapidité, confidentialité ou coût, tandis que d’autres sont envoyées vers le Cloud.
+
+Le sujet ne concerne pas uniquement la puissance de calcul. Microsoft généralise également ses Execution Containers, des environnements isolés dans lesquels les agents peuvent fonctionner avec des permissions limitées. Un agent peut par exemple avoir accès à certains fichiers ou certaines connexions réseau sans pour autant disposer d’un accès complet à l’ordinateur.
+
+On retrouve exactement la problématique évoquée la semaine dernière avec NVIDIA : plus les agents deviennent autonomes, plus nous devons construire autour d’eux les mêmes barrières que celles utilisées depuis longtemps pour sécuriser nos applications. La différence est que cette infrastructure commence maintenant à arriver directement dans le système d’exploitation.
+
+## Anthropic veut utiliser Claude pour protéger les infrastructures critiques
+
+Anthropic a de son côté lancé cette semaine son [Cyber Mission](https://www.anthropic.com/news/anthropic-cyber-mission), une initiative destinée à utiliser ses modèles pour renforcer la cybersécurité des infrastructures critiques et des projets open source.
+
+L’entreprise travaille notamment avec CrowdStrike, Palo Alto Networks, Deloitte, PwC, Hitachi, Rockwell Automation ou encore Dragos afin d’expérimenter l’utilisation de Claude sur des environnements particulièrement sensibles comme les réseaux électriques, les systèmes liés à l’eau ou certaines infrastructures de transport. L’objectif n’est pas de confier leur sécurité entièrement à une intelligence artificielle, mais d’utiliser les modèles pour détecter plus rapidement certaines vulnérabilités et aider les spécialistes humains à les corriger.
+
+Anthropic étend également son Cyber Verification Program. Les équipes de cybersécurité vérifiées peuvent obtenir un accès moins restrictif aux capacités avancées de Claude afin d’effectuer de l’analyse de malware, de la recherche de vulnérabilités ou des tests d’intrusion autorisés. C’est une problématique particulièrement délicate, parce que les mêmes capacités capables d’identifier une faiblesse pour la corriger peuvent évidemment servir à l’exploiter. Anthropic utilise donc plusieurs niveaux d’accès selon le type de travail effectué et le niveau de vérification de l’organisation.
+
+C’est probablement l’un des domaines où la progression des modèles sera la plus difficile à gérer. Plus ils deviennent performants en cybersécurité, plus ils deviennent simultanément intéressants pour les défenseurs et potentiellement dangereux lorsqu’ils tombent entre de mauvaises mains.
+
+## OpenAI va commencer à marquer les textes générés en Europe
+
+Autre annonce importante cette semaine : OpenAI prépare l’arrivée d’un watermark invisible dans certains textes générés par ChatGPT et Codex dans l’Union européenne afin de répondre aux nouvelles obligations de transparence liées à l’AI Act.
+
+La technologie, baptisée [textGrain](https://openai.com/index/eu-text-provenance/), ne consiste pas à ajouter une mention visible à la fin d’un texte. Le modèle modifie légèrement ses choix de mots afin d’introduire un signal statistique pouvant ensuite être recherché par un détecteur. OpenAI indique obtenir environ 95 % de détection sur certains textes anglais de 400 tokens dans ses conditions de test, mais reconnaît également des limites importantes : les textes courts sont plus difficiles à identifier et une simple réécriture peut fortement dégrader le signal.
+
+C’est justement ce qui rend le sujet intéressant. Un watermark textuel n’est pas l’équivalent d’une signature numérique impossible à retirer. OpenAI explique explicitement qu’il ne permet pas de connaître l’identité de l’utilisateur, de déterminer la quantité de travail humain présente dans un contenu ou même de prouver qu’un texte sans watermark a été écrit par un humain. Remplacer seulement une partie des mots peut déjà réduire considérablement le taux de détection.
+
+La technologie est donc imparfaite, mais le mouvement est probablement plus important que l’outil lui-même. À mesure que la quantité de contenus produits ou transformés par l’intelligence artificielle augmente, la provenance devient progressivement une nouvelle couche technique à gérer, au même titre que les métadonnées ou les signatures utilisées dans d’autres formats numériques.
+
+## Le marché commence à demander des comptes aux datacenters IA
+
+Pendant que les géants de la Tech continuent d’investir des dizaines de milliards dans l’infrastructure, un événement beaucoup moins spectaculaire pourrait également mériter notre attention. Firmus, une entreprise australienne spécialisée dans les datacenters IA et soutenue notamment par NVIDIA, Blackstone et Coatue, a [abandonné cette semaine son projet d’introduction en Bourse](https://www.reuters.com/world/asia-pacific/australian-nvidia-backed-ai-data-centre-operator-firmus-shelves-ipo-2026-10-08/) après avoir rencontré une demande insuffisante de la part des investisseurs.
+
+L’opération devait lever environ 5 milliards de dollars et aurait valorisé l’entreprise à plus de 30 milliards, presque trois fois sa valorisation obtenue lors d’un financement réalisé seulement quelques mois auparavant. Mais les investisseurs se sont notamment inquiétés de son endettement, de son expérience encore limitée dans la construction de datacenters et des investissements considérables nécessaires pour concrétiser ses projets.
+
+Il serait évidemment très prématuré d’y voir « l’explosion de la bulle IA ». Firmus possède ses propres particularités et les investissements dans l’infrastructure restent gigantesques. Mais l’épisode montre quelque chose d’intéressant : le simple fait d’être exposé à l’intelligence artificielle ne suffit peut-être plus automatiquement à justifier n’importe quelle valorisation.
+
+Depuis deux ans, le marché récompense massivement les entreprises capables de fournir des GPU, de l’électricité, du Cloud ou des datacenters nécessaires à l’IA. Firmus pourrait être l’un des premiers signes indiquant que les investisseurs commencent maintenant à poser une question beaucoup plus classique : combien ces infrastructures vont-elles réellement rapporter ?
+
+## Pourquoi ça compte pour les gens de la Tech
+
+Parce que les annonces de cette semaine montrent que nous commençons à dépasser une phase où l’intelligence artificielle était essentiellement un produit séparé du reste du système informatique. Elle commence maintenant à devenir une couche supplémentaire de ce système.
+
+Google veut placer un agent au-dessus des applications professionnelles. Microsoft prépare Windows à exécuter des modèles et des agents directement sur les machines. Anthropic cherche à utiliser Claude dans des infrastructures critiques. OpenAI construit des mécanismes permettant d’identifier certains contenus générés par ses modèles. Pendant ce temps, les investisseurs commencent à examiner plus sérieusement l’économie de l’infrastructure physique nécessaire pour faire fonctionner tout cela.
+
+Pour les développeurs et les architectes, cette évolution change progressivement la nature des problèmes à résoudre. Construire une fonctionnalité IA ne signifie plus uniquement envoyer une requête à un modèle et afficher sa réponse. Il faut gérer son identité, ses permissions, les données auxquelles il peut accéder, son environnement d’exécution, les différents modèles qu’il peut utiliser, la manière dont son travail est audité et parfois même l’endroit où son calcul doit être réalisé.
+
+Cela ressemble finalement beaucoup à l’histoire classique de l’informatique. Une nouvelle capacité apparaît, puis toute une infrastructure se construit autour d’elle pour la rendre réellement fiable, sécurisée et exploitable à grande échelle.
+
+La différence est que cette fois, le composant au centre du système peut commencer à choisir lui-même une partie des actions qu’il va effectuer.
+
+## Ce qu’on retient de la semaine
+
+Ces dernières semaines commencent à former une séquence assez cohérente. Nous avons d’abord vu l’intelligence artificielle sortir progressivement du simple chatbot. Nous lui avons ensuite donné des outils et des environnements dans lesquels elle pouvait agir. Cette semaine, Google commence presque à inverser la relation : plutôt que d’ajouter l’IA à chaque logiciel, l’entreprise imagine un agent unique capable d’utiliser lui-même l’ensemble des logiciels nécessaires.
+
+Autour de cette idée se construit déjà toute une nouvelle infrastructure. Windows prépare l’exécution locale des agents, les entreprises de cybersécurité développent des systèmes permettant de contrôler ce qu’ils peuvent faire, et même la provenance de ce qu’ils produisent commence à nécessiter ses propres technologies.
+
+Mais la semaine rappelle également quelque chose de beaucoup plus terre-à-terre. Derrière ces agents se trouvent toujours des processeurs, des datacenters, de l’électricité et énormément de capitaux. Et lorsque plusieurs dizaines de milliards sont nécessaires pour construire cette infrastructure, les promesses technologiques finissent forcément par rencontrer une question très simple : est-ce que tout cela crée suffisamment de valeur pour justifier ce que nous dépensons ?
+
+Nous ne sommes donc probablement plus seulement en train d’assister à une course pour construire la meilleure intelligence artificielle.
+
+Nous commençons à voir apparaître tout le système informatique, économique et sécuritaire nécessaire pour lui permettre de travailler réellement.

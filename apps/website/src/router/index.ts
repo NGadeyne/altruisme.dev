@@ -6,6 +6,7 @@ import { guideRoutes } from './guides'
 import { updatePageMetadata } from '@/lib/pageMetadata'
 import { week39 } from '@/content/news/week39Metadata'
 import { week40 } from '@/content/news/week40Metadata'
+import { week41 } from '@/content/news/week41Metadata'
 
 export const routes: RouteRecordRaw[] = [
   {
@@ -81,6 +82,27 @@ export const routes: RouteRecordRaw[] = [
       title: 'Actualités tech de la semaine | Altruisme.DEV',
       description:
         'Une sélection hebdomadaire des actualités produit, SaaS, IA, automatisation, freelance et entreprises tech, expliquées avec du contexte.',
+    },
+  },
+  {
+    path: `/actualites/${week41.slug}`,
+    name: 'news-week-41',
+    component: () => import('../views/news/Week41View.vue'),
+    meta: {
+      title: 'Actu Tech semaine #41 : Google veut faire de Gemini un collègue',
+      description:
+        'Gemini agent, IA locale, cybersécurité, traçabilité des contenus et datacenters : découvre les actualités Tech à retenir de la semaine #41.',
+      ogTitle: week41.title,
+      ogDescription:
+        'Google transforme Gemini en agent de travail, Microsoft pousse l’IA locale et la sécurité devient une couche essentielle de l’écosystème agentique.',
+      image: week41.image,
+      imageAlt: week41.imageAlt,
+      ogImageAlt: 'Actu Tech de la semaine #41 — Altruisme.DEV',
+      article: true,
+      articleSection: week41.format,
+      publishedAt: week41.publishedAt,
+      modifiedAt: week41.modifiedAt,
+      author: week41.author,
     },
   },
   {
