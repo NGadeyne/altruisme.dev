@@ -21,7 +21,7 @@ afterEach(() => {
   vi.restoreAllMocks()
 })
 
-it('serves only news from the last two days as valid XML', async () => {
+it('keeps article URLs and limits news metadata to the last two days', async () => {
   vi.useFakeTimers()
   vi.setSystemTime(new Date('2026-10-02T15:00:00Z'))
   const articles = [
@@ -55,10 +55,13 @@ it('serves only news from the last two days as valid XML', async () => {
   const newsNamespace = 'http://www.google.com/schemas/sitemap-news/0.9'
   const value = (namespace: string, name: string) =>
     document.getElementsByTagNameNS(namespace, name)[0]?.textContent
-  expect(document.getElementsByTagNameNS(sitemapNamespace, 'url')).toHaveLength(1)
-  expect(value(sitemapNamespace, 'loc')).toBe(
-    'https://altruisme.dev/actualites/semaine-40-2026',
-  )
+  expect(document.getElementsByTagNameNS(sitemapNamespace, 'url')).toHaveLength(2)
+  expect(document.getElementsByTagNameNS(newsNamespace, 'news')).toHaveLength(1)
+  expect(
+    document
+      .getElementsByTagNameNS(sitemapNamespace, 'url')[1]
+      ?.getElementsByTagNameNS(sitemapNamespace, 'loc')[0]?.textContent,
+  ).toBe('https://altruisme.dev/actualites/semaine-40-2026')
   expect(value(newsNamespace, 'name')).toBe('Altruisme.DEV')
   expect(value(newsNamespace, 'language')).toBe('fr')
   expect(value(newsNamespace, 'publication_date')).toBe('2026-10-02')
@@ -66,9 +69,10 @@ it('serves only news from the last two days as valid XML', async () => {
 
   vi.setSystemTime(new Date('2026-10-04T00:00:00Z'))
   const expired = await worker.fetch(newsRequest, { ...env, ASSETS: assets })
-  const expiredDocument = new JSDOM(await expired.text(), { contentType: 'application/xml' })
-    .window.document
-  expect(expiredDocument.getElementsByTagNameNS(sitemapNamespace, 'url')).toHaveLength(0)
+  const expiredDocument = new JSDOM(await expired.text(), { contentType: 'application/xml' }).window
+    .document
+  expect(expiredDocument.getElementsByTagNameNS(sitemapNamespace, 'url')).toHaveLength(2)
+  expect(expiredDocument.getElementsByTagNameNS(newsNamespace, 'news')).toHaveLength(0)
 })
 
 it('rejects invalid addresses and missing consent without calling Brevo', async () => {
