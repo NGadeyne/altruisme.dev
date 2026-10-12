@@ -208,7 +208,7 @@ Quelques points de différence peuvent donc décider si la croissance crée rée
 Le modèle économique d’une ESN repose moins sur le chiffre d’affaires que sur l’équilibre entre TJM, coût des consultants, taux d’activité et frais de structure. Une mission rentable sur le papier peut devenir beaucoup moins intéressante une fois l’intercontrat et les coûts indirects intégrés. À grande échelle, quelques points de marge ou de taux d’activité peuvent avoir un impact majeur sur la santé financière de l’entreprise.
 Partie 3 — Le marché des ESN en 2026
 Le marché des ESN a connu plusieurs années particulièrement favorables après l’accélération massive de la transformation numérique. Les entreprises recrutaient, les projets se multipliaient et certaines compétences étaient suffisamment rares pour que la principale difficulté consiste presque à trouver les consultants capables de répondre à la demande. Cette période a progressivement laissé place à un environnement beaucoup plus exigeant.
-En 2026, le marché français du numérique renoue avec la croissance, mais sans retrouver l’euphorie des années précédentes. Numeum estime la progression globale du secteur à environ 3 % sur l’année, tandis que les ESN retrouveraient une croissance positive autour de 1 %, pour un marché de 34,6 milliards d’euros. La reprise existe donc, mais elle reste modérée et accompagnée d’une forte prudence des donneurs d’ordres.
+En 2026, le marché français du numérique renoue avec la croissance, mais sans retrouver l’euphorie des années précédentes. [Numeum](https://numeum.fr/etude-le-marche-du-numerique-francais-sort-de-la-zone-de-turbulences-mais-lattentisme-freine-encore-la-reprise/) estime la progression globale du secteur à environ 3 % sur l’année, tandis que les ESN retrouveraient une croissance positive autour de 1 %, pour un marché de 34,6 milliards d’euros. La reprise existe donc, mais elle reste modérée et accompagnée d’une forte prudence des donneurs d’ordres.
 Cette situation modifie profondément le fonctionnement du secteur. Les clients arbitrent davantage leurs investissements, challengent les tarifs et attendent plus facilement d’un prestataire qu’il démontre la valeur réelle de son intervention. Dans le même temps, l’intelligence artificielle commence à modifier la productivité de certaines missions, les compétences recherchées et, à terme, la manière même dont les prestations sont facturées.
 Comprendre le marché des ESN en 2026 demande donc de sortir d’une vision binaire dans laquelle le secteur serait soit en crise, soit en pleine croissance. Le marché existe toujours, les besoins technologiques restent considérables, mais les règles deviennent progressivement plus exigeantes.
 Où en est le marché français du numérique ?
@@ -252,7 +252,7 @@ Les spécialisations durables se construisent dans le temps.
 Mais comprendre où les budgets continuent d’être engagés permet d’éviter de considérer le marché des ESN comme un bloc homogène.
 Les compétences les plus recherchées
 Les compétences recherchées évoluent elles aussi avec les priorités des entreprises.
-La cybersécurité, le cloud, la data, l'intelligence artificielle, le développement logiciel et la capacité à piloter des transformations complexes restent au cœur de nombreux besoins. Mais la demande ne porte pas uniquement sur une technologie isolée.
+La cybersécurité, le [cloud](/guides/cloud), la data, l'intelligence artificielle, le développement logiciel et la capacité à piloter des transformations complexes restent au cœur de nombreux besoins. Mais la demande ne porte pas uniquement sur une technologie isolée.
 Les entreprises cherchent de plus en plus des profils capables de comprendre le contexte dans lequel cette technologie doit être utilisée.
 Un expert cloud qui comprend les contraintes de coûts, de sécurité et d'architecture apporte davantage qu'une simple connaissance d'un fournisseur. Un spécialiste de l'intelligence artificielle capable de connecter les modèles aux processus réels de l'entreprise possède plus de valeur qu'une personne maîtrisant uniquement quelques outils génératifs.
 Cette évolution favorise la combinaison de compétences.
@@ -289,7 +289,7 @@ C'est ce qui explique l'émergence de réflexions autour de modèles davantage f
 Cette transformation ne fera probablement pas disparaître le TJM du jour au lendemain.
 La régie reste simple à comprendre, flexible et profondément installée dans les pratiques d'achat.
 Mais elle pousse les ESN à réfléchir à ce qu'elles apportent au-delà du temps passé.
-L'IA peut également créer de nouvelles opportunités. Dans l'étude Grand Angle ESN & ICT 2025 de Numeum et KPMG, 81 % des entreprises interrogées identifiaient déjà l'IA générative comme leur première opportunité de marché.
+L'IA peut également créer de nouvelles opportunités. Dans l'[étude Grand Angle ESN & ICT 2025 de Numeum et KPMG](https://numeum.fr/economie-marche/consultez-letude-grand-angle-esn-ict-2025/), 81 % des entreprises interrogées identifiaient déjà l'IA générative comme leur première opportunité de marché.
 L'enjeu de 2026 n'est donc pas simplement de savoir si l'IA va supprimer certaines missions.
 Il est de comprendre comment elle change la productivité, les compétences et la manière de vendre les services numériques.
 Le marché des ESN entre ainsi dans une période assez paradoxale. Les besoins technologiques restent massifs, mais les clients sont plus sélectifs. Les consultants expérimentés restent précieux, mais l'IA augmente progressivement leur capacité de production. Les entreprises ont toujours besoin d'expertise externe, mais elles questionnent davantage le prix et la valeur de cette expertise.
@@ -514,8 +514,8 @@ Plus on connaît un compte, plus il devient facile d’identifier ses enjeux, se
 La liste de comptes devient alors un actif commercial.
 Elle ne sert pas uniquement à lancer des campagnes. Elle permet de construire progressivement une connaissance du marché.
 Prospecter directement
-La prospection directe reste l’un des leviers les plus évidents.
-Elle peut passer par l’email, le téléphone, LinkedIn ou d’autres canaux professionnels. Mais la qualité de l’approche compte davantage que le volume brut.
+La [prospection directe](/guides/prospection) reste l’un des leviers les plus évidents.
+Elle peut passer par l’email, le téléphone, LinkedIn ou d’autres canaux professionnels. Mais la qualité de l’approche compte davantage que le volume brut. Pour la [prospection électronique B2B](https://www.cnil.fr/fr/la-prospection-commerciale-par-courrier-electronique-sms-mms-et-automate-dappel), la CNIL rappelle qu’il faut informer les personnes contactées et leur permettre de s’opposer aux sollicitations.
 Un message générique expliquant qu’une ESN dispose de « profils disponibles immédiatement » ressemble à des dizaines d’autres sollicitations reçues par les décideurs.
 Une approche plus efficace part du contexte du prospect.
 Elle montre que l’ESN comprend son environnement, ses projets ou une problématique précise.
@@ -545,7 +545,7 @@ Une ESN qui accumule plusieurs références cohérentes sur un même type de pro
 La recommandation alimente alors le positionnement autant que le pipeline commercial.
 Travailler son contenu et son expertise
 Le contenu peut également devenir un canal commercial.
-Une ESN peut publier des analyses, retours d’expérience, contenus techniques ou points de vue sur son marché.
+Une ESN peut publier des analyses, retours d’expérience, contenus techniques ou points de vue sur son marché. Sur [LinkedIn](/guides/linkedin), ces contenus peuvent aussi rendre l’expertise visible avant le premier échange.
 L’objectif n’est pas nécessairement de générer des milliers de vues.
 Il est de démontrer une expertise avant même le premier échange.
 Lorsqu’un décideur découvre plusieurs contenus pertinents sur un sujet qui le concerne, la perception de l’entreprise change.
@@ -869,7 +869,7 @@ Construire un bon réseau permet alors à l’entreprise d’élargir fortement 
 Salariat ou freelance
 Les deux modèles répondent à des logiques différentes.
 Le salarié apporte davantage de continuité. L’ESN peut investir dans sa formation, construire une relation dans la durée et développer progressivement une culture commune.
-Le freelance apporte davantage de flexibilité.
+Le [modèle freelance](/guides/freelance) apporte davantage de flexibilité.
 Il peut être mobilisé sur un besoin précis puis repartir une fois la mission terminée.
 Le choix dépend donc du type d’expertise, de la visibilité commerciale et du niveau de contrôle souhaité.
 Une compétence centrale, récurrente et stratégique peut avoir davantage de sens en interne. Une expertise rare ou ponctuelle peut être plus adaptée à un partenaire indépendant.
@@ -987,7 +987,7 @@ Les clauses de confidentialité sont donc presque toujours importantes.
 Mais la confidentialité ne doit pas rester une simple phrase dans un contrat.
 Elle doit être accompagnée de pratiques cohérentes : gestion des accès, stockage des fichiers, utilisation des outils autorisés et suppression des données lorsque la mission se termine.
 Les données personnelles ajoutent une couche supplémentaire.
-Lorsque l’ESN traite certaines informations pour le compte du client, il peut être nécessaire de définir précisément les rôles et les obligations de chacun.
+Lorsque l’ESN traite certaines informations pour le compte du client, il peut être nécessaire de [définir précisément les rôles et les obligations de chacun](https://www.cnil.fr/fr/qualification-juridique-sous-traitance).
 La sécurité contractuelle et la sécurité opérationnelle doivent donc avancer ensemble.
 Responsabilité et assurance
 Même avec un contrat bien rédigé, un problème peut survenir.
@@ -1238,7 +1238,7 @@ Un freelance peut attendre un paiement selon des conditions différentes de cell
 L’ESN doit alors parfois financer l’écart.
 La qualité d’un compte ne se mesure donc pas uniquement à son TJM ou à son volume.
 Un client qui paie rapidement peut être économiquement plus intéressant qu’un autre légèrement mieux tarifé mais beaucoup plus lent.
-Les conditions de paiement font partie intégrante de la rentabilité.
+Les [conditions de paiement entre professionnels](https://entreprendre.service-public.gouv.fr/vosdroits/F23211) font partie intégrante de la rentabilité.
 Prévisionnel et trésorerie
 Un bon pilotage financier repose sur l’anticipation.
 L’ESN doit pouvoir estimer les revenus futurs, les fins de mission, les recrutements, les intercontrats probables et les principales sorties de trésorerie.
@@ -1404,7 +1404,7 @@ Il faut donc privilégier quelques indicateurs fiables.
 Le reporting doit aider à décider.
 Pas simplement produire davantage de chiffres.
 Automatiser sans construire une usine à gaz
-L’automatisation peut rapidement devenir séduisante.
+[L’automatisation](/guides/automatisation) peut rapidement devenir séduisante.
 Une nouvelle opportunité peut créer automatiquement un besoin de staffing, déclencher une recherche dans la base, notifier un commercial et préparer un reporting.
 Mais chaque automatisation ajoute aussi une dépendance.
 Si le processus métier change, il faut mettre à jour le système.
@@ -1422,7 +1422,7 @@ Ce double mouvement explique pourquoi le sujet dépasse largement la création d
 La transformation touche donc progressivement toute la chaîne de valeur : développement, conseil, recrutement, staffing, delivery, opérations internes et facturation. Elle pose surtout une question beaucoup plus profonde. Que devient un modèle fondé historiquement sur la vente de journées lorsque les outils permettent de produire certains résultats beaucoup plus rapidement ?
 L’enjeu pour les ESN n’est probablement pas de prédire la disparition du TJM. Il est de comprendre suffisamment tôt comment l’IA modifie la valeur produite par une journée de travail et d’adapter progressivement le modèle à cette nouvelle réalité.
 Comment l’IA transforme les métiers IT
-L’intelligence artificielle commence par modifier le travail quotidien des consultants.
+[L’intelligence artificielle](/guides/ia) commence par modifier le travail quotidien des consultants.
 Un développeur peut utiliser un assistant pour générer du code, comprendre une base existante, préparer des tests ou accélérer certaines tâches de documentation. Un consultant fonctionnel peut synthétiser des documents ou préparer une analyse. Un chef de projet peut extraire les principales décisions d’une réunion et automatiser une partie du reporting.
 Cela ne signifie pas que ces métiers disparaissent.
 Le travail se déplace.
@@ -1487,7 +1487,7 @@ Les outils utilisés, les données transmises et les permissions doivent donc ê
 L’augmentation de productivité ne doit pas créer une nouvelle dette de sécurité ou de confidentialité.
 Construire de nouvelles offres autour de l’IA
 L’intelligence artificielle crée également un marché pour les ESN.
-Les entreprises veulent identifier les cas d’usage pertinents, connecter les modèles à leurs données, intégrer des assistants dans leurs produits, automatiser certains processus ou déployer des agents dans des environnements maîtrisés.
+Les entreprises veulent identifier les cas d’usage pertinents, connecter les modèles à leurs données, notamment via [des API](/guides/api), intégrer des assistants dans leurs produits, automatiser certains processus ou déployer des agents dans des environnements maîtrisés.
 Une ESN peut intervenir à différents niveaux.
 Elle peut réaliser un diagnostic, construire un prototype, intégrer une solution existante ou accompagner le passage à l’échelle.
 Cette opportunité ne doit cependant pas conduire à ajouter simplement « IA » devant toutes les offres historiques.
@@ -1586,7 +1586,7 @@ Faire évoluer son modèle avec le marché
 Une ESN construite aujourd’hui ne fonctionnera probablement pas exactement de la même manière dans dix ans.
 Les technologies changent, les compétences recherchées évoluent et les modes de consommation des prestations se transforment.
 L’entreprise doit donc conserver une capacité d’adaptation.
-Une expertise qui générait beaucoup de demande peut devenir standardisée. Une nouvelle technologie peut créer un marché. Les clients peuvent préférer davantage de forfait, de services managés ou de modèles orientés résultats.
+Une expertise qui générait beaucoup de demande peut devenir standardisée. Une nouvelle technologie peut créer un marché. Les clients peuvent préférer davantage de forfait, de services managés ou de modèles orientés résultats. Certaines ESN peuvent aussi transformer une expertise récurrente en [produit SaaS](/guides/saas).
 L’arrivée de l’intelligence artificielle accélère encore cette évolution.
 Une ESN doit donc être capable de remettre en question son propre fonctionnement.
 Cela ne signifie pas changer de stratégie tous les six mois.

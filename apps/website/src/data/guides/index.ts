@@ -32,7 +32,7 @@ export const guides: GuideDefinition[] = [
     label: 'SaaS',
     category: 'entreprendre',
     edition: '2026',
-    seoTitle: 'SaaS 2026 : Guide complet',
+    seoTitle: 'SaaS 2026 : guide complet pour créer et lancer son logiciel',
     ogTitle: 'SaaS 2026 : Guide complet',
     ogDescription:
       'De l’idée aux premiers clients, puis à la croissance : le guide complet pour concevoir, lancer, vendre et faire grandir un SaaS en 2026.',

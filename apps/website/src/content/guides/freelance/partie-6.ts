@@ -339,7 +339,7 @@ export default {
         },
         {
           type: 'paragraph',
-          text: 'Une plateforme permet de rendre son profil visible auprès d’entreprises qui cherchent déjà des indépendants. Un cabinet peut connaître plusieurs clients et proposer régulièrement des missions. Une ESN référencée peut donner accès à un grand compte avec lequel un freelance seul ne pourrait pas contractualiser directement.',
+          text: 'Une plateforme permet de rendre son profil visible auprès d’entreprises qui cherchent déjà des indépendants. Un cabinet peut connaître plusieurs clients et proposer régulièrement des missions. [Une ESN référencée](/guides/esn) peut donner accès à un grand compte avec lequel un freelance seul ne pourrait pas contractualiser directement.',
         },
         {
           type: 'paragraph',

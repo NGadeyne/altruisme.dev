@@ -21,6 +21,11 @@ export const renderInline = (value: string) => {
     '<a href="$2" target="_blank" rel="noopener noreferrer" class="guide-link">$1</a>',
   )
 
+  html = html.replace(
+    /\[([^\]]+)\]\((\/guides\/[a-z0-9-]+)\)/g,
+    '<a href="$2" class="guide-link">$1</a>',
+  )
+
   html = html.replace(/\*\*(.+?)\*\*/g, '<strong class="font-semibold text-ink">$1</strong>')
 
   return html

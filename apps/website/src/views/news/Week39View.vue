@@ -1,19 +1,15 @@
 <script setup lang="ts">
 import { BaseContainer } from '@altruisme/ui'
 import NewsByline from '@/components/news/NewsByline.vue'
+import NewsEditionNavigation from '@/components/news/NewsEditionNavigation.vue'
 import { externalLinks, week39, week39Sections } from '@/content/news/week39'
+import { inlineParts } from '@/content/news/newsRichText'
 
-function linkedParts(heading: string, paragraph: string) {
+function linkedParagraph(heading: string, paragraph: string) {
   const link = externalLinks[heading]
-  if (!link) return { before: paragraph, anchor: '', after: '', href: '' }
-  const index = paragraph.indexOf(link.anchor)
-  if (index < 0) return { before: paragraph, anchor: '', after: '', href: '' }
-  return {
-    before: paragraph.slice(0, index),
-    anchor: link.anchor,
-    after: paragraph.slice(index + link.anchor.length),
-    href: link.href,
-  }
+  return link && paragraph.includes(link.anchor)
+    ? paragraph.replace(link.anchor, `[${link.anchor}](${link.href})`)
+    : paragraph
 }
 </script>
 
@@ -64,16 +60,22 @@ function linkedParts(heading: string, paragraph: string) {
               :key="paragraphIndex"
               class="mt-5 first:mt-0"
             >
-              {{ linkedParts(section.heading, paragraph).before
-              }}<a
-                v-if="linkedParts(section.heading, paragraph).href"
-                :href="linkedParts(section.heading, paragraph).href"
-                class="font-medium text-petrol underline decoration-petrol/50 underline-offset-4 hover:decoration-petrol focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-petrol"
-                >{{ linkedParts(section.heading, paragraph).anchor }}</a
-              >{{ linkedParts(section.heading, paragraph).after }}
+              <template
+                v-for="(part, partIndex) in inlineParts(linkedParagraph(section.heading, paragraph))"
+                :key="partIndex"
+                ><a
+                  v-if="part.href"
+                  :href="part.href"
+                  :target="part.href.startsWith('/guides/') ? undefined : '_blank'"
+                  :rel="part.href.startsWith('/guides/') ? undefined : 'noopener noreferrer'"
+                  class="font-medium text-petrol underline decoration-petrol/50 underline-offset-4 hover:decoration-petrol focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-petrol"
+                  >{{ part.text }}</a
+                ><template v-else>{{ part.text }}</template></template
+              >
             </p>
           </section>
         </div>
+        <NewsEditionNavigation :current-slug="week39.slug" />
       </article>
     </BaseContainer>
   </main>

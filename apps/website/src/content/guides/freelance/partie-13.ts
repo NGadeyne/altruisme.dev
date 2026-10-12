@@ -181,7 +181,7 @@ export default {
         },
         {
           type: 'paragraph',
-          text: 'Un freelance qui réalise des missions, vend une formation, lance une newsletter payante, construit un SaaS, crée une agence et développe une communauté simultanément peut rapidement se retrouver avec plusieurs activités incomplètes plutôt qu’un modèle réellement diversifié.',
+          text: 'Un freelance qui réalise des missions, vend une formation, lance une newsletter payante, [construit un SaaS](/guides/saas), crée une agence et développe une communauté simultanément peut rapidement se retrouver avec plusieurs activités incomplètes plutôt qu’un modèle réellement diversifié.',
         },
         {
           type: 'paragraph',

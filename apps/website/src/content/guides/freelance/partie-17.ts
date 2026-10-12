@@ -279,7 +279,7 @@ export default {
         },
         {
           type: 'paragraph',
-          text: 'La bonne question est de savoir quelles tâches sont répétitives, prévisibles et peu dépendantes du jugement.',
+          text: 'La bonne question est de savoir quelles tâches sont répétitives, prévisibles et peu dépendantes du jugement. Cela vaut aussi pour les usages de l’[intelligence artificielle](/guides/ia).',
         },
         {
           type: 'paragraph',

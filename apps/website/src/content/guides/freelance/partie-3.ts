@@ -162,7 +162,7 @@ export default {
         },
         {
           type: 'paragraph',
-          text: 'En 2026, la facturation connaît par ailleurs une évolution importante en France. Depuis le 1er septembre 2026, les entreprises concernées doivent être capables de recevoir des factures électroniques. Les grandes entreprises et les ETI sont également entrées dans l’obligation d’émission à cette date ; les PME, TPE et micro-entreprises doivent à leur tour pouvoir émettre leurs factures électroniques à compter du 1er septembre 2027. La réforme concerne aussi les entreprises assujetties à la TVA bénéficiant de la franchise en base pour les obligations qui leur sont applicables.',
+          text: 'En 2026, la facturation connaît par ailleurs une évolution importante en France. Depuis le 1er septembre 2026, les entreprises concernées doivent être capables de recevoir des [factures électroniques](https://www.impots.gouv.fr/facturation-electronique-qu-est-ce-que-ca-change-pour-moi). Les grandes entreprises et les ETI sont également entrées dans l’obligation d’émission à cette date ; les PME, TPE et micro-entreprises doivent à leur tour pouvoir émettre leurs factures électroniques à compter du 1er septembre 2027. La réforme concerne aussi les entreprises assujetties à la TVA bénéficiant de la franchise en base pour les obligations qui leur sont applicables.',
         },
         {
           type: 'paragraph',
@@ -248,7 +248,7 @@ export default {
         },
         {
           type: 'paragraph',
-          text: 'Lorsqu’un prestataire traite des données personnelles pour le compte de son client, il peut être considéré comme sous-traitant au sens du RGPD et avoir des obligations spécifiques, notamment en matière de sécurité, de confidentialité, de traçabilité et de contractualisation. La CNIL rappelle notamment que la relation entre responsable de traitement et sous-traitant doit être encadrée contractuellement et que le sous-traitant doit présenter des garanties suffisantes.',
+          text: 'Lorsqu’un prestataire traite des données personnelles pour le compte de son client, il peut être considéré comme [sous-traitant au sens du RGPD](https://www.cnil.fr/fr/qualification-juridique-sous-traitance) et avoir des obligations spécifiques, notamment en matière de sécurité, de confidentialité, de traçabilité et de contractualisation. La CNIL rappelle notamment que la relation entre responsable de traitement et sous-traitant doit être encadrée contractuellement et que le sous-traitant doit présenter des garanties suffisantes.',
         },
         {
           type: 'paragraph',

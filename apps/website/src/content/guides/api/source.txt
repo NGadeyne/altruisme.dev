@@ -125,7 +125,7 @@ Une API est d’abord une interface contractuelle. REST, GraphQL ou gRPC sont en
 Distinguer API interne, partenaire et publique
 Toutes les APIs ne sont pas destinées au même public.
 Une API interne peut être utilisée uniquement par des services appartenant à la même organisation. Les équipes contrôlent alors potentiellement les deux côtés de l’intégration et peuvent coordonner plus facilement certaines évolutions.
-Une API partenaire est accessible à un ensemble limité d’acteurs externes. Elle peut par exemple permettre à des fournisseurs, distributeurs ou intégrateurs de connecter leurs systèmes à une plateforme.
+Une API partenaire est accessible à un ensemble limité d’acteurs externes. Elle peut par exemple permettre à des fournisseurs, distributeurs ou intégrateurs de connecter leurs systèmes à une plateforme, notamment une [marketplace](/guides/marketplace).
 Une API publique va plus loin en permettant à des développeurs externes de construire des applications ou services sans relation directe avec l’équipe qui maintient l’API.
 Plus le contrôle sur les consommateurs diminue, plus le contrat doit généralement devenir stable et explicite.
 Une équipe interne peut contacter rapidement les trois services concernés par un changement. Il est beaucoup plus difficile de savoir comment des centaines d’entreprises externes utilisent une API publique.
@@ -139,7 +139,7 @@ L’expérience développeur prend alors beaucoup plus d’importance.
 Le temps nécessaire pour obtenir une clé, comprendre la documentation, réaliser le premier appel ou diagnostiquer une erreur influence directement l’adoption.
 Une API techniquement excellente peut échouer comme produit si elle est trop difficile à comprendre. À l’inverse, une API relativement simple peut devenir extrêmement populaire parce que son intégration est claire et prévisible.
 Cette distinction explique pourquoi certaines entreprises investissent autant dans les portails développeurs, SDKs, exemples et environnements de test que dans l’infrastructure elle-même.
-L’API devient alors une surface produit complète et non un simple détail d’architecture.
+L’API devient alors une surface produit complète et non un simple détail d’architecture. Cette dimension produit compte aussi pour les [services logiciels SaaS](/guides/saas).
 Une bonne API expose une abstraction métier plutôt qu’une base de données
 Lorsqu’une API est construite rapidement, il peut être tentant de simplement exposer les tables de la base sous forme de routes.
 Une table users devient /users, une table orders devient /orders, puis chaque colonne apparaît presque directement dans les réponses.
@@ -162,7 +162,7 @@ La majorité des APIs web modernes reposent sur HTTP. Pourtant, beaucoup de dév
 HTTP fournit déjà une grande partie du vocabulaire nécessaire pour concevoir une API : méthodes, statuts, headers, cache, représentation des ressources et gestion des connexions. Une bonne API n’a donc pas besoin d’inventer un langage entièrement nouveau. Elle gagne au contraire à utiliser correctement les concepts déjà compris par les navigateurs, proxies, CDN, bibliothèques et développeurs.
 Comprendre HTTP ne signifie pas appliquer chaque règle de manière dogmatique. L’objectif est surtout de savoir ce que le protocole exprime afin de pouvoir décider consciemment quand suivre ses conventions et quand s’en écarter.
 Comprendre la structure d’une requête et d’une réponse HTTP
-Une interaction HTTP repose sur un échange relativement simple. Le client envoie une requête au serveur, puis le serveur retourne une réponse.
+Une [interaction HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview) repose sur un échange relativement simple. Le client envoie une requête au serveur, puis le serveur retourne une réponse.
 La requête contient notamment une méthode, une cible, différents headers et parfois un corps. Une demande peut par exemple signifier : récupérer cette ressource, créer un nouvel objet à partir de ces données ou modifier une information existante.
 La réponse contient à son tour un code de statut, des headers et éventuellement un corps représentant le résultat.
 Cette structure est importante parce qu’elle permet de répartir l’information selon sa fonction. Le chemin identifie généralement ce que l’on cherche à manipuler. La méthode exprime le type d’opération. Les headers décrivent certaines propriétés de l’échange. Le body transporte les données nécessaires lorsqu’elles ne tiennent pas naturellement dans l’URL.
@@ -334,7 +334,7 @@ Le principal risque vient d’une multiplication d’actions très spécifiques 
 Le couplage peut également devenir plus fort. Si l’interface représente très directement les opérations internes, chaque évolution du système peut nécessiter davantage de changements côté consommateur.
 RPC fonctionne donc très bien lorsque l’action constitue réellement l’abstraction métier. Il devient moins élégant lorsqu’on essaie de représenter un domaine naturellement orienté ressources avec une multitude de procédures artificielles.
 Utiliser gRPC pour des communications internes fortement structurées
-gRPC peut être vu comme une forme moderne de RPC conçue notamment pour les communications entre services. Il repose sur des contrats décrits explicitement et utilise généralement Protocol Buffers pour définir les messages et opérations disponibles.
+[gRPC](https://grpc.io/docs/what-is-grpc/introduction/) peut être vu comme une forme moderne de RPC conçue notamment pour les communications entre services. Il repose sur des contrats décrits explicitement et utilise généralement Protocol Buffers pour définir les messages et opérations disponibles.
 Cette définition fortement typée permet de générer automatiquement une partie du code client et serveur dans différents langages. Un service peut déclarer qu’une méthode attend un message précis et retourne une réponse précise, puis les outils génèrent les structures nécessaires.
 Cette approche réduit énormément certaines ambiguïtés.
 Les données sont également encodées dans un format binaire compact, ce qui peut être intéressant lorsque de nombreux appels circulent entre services ou lorsque la latence et la bande passante comptent réellement.
@@ -381,7 +381,7 @@ Une API ne devient pas difficile à maintenir parce qu’elle possède trop de r
 Concevoir une API consiste donc autant à modéliser correctement le domaine qu’à choisir les bons endpoints. Les ressources, leurs attributs, leurs relations et leurs règles doivent former un langage suffisamment clair pour être compris par les consommateurs sans révéler inutilement l’implémentation interne. Plus ce langage est stable et cohérent, plus l’API peut évoluer sans imposer ses propres changements techniques à tout son écosystème.
 Concevoir les ressources à partir du métier
 La première étape consiste à identifier ce que l’API représente réellement.
-Un système peut contenir des utilisateurs, organisations, produits, abonnements, factures ou commandes. Ces concepts métier sont souvent de meilleurs candidats pour devenir des ressources que les objets purement techniques utilisés dans l’implémentation.
+Un système peut contenir des utilisateurs, organisations, produits, abonnements, factures ou commandes. Ces concepts métier sont souvent de meilleurs candidats pour devenir des ressources que les objets purement techniques utilisés dans l’implémentation. Les produits et commandes d’un [site e-commerce](/guides/e-commerce) en sont un exemple.
 Cette distinction évite de concevoir l’API directement depuis les tables de la base de données.
 Une table peut exister uniquement pour normaliser certaines informations ou optimiser les performances. Elle n’a pas nécessairement de sens pour le consommateur. À l’inverse, une ressource métier peut être composée d’informations provenant de plusieurs tables et services.
 Une invoice exposée par l’API peut par exemple agréger les informations de facturation, plusieurs lignes, un statut et certaines données client sans révéler exactement comment ces éléments sont stockés.
@@ -466,7 +466,7 @@ Construire un format d’erreur cohérent
 Une API gagne énormément à utiliser une structure d’erreur stable sur l’ensemble de ses endpoints.
 Le consommateur doit pouvoir savoir où trouver le type d’erreur, un code applicatif éventuel, un message, les détails de validation ou un identifiant permettant de retrouver l’incident dans les logs.
 Cette cohérence évite à chaque intégration de créer une logique spécifique pour chaque route.
-Un format peut par exemple distinguer un code technique stable destiné au programme, un message destiné au développeur et éventuellement des détails associés à certains champs. La structure exacte importe moins que sa régularité.
+Un format peut par exemple distinguer un code technique stable destiné au programme, un message destiné au développeur et éventuellement des détails associés à certains champs. La structure exacte importe moins que sa régularité. La [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457.html) propose une structure standardisée possible pour les erreurs HTTP.
 Le code stable est particulièrement important.
 Un client ne devrait généralement pas prendre des décisions importantes en analysant une phrase comme “User already exists”, car le texte peut être reformulé, traduit ou enrichi sans que la nature du problème change.
 Une valeur structurée comme USER_ALREADY_EXISTS peut au contraire servir de contrat durable.
@@ -579,7 +579,7 @@ Il ne faut donc pas y placer arbitrairement des informations sensibles en pensan
 JWT est un excellent outil lorsqu’on comprend précisément le problème qu’il résout. Une session traditionnelle peut être plus simple dans certains contextes, et un token opaque stocké côté serveur peut être préférable dans d’autres.
 Le bon système d’authentification n’est pas celui qui utilise JWT. C’est celui dont les propriétés correspondent aux besoins du produit.
 Utiliser OAuth lorsque l’on veut déléguer un accès
-OAuth répond à un problème différent de l’authentification classique : permettre à une application d’obtenir un accès limité à des ressources au nom d’un utilisateur ou d’un autre système sans récupérer directement ses identifiants principaux.
+OAuth répond à un problème différent de l’authentification classique : permettre à une application d’obtenir un accès limité à des ressources au nom d’un utilisateur ou d’un autre système sans récupérer directement ses identifiants principaux. La [RFC 9700](https://www.rfc-editor.org/rfc/rfc9700.html) détaille les bonnes pratiques de sécurité actuelles d’OAuth 2.0.
 C’est ce qui permet par exemple à une application tierce d’accéder à certaines données d’un compte sans connaître le mot de passe de l’utilisateur.
 Le principe consiste à déléguer des permissions précises à travers différents mécanismes et scopes.
 Un scope peut représenter une capacité comme lire certaines données, modifier un profil ou accéder à une fonctionnalité spécifique.
@@ -659,7 +659,7 @@ Ne jamais exposer plus de données que nécessaire
 Une grande partie des incidents d’API ne vient pas d’un contournement sophistiqué, mais d’une réponse qui retourne simplement trop d’informations.
 Un endpoint peut exposer des champs internes qui n’étaient pas destinés au consommateur. Une route d’administration peut être réutilisée dans un contexte utilisateur. Une sérialisation automatique peut inclure une propriété sensible ajoutée récemment au modèle.
 La meilleure protection consiste à contrôler explicitement la représentation retournée.
-Une API ne devrait pas exposer directement ses objets internes sans vérifier ce que le consommateur est réellement autorisé à voir.
+Une API ne devrait pas exposer directement ses objets internes sans [vérifier ce que le consommateur est réellement autorisé à voir](https://api-security.owasp.org/editions/2023/en/0x00-header/).
 Le principe du moindre privilège s’applique donc aussi aux données : retourner uniquement ce qui est nécessaire.
 Cette règle devient particulièrement importante dans les systèmes multi-tenant. Il ne suffit pas de vérifier qu’une ressource existe. Il faut vérifier qu’elle appartient bien à l’organisation accessible par le demandeur.
 Les identifiants ne constituent jamais une protection. Le fait qu’un UUID soit difficile à deviner ne dispense pas de contrôler l’autorisation avant de retourner la ressource.
@@ -858,7 +858,7 @@ Cette progression permet de répondre à différents besoins sans mélanger appr
 La référence devient utile lorsque le développeur sait déjà ce qu’il cherche. Le guide, lui, l’aide à comprendre ce qu’il devrait chercher.
 Une bonne documentation combine donc les deux : apprendre le système puis retrouver rapidement une information précise lorsqu’on le connaît déjà.
 Formaliser le contrat avec OpenAPI
-Pour une API HTTP, une spécification OpenAPI permet de décrire de manière structurée une grande partie du contrat : chemins, méthodes, paramètres, schémas de requêtes, réponses, codes d’erreur et mécanismes de sécurité.
+Pour une API HTTP, une [spécification OpenAPI](https://learn.openapis.org/specification/) permet de décrire de manière structurée une grande partie du contrat : chemins, méthodes, paramètres, schémas de requêtes, réponses, codes d’erreur et mécanismes de sécurité.
 Cette formalisation possède un avantage majeur : la documentation n’est plus uniquement du texte écrit à côté du code. Elle devient une représentation exploitable par des outils.
 À partir d’une spécification, il est possible de générer une référence interactive, des types, certains clients ou des validations automatiques. Des interfaces souvent associées à Swagger permettent notamment d’explorer les endpoints et parfois de réaliser directement des requêtes depuis la documentation.
 Mais l’intérêt principal n’est pas l’interface graphique.
@@ -1078,8 +1078,8 @@ Les événements doivent donc porter une sémantique claire et stable. Il est so
 Cette précision facilite autant l’évolution que le diagnostic.
 Utiliser les webhooks pour notifier des systèmes externes
 Les webhooks appliquent une logique proche des événements aux intégrations externes. Au lieu qu’un client interroge régulièrement l’API pour savoir si quelque chose a changé, le serveur lui envoie directement une requête HTTP lorsqu’un événement pertinent se produit.
-Un fournisseur de paiement peut ainsi prévenir une application qu’une transaction vient d’être confirmée. Une plateforme peut signaler qu’un document a été traité ou qu’une ressource a changé.
-Cette approche évite le polling permanent et peut réduire considérablement le nombre de requêtes inutiles.
+Un fournisseur de paiement peut ainsi prévenir une application qu’une transaction vient d’être confirmée. Les [webhooks de Stripe](https://docs.stripe.com/webhooks) en sont un exemple concret. Une plateforme peut signaler qu’un document a été traité ou qu’une ressource a changé.
+Cette approche évite le polling permanent et peut réduire considérablement le nombre de requêtes inutiles. Ces notifications alimentent souvent des [workflows d’automatisation](/guides/automatisation).
 Mais un webhook ne doit jamais être supposé instantané ou infaillible. Le serveur du consommateur peut être indisponible, répondre trop lentement ou retourner une erreur. Le fournisseur doit donc être capable de retenter la livraison.
 Le consommateur doit également répondre rapidement. Il est généralement préférable de valider la réception du webhook puis d’effectuer le traitement lourd en arrière-plan plutôt que de maintenir la requête ouverte pendant toute la logique métier.
 Les webhooks doivent enfin être authentifiés. Un endpoint exposé publiquement qui accepte simplement un événement JSON sans vérifier son origine permettrait à n’importe qui de simuler un événement légitime. Des signatures cryptographiques ou mécanismes équivalents permettent au consommateur de vérifier que le message provient réellement de la source attendue et n’a pas été modifié.
@@ -1141,7 +1141,7 @@ Il faut également mesurer la latence par endpoint ou type d’opération. Regro
 Les dépendances doivent elles aussi être observées. Si une requête passe 50 ms dans l’application puis deux secondes à attendre un fournisseur externe, optimiser le code interne ne changera presque rien. La mesure doit permettre de distinguer clairement ces différents segments.
 Une performance utile est donc une performance distribuée et contextualisée, pas un simple nombre global affiché sur un dashboard.
 Utiliser les traces pour comprendre les systèmes distribués
-Les traces distribuées deviennent particulièrement utiles lorsque plusieurs composants participent à une même requête. Elles permettent de suivre le parcours complet d’une interaction à travers différents services et de mesurer le temps passé dans chacun.
+Les [traces distribuées](https://opentelemetry.io/docs/concepts/) deviennent particulièrement utiles lorsque plusieurs composants participent à une même requête. Elles permettent de suivre le parcours complet d’une interaction à travers différents services et de mesurer le temps passé dans chacun.
 Une trace est généralement composée de plusieurs spans représentant des étapes du traitement. Une requête peut ainsi contenir un span pour l’API principale, un autre pour un appel à un service interne, un autre pour la base de données puis un dernier pour un fournisseur externe.
 Cette représentation permet immédiatement de comprendre où se concentre la latence.
 Elle aide également à analyser certaines erreurs. Une requête peut échouer dans le service principal parce qu’un service secondaire a lui-même reçu une erreur d’une dépendance plus profonde. Sans trace, le premier service ne voit parfois qu’un timeout. Avec une trace correctement propagée, l’équipe peut suivre toute la chaîne.
@@ -1191,7 +1191,7 @@ Ce pattern doit néanmoins répondre à un besoin réel. Créer un backend diff�
 Concevoir les communications entre services avec davantage de prudence
 Un appel de fonction dans un monolithe possède un comportement très différent d’un appel réseau entre deux services. Une fonction appelée localement répond presque immédiatement ou déclenche une erreur directement visible. Un appel distant peut ralentir, expirer, être interrompu ou réussir côté serveur sans que l’appelant ne reçoive la réponse.
 Cette différence doit influencer le design.
-Une architecture de microservices qui reproduit simplement tous les appels internes du monolithe à travers HTTP risque de devenir extrêmement bavarde et fragile. Une opération peut nécessiter une succession de communications réseau alors qu’elle aurait auparavant été exécutée dans le même processus.
+Une [architecture de microservices](/guides/cloud) qui reproduit simplement tous les appels internes du monolithe à travers HTTP risque de devenir extrêmement bavarde et fragile. Une opération peut nécessiter une succession de communications réseau alors qu’elle aurait auparavant été exécutée dans le même processus.
 Il faut donc limiter les dépendances synchrones inutiles. Lorsqu’un service a besoin en permanence de demander des informations à trois autres pour accomplir sa responsabilité principale, le découpage mérite parfois d’être réexaminé.
 Les frontières doivent correspondre autant que possible à des domaines disposant d’une certaine autonomie. Cela ne signifie pas que les services ne communiquent jamais, mais que chaque opération ne devrait pas nécessiter de reconstruire une transaction distribuée à travers toute la plateforme.
 Certaines interactions resteront naturellement synchrones. D’autres peuvent utiliser des événements ou des traitements asynchrones pour réduire le couplage temporel entre services.
@@ -1248,7 +1248,7 @@ Même avec une sortie structurée, la validation métier reste indispensable. Un
 La structure réduit donc l’ambiguïté syntaxique, pas l’incertitude métier.
 Dans les workflows automatisés, cette différence est essentielle. Plus une réponse de modèle déclenche directement des actions, plus le contrat entre l’IA et l’application doit être rigoureux.
 Exposer des outils aux agents à travers des interfaces strictes
-L’une des évolutions majeures des systèmes d’IA consiste à leur permettre d’utiliser des outils. Au lieu de simplement générer du texte, un modèle peut déterminer qu’il doit rechercher une information, créer une ressource, envoyer une demande ou appeler une API.
+L’une des évolutions majeures des [systèmes d’IA](/guides/ia) consiste à leur permettre d’utiliser des outils. Au lieu de simplement générer du texte, un modèle peut déterminer qu’il doit rechercher une information, créer une ressource, envoyer une demande ou appeler une API.
 L’API devient alors la frontière entre la décision du modèle et l’action réelle sur le système.
 Cette architecture est puissante parce qu’elle permet de connecter une interface conversationnelle à des capacités métier existantes. Un agent peut comprendre une demande formulée naturellement puis choisir l’opération correspondante.
 Mais cette liberté augmente considérablement les exigences de sécurité.

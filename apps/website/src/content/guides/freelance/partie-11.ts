@@ -216,7 +216,7 @@ export default {
       blocks: [
         {
           type: 'paragraph',
-          text: 'L’automatisation est devenue extrêmement accessible. Quelques outils permettent aujourd’hui de connecter des formulaires, des emails, un CRM, la facturation, le calendrier ou différents services sans développer une infrastructure complexe.',
+          text: '[L’automatisation](/guides/automatisation) est devenue extrêmement accessible. Quelques outils permettent aujourd’hui de connecter des formulaires, des emails, un CRM, la facturation, le calendrier ou différents services sans développer une infrastructure complexe.',
         },
         {
           type: 'paragraph',

@@ -91,7 +91,7 @@ export default {
       blocks: [
         {
           type: 'paragraph',
-          text: 'Pour beaucoup de métiers B2B, LinkedIn est devenu l’un des premiers endroits où un prospect vérifie un profil. Même lorsque l’opportunité vient d’un autre canal, il est fréquent que l’interlocuteur consulte la page avant le rendez-vous.',
+          text: 'Pour beaucoup de métiers B2B, [LinkedIn](/guides/linkedin) est devenu l’un des premiers endroits où un prospect vérifie un profil. Même lorsque l’opportunité vient d’un autre canal, il est fréquent que l’interlocuteur consulte la page avant le rendez-vous.',
         },
         {
           type: 'paragraph',
@@ -233,7 +233,7 @@ export default {
         },
         {
           type: 'paragraph',
-          text: 'Le site devient particulièrement intéressant lorsqu’on souhaite développer une stratégie de contenu ou de référencement. Des articles approfondis, des guides, des études ou des outils peuvent progressivement attirer des visiteurs depuis les moteurs de recherche et servir de point d’entrée vers l’activité.',
+          text: 'Le site devient particulièrement intéressant lorsqu’on souhaite développer une [stratégie de contenu ou de référencement](/guides/seo). Des articles approfondis, des guides, des études ou des outils peuvent progressivement attirer des visiteurs depuis les moteurs de recherche et servir de point d’entrée vers l’activité.',
         },
         {
           type: 'paragraph',

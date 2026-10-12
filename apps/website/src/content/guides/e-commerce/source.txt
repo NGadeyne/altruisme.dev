@@ -96,7 +96,7 @@ Cette relation directe possède une importance stratégique.
 Elle permet à la marque de maîtriser davantage son expérience, ses données clients et sa marge.
 Mais elle oblige également à prendre en charge l’acquisition, la logistique et le service client que d’autres intermédiaires assumaient auparavant.
 Marketplace ou boutique propriétaire
-Les marketplaces offrent un accès immédiat à une audience déjà existante.
+Les [marketplaces](/guides/marketplace) offrent un accès immédiat à une audience déjà existante.
 Amazon, Cdiscount, Etsy ou d’autres plateformes spécialisées permettent à une entreprise de vendre sans devoir créer toute sa visibilité depuis zéro.
 Cet avantage a cependant un prix.
 La marketplace contrôle une grande partie de l’expérience, prélève des commissions et conserve souvent une relation plus forte avec le client que le vendeur lui-même.
@@ -244,7 +244,7 @@ Car derrière cette croissance se cache un marché beaucoup plus mature. Les pla
 Le e-commerce continue donc de progresser, mais construire une entreprise rentable y demande davantage de maîtrise qu’il y a quelques années.
 Où en est le e-commerce en France ?
 Le marché français reste important et continue de croître.
-En 2025, ses 196,4 milliards d’euros de chiffre d’affaires étaient répartis entre 76,1 milliards d’euros de ventes de produits et 120,3 milliards de services. Les produits ont progressé de 4 % sur un an, tandis que les services ont augmenté de 9 %. La part du e-commerce dans le commerce de détail de produits était estimée à environ 12 %.
+En 2025, ses [196,4 milliards d’euros de chiffre d’affaires](https://www.fevad.com/bilan-du-e-commerce-en-france-les-francais-ont-depense-pres-de-200-milliards-deuros-sur-internet-en-2025/) étaient répartis entre 76,1 milliards d’euros de ventes de produits et 120,3 milliards de services. Les produits ont progressé de 4 % sur un an, tandis que les services ont augmenté de 9 %. La part du e-commerce dans le commerce de détail de produits était estimée à environ 12 %.
 Ces chiffres montrent surtout que le numérique n’est plus un canal secondaire.
 La Fevad estime également à plus de 158 000 le nombre de sites marchands actifs en France, en hausse de 7 % en un an. Cela signifie qu’un consommateur dispose aujourd’hui d’un choix extrêmement important et que l’ouverture d’une nouvelle boutique ne suffit évidemment plus à créer de la demande.
 La concurrence ne se joue d’ailleurs pas uniquement entre boutiques indépendantes.
@@ -254,7 +254,7 @@ Le défi n’est plus simplement d’être présent sur internet.
 Il faut être suffisamment pertinent pour être choisi.
 Comment les comportements d’achat ont évolué
 Les consommateurs français achètent de plus en plus fréquemment en ligne.
-La Fevad estime qu’un cyberacheteur réalise désormais environ 75 achats par an pour une dépense annuelle moyenne de 4 657 euros. Dans le même temps, le panier moyen a diminué pour atteindre environ 62 euros en 2025. La croissance récente provient donc largement de la fréquence des transactions plutôt que d’une augmentation continue du montant de chaque commande.
+La Fevad estime qu’un cyberacheteur réalise désormais environ [75 achats par an pour une dépense annuelle moyenne de 4 657 euros](https://www.fevad.com/ledition-2026-des-chiffres-cles-du-e-commerce/). Dans le même temps, le panier moyen a diminué pour atteindre environ 62 euros en 2025. La croissance récente provient donc largement de la fréquence des transactions plutôt que d’une augmentation continue du montant de chaque commande.
 Ce changement est important.
 Le e-commerce s’intègre davantage dans les petits achats du quotidien au lieu d’être réservé à quelques commandes exceptionnelles.
 Le consommateur développe aussi des attentes beaucoup plus précises.
@@ -575,7 +575,7 @@ Le headless devient donc pertinent lorsque les besoins justifient réellement ce
 L’utiliser uniquement parce qu’il est techniquement élégant crée souvent plus de coûts que de valeur.
 SaaS ou open source
 Le choix entre SaaS et open source représente une décision plus générale.
-Une solution SaaS simplifie l’exploitation.
+Une [solution SaaS](/guides/saas) simplifie l’exploitation.
 L’éditeur gère généralement l’hébergement, les mises à jour et une partie de la sécurité.
 En échange, l’entreprise accepte davantage de dépendance à la plateforme et moins de contrôle sur certaines couches techniques.
 L’open source offre davantage de liberté.
@@ -687,7 +687,7 @@ La réassurance regroupe tous les éléments qui répondent aux inquiétudes du 
 Paiement sécurisé, délais de livraison, retours, garantie, disponibilité du support ou origine du produit peuvent tous jouer ce rôle.
 L’important est de les montrer au bon moment.
 Une politique de retour très favorable n’a pas beaucoup d’impact si elle est cachée dans le footer.
-Les informations importantes doivent être visibles près de la décision d’achat.
+Les informations importantes doivent être visibles près de la décision d’achat. Les [informations dues au consommateur](https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/e-commerce-les-regles-entre-professionnels-et-consommateurs) participent aussi à cette confiance.
 La réassurance doit aussi être précise.
 « Livraison rapide » est moins utile que « expédition sous 24 à 48 heures ».
 « Retour facile » est moins clair que l’explication exacte du délai et du processus.
@@ -936,7 +936,7 @@ Le SEO e-commerce possède une logique particulière. Il ne cherche pas seulemen
 Cette durabilité est importante, car elle permet de réduire progressivement la dépendance à la publicité payante. Une page bien positionnée peut continuer à générer des visites et des ventes longtemps après sa création, alors qu’une campagne publicitaire cesse presque immédiatement de produire du trafic lorsque le budget s’arrête.
 Mais le SEO e-commerce est aussi complexe. Les catalogues génèrent beaucoup de pages, de variantes, de filtres et de contenus similaires. Une mauvaise architecture peut diluer la visibilité, tandis qu’une mauvaise gestion technique peut créer des milliers d’URLs inutiles. Le référencement doit donc être pensé dès la structure du site, pas uniquement ajouté sous forme de contenus quelques mois plus tard.
 Comprendre le SEO e-commerce
-Le SEO e-commerce consiste à rendre les pages d’une boutique visibles sur les moteurs de recherche pour des requêtes liées à une intention d’achat.
+Le [SEO e-commerce](/guides/seo) consiste à rendre les pages d’une boutique visibles sur les moteurs de recherche pour des requêtes liées à une intention d’achat.
 Toutes les recherches n’ont pas la même valeur.
 Une requête comme « comment choisir des chaussures de trail » traduit une intention informationnelle. Une recherche comme « chaussures trail femme imperméables » est beaucoup plus proche de la transaction.
 Le travail consiste donc à couvrir plusieurs niveaux du parcours.
@@ -1009,7 +1009,7 @@ Les balises canonical, les règles d’indexation, les redirections et la struct
 La vitesse du site compte également.
 Images trop lourdes, scripts marketing et applications peuvent progressivement ralentir la boutique.
 Un site lent dégrade à la fois l’expérience utilisateur et les performances SEO.
-Enfin, les données structurées peuvent aider les moteurs à mieux comprendre les produits, les prix, la disponibilité ou les avis.
+Enfin, les [données structurées](https://developers.google.com/search/docs/specialty/ecommerce/include-structured-data-relevant-to-ecommerce?hl=fr) peuvent aider les moteurs à mieux comprendre les produits, les prix, la disponibilité ou les avis.
 Le SEO technique ne doit donc pas être traité comme une optimisation ponctuelle.
 Il doit accompagner l’évolution du catalogue.
 À retenir
@@ -1133,7 +1133,7 @@ Une bonne expérience de livraison, un produit conforme aux attentes et une comm
 Capturer les emails
 La base email constitue un actif important parce qu’elle appartient directement à l’entreprise.
 Contrairement à une audience sociale, elle ne disparaît pas lorsque l’algorithme change.
-La collecte peut commencer avant même la première commande.
+La collecte peut commencer avant même la première commande. Pour des emails commerciaux adressés à des particuliers, le [consentement préalable](https://www.cnil.fr/fr/la-prospection-commerciale-par-courrier-electronique-sms-mms-et-automate-dappel) est en principe requis.
 Newsletter, accès anticipé, contenus exclusifs, guide, avantage de bienvenue ou alerte de disponibilité peuvent donner une bonne raison de laisser son adresse.
 Le principe important est l’échange de valeur.
 Demander une adresse simplement pour envoyer « nos actualités » est rarement très convaincant.
@@ -1259,7 +1259,7 @@ La livraison fait partie du produit perçu.
 Le client ne distingue pas vraiment ce qui dépend de la marque et ce qui dépend du transporteur.
 Si le colis arrive en retard ou endommagé, l’expérience globale se dégrade.
 Il faut donc gérer les attentes correctement.
-Promettre un délai réaliste vaut mieux qu’annoncer une livraison très rapide impossible à tenir.
+Promettre un délai réaliste vaut mieux qu’annoncer une livraison très rapide impossible à tenir. Le vendeur doit aussi [communiquer la date ou le délai de livraison](https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/livraison-quelles-sont-les-obligations-du-professionnel-et-les-recours) avant la commande.
 La communication est également essentielle.
 Confirmation d’expédition, suivi et notification de livraison rassurent le client.
 L’emballage joue aussi un rôle.
@@ -1543,7 +1543,7 @@ Le problème apparaît lorsque l’information doit être saisie plusieurs fois.
 Une adresse client peut exister dans plusieurs logiciels avec des versions différentes.
 Une commande peut être mise à jour dans la boutique mais pas dans le système logistique.
 Les intégrations permettent de faire circuler les données.
-API, webhooks ou plateformes d’automatisation peuvent relier progressivement les différents outils.
+[API](/guides/api), webhooks ou plateformes d’automatisation peuvent relier progressivement les différents outils.
 Il faut cependant définir clairement quelle application constitue la source de vérité.
 Le système e-commerce peut être responsable des commandes, le CRM des données relationnelles et l’outil financier des factures.
 Cette responsabilité évite que plusieurs systèmes essaient de contrôler la même information.
@@ -1559,7 +1559,7 @@ Le principe reste identique.
 La donnée doit aider à comprendre ce qui se passe réellement dans l’entreprise.
 Pas simplement être stockée parce qu’elle existe.
 Automatiser sans créer une usine à gaz
-L’automatisation devient rapidement séduisante.
+[L’automatisation](/guides/automatisation) devient rapidement séduisante.
 Chaque nouvelle tâche semble pouvoir déclencher plusieurs actions.
 Une commande peut mettre à jour le CRM, envoyer un message, modifier un tableau de bord, créer une tâche et notifier plusieurs personnes.
 Le danger consiste à créer un système impossible à comprendre.
@@ -1575,7 +1575,7 @@ C’est celui qui permet à l’entreprise de gérer davantage de volume avec mo
 L’automatisation permet à un e-commerce de grandir sans multiplier proportionnellement les tâches manuelles. Commandes, stocks, marketing, CRM, support et données peuvent être progressivement connectés pour gagner en fiabilité et en efficacité. Mais l’automatisation ne crée de valeur que lorsque les processus sont déjà clairs : mieux vaut quelques workflows simples et robustes qu’un système extrêmement sophistiqué devenu impossible à maintenir.
 Partie 17 — Intelligence artificielle et e-commerce en 2026
 L’intelligence artificielle n’est plus seulement un outil expérimental pour les e-commerçants. Elle commence à intervenir dans presque toutes les étapes du modèle : création des fiches produits, production visuelle, recommandations, service client, analyse des données, gestion du catalogue et automatisation des opérations.
-L’adoption est déjà massive. Selon les chiffres clés 2026 de la Fevad, 94 % des e-commerçants interrogés utilisent désormais des solutions d’intelligence artificielle générative. Du côté des consommateurs, près d’un cyberacheteur français sur trois utilise déjà l’IA dans son parcours d’achat, principalement pour rechercher des informations, comparer des produits ou préparer sa décision.
+L’adoption est déjà massive. Selon les [chiffres clés 2026 de la Fevad](https://www.fevad.com/ledition-2026-des-chiffres-cles-du-e-commerce/), 94 % des e-commerçants interrogés utilisent désormais des solutions d’intelligence artificielle générative. Du côté des consommateurs, près d’un cyberacheteur français sur trois utilise déjà l’IA dans son parcours d’achat, principalement pour rechercher des informations, comparer des produits ou préparer sa décision.
 Cette évolution crée deux transformations simultanées.
 La première concerne la productivité interne. Une entreprise peut produire plus rapidement certains contenus, analyser davantage de données ou automatiser une partie de ses opérations.
 La seconde est beaucoup plus profonde : l’IA commence à s’interposer entre le consommateur et la boutique. Un acheteur peut désormais demander à un assistant de trouver le produit correspondant à ses critères plutôt que de parcourir lui-même plusieurs dizaines de sites.
@@ -1664,7 +1664,7 @@ Il peut recevoir un objectif, utiliser plusieurs outils et effectuer une série 
 Dans les opérations internes, cela pourrait par exemple permettre de détecter une rupture probable, récupérer plusieurs informations nécessaires, préparer un réapprovisionnement puis demander une validation avant son exécution.
 Un agent pourrait également analyser quotidiennement certaines performances, identifier une anomalie et créer automatiquement une tâche pour l’équipe concernée.
 Mais la transformation la plus importante concerne peut-être le consommateur.
-La Fevad et KPMG parlent en 2026 de commerce agentique : les assistants IA deviennent une nouvelle couche d’intermédiation capable de comprendre une intention, comparer des offres, préparer une commande et potentiellement réaliser certaines actions au nom de l’utilisateur. Pour le marchand, il ne suffit donc plus d’être compréhensible par un consommateur ou bien indexé par un moteur de recherche ; l’offre doit également pouvoir être correctement interprétée par ces agents.
+La Fevad et KPMG parlent en 2026 de [commerce agentique](https://www.fevad.com/e-commerce-les-agents-ia-rebattent-les-cartes-du-partage-de-la-valeur/) : les [assistants IA](/guides/ia) deviennent une nouvelle couche d’intermédiation capable de comprendre une intention, comparer des offres, préparer une commande et potentiellement réaliser certaines actions au nom de l’utilisateur. Pour le marchand, il ne suffit donc plus d’être compréhensible par un consommateur ou bien indexé par un moteur de recherche ; l’offre doit également pouvoir être correctement interprétée par ces agents.
 Cette évolution pourrait modifier profondément l’acquisition.
 Un consommateur pourra demander : « Trouve-moi une paire de chaussures de trail imperméables, fabriquée en Europe, sous 150 euros et livrable avant vendredi. »
 L’agent effectuera alors une partie du travail de recherche et de comparaison.

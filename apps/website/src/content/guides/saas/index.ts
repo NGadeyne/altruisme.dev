@@ -5,7 +5,7 @@ import takeawaysFile from './takeaways.txt?raw'
 type SectionKind = GuideSection['kind']
 
 const links = {
-  saas: 'https://www.francenum.gouv.fr/guides-et-conseils/pilotage-de-lentreprise/telecommunications-et-reseaux/guide-numerique-des',
+  saas: 'https://www.francenum.gouv.fr/guides-et-conseils/pilotage-de-lentreprise/logiciels-de-gestion-de-lentreprise/pourquoi-utiliser-0',
   aiAct: 'https://digital-strategy.ec.europa.eu/fr/policies/regulatory-framework-ai',
   security: 'https://www.cnil.fr/fr/guide-de-la-securite-des-donnees-personnelles',
   processors: 'https://www.cnil.fr/fr/reglement-europeen-sur-la-protection-des-donnees-un-guide-pour-accompagner-les-sous-traitants',

@@ -284,7 +284,7 @@ export default {
         },
         {
           type: 'paragraph',
-          text: 'La prospection directe peut commencer très tôt elle aussi. Quelques dizaines d’entreprises bien choisies suffisent pour tester un positionnement et comprendre les réactions du marché. Au début, l’objectif n’est pas forcément d’optimiser chaque taux de conversion. Il est surtout d’apprendre.',
+          text: 'La [prospection directe](/guides/prospection) peut commencer très tôt elle aussi. Quelques dizaines d’entreprises bien choisies suffisent pour tester un positionnement et comprendre les réactions du marché. Au début, l’objectif n’est pas forcément d’optimiser chaque taux de conversion. Il est surtout d’apprendre.',
         },
         {
           type: 'paragraph',

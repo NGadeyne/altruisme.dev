@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { BaseContainer } from '@altruisme/ui'
 import NewsByline from '@/components/news/NewsByline.vue'
+import NewsEditionNavigation from '@/components/news/NewsEditionNavigation.vue'
 import { inlineParts, week40, week40Sections } from '@/content/news/week40'
 </script>
 
@@ -55,8 +56,8 @@ import { inlineParts, week40, week40Sections } from '@/content/news/week40'
                 ><a
                   v-if="part.href"
                   :href="part.href"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  :target="part.href.startsWith('/guides/') ? undefined : '_blank'"
+                  :rel="part.href.startsWith('/guides/') ? undefined : 'noopener noreferrer'"
                   class="font-medium text-petrol underline decoration-petrol/50 underline-offset-4 hover:decoration-petrol focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-petrol"
                   >{{ part.text }}</a
                 ><strong v-else-if="part.strong" class="font-semibold text-ink">{{
@@ -80,6 +81,7 @@ import { inlineParts, week40, week40Sections } from '@/content/news/week40'
             </p>
           </section>
         </div>
+        <NewsEditionNavigation :current-slug="week40.slug" />
       </article>
     </BaseContainer>
   </main>
