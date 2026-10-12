@@ -5,6 +5,7 @@ import { JSDOM } from 'jsdom'
 import { prerenderPaths, routes } from '../node_modules/.prerender/entry-server.js'
 
 const output = resolve('dist')
+const indexableUrls = new Set()
 for (const path of [...prerenderPaths, '/404']) {
   const file = resolve(output, path === '/' ? 'index.html' : `${path.slice(1)}.html`)
   const html = await readFile(file, 'utf8')
@@ -26,10 +27,10 @@ for (const path of [...prerenderPaths, '/404']) {
     assert.equal(document.querySelector('meta[name="robots"]').content, 'noindex, follow')
     assert.equal(document.querySelector('link[rel="canonical"]'), null)
   } else {
-    assert.equal(
-      document.querySelector('link[rel="canonical"]').getAttribute('href'),
-      `https://altruisme.dev${path === '/' ? '' : path}`,
-    )
+    const canonical = document.querySelector('link[rel="canonical"]').getAttribute('href')
+    assert.equal(canonical, `https://altruisme.dev${path === '/' ? '' : path}`)
+    if (!document.querySelector('meta[name="robots"]')?.content.includes('noindex'))
+      indexableUrls.add(canonical)
   }
   for (const element of document.querySelectorAll(
     'script[src], link[rel="stylesheet"], img[src]',
@@ -565,10 +566,12 @@ for (const retired of ['contact', 'guides/freelance-2026', 'communaute']) {
   await assert.rejects(access(resolve(output, `${retired}.html`)))
 }
 const sitemap = await readFile(resolve(output, 'sitemap.xml'), 'utf8')
-assert.ok(!sitemap.includes('/contact'))
-assert.ok(!sitemap.includes('/communaute'))
-assert.ok(sitemap.includes('https://altruisme.dev/checklist</loc>'))
-assert.ok(!sitemap.includes('/lancement'))
+const sitemapDocument = new JSDOM(sitemap, { contentType: 'application/xml' }).window.document
+assert.equal(sitemapDocument.querySelector('parsererror'), null, 'Invalid sitemap XML')
+const sitemapUrls = [...sitemapDocument.getElementsByTagNameNS('http://www.sitemaps.org/schemas/sitemap/0.9', 'loc')]
+  .map((element) => element.textContent)
+assert.equal(sitemapUrls.length, new Set(sitemapUrls).size, 'Duplicate sitemap URL')
+assert.deepEqual(new Set(sitemapUrls), indexableUrls, 'Sitemap must match indexable canonical pages')
 
 const newsArticles = JSON.parse(await readFile(resolve(output, 'news-sitemap-articles.json'), 'utf8'))
 const newsRoutes = routes.filter((route) => route.path.startsWith('/actualites/') && route.meta?.article === true)
