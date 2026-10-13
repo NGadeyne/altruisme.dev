@@ -1,0 +1,22 @@
+{
+  "/": {
+    "title": "Apprendre pour faire | Altruisme Learn",
+    "description": "Des formations pour comprendre, pratiquer et construire une méthode qui tient dans la réalité de ton travail."
+  },
+  "/formations": {
+    "title": "Formations et bootcamps | Altruisme Learn",
+    "description": "Explore les parcours Altruisme Learn : formation SEO et bootcamp Freelance, avec une approche fondée sur la pratique."
+  },
+  "/formations/seo": {
+    "title": "Formation SEO | Altruisme Learn",
+    "description": "Une formation SEO pour apprendre à comprendre un site, identifier les priorités et relier stratégie, contenu et technique."
+  },
+  "/bootcamp/freelance": {
+    "title": "Bootcamp Freelance | Altruisme Learn",
+    "description": "Un parcours pour structurer son activité freelance : positionnement, création d’opportunités et échanges commerciaux."
+  },
+  "/academie": {
+    "title": "L’académie | Altruisme Learn",
+    "description": "Découvre la vision pédagogique d’Altruisme Learn : comprendre les principes, pratiquer et progresser à son rythme."
+  }
+}
