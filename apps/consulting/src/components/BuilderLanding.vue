@@ -307,8 +307,9 @@ const faqs = [
         <BaseContainer>
           <div class="grid gap-3 sm:gap-4 md:grid-cols-3">
             <div data-builder-reveal class="builder-reveal builder-proof-card flex min-h-36 flex-col items-center justify-center rounded-2xl px-3 py-7 text-center sm:min-h-44 sm:px-6 sm:py-9">
-              <p class="text-[1.8rem] font-semibold tracking-tight text-[#315d61] sm:text-[2.15rem]">Clients accompagnés</p>
-              <p class="mt-2 max-w-[13rem] text-sm leading-6 text-muted">Sur des projets SEO et digitaux</p>
+              <p class="text-[1.8rem] font-semibold tracking-tight text-[#315d61] sm:text-[2.15rem]">25+</p>
+              <p class="mt-2 font-medium text-[#315d61]">Clients accompagnés</p>
+              <p class="mt-1 max-w-[13rem] text-sm leading-6 text-muted">Sur des projets SEO et digitaux</p>
             </div>
             <div data-builder-reveal class="builder-reveal builder-proof-card flex min-h-36 flex-col items-center justify-center rounded-2xl px-3 py-7 text-center sm:min-h-44 sm:px-6 sm:py-9">
               <p class="text-[1.8rem] font-semibold tracking-tight text-[#315d61] sm:text-[2.15rem]">7+</p>
