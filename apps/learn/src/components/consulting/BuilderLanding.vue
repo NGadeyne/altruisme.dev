@@ -47,9 +47,12 @@ const diagnosticAxes = [
   { title: 'Conversion', text: 'Tu attires des visiteurs, mais ton site ne les incite pas suffisamment à passer à l’action.' },
 ]
 const methodSteps = [
-  { title: 'Comprendre', text: 'Découvrir les notions essentielles à travers des leçons courtes, des exemples clairs et des démonstrations guidées.' },
-  { title: 'Pratiquer', text: "Appliquer ce que tu viens d'apprendre grâce à des exercices concrets, des checklists et des ressources directement utilisables." },
-  { title: 'Progresser', text: 'Construire progressivement ton diagnostic, améliorer tes pages et organiser tes prochaines actions pour continuer à avancer en autonomie.' },
+  { title: 'Comprendre Google', text: 'Découvre comment fonctionnent les moteurs de recherche, pourquoi certaines pages apparaissent sur Google et les fondamentaux qui influencent leur visibilité.' },
+  { title: 'Auditer ton site', text: 'Apprends à utiliser Google Search Console, à analyser tes performances et à identifier les premiers problèmes qui freinent ton référencement.' },
+  { title: 'Trouver les bons mots-clés', text: 'Identifie les recherches de tes futurs clients, comprends leurs intentions et sélectionne les mots-clés les plus pertinents pour ton activité.' },
+  { title: 'Optimiser tes pages', text: 'Améliore tes titres, tes contenus, ta structure et ton maillage interne pour rendre tes pages plus utiles et plus faciles à comprendre.' },
+  { title: 'Développer ta visibilité', text: 'Apprends à identifier les bons sujets, à organiser tes contenus et à construire progressivement une stratégie de référencement durable.' },
+  { title: 'Mesurer et progresser', text: "Suis tes performances, comprends ce qui fonctionne et construis ton plan d'action SEO sur 90 jours pour continuer à avancer en autonomie." },
 ]
 const caseStudies = [
   {
