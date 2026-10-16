@@ -30,46 +30,13 @@ const router = createRouter({
     },
 
     {
-      path: '/formations',
-      name: 'formations',
-      component: () => import('@/views/FormationsView.vue'),
+      path: '/:section(formations|packs|bootcamps|bootcamp|academie|offre-introuvable)/:pathMatch(.*)*',
+      name: 'public-not-found',
+      component: () => import('@/views/PublicNotFoundView.vue'),
       meta: {
         public: true,
         layout: 'public',
-        ...publicPages['/formations'],
-      },
-    },
-
-    {
-      path: '/formations/seo',
-      name: 'formation-seo',
-      component: () => import('@/views/SeoFormationView.vue'),
-      meta: {
-        public: true,
-        layout: 'public',
-        ...publicPages['/formations/seo'],
-      },
-    },
-
-    {
-      path: '/bootcamp/freelance',
-      name: 'bootcamp-freelance',
-      component: () => import('@/views/FreelanceBootcampView.vue'),
-      meta: {
-        public: true,
-        layout: 'public',
-        ...publicPages['/bootcamp/freelance'],
-      },
-    },
-
-    {
-      path: '/academie',
-      name: 'academie',
-      component: () => import('@/views/AcademieView.vue'),
-      meta: {
-        public: true,
-        layout: 'public',
-        ...publicPages['/academie'],
+        ...publicPages['/page-introuvable'],
       },
     },
 
@@ -194,7 +161,12 @@ router.afterEach((to) => {
     return
   }
 
-  robots?.remove()
+  if (typeof to.meta.robots === 'string') {
+    const tag = robots ?? document.createElement('meta')
+    tag.name = 'robots'
+    tag.content = to.meta.robots
+    if (!robots) document.head.append(tag)
+  } else robots?.remove()
 
   document.title = to.meta.title
 

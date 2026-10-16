@@ -14,7 +14,7 @@ function escapeHtml(value) {
 for (const [path, page] of Object.entries(pages)) {
   if (path === '/') continue
 
-  const html = template
+  let html = template
     .replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(page.title)}</title>`)
     .replace(
       /(<meta\s+name="description"\s+content=")[^"]*(")/,
@@ -27,10 +27,26 @@ for (const [path, page] of Object.entries(pages)) {
     )
     .replace(
       /(<link rel="canonical" href=")[^"]*("\s*\/>)/,
-      `$1https://learn.altruisme.dev${path}$2`,
+      `$1https://learn.altruisme.dev${page.canonical ?? path}$2`,
     )
+
+  if (page.robots) {
+    html = html.replace(
+      '<link rel="canonical"',
+      `<meta name="robots" content="${escapeHtml(page.robots)}" />\n    <link rel="canonical"`,
+    )
+  }
 
   const directory = join(dist.pathname, path.slice(1))
   await mkdir(directory, { recursive: true })
   await writeFile(join(directory, 'index.html'), html)
 }
+
+const sitemapPaths = Object.entries(pages)
+  .filter(([, page]) => !page.robots?.includes('noindex'))
+  .map(([path]) => `  <url><loc>https://learn.altruisme.dev${path}</loc></url>`)
+
+await writeFile(
+  new URL('../dist/sitemap.xml', import.meta.url),
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapPaths.join('\n')}\n</urlset>\n`,
+)

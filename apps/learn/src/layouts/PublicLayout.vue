@@ -1,72 +1,39 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { BaseContainer } from '@altruisme/ui'
 import CookieConsent from '@/components/CookieConsent.vue'
-
-const menuOpen = ref(false)
-const year = new Date().getFullYear()
+import PublicFooter from '@/components/public/PublicFooter.vue'
+import PublicNavigation from '@/components/public/PublicNavigation.vue'
 </script>
 
 <template>
   <div class="learn-public">
-    <header class="learn-header">
-      <BaseContainer class="learn-header-inner">
+    <header
+      class="sticky top-0 z-50 w-full border-b border-petrol/10 bg-sand-light/90 backdrop-blur-xl"
+    >
+      <BaseContainer size="large" class="flex h-16 items-center justify-between gap-4">
         <RouterLink
           to="/"
-          class="learn-logo"
+          class="group flex shrink-0 items-center gap-3"
           aria-label="Altruisme Learn, accueil"
-          @click="menuOpen = false"
-          ><span class="learn-logo-symbol">A<span>.</span></span
-          ><span>ALTRUISME<br /><strong>LEARN</strong></span></RouterLink
         >
-        <button
-          class="learn-menu-toggle"
-          type="button"
-          :aria-expanded="menuOpen"
-          aria-controls="learn-navigation"
-          @click="menuOpen = !menuOpen"
-        >
-          {{ menuOpen ? 'Fermer' : 'Menu' }}
-          <span aria-hidden="true">{{ menuOpen ? '×' : '+' }}</span>
-        </button>
-        <nav
-          id="learn-navigation"
-          class="learn-nav"
-          :class="{ 'learn-nav--open': menuOpen }"
-          aria-label="Navigation principale"
-        >
-          <RouterLink to="/formations" @click="menuOpen = false">Formations</RouterLink>
-          <RouterLink to="/bootcamp/freelance" @click="menuOpen = false"
-            >Bootcamp Freelance</RouterLink
+          <span
+            class="flex h-9 w-9 items-center justify-center rounded-xl border border-petrol/20 bg-petrol/8 transition group-hover:border-petrol/30 group-hover:bg-petrol/12"
           >
-          <RouterLink to="/academie" @click="menuOpen = false">L’académie</RouterLink>
-          <RouterLink to="/app" class="learn-nav-access" @click="menuOpen = false"
-            >Espace apprenant <span aria-hidden="true">↗</span></RouterLink
-          >
-        </nav>
+            <span class="text-sm font-bold tracking-tight text-petrol">A.</span>
+          </span>
+          <span class="leading-tight">
+            <span
+              class="block text-sm font-bold tracking-tight text-ink transition group-hover:text-petrol"
+              >Altruisme Learn</span
+            >
+            <span class="mt-0.5 hidden text-xs text-muted-light sm:block">Formation SEO</span>
+          </span>
+        </RouterLink>
+        <PublicNavigation />
       </BaseContainer>
     </header>
     <slot />
-    <footer class="learn-footer">
-      <BaseContainer>
-        <div class="learn-footer-top">
-          <div>
-            <RouterLink to="/" class="learn-footer-brand">Altruisme <em>Learn.</em></RouterLink>
-            <p>Comprendre. Pratiquer. Avancer.</p>
-          </div>
-          <nav aria-label="Navigation de pied de page">
-            <RouterLink to="/formations">Formations</RouterLink
-            ><RouterLink to="/formations/seo">Formation SEO</RouterLink
-            ><RouterLink to="/bootcamp/freelance">Bootcamp Freelance</RouterLink
-            ><RouterLink to="/academie">L’académie</RouterLink>
-          </nav>
-        </div>
-        <div class="learn-footer-bottom">
-          <span>© {{ year }} Altruisme.DEV</span
-          ><RouterLink to="/app">Espace apprenant ↗</RouterLink>
-        </div>
-      </BaseContainer>
-    </footer>
+    <PublicFooter />
     <CookieConsent />
   </div>
 </template>
