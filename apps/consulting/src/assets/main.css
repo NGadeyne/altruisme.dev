@@ -1,6 +1,18 @@
 @import 'tailwindcss';
-@import '@altruisme/brand/tokens.css';
+@import '@altruisme/brand/theme.css';
 @source '../../../../packages/ui/src';
+
+/* Inter v4.1, sous-ensemble Latin. Licence SIL OFL dans packages/brand/OFL.txt. */
+@font-face {
+  font-family: Inter;
+  src: url('./InterLatinVariable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
 
 :root {
   font-family: var(--font-sans);
@@ -613,10 +625,6 @@ button {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .builder-player-wrap {
-    animation: builder-player-enter 1s cubic-bezier(0.22, 0.7, 0.2, 1) 120ms both;
-  }
-
   .builder-player-wrap::before {
     animation: builder-player-light 2.4s ease-out 200ms both;
   }
@@ -642,11 +650,6 @@ button {
   .builder-personal-copy {
     transition-delay: 120ms;
   }
-}
-
-@keyframes builder-player-enter {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes builder-player-light {

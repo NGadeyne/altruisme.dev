@@ -1,7 +1,14 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { BaseContainer } from '@altruisme/ui'
-import infographicSprintSeo from '@/assets/infographie-sprint-seo.webp'
+import infographicSprintSeo480Avif from '@/assets/infographie-sprint-seo-480.avif'
+import infographicSprintSeo480Webp from '@/assets/infographie-sprint-seo-480.webp'
+import infographicSprintSeo768Avif from '@/assets/infographie-sprint-seo-768.avif'
+import infographicSprintSeo768Webp from '@/assets/infographie-sprint-seo-768.webp'
+import infographicSprintSeo1024Avif from '@/assets/infographie-sprint-seo-1024.avif'
+import infographicSprintSeo1024Webp from '@/assets/infographie-sprint-seo-1024.webp'
+import infographicSprintSeo1536Avif from '@/assets/infographie-sprint-seo-1536.avif'
+import infographicSprintSeo1536Webp from '@/assets/infographie-sprint-seo.webp'
 import portraitOcean from '@/assets/portrait-ocean.webp'
 import { OPEN_COOKIE_SETTINGS_EVENT } from '@/composables/useCookieConsent'
 
@@ -11,6 +18,19 @@ const openFaq = ref<number | null>(null)
 const landingRoot = ref<HTMLElement | null>(null)
 let revealObserver: IntersectionObserver | undefined
 let calendlyLoad: Promise<void> | undefined
+const infographicAvifSrcset = [
+  `${infographicSprintSeo480Avif} 480w`,
+  `${infographicSprintSeo768Avif} 768w`,
+  `${infographicSprintSeo1024Avif} 1024w`,
+  `${infographicSprintSeo1536Avif} 1536w`,
+].join(', ')
+const infographicWebpSrcset = [
+  `${infographicSprintSeo480Webp} 480w`,
+  `${infographicSprintSeo768Webp} 768w`,
+  `${infographicSprintSeo1024Webp} 1024w`,
+  `${infographicSprintSeo1536Webp} 1536w`,
+].join(', ')
+const infographicSizes = '(max-width: 639px) calc(100vw - 2rem), (max-width: 1023px) calc(100vw - 3rem), 768px'
 
 type CalendlyWindow = Window & {
   Calendly?: { initPopupWidget: (options: { url: string }) => void }
@@ -64,7 +84,6 @@ onMounted(() => {
   if (!landingRoot.value || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
   const elements = landingRoot.value.querySelectorAll<HTMLElement>('[data-builder-reveal], [data-builder-sequence]')
-  const revealLine = window.innerHeight * 0.65
   revealObserver = new IntersectionObserver((entries, observer) => {
     for (const entry of entries) {
       if (!entry.isIntersecting) continue
@@ -75,9 +94,7 @@ onMounted(() => {
   }, { rootMargin: '0px 0px -35% 0px', threshold: 0 })
 
   for (const element of elements) {
-    if (element.getBoundingClientRect().top > revealLine) {
-      element.classList.add(element.hasAttribute('data-builder-sequence') ? 'builder-sequence-pending' : 'builder-reveal-pending')
-    }
+    element.classList.add(element.hasAttribute('data-builder-sequence') ? 'builder-sequence-pending' : 'builder-reveal-pending')
     revealObserver.observe(element)
   }
 })
@@ -257,15 +274,21 @@ const faqs = [
             </h1>
             <div class="builder-player-wrap relative mx-auto mt-10 max-w-3xl sm:mt-11">
               <div class="builder-player-shell rounded-[1.35rem] p-1 sm:rounded-[1.7rem] sm:p-1.5">
-                <img
-                  :src="infographicSprintSeo"
-                  alt="Infographie Sprint SEO : diagnostic des problèmes de référencement, priorisation des actions selon leur impact et leur effort, puis implémentation des optimisations techniques et éditoriales."
-                  class="block h-auto w-full rounded-[1rem] sm:rounded-[1.35rem]"
-                  width="1536"
-                  height="1024"
-                  decoding="async"
-                  fetchpriority="high"
-                >
+                <picture class="block">
+                  <source type="image/avif" :srcset="infographicAvifSrcset" :sizes="infographicSizes">
+                  <img
+                    :src="infographicSprintSeo768Webp"
+                    :srcset="infographicWebpSrcset"
+                    :sizes="infographicSizes"
+                    alt="Infographie Sprint SEO : diagnostic des problèmes de référencement, priorisation des actions selon leur impact et leur effort, puis implémentation des optimisations techniques et éditoriales."
+                    class="block h-auto w-full rounded-[1rem] sm:rounded-[1.35rem]"
+                    width="1536"
+                    height="1024"
+                    loading="eager"
+                    decoding="async"
+                    fetchpriority="high"
+                  >
+                </picture>
               </div>
             </div>
             <p class="mx-auto mt-8 max-w-[41rem] text-base leading-7 text-muted sm:text-lg sm:leading-8">

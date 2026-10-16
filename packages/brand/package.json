@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./tokens.css": "./src/tokens.css"
+    "./tokens.css": "./src/tokens.css",
+    "./theme.css": "./src/theme.css"
   }
 }
