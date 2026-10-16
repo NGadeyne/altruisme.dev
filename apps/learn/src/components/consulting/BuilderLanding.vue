@@ -197,7 +197,7 @@ const faqs = [
               <span class="h-1.5 w-1.5 rounded-full bg-petrol" />FORMATION SEO
             </div>
             <h1 class="mx-auto mt-7 max-w-[52rem] text-[2.45rem] font-semibold leading-[1.12] tracking-[-0.045em] text-ink sm:text-[3.35rem] lg:text-[3.85rem] lg:leading-[1.08]">
-              Ton site mérite d'être trouvé
+              Ton site mérite d'être trouvé.
               <span class="mt-1 block text-petrol sm:mt-2">Apprends à le rendre visible sur Google</span>
             </h1>
             <div class="builder-player-wrap relative mx-auto mt-10 max-w-3xl sm:mt-11">
@@ -253,7 +253,7 @@ const faqs = [
       <section class="builder-signals-section builder-wash relative overflow-hidden py-20 sm:py-28 lg:py-36">
         <BaseContainer>
           <div class="grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-20">
-            <div class="max-w-xl lg:sticky lg:top-20 lg:self-start">
+            <div class="max-w-xl lg:self-center">
               <h2 class="text-3xl font-semibold leading-[1.14] tracking-[-0.04em] text-ink sm:text-[3.25rem]">
                 Ton site pourrait <span class="text-petrol">t'apporter bien plus</span>
               </h2>
@@ -445,11 +445,23 @@ const faqs = [
             <div class="mt-10 grid gap-8 border-t border-petrol/15 pt-8 sm:gap-10 lg:grid-cols-2">
               <div>
                 <h4 class="font-semibold text-[#254e54]">Le programme</h4>
-                <p class="mt-3 leading-7 text-muted">6 modules · 20 leçons · 3 à 4 heures de formation · Niveau débutant · À ton rythme</p>
+                <ul class="mt-3 list-disc space-y-1 pl-5 leading-7 text-muted marker:text-petrol">
+                  <li>6 modules</li>
+                  <li>20 leçons</li>
+                  <li>3 à 4 heures de formation</li>
+                  <li>Niveau débutant</li>
+                  <li>À ton rythme</li>
+                </ul>
               </div>
               <div>
                 <h4 class="font-semibold text-[#254e54]">Les ressources incluses</h4>
-                <p class="mt-3 leading-7 text-muted">Checklist d'audit SEO · Recherche de mots-clés · Modèle d'optimisation de page · Calendrier éditorial · Plan d'action sur 90 jours</p>
+                <ul class="mt-3 list-disc space-y-1 pl-5 leading-7 text-muted marker:text-petrol">
+                  <li>Checklist d'audit SEO</li>
+                  <li>Recherche de mots-clés</li>
+                  <li>Modèle d'optimisation de page</li>
+                  <li>Calendrier éditorial</li>
+                  <li>Plan d'action sur 90 jours</li>
+                </ul>
               </div>
             </div>
             <div class="mt-8 border-t border-petrol/15 pt-8">
@@ -474,7 +486,7 @@ const faqs = [
       <section class="builder-wash--ivory py-20 sm:py-28">
         <BaseContainer>
           <div class="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
-            <div class="max-w-md">
+            <div class="max-w-md lg:self-center">
               <h2 class="text-3xl font-semibold leading-tight tracking-tight sm:text-5xl">Tu hésites <span class="text-petrol">encore ?</span></h2>
             </div>
             <div class="border-t border-petrol/20">
@@ -500,7 +512,7 @@ const faqs = [
             <h2 class="mx-auto max-w-3xl text-3xl font-semibold leading-[1.12] tracking-[-0.04em] sm:text-5xl">Et si tu prenais enfin ton SEO en main ?</h2>
             <p class="mx-auto mt-6 max-w-lg text-lg leading-8 text-[#dbe8e4]">Ton site mérite mieux que des optimisations au hasard. Apprends à comprendre son référencement, à identifier les bonnes opportunités et à construire une méthode pour améliorer progressivement ta visibilité. Une formation concrète, des exercices pratiques et les fondamentaux nécessaires pour avancer en autonomie.</p>
             <span class="builder-button builder-button--inverse pointer-events-none mt-9">Être informé du lancement <span class="ml-2" aria-hidden="true">↗</span></span>
-            <p class="mt-5 text-sm text-[#bdd1c9]">Formation SEO — Altruisme Learn · 6 modules · 20 leçons · 5 ressources pratiques · 97 € — Prix de lancement prévu</p>
+            <p class="mt-5 text-sm text-[#bdd1c9]">6 modules · 20 leçons · 5 ressources pratiques</p>
           </div>
         </BaseContainer>
       </section>
