@@ -13,6 +13,8 @@ const usesStandaloneLayout = computed(() => route.meta.layout === 'auth')
 <template>
   <RouterView v-if="usesStandaloneLayout" />
 
+  <RouterView v-else-if="route.meta.layout === 'consulting'" />
+
   <PublicLayout v-else-if="route.meta.layout === 'public'">
     <RouterView />
   </PublicLayout>

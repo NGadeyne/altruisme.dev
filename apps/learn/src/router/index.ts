@@ -24,7 +24,7 @@ const router = createRouter({
       component: () => import('@/views/LandingView.vue'),
       meta: {
         public: true,
-        layout: 'public',
+        layout: 'consulting',
         ...publicPages['/'],
       },
     },
