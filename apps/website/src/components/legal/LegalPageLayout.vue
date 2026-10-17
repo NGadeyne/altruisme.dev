@@ -45,7 +45,7 @@ defineProps<{
       <BaseContainer>
         <div class="mx-auto max-w-3xl">
           <div
-            class="space-y-12 text-base leading-7 text-[#64706c] [&_a]:!text-[#4f7774] [&_a:hover]:!text-[#668c89] [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:tracking-tight [&_h2]:text-[#222826] [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-[#222826] [&_li]:leading-7 [&_strong]:font-semibold [&_strong]:text-[#31413f]"
+            class="legal-content space-y-12 text-base leading-7 text-[#64706c] [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:tracking-tight [&_h2]:text-[#222826] [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-[#222826] [&_li]:leading-7 [&_strong]:font-semibold [&_strong]:text-[#31413f]"
           >
             <slot />
           </div>

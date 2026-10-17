@@ -68,7 +68,7 @@ function linkedParagraph(heading: string, paragraph: string) {
                   :href="part.href"
                   :target="part.href.startsWith('/guides/') ? undefined : '_blank'"
                   :rel="part.href.startsWith('/guides/') ? undefined : 'noopener noreferrer'"
-                  class="font-medium text-petrol underline decoration-petrol/50 underline-offset-4 hover:decoration-petrol focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-petrol"
+                  class="content-link"
                   >{{ part.text }}</a
                 ><template v-else>{{ part.text }}</template></template
               >

@@ -73,7 +73,7 @@ const formatDate = (value: string) =>
         </div>
 
         <p class="mt-6 text-sm text-muted">
-          <a v-if="guide.author" :href="guide.author.url" class="font-semibold text-petrol">{{
+          <a v-if="guide.author" :href="guide.author.url" class="content-link">{{
             guide.author.name
           }}</a>
           <span v-if="guide.updatedAt">

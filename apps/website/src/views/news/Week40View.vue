@@ -58,7 +58,7 @@ import { inlineParts, week40, week40Sections } from '@/content/news/week40'
                   :href="part.href"
                   :target="part.href.startsWith('/guides/') ? undefined : '_blank'"
                   :rel="part.href.startsWith('/guides/') ? undefined : 'noopener noreferrer'"
-                  class="font-medium text-petrol underline decoration-petrol/50 underline-offset-4 hover:decoration-petrol focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-petrol"
+                  class="content-link"
                   >{{ part.text }}</a
                 ><strong v-else-if="part.strong" class="font-semibold text-ink">{{
                   part.text
@@ -74,7 +74,7 @@ import { inlineParts, week40, week40Sections } from '@/content/news/week40'
                   :href="source.href"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="font-medium text-petrol underline decoration-petrol/50 underline-offset-4 hover:decoration-petrol focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-petrol"
+                  class="content-link"
                   >{{ source.label }}</a
                 >
               </template>

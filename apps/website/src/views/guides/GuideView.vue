@@ -56,13 +56,4 @@ const estimatedReadingMinutes = computed(() => readingMinutes(props.sections))
   --color-muted: #52605c;
 }
 
-.guide-content :deep(.guide-link) {
-  color: var(--color-petrol);
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-.guide-content :deep(.guide-link:hover) {
-  color: var(--color-petrol-dark);
-}
 </style>

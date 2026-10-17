@@ -72,7 +72,7 @@ onBeforeUnmount(() => {
             </p>
             <RouterLink
               to="/cookies"
-              class="mt-3 inline-flex text-sm font-semibold !text-[#31413f] underline decoration-[#4f7774]/50 underline-offset-4 transition hover:!text-[#222826]"
+              class="content-link mt-3 inline-flex text-sm"
             >
               En savoir plus
             </RouterLink>

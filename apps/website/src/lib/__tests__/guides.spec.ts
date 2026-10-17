@@ -41,7 +41,7 @@ describe('published guides', () => {
     expect(renderInline('**Important**')).toContain('<strong')
     expect(renderInline('[Exemple](https://example.com)')).toContain('rel="noopener noreferrer"')
     expect(renderInline('[Guide SEO](/guides/seo)')).toContain(
-      '<a href="/guides/seo" class="guide-link">Guide SEO</a>',
+      '<a href="/guides/seo" class="content-link">Guide SEO</a>',
     )
   })
 })
