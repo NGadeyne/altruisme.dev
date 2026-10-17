@@ -183,7 +183,7 @@ function confirmDelete(opportunity: Opportunity) {
 
       <button
         type="button"
-        class="inline-flex w-fit items-center justify-center rounded-xl bg-petrol-dark px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-ink"
+        class="learn-button-primary inline-flex w-fit items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold"
         @click="openCreateForm"
       >
         + Ajouter une opportunité
@@ -402,7 +402,7 @@ function confirmDelete(opportunity: Opportunity) {
                 <div class="flex justify-end gap-2">
                   <button
                     type="button"
-                    class="rounded-lg px-3 py-2 text-xs font-semibold text-muted transition hover:bg-mist hover:text-ink"
+                    class="learn-button-text rounded-lg px-3 py-2 text-xs font-semibold transition hover:bg-mist"
                     @click="openEditForm(opportunity)"
                   >
                     Modifier
@@ -436,7 +436,7 @@ function confirmDelete(opportunity: Opportunity) {
           </p>
           <button
             type="button"
-            class="mt-6 rounded-xl bg-petrol-dark px-5 py-3 text-sm font-semibold text-white transition hover:bg-ink"
+            class="learn-button-primary mt-6 rounded-xl px-5 py-3 text-sm font-semibold"
             @click="openCreateForm"
           >
             + Ajouter ma première opportunité
@@ -468,7 +468,7 @@ function confirmDelete(opportunity: Opportunity) {
             <button
               type="button"
               aria-label="Fermer"
-              class="flex h-9 w-9 items-center justify-center rounded-full bg-mist text-lg text-muted transition hover:bg-petrol/20 hover:text-ink"
+              class="learn-button-text flex h-9 w-9 items-center justify-center rounded-full bg-mist text-lg transition hover:bg-petrol/20"
               @click="closeForm"
             >
               ×

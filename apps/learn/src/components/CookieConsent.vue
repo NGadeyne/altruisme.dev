@@ -65,7 +65,7 @@ onBeforeUnmount(() => {
           <button class="cookie-secondary" type="button" @click="reject">Tout refuser</button>
           <button class="cookie-primary" type="button" @click="accept">Tout accepter</button>
           <button
-            class="text-sm font-semibold text-[#31413f] underline underline-offset-4"
+            class="learn-button-text text-sm font-semibold underline underline-offset-4"
             type="button"
             @click="openSettings"
           >
@@ -85,7 +85,7 @@ onBeforeUnmount(() => {
             </p>
           </div>
           <button
-            class="text-sm font-semibold text-[#31413f] underline underline-offset-4"
+            class="learn-button-text text-sm font-semibold underline underline-offset-4"
             type="button"
             @click="showSettings = false"
           >

@@ -32,11 +32,11 @@ html:has(.consulting-home) {
 }
 
 .consulting-home .cookie-primary {
-  background: #31413f;
+  background: linear-gradient(135deg, #3d6970, #315960);
   color: #fff;
 }
 .consulting-home .cookie-primary:hover {
-  background: #222826;
+  background: linear-gradient(135deg, #355f65, #2a5056);
 }
 .consulting-home .cookie-secondary {
   border: 1px solid rgb(79 119 116 / 0.25);

@@ -61,7 +61,7 @@ async function handleLogout() {
 
         <button
           type="button"
-          class="rounded-lg px-2 py-2 text-xs font-medium text-muted transition hover:bg-mist hover:text-ink sm:px-3 sm:text-sm"
+          class="learn-button-text rounded-lg px-2 py-2 text-xs font-medium transition hover:bg-mist sm:px-3 sm:text-sm"
           @click="handleLogout"
         >
           Se déconnecter

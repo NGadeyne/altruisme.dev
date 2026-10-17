@@ -19,9 +19,10 @@ withDefaults(
 )
 
 const variants = {
-  primary: 'bg-fuchsia-600 text-white hover:bg-fuchsia-500 focus-visible:outline-fuchsia-600',
-  secondary: 'bg-zinc-900 text-white hover:bg-zinc-800 focus-visible:outline-zinc-900',
-  ghost: 'bg-transparent text-zinc-700 hover:bg-zinc-200 focus-visible:outline-zinc-500',
+  primary: 'learn-button-primary',
+  secondary:
+    'border border-petrol/20 bg-white text-[#315960] hover:bg-mist focus-visible:outline-petrol',
+  ghost: 'bg-transparent text-[#3d6970] hover:bg-mist focus-visible:outline-petrol',
 }
 
 const sizes = {

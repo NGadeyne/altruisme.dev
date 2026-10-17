@@ -195,7 +195,7 @@ function saveCurrentNote() {
           <div class="mt-5 flex items-center justify-between gap-3">
             <button
               type="button"
-              class="flex h-9 w-9 items-center justify-center rounded-lg border border-petrol/20 text-lg font-medium text-muted transition hover:bg-sand-light hover:text-ink disabled:cursor-not-allowed disabled:opacity-30"
+              class="learn-button-text flex h-9 w-9 items-center justify-center rounded-lg border border-petrol/20 text-lg font-medium transition hover:bg-sand-light disabled:cursor-not-allowed disabled:opacity-30"
               :disabled="todayLog[action.key] === 0"
               :aria-label="`Retirer une ${action.shortLabel.toLowerCase()}`"
               @click="decrementAction(action.key)"
@@ -209,7 +209,7 @@ function saveCurrentNote() {
 
             <button
               type="button"
-              class="flex h-9 w-9 items-center justify-center rounded-lg bg-petrol-dark text-lg font-semibold text-white transition hover:bg-ink"
+              class="learn-button-primary flex h-9 w-9 items-center justify-center rounded-lg text-lg font-semibold"
               :aria-label="`Ajouter une ${action.shortLabel.toLowerCase()}`"
               @click="incrementAction(action.key)"
             >

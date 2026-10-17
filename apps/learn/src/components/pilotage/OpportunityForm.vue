@@ -165,7 +165,7 @@ function submit() {
     <div class="flex justify-end gap-3 border-t border-mist pt-5">
       <button
         type="button"
-        class="rounded-xl px-4 py-2.5 text-sm font-semibold text-muted transition hover:bg-mist hover:text-ink"
+        class="learn-button-text rounded-xl px-4 py-2.5 text-sm font-semibold transition hover:bg-mist"
         @click="emit('cancel')"
       >
         Annuler
@@ -173,7 +173,7 @@ function submit() {
 
       <button
         type="submit"
-        class="rounded-xl bg-petrol-dark px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-ink"
+        class="learn-button-primary rounded-xl px-5 py-2.5 text-sm font-semibold"
       >
         {{ opportunity ? 'Enregistrer' : 'Ajouter l’opportunité' }}
       </button>

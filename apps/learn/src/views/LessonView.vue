@@ -89,7 +89,7 @@ watch(
 
       <RouterLink
         to="/app"
-        class="mt-6 inline-flex rounded-xl bg-ink px-5 py-3 text-sm font-semibold text-white"
+        class="learn-button-primary mt-6 inline-flex rounded-xl px-5 py-3 text-sm font-semibold"
       >
         Retour à la formation
       </RouterLink>
@@ -151,12 +151,7 @@ watch(
         <div class="mt-8 flex justify-center border-t border-petrol/20 pt-8">
           <button
             type="button"
-            :class="[
-              'rounded-xl px-5 py-3 text-sm font-semibold transition',
-              completed
-                ? 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100'
-                : 'bg-petrol-dark text-white hover:bg-ink',
-            ]"
+            class="learn-button-primary rounded-xl px-5 py-3 text-sm font-semibold"
             @click="toggleCompleted(lesson.id)"
           >
             <span v-if="completed"> ✓ Leçon terminée </span>
@@ -208,11 +203,7 @@ watch(
           </p>
         </RouterLink>
 
-        <RouterLink
-          v-else
-          to="/app"
-          class="rounded-2xl bg-ink p-5 text-right text-white transition hover:bg-ink-soft"
-        >
+        <RouterLink v-else to="/app" class="learn-button-primary rounded-2xl p-5 text-right">
           <p class="text-xs font-semibold uppercase tracking-wide text-muted-light">
             Formation terminée
           </p>

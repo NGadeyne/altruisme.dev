@@ -29,7 +29,7 @@ function goBack() {
 
       <button
         type="button"
-        class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-petrol-dark transition hover:text-ink"
+        class="learn-button-text mt-8 inline-flex items-center gap-2 text-sm font-semibold transition"
         @click="goBack"
       >
         <span aria-hidden="true">←</span>
@@ -42,7 +42,7 @@ function goBack() {
       <!-- Retour -->
       <button
         type="button"
-        class="inline-flex items-center gap-2 text-sm font-medium text-muted transition hover:text-petrol-dark"
+        class="learn-button-text inline-flex items-center gap-2 text-sm font-medium transition"
         @click="goBack"
       >
         <span aria-hidden="true">←</span>
@@ -80,7 +80,7 @@ function goBack() {
       <div class="mt-16 border-t border-petrol/20 pt-8">
         <button
           type="button"
-          class="inline-flex items-center gap-2 text-sm font-semibold text-petrol-dark transition hover:text-ink"
+          class="learn-button-text inline-flex items-center gap-2 text-sm font-semibold transition"
           @click="goBack"
         >
           <span aria-hidden="true">←</span>

@@ -46,7 +46,7 @@ const { completedCount, totalLessons, percentage, lastLesson, isCompleted, getSe
               lessonSlug: lastLesson.slug,
             },
           }"
-          class="inline-flex items-center justify-center rounded-xl bg-petrol-dark px-5 py-3 text-sm font-semibold text-white transition hover:bg-ink"
+          class="learn-button-primary inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold"
         >
           Continuer la formation →
         </RouterLink>
@@ -59,7 +59,7 @@ const { completedCount, totalLessons, percentage, lastLesson, isCompleted, getSe
               lessonSlug: trainingSections[0].lessons[0].slug,
             },
           }"
-          class="inline-flex items-center justify-center rounded-xl bg-petrol-dark px-5 py-3 text-sm font-semibold text-white transition hover:bg-ink"
+          class="learn-button-primary inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold"
         >
           Commencer la formation →
         </RouterLink>

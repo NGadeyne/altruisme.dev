@@ -112,7 +112,7 @@ async function handleLogin() {
           <button
             type="submit"
             :disabled="loading"
-            class="flex w-full items-center justify-center rounded-xl bg-petrol-dark px-4 py-3 text-sm font-semibold text-white transition hover:bg-ink disabled:cursor-not-allowed disabled:opacity-60"
+            class="learn-button-primary flex w-full items-center justify-center rounded-xl px-4 py-3 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-60"
           >
             <span v-if="loading"> Connexion... </span>
 

@@ -136,7 +136,7 @@ const consultingUrl = 'https://consulting.altruisme.dev/'
           :href="consultingUrl"
           target="_blank"
           rel="noopener noreferrer"
-          class="group flex w-full items-center gap-3 rounded-xl bg-petrol-dark px-4 py-3 text-sm font-semibold text-white transition hover:bg-ink"
+          class="learn-button-primary group flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold"
         >
           <svg
             class="size-5 shrink-0"

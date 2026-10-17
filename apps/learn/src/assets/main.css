@@ -45,3 +45,50 @@ a {
 #app {
   min-height: 100vh;
 }
+
+/* Même teinte et dégradé que le bouton principal de la landing page. */
+.learn-button-primary,
+.cookie-primary {
+  border: 1px solid rgb(29 74 79 / 0.35);
+  background: linear-gradient(135deg, #3d6970, #315960);
+  box-shadow: 0 15px 30px -20px rgb(25 67 71 / 0.58);
+  color: #fff;
+  transition:
+    background 280ms ease,
+    box-shadow 280ms ease,
+    transform 280ms ease;
+}
+
+.learn-button-primary:hover,
+.cookie-primary:hover {
+  background: linear-gradient(135deg, #355f65, #2a5056);
+  box-shadow: 0 18px 33px -20px rgb(25 67 71 / 0.68);
+}
+
+.learn-button-primary:focus-visible,
+.cookie-primary:focus-visible {
+  outline: 2px solid #315960;
+  outline-offset: 3px;
+}
+
+.learn-button-text {
+  color: #3d6970;
+}
+
+.learn-button-text:hover {
+  color: #315960;
+}
+
+.cookie-primary,
+.cookie-secondary {
+  border-radius: 0.75rem;
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.cookie-secondary {
+  border: 1px solid rgb(61 105 112 / 0.25);
+  background: rgb(255 255 255 / 0.7);
+  color: #315960;
+}
