@@ -18,16 +18,16 @@ const legalLinks = [
 </script>
 
 <template>
-  <footer class="border-t border-zinc-200 bg-white">
+  <footer class="border-t border-petrol/20 bg-white">
     <div
       class="flex flex-col gap-4 px-4 py-6 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8"
     >
-      <p class="text-sm text-zinc-500">© {{ currentYear }} Acquisition. Tous droits réservés.</p>
+      <p class="text-sm text-muted">© {{ currentYear }} Altruisme.DEV. Tous droits réservés.</p>
 
       <nav aria-label="Liens légaux">
         <ul class="flex flex-wrap gap-x-5 gap-y-2">
           <li v-for="link in legalLinks" :key="link.href">
-            <a :href="link.href" class="text-sm text-zinc-500 transition hover:text-fuchsia-600">
+            <a :href="link.href" class="text-sm text-muted transition hover:text-petrol-dark">
               {{ link.label }}
             </a>
           </li>

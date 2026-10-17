@@ -5,13 +5,13 @@ import AppTopbar from '@/components/layout/AppTopbar.vue'
 </script>
 
 <template>
-  <div class="min-h-screen bg-zinc-100">
+  <div class="min-h-screen bg-[#f4f2ec]">
     <AppSidebar />
 
     <div class="flex min-h-screen flex-col md:pl-64">
       <AppTopbar />
 
-      <main class="flex-1 py-8">
+      <main class="flex-1 py-8 sm:py-10">
         <slot />
       </main>
 

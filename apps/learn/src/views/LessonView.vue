@@ -83,15 +83,13 @@ watch(
   <BaseContainer>
     <!-- Not found -->
     <div v-if="!lesson" class="mx-auto max-w-2xl py-20 text-center">
-      <p class="text-sm font-semibold text-fuchsia-600">Leçon introuvable</p>
+      <p class="text-sm font-semibold text-petrol-dark">Leçon introuvable</p>
 
-      <h1 class="mt-2 text-3xl font-bold tracking-tight text-zinc-950">
-        Cette leçon n’existe pas.
-      </h1>
+      <h1 class="mt-2 text-3xl font-bold tracking-tight text-ink">Cette leçon n’existe pas.</h1>
 
       <RouterLink
         to="/app"
-        class="mt-6 inline-flex rounded-xl bg-zinc-950 px-5 py-3 text-sm font-semibold text-white"
+        class="mt-6 inline-flex rounded-xl bg-ink px-5 py-3 text-sm font-semibold text-white"
       >
         Retour à la formation
       </RouterLink>
@@ -101,30 +99,30 @@ watch(
     <div v-else class="mx-auto max-w-4xl">
       <RouterLink
         to="/app"
-        class="inline-flex items-center gap-2 text-sm font-medium text-zinc-500 transition hover:text-zinc-950"
+        class="inline-flex items-center gap-2 text-sm font-medium text-muted transition hover:text-ink"
       >
         ← Formation
       </RouterLink>
 
       <!-- Header -->
-      <header class="mt-8 border-b border-zinc-200 pb-8">
+      <header class="mt-8 border-b border-petrol/20 pb-8">
         <div v-if="section" class="flex flex-wrap items-center gap-2 text-sm">
-          <span class="font-semibold text-fuchsia-600">
+          <span class="font-semibold text-petrol-dark">
             {{ section.title }}
           </span>
 
-          <span class="text-zinc-300"> / </span>
+          <span class="text-petrol/35"> / </span>
 
-          <span class="text-zinc-500">
+          <span class="text-muted">
             Leçon {{ sectionLessonIndex + 1 }} sur {{ section.lessons.length }}
           </span>
         </div>
 
-        <h1 class="mt-3 max-w-3xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
+        <h1 class="mt-3 max-w-3xl text-3xl font-bold tracking-tight text-ink sm:text-4xl">
           {{ lesson.title }}
         </h1>
 
-        <p v-if="lesson.description" class="mt-4 max-w-2xl text-base leading-7 text-zinc-600">
+        <p v-if="lesson.description" class="mt-4 max-w-2xl text-base leading-7 text-muted">
           {{ lesson.description }}
         </p>
       </header>
@@ -133,7 +131,7 @@ watch(
       <main class="py-10">
         <div
           v-if="lesson.type === 'video' && lesson.videoUrl"
-          class="mb-10 overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-950"
+          class="mb-10 overflow-hidden rounded-2xl border border-petrol/20 bg-ink"
         >
           <iframe :src="lesson.videoUrl" class="aspect-video w-full" allowfullscreen />
         </div>
@@ -142,22 +140,22 @@ watch(
 
         <div
           v-else
-          class="rounded-2xl border border-dashed border-zinc-300 bg-zinc-50 px-6 py-12 text-center"
+          class="rounded-2xl border border-dashed border-petrol/35 bg-sand-light px-6 py-12 text-center"
         >
-          <p class="font-semibold text-zinc-700">Contenu à venir</p>
+          <p class="font-semibold text-ink-soft">Contenu à venir</p>
 
-          <p class="mt-1 text-sm text-zinc-500">Cette leçon n’a pas encore été remplie.</p>
+          <p class="mt-1 text-sm text-muted">Cette leçon n’a pas encore été remplie.</p>
         </div>
 
         <!-- Complete -->
-        <div class="mt-8 flex justify-center border-t border-zinc-200 pt-8">
+        <div class="mt-8 flex justify-center border-t border-petrol/20 pt-8">
           <button
             type="button"
             :class="[
               'rounded-xl px-5 py-3 text-sm font-semibold transition',
               completed
                 ? 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100'
-                : 'bg-fuchsia-600 text-white hover:bg-fuchsia-700',
+                : 'bg-petrol-dark text-white hover:bg-ink',
             ]"
             @click="toggleCompleted(lesson.id)"
           >
@@ -169,7 +167,7 @@ watch(
       </main>
 
       <!-- Navigation -->
-      <footer class="grid gap-4 border-t border-zinc-200 py-8 sm:grid-cols-2">
+      <footer class="grid gap-4 border-t border-petrol/20 py-8 sm:grid-cols-2">
         <RouterLink
           v-if="previousLesson"
           :to="{
@@ -178,13 +176,13 @@ watch(
               lessonSlug: previousLesson.slug,
             },
           }"
-          class="group rounded-2xl border border-zinc-200 bg-white p-5 transition hover:border-zinc-300 hover:shadow-sm"
+          class="group rounded-2xl border border-petrol/20 bg-white p-5 transition hover:border-petrol/35 hover:shadow-sm"
         >
-          <p class="text-xs font-semibold uppercase tracking-wide text-zinc-400">
+          <p class="text-xs font-semibold uppercase tracking-wide text-muted-light">
             ← Leçon précédente
           </p>
 
-          <p class="mt-2 font-semibold text-zinc-800">
+          <p class="mt-2 font-semibold text-ink-soft">
             {{ previousLesson.title }}
           </p>
         </RouterLink>
@@ -199,13 +197,13 @@ watch(
               lessonSlug: nextLesson.slug,
             },
           }"
-          class="group rounded-2xl border border-fuchsia-200 bg-fuchsia-50 p-5 text-right transition hover:border-fuchsia-300 hover:shadow-sm"
+          class="group rounded-2xl border border-petrol/25 bg-mist p-5 text-right transition hover:border-petrol/40 hover:shadow-sm"
         >
-          <p class="text-xs font-semibold uppercase tracking-wide text-fuchsia-600">
+          <p class="text-xs font-semibold uppercase tracking-wide text-petrol-dark">
             Leçon suivante →
           </p>
 
-          <p class="mt-2 font-semibold text-zinc-900">
+          <p class="mt-2 font-semibold text-petrol-dark">
             {{ nextLesson.title }}
           </p>
         </RouterLink>
@@ -213,9 +211,9 @@ watch(
         <RouterLink
           v-else
           to="/app"
-          class="rounded-2xl bg-zinc-950 p-5 text-right text-white transition hover:bg-zinc-800"
+          class="rounded-2xl bg-ink p-5 text-right text-white transition hover:bg-ink-soft"
         >
-          <p class="text-xs font-semibold uppercase tracking-wide text-zinc-400">
+          <p class="text-xs font-semibold uppercase tracking-wide text-muted-light">
             Formation terminée
           </p>
 
@@ -228,7 +226,7 @@ watch(
 
 <style scoped>
 .lesson-content {
-  color: #3f3f46;
+  color: #46504d;
   font-size: 1rem;
   line-height: 1.8;
 }
@@ -236,7 +234,7 @@ watch(
 .lesson-content :deep(h2) {
   margin-top: 2.5rem;
   margin-bottom: 1rem;
-  color: #18181b;
+  color: #222826;
   font-size: 1.5rem;
   font-weight: 700;
 }
@@ -244,7 +242,7 @@ watch(
 .lesson-content :deep(h3) {
   margin-top: 2rem;
   margin-bottom: 0.75rem;
-  color: #18181b;
+  color: #222826;
   font-size: 1.25rem;
   font-weight: 600;
 }
@@ -272,12 +270,12 @@ watch(
 }
 
 .lesson-content :deep(strong) {
-  color: #18181b;
+  color: #222826;
   font-weight: 600;
 }
 
 .lesson-content :deep(a) {
-  color: #a21caf;
+  color: #31413f;
   font-weight: 500;
   text-decoration: underline;
 }

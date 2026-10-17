@@ -11,7 +11,7 @@ const router = useRouter()
 const resource = computed(() => getResourceBySlug(String(route.params.resourceSlug)))
 
 function goBack() {
-  router.push('/app')
+  router.push('/resources')
 }
 </script>
 
@@ -19,21 +19,21 @@ function goBack() {
   <BaseContainer>
     <!-- Ressource introuvable -->
     <div v-if="!resource" class="mx-auto max-w-3xl py-12">
-      <p class="text-sm font-semibold text-fuchsia-600">Ressource</p>
+      <p class="text-sm font-semibold text-petrol-dark">Ressource</p>
 
-      <h1 class="mt-2 text-3xl font-bold tracking-tight text-zinc-950">Ressource introuvable</h1>
+      <h1 class="mt-2 text-3xl font-bold tracking-tight text-ink">Ressource introuvable</h1>
 
-      <p class="mt-4 text-base leading-7 text-zinc-600">
+      <p class="mt-4 text-base leading-7 text-muted">
         Cette ressource n'existe pas ou n'est plus disponible.
       </p>
 
       <button
         type="button"
-        class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-fuchsia-700 transition hover:text-fuchsia-800"
+        class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-petrol-dark transition hover:text-ink"
         @click="goBack"
       >
         <span aria-hidden="true">←</span>
-        Retour à la formation
+        Retour aux ressources
       </button>
     </div>
 
@@ -42,49 +42,49 @@ function goBack() {
       <!-- Retour -->
       <button
         type="button"
-        class="inline-flex items-center gap-2 text-sm font-medium text-zinc-500 transition hover:text-zinc-900"
+        class="inline-flex items-center gap-2 text-sm font-medium text-muted transition hover:text-petrol-dark"
         @click="goBack"
       >
         <span aria-hidden="true">←</span>
-        Retour à la formation
+        Retour aux ressources
       </button>
 
       <!-- Header -->
       <header class="mt-8 max-w-3xl">
         <div class="flex items-center gap-3">
           <span
-            class="inline-flex items-center rounded-full bg-fuchsia-50 px-3 py-1 text-xs font-semibold text-fuchsia-700"
+            class="inline-flex items-center rounded-full bg-mist px-3 py-1 text-xs font-semibold text-petrol-dark"
           >
             Bonus
           </span>
 
-          <span class="text-sm text-zinc-400"> Ressource </span>
+          <span class="text-sm text-muted-light"> Ressource </span>
         </div>
 
-        <h1 class="mt-4 text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
+        <h1 class="mt-4 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
           {{ resource.title }}
         </h1>
 
-        <p v-if="resource.description" class="mt-4 text-base leading-7 text-zinc-600">
+        <p v-if="resource.description" class="mt-4 text-base leading-7 text-muted">
           {{ resource.description }}
         </p>
       </header>
 
       <!-- Séparateur -->
-      <div class="my-10 border-t border-zinc-200" />
+      <div class="my-10 border-t border-petrol/20" />
 
       <!-- Contenu -->
       <article class="resource-content" v-html="resource.content" />
 
       <!-- Footer -->
-      <div class="mt-16 border-t border-zinc-200 pt-8">
+      <div class="mt-16 border-t border-petrol/20 pt-8">
         <button
           type="button"
-          class="inline-flex items-center gap-2 text-sm font-semibold text-fuchsia-700 transition hover:text-fuchsia-800"
+          class="inline-flex items-center gap-2 text-sm font-semibold text-petrol-dark transition hover:text-ink"
           @click="goBack"
         >
           <span aria-hidden="true">←</span>
-          Retour à la formation
+          Retour aux ressources
         </button>
       </div>
     </div>
@@ -93,7 +93,7 @@ function goBack() {
 
 <style scoped>
 .resource-content {
-  color: #3f3f46;
+  color: #46504d;
   font-size: 1rem;
   line-height: 1.75;
 }
@@ -101,7 +101,7 @@ function goBack() {
 .resource-content :deep(h2) {
   margin-top: 3.5rem;
   margin-bottom: 1.25rem;
-  color: #18181b;
+  color: #222826;
   font-size: 1.75rem;
   font-weight: 700;
   line-height: 1.25;
@@ -111,7 +111,7 @@ function goBack() {
 .resource-content :deep(h3) {
   margin-top: 2rem;
   margin-bottom: 0.75rem;
-  color: #27272a;
+  color: #222826;
   font-size: 1.125rem;
   font-weight: 650;
   line-height: 1.5;
@@ -146,18 +146,18 @@ function goBack() {
 }
 
 .resource-content :deep(strong) {
-  color: #27272a;
+  color: #222826;
   font-weight: 650;
 }
 
 .resource-content :deep(blockquote) {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
-  border-left: 3px solid #d946ef;
+  border-left: 3px solid #4f7774;
   border-radius: 0 0.75rem 0.75rem 0;
-  background: #fafafa;
+  background: #f7f2e9;
   padding: 1rem 1.25rem;
-  color: #3f3f46;
+  color: #46504d;
 }
 
 .resource-content :deep(blockquote p) {
@@ -165,23 +165,23 @@ function goBack() {
 }
 
 .resource-content :deep(a) {
-  color: #a21caf;
+  color: #31413f;
   font-weight: 600;
   text-decoration: underline;
-  text-decoration-color: #f0abfc;
+  text-decoration-color: #8ca69b;
   text-underline-offset: 3px;
 }
 
 .resource-content :deep(a:hover) {
-  color: #86198f;
+  color: #222826;
 }
 
 .resource-content :deep(.lesson-callout) {
   margin-top: 2rem;
   margin-bottom: 2rem;
-  border: 1px solid #e4e4e7;
+  border: 1px solid #dce8e4;
   border-radius: 1rem;
-  background: #fafafa;
+  background: #f7f2e9;
   padding: 1.25rem 1.5rem;
 }
 
@@ -190,11 +190,11 @@ function goBack() {
 }
 
 .resource-content :deep(.lesson-callout--strong) {
-  border-color: #f5d0fe;
-  background: #fdf4ff;
+  border-color: #b8cabd;
+  background: #edf3f0;
 }
 
 .resource-content :deep(.lesson-callout--strong strong) {
-  color: #a21caf;
+  color: #31413f;
 }
 </style>

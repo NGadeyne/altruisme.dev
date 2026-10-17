@@ -7,13 +7,10 @@ const props = defineProps<{
   status: OpportunityStatus
 }>()
 
-const statuses: Record<
-  OpportunityStatus,
-  { label: string; classes: string }
-> = {
+const statuses: Record<OpportunityStatus, { label: string; classes: string }> = {
   'to-contact': {
     label: 'À contacter',
-    classes: 'bg-zinc-100 text-zinc-700',
+    classes: 'bg-mist text-ink-soft',
   },
   contacted: {
     label: 'Contacté',
@@ -21,7 +18,7 @@ const statuses: Record<
   },
   conversation: {
     label: 'Échange en cours',
-    classes: 'bg-violet-50 text-violet-700',
+    classes: 'bg-mist text-petrol-dark',
   },
   interview: {
     label: 'Entretien / RDV',

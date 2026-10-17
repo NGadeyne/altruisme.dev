@@ -1,16 +1,25 @@
 <script setup lang="ts">
-const calendlyUrl = 'TON_LIEN_CALENDLY'
-const whatsappUrl = 'TON_LIEN_WHATSAPP'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+const consultingUrl = 'https://consulting.altruisme.dev/'
 </script>
 
 <template>
   <aside
-    class="fixed inset-y-0 left-0 z-30 hidden w-64 border-r border-zinc-200 bg-white md:flex md:flex-col"
+    class="fixed inset-y-0 left-0 z-30 hidden w-64 border-r border-petrol/15 bg-sand-light md:flex md:flex-col"
   >
     <!-- Logo -->
-    <div class="flex h-16 shrink-0 items-center border-b border-zinc-200 px-6">
-      <RouterLink to="/app" class="text-lg font-bold tracking-tight text-zinc-950">
-        Acquisition Learn
+    <div class="flex h-16 shrink-0 items-center border-b border-petrol/15 px-5">
+      <RouterLink to="/app" class="flex items-center gap-3" aria-label="Altruisme Learn, formation">
+        <span
+          class="flex size-9 items-center justify-center rounded-xl border border-petrol/20 bg-petrol/8 text-sm font-bold text-petrol"
+          >A.</span
+        >
+        <span class="leading-tight">
+          <span class="block text-sm font-bold tracking-tight text-ink">Altruisme Learn</span>
+          <span class="mt-0.5 block text-xs text-muted-light">Espace apprenant</span>
+        </span>
       </RouterLink>
     </div>
 
@@ -20,8 +29,8 @@ const whatsappUrl = 'TON_LIEN_WHATSAPP'
         <!-- Formation -->
         <RouterLink
           to="/app"
-          class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-zinc-600 transition hover:bg-zinc-100 hover:text-zinc-950"
-          active-class="bg-fuchsia-50 text-fuchsia-700"
+          class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-muted transition hover:bg-mist hover:text-ink"
+          active-class="bg-mist text-petrol-dark"
         >
           <svg
             class="size-5 shrink-0"
@@ -49,8 +58,8 @@ const whatsappUrl = 'TON_LIEN_WHATSAPP'
         <!-- Ateliers -->
         <RouterLink
           to="/ateliers"
-          class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-zinc-600 transition hover:bg-zinc-100 hover:text-zinc-950"
-          active-class="bg-fuchsia-50 text-fuchsia-700"
+          class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-muted transition hover:bg-mist hover:text-ink"
+          active-class="bg-mist text-petrol-dark"
         >
           <svg
             class="size-5 shrink-0"
@@ -68,11 +77,36 @@ const whatsappUrl = 'TON_LIEN_WHATSAPP'
           Ateliers
         </RouterLink>
 
+        <!-- Ressources -->
+        <RouterLink
+          to="/resources"
+          class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition hover:bg-mist hover:text-ink"
+          :class="route.path.startsWith('/resources') ? 'bg-mist text-petrol-dark' : 'text-muted'"
+        >
+          <svg
+            class="size-5 shrink-0"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M7 3.5h7l4 4V20H7a2 2 0 0 1-2-2V5.5a2 2 0 0 1 2-2Z"
+            />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 3.5V8h4M9 12h6M9 16h6" />
+          </svg>
+
+          Ressources
+        </RouterLink>
+
         <!-- Pilotage -->
         <RouterLink
           to="/pilotage"
-          class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-zinc-600 transition hover:bg-zinc-100 hover:text-zinc-950"
-          active-class="bg-fuchsia-50 text-fuchsia-700"
+          class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-muted transition hover:bg-mist hover:text-ink"
+          active-class="bg-mist text-petrol-dark"
         >
           <svg
             class="size-5 shrink-0"
@@ -93,70 +127,33 @@ const whatsappUrl = 'TON_LIEN_WHATSAPP'
       </nav>
 
       <!-- Accompagnement -->
-      <div class="mt-auto border-t border-zinc-200 p-4">
-        <p class="mb-3 px-2 text-xs font-semibold uppercase tracking-wider text-zinc-400">
+      <div class="mt-auto border-t border-petrol/20 p-4">
+        <p class="mb-3 px-2 text-xs font-semibold uppercase tracking-wider text-muted-light">
           Accompagnement
         </p>
 
-        <div class="space-y-2">
-          <a
-            :href="calendlyUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group flex w-full items-center gap-3 rounded-xl bg-fuchsia-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-fuchsia-700"
+        <a
+          :href="consultingUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex w-full items-center gap-3 rounded-xl bg-petrol-dark px-4 py-3 text-sm font-semibold text-white transition hover:bg-ink"
+        >
+          <svg
+            class="size-5 shrink-0"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            aria-hidden="true"
           >
-            <svg
-              class="size-5 shrink-0"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              aria-hidden="true"
-            >
-              <rect x="3" y="5" width="18" height="16" rx="2" />
+            <rect x="3" y="5" width="18" height="16" rx="2" />
+            <path stroke-linecap="round" d="M8 3v4M16 3v4M3 10h18" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 14v4M10 16h4" />
+          </svg>
 
-              <path stroke-linecap="round" d="M8 3v4M16 3v4M3 10h18" />
-
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 14v4M10 16h4" />
-            </svg>
-
-            <span class="flex-1"> Prendre rendez-vous </span>
-
-            <span aria-hidden="true"> ↗ </span>
-          </a>
-
-          <a
-            :href="whatsappUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group flex w-full items-center gap-3 rounded-xl bg-zinc-100 px-4 py-3 text-sm font-semibold text-zinc-700 transition hover:bg-zinc-200 hover:text-zinc-950"
-          >
-            <svg
-              class="size-5 shrink-0"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              aria-hidden="true"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M21 11.5a8.5 8.5 0 0 1-12.6 7.44L3 21l2.07-5.18A8.5 8.5 0 1 1 21 11.5Z"
-              />
-
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M8.5 9.5c.7 2.4 2.6 4.3 5 5"
-              />
-            </svg>
-
-            <span class="flex-1"> Communauté WhatsApp </span>
-
-            <span aria-hidden="true"> ↗ </span>
-          </a>
-        </div>
+          <span class="flex-1">Faire le point sur mon SEO</span>
+          <span aria-hidden="true"> ↗ </span>
+        </a>
       </div>
     </div>
   </aside>

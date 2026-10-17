@@ -18,11 +18,11 @@ defineProps<Props>()
         resourceSlug: slug,
       },
     }"
-    class="group flex h-full flex-col rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-fuchsia-200 hover:shadow-md"
+    class="group flex h-full flex-col rounded-2xl border border-petrol/20 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-petrol/25 hover:shadow-md"
   >
     <div class="flex items-start justify-between gap-4">
       <div
-        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-fuchsia-50 text-fuchsia-700"
+        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-mist text-petrol-dark"
       >
         <svg
           viewBox="0 0 24 24"
@@ -46,7 +46,7 @@ defineProps<Props>()
       </div>
 
       <span
-        class="text-zinc-300 transition group-hover:translate-x-1 group-hover:text-fuchsia-600"
+        class="text-petrol/35 transition group-hover:translate-x-1 group-hover:text-petrol-dark"
         aria-hidden="true"
       >
         →
@@ -54,18 +54,18 @@ defineProps<Props>()
     </div>
 
     <div class="mt-5">
-      <p class="text-xs font-semibold uppercase tracking-wide text-fuchsia-600">Ressource</p>
+      <p class="text-xs font-semibold uppercase tracking-wide text-petrol-dark">Ressource</p>
 
-      <h3 class="mt-2 text-base font-semibold leading-6 text-zinc-950">
+      <h3 class="mt-2 text-base font-semibold leading-6 text-ink">
         {{ title }}
       </h3>
 
-      <p v-if="description" class="mt-2 text-sm leading-6 text-zinc-600">
+      <p v-if="description" class="mt-2 text-sm leading-6 text-muted">
         {{ description }}
       </p>
     </div>
 
-    <div class="mt-auto flex items-center gap-2 pt-6 text-sm font-semibold text-fuchsia-700">
+    <div class="mt-auto flex items-center gap-2 pt-6 text-sm font-semibold text-petrol-dark">
       Consulter la ressource
 
       <span class="transition group-hover:translate-x-1" aria-hidden="true"> → </span>

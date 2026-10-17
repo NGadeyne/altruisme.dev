@@ -59,6 +59,15 @@ const router = createRouter({
     },
 
     {
+      path: '/resources',
+      name: 'resources',
+      component: () => import('@/views/ResourcesView.vue'),
+      meta: {
+        requiresAuth: true,
+      },
+    },
+
+    {
       path: '/resources/:resourceSlug',
       name: 'resource',
       component: () => import('@/views/ResourceView.vue'),
@@ -123,7 +132,7 @@ const router = createRouter({
 router.beforeEach(async (to) => {
   const authStore = useAuthStore()
 
-  if (authStore.loading) {
+  if ((to.meta.requiresAuth || to.name === 'login') && authStore.loading) {
     await authStore.initialize()
   }
 

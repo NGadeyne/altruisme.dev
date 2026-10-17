@@ -41,41 +41,38 @@ async function handleLogin() {
 
 <template>
   <main
-    class="relative flex min-h-screen items-center justify-center overflow-hidden bg-zinc-950 px-6 py-12"
+    class="relative flex min-h-screen items-center justify-center overflow-hidden bg-[linear-gradient(153deg,#faf7f0_4%,#eef1ec_53%,#d6e5e1_100%)] px-6 py-12"
   >
-    <!-- Glow -->
-    <div
-      class="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-fuchsia-500/10 blur-[120px]"
-    />
-
     <div class="relative w-full max-w-md">
       <!-- Logo / Brand -->
       <div class="mb-8 text-center">
-        <div
-          class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl border border-fuchsia-500/20 bg-fuchsia-500/10"
+        <RouterLink
+          to="/"
+          class="inline-flex items-center gap-3"
+          aria-label="Altruisme Learn, accueil"
         >
-          <span class="text-xl font-bold text-fuchsia-400"> A </span>
-        </div>
+          <span
+            class="flex size-10 items-center justify-center rounded-xl border border-petrol/20 bg-petrol/8 text-sm font-bold text-petrol"
+            >A.</span
+          >
+          <span class="text-sm font-bold tracking-tight text-ink">Altruisme Learn</span>
+        </RouterLink>
 
-        <p class="mt-5 text-sm font-semibold uppercase tracking-[0.18em] text-fuchsia-400">
-          Acquisition
-        </p>
+        <h1 class="mt-8 text-3xl font-semibold tracking-tight text-ink">Ton espace apprenant</h1>
 
-        <h1 class="mt-3 text-3xl font-bold tracking-tight text-white">Ton espace membre</h1>
-
-        <p class="mt-3 text-sm leading-6 text-zinc-400">
+        <p class="mt-3 text-sm leading-6 text-muted">
           Connecte-toi pour accéder à ta formation et à tes outils.
         </p>
       </div>
 
       <!-- Card -->
       <div
-        class="rounded-3xl border border-white/10 bg-zinc-900/70 p-6 shadow-2xl shadow-black/20 backdrop-blur sm:p-8"
+        class="rounded-3xl border border-white/80 bg-white/75 p-6 shadow-[0_24px_72px_-48px_rgb(34_70_73_/_0.29)] backdrop-blur-xl sm:p-8"
       >
         <form class="space-y-5" @submit.prevent="handleLogin">
           <!-- Email -->
           <div>
-            <label for="email" class="mb-2 block text-sm font-medium text-zinc-200"> Email </label>
+            <label for="email" class="mb-2 block text-sm font-medium text-ink"> Email </label>
 
             <input
               id="email"
@@ -83,13 +80,13 @@ async function handleLogin() {
               type="email"
               autocomplete="email"
               placeholder="ton@email.com"
-              class="w-full rounded-xl border border-white/10 bg-zinc-950 px-4 py-3 text-sm text-white outline-none transition placeholder:text-zinc-600 focus:border-fuchsia-500/60 focus:ring-2 focus:ring-fuchsia-500/10"
+              class="w-full rounded-xl border border-petrol/20 bg-white px-4 py-3 text-sm text-ink outline-none transition placeholder:text-muted-light focus:border-petrol focus:ring-2 focus:ring-mist-deep"
             />
           </div>
 
           <!-- Password -->
           <div>
-            <label for="password" class="mb-2 block text-sm font-medium text-zinc-200">
+            <label for="password" class="mb-2 block text-sm font-medium text-ink">
               Mot de passe
             </label>
 
@@ -99,14 +96,14 @@ async function handleLogin() {
               type="password"
               autocomplete="current-password"
               placeholder="••••••••"
-              class="w-full rounded-xl border border-white/10 bg-zinc-950 px-4 py-3 text-sm text-white outline-none transition placeholder:text-zinc-600 focus:border-fuchsia-500/60 focus:ring-2 focus:ring-fuchsia-500/10"
+              class="w-full rounded-xl border border-petrol/20 bg-white px-4 py-3 text-sm text-ink outline-none transition placeholder:text-muted-light focus:border-petrol focus:ring-2 focus:ring-mist-deep"
             />
           </div>
 
           <!-- Error -->
           <div
             v-if="errorMessage"
-            class="rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-300"
+            class="rounded-xl border border-red-500/20 bg-red-50 px-4 py-3 text-sm text-red-700"
           >
             {{ errorMessage }}
           </div>
@@ -115,7 +112,7 @@ async function handleLogin() {
           <button
             type="submit"
             :disabled="loading"
-            class="flex w-full items-center justify-center rounded-xl bg-fuchsia-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-fuchsia-500 disabled:cursor-not-allowed disabled:opacity-60"
+            class="flex w-full items-center justify-center rounded-xl bg-petrol-dark px-4 py-3 text-sm font-semibold text-white transition hover:bg-ink disabled:cursor-not-allowed disabled:opacity-60"
           >
             <span v-if="loading"> Connexion... </span>
 
@@ -123,14 +120,14 @@ async function handleLogin() {
           </button>
         </form>
 
-        <div class="mt-6 border-t border-white/10 pt-6 text-center">
-          <p class="text-xs leading-5 text-zinc-500">
+        <div class="mt-6 border-t border-petrol/15 pt-6 text-center">
+          <p class="text-xs leading-5 text-muted">
             Ton accès est créé manuellement après ton inscription à l'accompagnement.
           </p>
         </div>
       </div>
 
-      <p class="mt-6 text-center text-xs text-zinc-600">
+      <p class="mt-6 text-center text-xs text-muted">
         Un problème avec ton accès ? Contacte-nous directement.
       </p>
     </div>

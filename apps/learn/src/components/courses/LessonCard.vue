@@ -20,7 +20,7 @@ withDefaults(
         lessonSlug: slug,
       },
     }"
-    class="group flex w-full items-center gap-4 rounded-2xl border border-zinc-200 bg-white p-4 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-fuchsia-200 hover:shadow-md sm:p-5"
+    class="group flex w-full items-center gap-4 rounded-2xl border border-petrol/20 bg-white p-4 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-petrol/25 hover:shadow-md sm:p-5"
   >
     <div
       :class="[
@@ -28,8 +28,8 @@ withDefaults(
         status === 'completed'
           ? 'bg-emerald-50 text-emerald-700'
           : status === 'locked'
-            ? 'bg-zinc-100 text-zinc-400'
-            : 'bg-fuchsia-50 text-fuchsia-700 group-hover:bg-fuchsia-600 group-hover:text-white',
+            ? 'bg-mist text-muted-light'
+            : 'bg-mist text-petrol-dark group-hover:bg-petrol-dark group-hover:text-white',
       ]"
     >
       <span v-if="status === 'completed'"> ✓ </span>
@@ -43,7 +43,7 @@ withDefaults(
       <p
         :class="[
           'font-semibold leading-6',
-          status === 'locked' ? 'text-zinc-400' : 'text-zinc-900',
+          status === 'locked' ? 'text-muted-light' : 'text-petrol-dark',
         ]"
       >
         {{ title }}
@@ -54,8 +54,8 @@ withDefaults(
       :class="[
         'shrink-0 text-lg transition',
         status === 'locked'
-          ? 'text-zinc-300'
-          : 'text-zinc-400 group-hover:translate-x-1 group-hover:text-fuchsia-600',
+          ? 'text-petrol/35'
+          : 'text-muted-light group-hover:translate-x-1 group-hover:text-petrol-dark',
       ]"
       aria-hidden="true"
     >

@@ -5,13 +5,8 @@ import BaseContainer from '@/components/ui/BaseContainer.vue'
 import { useActionTracking } from '@/composables/useActionTracking'
 import { useOpportunities } from '@/composables/useOpportunities'
 
-const {
-  opportunities,
-  activeOpportunities,
-  conversationCount,
-  interviewCount,
-  wonCount,
-} = useOpportunities()
+const { opportunities, activeOpportunities, conversationCount, interviewCount, wonCount } =
+  useOpportunities()
 
 const { logs } = useActionTracking()
 
@@ -120,13 +115,13 @@ const tools = [
 <template>
   <BaseContainer>
     <header class="max-w-3xl">
-      <p class="text-sm font-semibold text-fuchsia-600">Pilotage</p>
+      <p class="text-sm font-semibold text-petrol-dark">Pilotage</p>
 
-      <h1 class="mt-2 text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
+      <h1 class="mt-2 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
         Pilote ta recherche de mission.
       </h1>
 
-      <p class="mt-3 max-w-2xl text-base leading-7 text-zinc-600">
+      <p class="mt-3 max-w-2xl text-base leading-7 text-muted">
         Suis tes opportunités, ton activité et tes résultats au même endroit pour savoir où tu en es
         et ajuster tes efforts sans te disperser.
       </p>
@@ -136,71 +131,67 @@ const tools = [
     <section class="mt-10">
       <div class="flex items-end justify-between gap-4">
         <div>
-          <p class="text-xs font-semibold uppercase tracking-wide text-fuchsia-600">
+          <p class="text-xs font-semibold uppercase tracking-wide text-petrol-dark">
             Situation actuelle
           </p>
-          <h2 class="mt-2 text-xl font-semibold tracking-tight text-zinc-950">
+          <h2 class="mt-2 text-xl font-semibold tracking-tight text-ink">
             Où en est ta recherche ?
           </h2>
         </div>
 
         <RouterLink
           :to="{ name: 'opportunities' }"
-          class="hidden text-sm font-semibold text-fuchsia-700 transition hover:text-fuchsia-800 sm:inline"
+          class="hidden text-sm font-semibold text-petrol-dark transition hover:text-ink sm:inline"
         >
           Voir le pipeline →
         </RouterLink>
       </div>
 
       <div class="mt-5 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <div class="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
-          <p class="text-3xl font-bold tracking-tight text-zinc-950">
+        <div class="rounded-2xl border border-petrol/20 bg-white p-5 shadow-sm">
+          <p class="text-3xl font-bold tracking-tight text-ink">
             {{ activeOpportunities.length }}
           </p>
-          <p class="mt-1 text-sm font-medium text-zinc-600">Opportunités actives</p>
+          <p class="mt-1 text-sm font-medium text-muted">Opportunités actives</p>
         </div>
 
-        <div class="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
-          <p class="text-3xl font-bold tracking-tight text-zinc-950">
+        <div class="rounded-2xl border border-petrol/20 bg-white p-5 shadow-sm">
+          <p class="text-3xl font-bold tracking-tight text-ink">
             {{ conversationCount }}
           </p>
-          <p class="mt-1 text-sm font-medium text-zinc-600">Échanges en cours</p>
+          <p class="mt-1 text-sm font-medium text-muted">Échanges en cours</p>
         </div>
 
-        <div class="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
-          <p class="text-3xl font-bold tracking-tight text-zinc-950">
+        <div class="rounded-2xl border border-petrol/20 bg-white p-5 shadow-sm">
+          <p class="text-3xl font-bold tracking-tight text-ink">
             {{ interviewCount }}
           </p>
-          <p class="mt-1 text-sm font-medium text-zinc-600">Entretiens / RDV</p>
+          <p class="mt-1 text-sm font-medium text-muted">Entretiens / RDV</p>
         </div>
 
-        <div class="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
-          <p class="text-3xl font-bold tracking-tight text-zinc-950">
+        <div class="rounded-2xl border border-petrol/20 bg-white p-5 shadow-sm">
+          <p class="text-3xl font-bold tracking-tight text-ink">
             {{ wonCount }}
           </p>
-          <p class="mt-1 text-sm font-medium text-zinc-600">Missions gagnées</p>
+          <p class="mt-1 text-sm font-medium text-muted">Missions gagnées</p>
         </div>
       </div>
     </section>
 
     <!-- Activité 7 jours -->
-    <section class="mt-10 rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-7">
+    <section class="mt-10 rounded-2xl border border-petrol/20 bg-white p-6 shadow-sm sm:p-7">
       <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <p class="text-xs font-semibold uppercase tracking-wide text-fuchsia-600">
-            Ton activité
-          </p>
-          <h2 class="mt-2 text-xl font-semibold tracking-tight text-zinc-950">
-            7 derniers jours
-          </h2>
-          <p class="mt-1 text-sm leading-6 text-zinc-500">
+          <p class="text-xs font-semibold uppercase tracking-wide text-petrol-dark">Ton activité</p>
+          <h2 class="mt-2 text-xl font-semibold tracking-tight text-ink">7 derniers jours</h2>
+          <p class="mt-1 text-sm leading-6 text-muted">
             Regarde ton rythme global plutôt qu’une seule journée isolée.
           </p>
         </div>
 
-        <div class="rounded-xl bg-zinc-50 px-4 py-3 sm:text-right">
-          <p class="text-2xl font-bold tracking-tight text-zinc-950">{{ totalActions }}</p>
-          <p class="text-xs font-medium text-zinc-500">actions réalisées</p>
+        <div class="rounded-xl bg-sand-light px-4 py-3 sm:text-right">
+          <p class="text-2xl font-bold tracking-tight text-ink">{{ totalActions }}</p>
+          <p class="text-xs font-medium text-muted">actions réalisées</p>
         </div>
       </div>
 
@@ -208,22 +199,24 @@ const tools = [
         <div
           v-for="action in activityTotals"
           :key="action.key"
-          class="rounded-xl border border-zinc-200 bg-zinc-50 p-4"
+          class="rounded-xl border border-petrol/20 bg-sand-light p-4"
         >
-          <p class="text-2xl font-bold tracking-tight text-zinc-950">{{ action.total }}</p>
-          <p class="mt-1 text-sm text-zinc-600">{{ action.label }}</p>
+          <p class="text-2xl font-bold tracking-tight text-ink">{{ action.total }}</p>
+          <p class="mt-1 text-sm text-muted">{{ action.label }}</p>
         </div>
       </div>
 
-      <div class="mt-5 flex flex-col gap-3 border-t border-zinc-100 pt-5 sm:flex-row sm:items-center sm:justify-between">
-        <p class="text-sm text-zinc-600">
-          <strong class="font-semibold text-zinc-950">{{ activeDays }}/7 jours actifs</strong>
+      <div
+        class="mt-5 flex flex-col gap-3 border-t border-mist pt-5 sm:flex-row sm:items-center sm:justify-between"
+      >
+        <p class="text-sm text-muted">
+          <strong class="font-semibold text-ink">{{ activeDays }}/7 jours actifs</strong>
           sur la période.
         </p>
 
         <RouterLink
           :to="{ name: 'actions' }"
-          class="text-sm font-semibold text-fuchsia-700 transition hover:text-fuchsia-800"
+          class="text-sm font-semibold text-petrol-dark transition hover:text-ink"
         >
           Voir le suivi des actions →
         </RouterLink>
@@ -233,83 +226,73 @@ const tools = [
     <!-- Résultats -->
     <section class="mt-10">
       <div>
-        <p class="text-xs font-semibold uppercase tracking-wide text-fuchsia-600">
-          Résultats
-        </p>
-        <h2 class="mt-2 text-xl font-semibold tracking-tight text-zinc-950">
+        <p class="text-xs font-semibold uppercase tracking-wide text-petrol-dark">Résultats</p>
+        <h2 class="mt-2 text-xl font-semibold tracking-tight text-ink">
           Comprends ce que tes actions produisent.
         </h2>
-        <p class="mt-1 max-w-2xl text-sm leading-6 text-zinc-500">
-          Ces indicateurs sont calculés automatiquement à partir de ton pipeline. Ils servent surtout
-          à repérer où tes opportunités avancent — ou se bloquent.
+        <p class="mt-1 max-w-2xl text-sm leading-6 text-muted">
+          Ces indicateurs sont calculés automatiquement à partir de ton pipeline. Ils servent
+          surtout à repérer où tes opportunités avancent — ou se bloquent.
         </p>
       </div>
 
       <div class="mt-5 grid gap-5 lg:grid-cols-[1.45fr_1fr]">
-        <div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-          <p class="text-sm font-semibold text-zinc-950">Ton funnel</p>
+        <div class="rounded-2xl border border-petrol/20 bg-white p-6 shadow-sm">
+          <p class="text-sm font-semibold text-ink">Ton funnel</p>
 
           <div class="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-            <div class="rounded-xl bg-zinc-50 p-4">
-              <p class="text-2xl font-bold text-zinc-950">{{ contactedOrFurtherCount }}</p>
-              <p class="mt-1 text-sm text-zinc-600">Contacts engagés</p>
+            <div class="rounded-xl bg-sand-light p-4">
+              <p class="text-2xl font-bold text-ink">{{ contactedOrFurtherCount }}</p>
+              <p class="mt-1 text-sm text-muted">Contacts engagés</p>
             </div>
 
-            <div class="rounded-xl bg-zinc-50 p-4">
-              <p class="text-2xl font-bold text-zinc-950">{{ engagedCount }}</p>
-              <p class="mt-1 text-sm text-zinc-600">Échanges qualifiés</p>
+            <div class="rounded-xl bg-sand-light p-4">
+              <p class="text-2xl font-bold text-ink">{{ engagedCount }}</p>
+              <p class="mt-1 text-sm text-muted">Échanges qualifiés</p>
             </div>
 
-            <div class="rounded-xl bg-zinc-50 p-4">
-              <p class="text-2xl font-bold text-zinc-950">{{ interviewCount }}</p>
-              <p class="mt-1 text-sm text-zinc-600">Entretiens / RDV</p>
+            <div class="rounded-xl bg-sand-light p-4">
+              <p class="text-2xl font-bold text-ink">{{ interviewCount }}</p>
+              <p class="mt-1 text-sm text-muted">Entretiens / RDV</p>
             </div>
 
-            <div class="rounded-xl bg-zinc-50 p-4">
-              <p class="text-2xl font-bold text-zinc-950">{{ wonCount }}</p>
-              <p class="mt-1 text-sm text-zinc-600">Missions gagnées</p>
+            <div class="rounded-xl bg-sand-light p-4">
+              <p class="text-2xl font-bold text-ink">{{ wonCount }}</p>
+              <p class="mt-1 text-sm text-muted">Missions gagnées</p>
             </div>
           </div>
 
-          <div class="mt-6 grid gap-4 border-t border-zinc-100 pt-6 sm:grid-cols-3">
+          <div class="mt-6 grid gap-4 border-t border-mist pt-6 sm:grid-cols-3">
             <div>
-              <p class="text-xl font-bold text-zinc-950">
+              <p class="text-xl font-bold text-ink">
                 {{ formatRate(engagedCount, contactedOrFurtherCount) }}
               </p>
-              <p class="mt-1 text-xs leading-5 text-zinc-500">
-                Contacts → échanges
-              </p>
+              <p class="mt-1 text-xs leading-5 text-muted">Contacts → échanges</p>
             </div>
 
             <div>
-              <p class="text-xl font-bold text-zinc-950">
+              <p class="text-xl font-bold text-ink">
                 {{ formatRate(interviewCount, engagedCount) }}
               </p>
-              <p class="mt-1 text-xs leading-5 text-zinc-500">
-                Échanges → entretiens
-              </p>
+              <p class="mt-1 text-xs leading-5 text-muted">Échanges → entretiens</p>
             </div>
 
             <div>
-              <p class="text-xl font-bold text-zinc-950">
+              <p class="text-xl font-bold text-ink">
                 {{ formatRate(wonCount, closedCount) }}
               </p>
-              <p class="mt-1 text-xs leading-5 text-zinc-500">
-                Opportunités closes gagnées
-              </p>
+              <p class="mt-1 text-xs leading-5 text-muted">Opportunités closes gagnées</p>
             </div>
           </div>
         </div>
 
-        <div class="rounded-2xl border border-fuchsia-100 bg-fuchsia-50/50 p-6">
-          <p class="text-sm font-semibold text-fuchsia-800">À retenir</p>
+        <div class="rounded-2xl border border-mist-deep bg-mist/70 p-6">
+          <p class="text-sm font-semibold text-ink">À retenir</p>
 
-          <p class="mt-3 text-3xl font-bold tracking-tight text-zinc-950">
-            {{ activeDays }}/7
-          </p>
-          <p class="mt-1 text-sm font-medium text-zinc-700">jours actifs cette semaine</p>
+          <p class="mt-3 text-3xl font-bold tracking-tight text-ink">{{ activeDays }}/7</p>
+          <p class="mt-1 text-sm font-medium text-ink-soft">jours actifs cette semaine</p>
 
-          <p class="mt-5 text-sm leading-6 text-zinc-600">
+          <p class="mt-5 text-sm leading-6 text-muted">
             L’objectif n’est pas d’accumuler les actions. Cherche surtout à maintenir un rythme
             régulier et à faire progresser tes opportunités vers des échanges puis des entretiens.
           </p>
@@ -318,10 +301,10 @@ const tools = [
     </section>
 
     <!-- Outils -->
-    <section class="mt-10 border-t border-zinc-200 pt-10">
+    <section class="mt-10 border-t border-petrol/20 pt-10">
       <div>
-        <p class="text-xs font-semibold uppercase tracking-wide text-zinc-500">Tes outils</p>
-        <h2 class="mt-2 text-xl font-semibold tracking-tight text-zinc-950">
+        <p class="text-xs font-semibold uppercase tracking-wide text-muted">Tes outils</p>
+        <h2 class="mt-2 text-xl font-semibold tracking-tight text-ink">
           Passe au détail quand tu en as besoin.
         </h2>
       </div>
@@ -331,22 +314,22 @@ const tools = [
           v-for="tool in tools"
           :key="tool.title"
           :to="{ name: tool.routeName }"
-          class="group flex min-h-48 flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-fuchsia-200 hover:shadow-md"
+          class="group flex min-h-48 flex-col rounded-2xl border border-petrol/20 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-petrol/25 hover:shadow-md"
         >
-          <p class="text-xs font-semibold uppercase tracking-wide text-fuchsia-600">
+          <p class="text-xs font-semibold uppercase tracking-wide text-petrol-dark">
             {{ tool.eyebrow }}
           </p>
 
-          <h3 class="mt-3 text-xl font-semibold tracking-tight text-zinc-950">
+          <h3 class="mt-3 text-xl font-semibold tracking-tight text-ink">
             {{ tool.title }}
           </h3>
 
-          <p class="mt-2 text-sm leading-6 text-zinc-600">
+          <p class="mt-2 text-sm leading-6 text-muted">
             {{ tool.description }}
           </p>
 
           <div class="mt-auto pt-8">
-            <span class="text-sm font-semibold text-fuchsia-700 transition group-hover:text-fuchsia-800">
+            <span class="text-sm font-semibold text-petrol-dark transition group-hover:text-ink">
               {{ tool.actionLabel }}
             </span>
           </div>

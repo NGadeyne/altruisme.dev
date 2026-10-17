@@ -74,13 +74,13 @@ const workshops: Workshop[] = [
   <BaseContainer>
     <!-- Header -->
     <header class="max-w-3xl">
-      <p class="text-sm font-semibold text-fuchsia-600">Ateliers</p>
+      <p class="text-sm font-semibold text-petrol-dark">Ateliers</p>
 
-      <h1 class="mt-2 text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
+      <h1 class="mt-2 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
         Replays des ateliers
       </h1>
 
-      <p class="mt-3 max-w-2xl text-base leading-7 text-zinc-600">
+      <p class="mt-3 max-w-2xl text-base leading-7 text-muted">
         Une sélection des ateliers de groupe les plus utiles à revoir pendant ton accompagnement.
       </p>
     </header>
@@ -91,26 +91,24 @@ const workshops: Workshop[] = [
         <article
           v-for="workshop in workshops"
           :key="workshop.id"
-          class="group flex min-h-60 flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-fuchsia-200 hover:shadow-md"
+          class="group flex min-h-60 flex-col rounded-2xl border border-petrol/20 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-petrol/25 hover:shadow-md"
         >
           <!-- Meta -->
           <div class="flex flex-wrap items-center gap-2">
-            <span
-              class="rounded-full bg-fuchsia-50 px-3 py-1 text-xs font-semibold text-fuchsia-700"
-            >
+            <span class="rounded-full bg-mist px-3 py-1 text-xs font-semibold text-petrol-dark">
               Replay
             </span>
 
             <template v-if="workshop.date">
-              <span class="text-sm text-zinc-400">
+              <span class="text-sm text-muted-light">
                 {{ workshop.date }}
               </span>
             </template>
 
             <template v-if="workshop.duration">
-              <span v-if="workshop.date" class="text-zinc-300" aria-hidden="true"> · </span>
+              <span v-if="workshop.date" class="text-petrol/35" aria-hidden="true"> · </span>
 
-              <span class="text-sm text-zinc-400">
+              <span class="text-sm text-muted-light">
                 {{ workshop.duration }}
               </span>
             </template>
@@ -118,11 +116,11 @@ const workshops: Workshop[] = [
 
           <!-- Content -->
           <div class="mt-5">
-            <h2 class="text-xl font-semibold tracking-tight text-zinc-950">
+            <h2 class="text-xl font-semibold tracking-tight text-ink">
               {{ workshop.title }}
             </h2>
 
-            <p class="mt-2 text-sm leading-6 text-zinc-600">
+            <p class="mt-2 text-sm leading-6 text-muted">
               {{ workshop.description }}
             </p>
           </div>
@@ -134,14 +132,14 @@ const workshops: Workshop[] = [
               :href="workshop.replayUrl"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 text-sm font-semibold text-fuchsia-700 transition hover:text-fuchsia-800"
+              class="inline-flex items-center gap-2 text-sm font-semibold text-petrol-dark transition hover:text-ink"
             >
               Voir le replay
 
               <span class="transition group-hover:translate-x-1" aria-hidden="true"> → </span>
             </a>
 
-            <span v-else class="text-sm font-medium text-zinc-400">
+            <span v-else class="text-sm font-medium text-muted-light">
               Replay bientôt disponible
             </span>
           </div>
