@@ -7,6 +7,7 @@ import { updatePageMetadata } from '@/lib/pageMetadata'
 import { week39 } from '@/content/news/week39Metadata'
 import { week40 } from '@/content/news/week40Metadata'
 import { week41 } from '@/content/news/week41Metadata'
+import { week42 } from '@/content/news/week42Metadata'
 
 export const routes: RouteRecordRaw[] = [
   {
@@ -91,6 +92,27 @@ export const routes: RouteRecordRaw[] = [
       title: 'Actualités tech de la semaine | Altruisme.DEV',
       description:
         'Une sélection hebdomadaire des actualités produit, SaaS, IA, automatisation, freelance et entreprises tech, expliquées avec du contexte.',
+    },
+  },
+  {
+    path: `/actualites/${week42.slug}`,
+    name: 'news-week-42',
+    component: () => import('../views/news/Week42View.vue'),
+    meta: {
+      title: 'Actu Tech semaine #42 : Google s’attaque au grand verrou du quantique',
+      description:
+        'Google avance sur le quantique, Meta muscle ses modèles IA, Apple pousse la maison connectée et les puces restent sous tension : l’actu Tech de la semaine #42.',
+      ogTitle: week42.title,
+      ogDescription:
+        'Google progresse sur la correction d’erreur quantique, Meta relance la course aux modèles, Apple accélère dans la maison connectée et la demande en puces reste explosive.',
+      image: week42.image,
+      imageAlt: week42.imageAlt,
+      ogImageAlt: 'Actu Tech de la semaine #42 — Altruisme.DEV',
+      article: true,
+      articleSection: week42.format,
+      publishedAt: week42.publishedAt,
+      modifiedAt: week42.modifiedAt,
+      author: week42.author,
     },
   },
   {

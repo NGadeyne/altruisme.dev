@@ -249,28 +249,29 @@ for (const path of [...prerenderPaths, '/404']) {
     assert.equal(document.querySelector('.media-feature'), null)
     assert.equal(
       document.querySelector('.media-news-list .media-arrow-link')?.getAttribute('href'),
-      '/actualites/semaine-41-2026',
+      '/actualites/semaine-42-2026',
     )
     assert.equal(document.querySelector('.media-resource .base-button')?.getAttribute('href'), '/checklist')
     assert.equal(document.querySelectorAll('nav[aria-label="Navigation principale"] a[href="/checklist"]').length, 1)
   }
   if (path === '/actualites') {
-    assert.equal(document.querySelectorAll('main article').length, 3)
+    assert.equal(document.querySelectorAll('main article').length, 4)
     assert.equal(document.querySelector('main h1')?.textContent.trim(), 'Actu Tech de la semaine')
     assert.equal(
       document.querySelector('main article h2')?.textContent.trim(),
-      'Actu Tech de la semaine #41 : Google veut faire de Gemini un collègue',
+      'Actu Tech de la semaine #42 : Google s’attaque au grand verrou du quantique',
     )
     assert.equal(document.querySelector('main article img'), null)
     assert.equal(
       document.querySelector('main article a')?.getAttribute('href'),
-      '/actualites/semaine-41-2026',
+      '/actualites/semaine-42-2026',
     )
     assert.equal(document.querySelectorAll('script[type="application/ld+json"]').length, 0)
   }
-  if (['/actualites/semaine-39-2026', '/actualites/semaine-40-2026', '/actualites/semaine-41-2026'].includes(path)) {
+  if (['/actualites/semaine-39-2026', '/actualites/semaine-40-2026', '/actualites/semaine-41-2026', '/actualites/semaine-42-2026'].includes(path)) {
     const publishedAt = path.endsWith('semaine-39-2026') ? '2026-09-26'
-      : path.endsWith('semaine-40-2026') ? '2026-10-02' : '2026-10-10'
+      : path.endsWith('semaine-40-2026') ? '2026-10-02'
+        : path.endsWith('semaine-41-2026') ? '2026-10-10' : '2026-10-17'
     const canonical = document.querySelector('link[rel="canonical"]')?.getAttribute('href')
     assert.equal(document.querySelectorAll('link[rel="canonical"]').length, 1, path)
     assert.equal(document.querySelectorAll('script[type="application/ld+json"]').length, 1, path)
@@ -322,6 +323,42 @@ for (const path of [...prerenderPaths, '/404']) {
       assert.equal(tags[0].content, publishedAt)
     }
   }
+  if (path === '/actualites/semaine-42-2026') {
+    const source = await readFile(resolve('src/content/news/actu-tech-semaine-42-2026.txt'), 'utf8')
+    const publishedBlocks = [...document.querySelectorAll('.news-body h2, .news-body p')]
+      .map((element) => element.textContent.trim())
+    assert.deepEqual(
+      publishedBlocks,
+      source.trim().split(/\r?\n\s*\r?\n/).map((block) =>
+        block.replace(/^## /, '').replace(/\[([^\]]+)\]\((?:https?:\/\/|\/)[^)]+\)/g, '$1').replace(/\r?\n/g, ' '),
+      ),
+    )
+    assert.equal(document.title, 'Actu Tech semaine #42 : Google s’attaque au grand verrou du quantique')
+    assert.equal(document.querySelector('meta[name="description"]').content,
+      'Google avance sur le quantique, Meta muscle ses modèles IA, Apple pousse la maison connectée et les puces restent sous tension : l’actu Tech de la semaine #42.')
+    assert.equal(document.querySelector('meta[property="og:title"]').content,
+      'Actu Tech de la semaine #42 : Google s’attaque au grand verrou du quantique')
+    assert.equal(document.querySelector('meta[property="og:description"]').content,
+      'Google progresse sur la correction d’erreur quantique, Meta relance la course aux modèles, Apple accélère dans la maison connectée et la demande en puces reste explosive.')
+    assert.equal(document.querySelector('meta[property="og:image:alt"]').content,
+      'Actu Tech de la semaine #42 — Altruisme.DEV')
+    assert.equal(document.querySelector('main img')?.getAttribute('src'),
+      '/images/news/actu-tech-semaine-42-2026.webp')
+    assert.equal(document.querySelector('main img')?.getAttribute('alt'),
+      'Actu Tech de la semaine #42 : Google s’attaque au grand verrou du quantique')
+    assert.deepEqual(
+      [...document.querySelectorAll('.news-body a')].map((link) => [link.textContent, link.href, link.target, link.rel]),
+      [
+        ['magic state cultivation', 'https://blog.google/innovation-and-ai/models-and-research/quantum-computing/magic-state-cultivation-quantum-computing/', '_blank', 'noopener noreferrer'],
+        ['Muse Wonder et Muse Wonder Full', 'https://about.fb.com/news/2026/10/introducing-muse-wonder-models/', '_blank', 'noopener noreferrer'],
+        ['accédé à des systèmes réels d’entreprises indiennes', 'https://www.reuters.com/legal/litigation/rogue-ai-agents-broke-into-indian-firms-live-systems-government-says-2026-10-16/', '_blank', 'noopener noreferrer'],
+        ['Apple Home Collection', 'https://www.apple.com/fr/newsroom/2026/10/introducing-apple-home-collection-a-new-lineup-of-smart-home-accessories/', '_blank', 'noopener noreferrer'],
+        ['sixième trimestre consécutif de bénéfice record', 'https://www.reuters.com/world/asia-pacific/tsmc-expected-report-sixth-straight-quarter-record-profit-thanks-ai-boom-2026-10-14/', '_blank', 'noopener noreferrer'],
+      ],
+    )
+    assert.equal(document.querySelector('nav[aria-label="Navigation entre les éditions"] a')?.getAttribute('href'),
+      '/actualites/semaine-41-2026')
+  }
   if (path === '/actualites/semaine-41-2026') {
     const source = await readFile(resolve('src/content/news/actu-tech-semaine-41-2026.txt'), 'utf8')
     const publishedBlocks = [...document.querySelectorAll('.news-body h2, .news-body p')]
@@ -329,7 +366,7 @@ for (const path of [...prerenderPaths, '/404']) {
     assert.deepEqual(
       publishedBlocks,
       source.trim().split(/\r?\n\s*\r?\n/).map((block) =>
-        block.replace(/^## /, '').replace(/\[([^\]]+)\]\(https?:\/\/[^)]+\)/g, '$1').replace(/\r?\n/g, ' '),
+        block.replace(/^## /, '').replace(/\[([^\]]+)\]\((?:https?:\/\/|\/)[^)]+\)/g, '$1').replace(/\r?\n/g, ' '),
       ),
     )
     assert.equal(document.title, 'Actu Tech semaine #41 : Google veut faire de Gemini un collègue')
@@ -344,7 +381,7 @@ for (const path of [...prerenderPaths, '/404']) {
     assert.equal(document.querySelector('main img')?.getAttribute('src'),
       '/images/news/actu-tech-semaine-41-2026.webp')
     assert.deepEqual(
-      [...document.querySelectorAll('.news-body a')].map((link) => [link.textContent, link.href, link.target]),
+      [...document.querySelectorAll('.news-body a[href^="http"]')].map((link) => [link.textContent, link.href, link.target]),
       [
         ['agent universel pour le travail', 'https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-at-work/', '_blank'],
         ['intelligence hybride', 'https://blogs.windows.com/windowsexperience/2026/10/07/building-windows-for-hybrid-intelligence/', '_blank'],
@@ -361,7 +398,7 @@ for (const path of [...prerenderPaths, '/404']) {
     assert.deepEqual(
       publishedBlocks,
       source.trim().split(/\r?\n\s*\r?\n/).map((block) =>
-        block.replace(/^## /, '').replace(/\*\*/g, '').replace(/\[([^\]]+)\]\(https?:\/\/[^)]+\)/g, '$1').replace(/\r?\n/g, ' '),
+        block.replace(/^## /, '').replace(/\*\*/g, '').replace(/\[([^\]]+)\]\((?:https?:\/\/|\/)[^)]+\)/g, '$1').replace(/\r?\n/g, ' '),
       ),
     )
     assert.equal(document.title, 'Actu Tech semaine #40 : l’IA ne veut plus seulement discuter')
@@ -384,7 +421,9 @@ for (const path of [...prerenderPaths, '/404']) {
     )
     assert.deepEqual(
       publishedLines,
-      source.split(/\r?\n/).filter((line) => line.trim()),
+      source.split(/\r?\n/).filter((line) => line.trim()).map((line) =>
+        line.replace(/\[([^\]]+)\]\(\/[^)]+\)/g, '$1'),
+      ),
     )
     assert.deepEqual(
       [...document.querySelectorAll('.news-body a[href^="http"]')].map((link) => [
