@@ -109,7 +109,23 @@ export async function askSeoAssistant(message: string, signal?: AbortSignal): Pr
     )
   }
   if (!response.ok) {
-    throw new SeoAssistantError('server', 'L’assistant est momentanément indisponible. Réessaie.')
+    let message = 'L’assistant est momentanément indisponible. Réessaie.'
+    try {
+      const data: unknown = await response.json()
+      if (
+        typeof data === 'object' &&
+        data !== null &&
+        'error' in data &&
+        (data.error === 'Service indisponible.' ||
+          data.error === 'Le service de réponse est indisponible.' ||
+          data.error === 'Aucune réponse disponible pour le moment.')
+      ) {
+        message = data.error
+      }
+    } catch {
+      // Keep the generic message for non-JSON proxy errors.
+    }
+    throw new SeoAssistantError('server', message)
   }
 
   try {

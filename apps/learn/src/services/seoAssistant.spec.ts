@@ -76,4 +76,18 @@ describe('service Assistant SEO', () => {
       kind: 'invalid-response',
     })
   })
+
+  it('affiche le diagnostic sûr du Worker quand la réponse IA est incomplète', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async () =>
+        Response.json({ error: 'Aucune réponse disponible pour le moment.' }, { status: 502 }),
+      ),
+    )
+
+    await expect(askSeoAssistant('SEO ?')).rejects.toMatchObject({
+      kind: 'server',
+      message: 'Aucune réponse disponible pour le moment.',
+    })
+  })
 })

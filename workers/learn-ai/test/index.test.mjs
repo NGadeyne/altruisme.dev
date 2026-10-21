@@ -79,7 +79,8 @@ test('validates the session and message, then calls Responses API', async () => 
     assert.equal(body.model, 'gpt-5-mini')
     assert.equal(body.store, false)
     assert.equal(body.input, 'Comment débuter ?')
-    assert.equal(body.max_output_tokens, 600)
+    assert.deepEqual(body.reasoning, { effort: 'low' })
+    assert.equal(body.max_output_tokens, 3_072)
   } finally {
     globalThis.fetch = originalFetch
   }
@@ -96,6 +97,25 @@ test('rejects oversized messages before calling OpenAI', async () => {
     const response = await worker.fetch(chatRequest('x'.repeat(2_001)), environment())
     assert.equal(response.status, 400)
     assert.equal(calls, 1)
+  } finally {
+    globalThis.fetch = originalFetch
+  }
+})
+
+test('reports an incomplete OpenAI response without leaking provider details', async () => {
+  const originalFetch = globalThis.fetch
+  let calls = 0
+  globalThis.fetch = async () => {
+    calls += 1
+    return calls === 1
+      ? Response.json({ id: 'user-1' })
+      : Response.json({ status: 'incomplete', incomplete_details: { reason: 'max_output_tokens' } })
+  }
+  try {
+    const response = await worker.fetch(chatRequest('Comment optimiser une page ?'), environment())
+    assert.equal(response.status, 502)
+    assert.deepEqual(await response.json(), { error: 'Aucune réponse disponible pour le moment.' })
+    assert.equal(calls, 2)
   } finally {
     globalThis.fetch = originalFetch
   }
