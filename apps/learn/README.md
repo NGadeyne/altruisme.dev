@@ -6,7 +6,9 @@ La route authentifiée `/assistant-seo` appelle le Worker `altruisme-learn-ai` s
 
 Le Worker autorise déjà les origines `http://localhost:5173` et `https://learn.altruisme.dev` dans sa configuration CORS. Il faut aussi configurer ses secrets comme indiqué dans `workers/learn-ai/README.md`. Aucune clé OpenAI n'est utilisée dans le frontend.
 
-L'historique reste en mémoire pendant la navigation. La sauvegarde dans le navigateur est facultative, limitée aux 40 derniers messages et séparée par compte ; désactiver l'option l'efface. Le Worker traite actuellement chaque question séparément : l'historique affiché n'est pas transmis comme contexte à l'IA.
+L'historique reste en mémoire pendant la navigation. La sauvegarde dans le navigateur est facultative, limitée aux 40 derniers messages et séparée par compte ; désactiver l'option l'efface. Les échanges récents sont transmis au Worker comme contexte, dans la limite de huit messages et de 8 Kio par requête. Les recommandations de leçons sont affichées uniquement quand le Worker fournit des références vérifiées ; voir `workers/learn-ai/README.md` pour les droits d'accès et l'activation de la recherche documentaire.
+
+Pour que les changements dans les sous-dossiers déclenchent les builds Git Cloudflare, configurer le chemin surveillé `apps/learn/**` pour Learn. Les variables Vite, dont `VITE_LEARN_AI_API_URL`, doivent être définies dans les variables de **build** du projet Learn.
 
 This template should help get you started developing with Vue 3 in Vite.
 
