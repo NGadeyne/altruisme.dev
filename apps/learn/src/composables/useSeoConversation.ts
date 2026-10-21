@@ -1,10 +1,11 @@
 import { computed, ref } from 'vue'
 
-import { askSeoAssistant, SeoAssistantError } from '@/services/seoAssistant'
+import { askSeoAssistant, isSeoResource, SeoAssistantError, type SeoResource } from '@/services/seoAssistant'
 
 export interface SeoMessage {
   role: 'user' | 'assistant'
   content: string
+  resources?: SeoResource[]
 }
 
 interface ConversationError {
@@ -64,6 +65,13 @@ function load(id: string): void {
           item.content.length <= 16_000,
       )
       .slice(-MAX_SAVED_MESSAGES)
+      .map((item) => ({
+        role: item.role,
+        content: item.content,
+        ...(item.role === 'assistant' && Array.isArray(item.resources)
+          ? { resources: item.resources.filter(isSeoResource).slice(0, 3) }
+          : {}),
+      }))
     saveOnDevice.value = true
     if (messages.value.at(-1)?.role === 'user') {
       error.value = { message: "La dernière question n'a pas reçu de réponse.", canRetry: true }
@@ -132,9 +140,14 @@ async function generate(question: string, appendQuestion: boolean): Promise<void
   const controller = new AbortController()
   activeRequest = controller
   try {
-    const answer = await askSeoAssistant(text, controller.signal)
+    const history = messages.value
+      .slice(0, -1)
+      .filter((item) => item.content.length <= 1_500)
+      .slice(-8)
+      .map(({ role, content }) => ({ role, content }))
+    const reply = await askSeoAssistant(text, history, controller.signal)
     if (sequence !== requestSequence) return
-    messages.value = [...messages.value, { role: 'assistant', content: answer }]
+    messages.value = [...messages.value, { role: 'assistant', content: reply.answer, resources: reply.resources }]
     save()
   } catch (cause) {
     if (sequence !== requestSequence) return

@@ -7,6 +7,9 @@
     "dev": "wrangler dev",
     "type-check": "tsc --noEmit",
     "test": "node --experimental-strip-types --test test/*.test.mjs",
+    "lessons:export": "node --experimental-strip-types scripts/sync-lessons.mjs --export-dir=dist/seo-lessons",
+    "lessons:catalog": "node --experimental-strip-types scripts/sync-lessons.mjs --write-catalog",
+    "lessons:sync": "node --experimental-strip-types scripts/sync-lessons.mjs",
     "build": "npm run type-check && wrangler deploy --config wrangler.jsonc --dry-run --outdir dist",
     "deploy": "npm run build && wrangler deploy --config wrangler.jsonc"
   },

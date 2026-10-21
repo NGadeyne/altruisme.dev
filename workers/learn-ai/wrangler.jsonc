@@ -2,6 +2,7 @@
   "name": "altruisme-learn-ai",
   "main": "src/index.ts",
   "compatibility_date": "2026-09-10",
+  "keep_vars": true,
   "vars": {
     "OPENAI_MODEL": "gpt-5-mini",
   },

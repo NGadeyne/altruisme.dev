@@ -112,6 +112,28 @@ async function copyAnswer(content: string, index: number) {
             Assistant SEO
           </p>
           <SeoMarkdown :content="message.content" />
+          <div
+            v-if="message.resources?.length"
+            class="mt-5 rounded-xl border border-petrol/15 bg-white/70 px-4 py-3"
+          >
+            <p class="text-xs font-semibold uppercase tracking-[0.12em] text-[#3d6970]">
+              Pour aller plus loin
+            </p>
+            <ul class="mt-2 space-y-3">
+              <li v-for="resource in message.resources" :key="resource.id">
+                <p class="text-xs text-ink-soft">{{ resource.moduleTitle }}</p>
+                <p class="text-sm font-medium leading-6 text-ink">
+                  Leçon {{ resource.number }} — {{ resource.title }}
+                </p>
+                <RouterLink
+                  :to="resource.url"
+                  class="text-sm font-semibold text-petrol-dark underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-petrol"
+                >
+                  Découvrir la leçon
+                </RouterLink>
+              </li>
+            </ul>
+          </div>
           <div class="mt-4 flex items-center gap-3 border-t border-petrol/10 pt-3">
             <button
               type="button"

@@ -6,13 +6,14 @@ const origin = 'https://learn.altruisme.dev'
 const outOfScopeReply =
   "Je suis spécialisé dans le référencement naturel et l'amélioration de la visibilité sur Google. Je ne peux pas t'aider sur ce sujet, mais je peux répondre à toutes tes questions sur le SEO !"
 
-function modelResponse(scope, answer) {
+function modelResponse(scope, answer, lessonIds = [], results = []) {
   return Response.json({
     status: 'completed',
     output: [
+      ...(results.length ? [{ type: 'file_search_call', status: 'completed', results }] : []),
       {
         type: 'message',
-        content: [{ type: 'output_text', text: JSON.stringify({ scope, answer }) }],
+        content: [{ type: 'output_text', text: JSON.stringify({ scope, answer, lesson_ids: lessonIds }) }],
       },
     ],
   })
@@ -22,6 +23,7 @@ function environment(limit = () => ({ success: true })) {
   return {
     OPENAI_API_KEY: 'test-key',
     OPENAI_MODEL: 'gpt-5-mini',
+    LEARN_AI_RAG_ENABLED: 'false',
     SUPABASE_URL: 'https://example.supabase.co',
     SUPABASE_PUBLISHABLE_KEY: 'test-publishable-key',
     IP_RATE_LIMITER: { limit },
@@ -78,7 +80,7 @@ test('validates the session and message, then calls Responses API', async () => 
     const response = await worker.fetch(chatRequest('Comment débuter ?'), environment())
     assert.equal(response.status, 200)
     assert.equal(response.headers.get('access-control-allow-origin'), origin)
-    assert.deepEqual(await response.json(), { answer: 'Commence par trois mots-clés précis.' })
+    assert.deepEqual(await response.json(), { answer: 'Commence par trois mots-clés précis.', resources: [] })
     assert.equal(calls[0].url, 'https://example.supabase.co/auth/v1/user')
     assert.equal(calls[1].url, 'https://api.openai.com/v1/responses')
     const body = JSON.parse(calls[1].options.body)
@@ -129,6 +131,7 @@ test('applies the SEO scope contract to authorized, unrelated and mixed question
       assert.equal(response.status, 200, question)
       assert.deepEqual(await response.json(), {
         answer: scope === 'seo' ? 'Voici une réponse SEO.' : outOfScopeReply,
+        resources: [],
       }, question)
       assert.equal(calls.length, 2, question)
       assert.equal(calls[1].url, 'https://api.openai.com/v1/responses')
@@ -231,6 +234,166 @@ test('per-user limit blocks paid requests after authentication', async () => {
     const response = await worker.fetch(chatRequest('SEO ?'), env)
     assert.equal(response.status, 429)
     assert.equal(calls, 1)
+  } finally {
+    globalThis.fetch = originalFetch
+  }
+})
+
+test('only an entitled learner receives file search and verified lesson links', async () => {
+  const originalFetch = globalThis.fetch
+  const calls = []
+  globalThis.fetch = async (url, options) => {
+    calls.push({ url: String(url), options })
+    if (String(url).endsWith('/auth/v1/user')) return Response.json({ id: 'user-1' })
+    if (String(url).includes('/learn_course_entitlements?')) return Response.json([{ course_slug: 'seo' }])
+    const result = {
+      filename: 'seo-lesson-15.md',
+      attributes: { source: 'altruisme-learn-seo', lesson_id: 'seo-lesson-15' },
+    }
+    return modelResponse('seo', 'Le fichier robots.txt guide les robots.', ['seo-lesson-15', 'seo-lesson-99'], [result])
+  }
+  try {
+    const env = { ...environment(), LEARN_AI_RAG_ENABLED: 'true', OPENAI_VECTOR_STORE_ID: 'vs_test' }
+    const response = await worker.fetch(chatRequest('À quoi sert robots.txt ?'), env)
+    assert.equal(response.status, 200)
+    assert.deepEqual(await response.json(), {
+      answer: 'Le fichier robots.txt guide les robots.',
+      resources: [{
+        id: 'seo-lesson-15', number: 15,
+        title: 'Comprendre robots.txt, sitemap et balises canoniques',
+        moduleTitle: 'Maîtriser les fondamentaux techniques',
+        url: '/formation/lesson-15',
+      }],
+    })
+    assert.equal(calls.length, 3)
+    const body = JSON.parse(calls[2].options.body)
+    assert.equal(body.tools[0].type, 'file_search')
+    assert.deepEqual(body.tools[0].vector_store_ids, ['vs_test'])
+    assert.equal(body.tools[0].max_num_results, 4)
+    assert.deepEqual(body.include, ['file_search_call.results'])
+  } finally {
+    globalThis.fetch = originalFetch
+  }
+})
+
+test('a learner without a course grant cannot query paid documents', async () => {
+  const originalFetch = globalThis.fetch
+  const calls = []
+  globalThis.fetch = async (url, options) => {
+    calls.push({ url: String(url), options })
+    if (String(url).endsWith('/auth/v1/user')) return Response.json({ id: 'user-1' })
+    if (String(url).includes('/learn_course_entitlements?')) return Response.json([])
+    return modelResponse('seo', 'Une réponse SEO générale.', ['seo-lesson-15'])
+  }
+  try {
+    const env = { ...environment(), LEARN_AI_RAG_ENABLED: 'true', OPENAI_VECTOR_STORE_ID: 'vs_test' }
+    const response = await worker.fetch(chatRequest('À quoi sert robots.txt ?'), env)
+    assert.equal(response.status, 200)
+    assert.deepEqual(await response.json(), { answer: 'Une réponse SEO générale.', resources: [] })
+    assert.equal(calls.length, 3)
+    assert.equal(JSON.parse(calls[2].options.body).tools, undefined)
+  } finally {
+    globalThis.fetch = originalFetch
+  }
+})
+
+test('uses multiple retrieved lessons but never recommends a lesson absent from search results', async () => {
+  const originalFetch = globalThis.fetch
+  globalThis.fetch = async (url) => {
+    if (String(url).endsWith('/auth/v1/user')) return Response.json({ id: 'user-1' })
+    if (String(url).includes('/learn_course_entitlements?')) return Response.json([{ course_slug: 'seo' }])
+    return modelResponse('seo', 'Vérifie le rapport Pages, puis ton sitemap et tes directives robots.',
+      ['seo-lesson-15', 'seo-lesson-14', 'seo-lesson-99'], [
+        { filename: 'seo-lesson-15.md', attributes: { source: 'altruisme-learn-seo', lesson_id: 'seo-lesson-15' } },
+        { filename: 'seo-lesson-14.md', attributes: { source: 'altruisme-learn-seo', lesson_id: 'seo-lesson-14' } },
+      ])
+  }
+  try {
+    const env = { ...environment(), LEARN_AI_RAG_ENABLED: 'true', OPENAI_VECTOR_STORE_ID: 'vs_test' }
+    const response = await worker.fetch(chatRequest("Comment améliorer l'indexation de mon site ?"), env)
+    assert.equal(response.status, 200)
+    const body = await response.json()
+    assert.equal(body.resources.length, 2)
+    assert.deepEqual(body.resources.map((resource) => resource.id), ['seo-lesson-15', 'seo-lesson-14'])
+    assert.ok(body.resources.every((resource) => resource.url.startsWith('/formation/lesson-')))
+  } finally {
+    globalThis.fetch = originalFetch
+  }
+})
+
+test('an unavailable entitlement check fails closed and keeps the general SEO assistant available', async () => {
+  const originalFetch = globalThis.fetch
+  const calls = []
+  globalThis.fetch = async (url, options) => {
+    calls.push({ url: String(url), options })
+    if (String(url).endsWith('/auth/v1/user')) return Response.json({ id: 'user-1' })
+    if (String(url).includes('/learn_course_entitlements?')) return new Response(null, { status: 503 })
+    return modelResponse('seo', 'Utilise une commande site: et le rapport Pages de Search Console.', ['seo-lesson-15'])
+  }
+  const previousWarn = console.warn
+  console.warn = () => {}
+  try {
+    const env = { ...environment(), LEARN_AI_RAG_ENABLED: 'true', OPENAI_VECTOR_STORE_ID: 'vs_test' }
+    const response = await worker.fetch(chatRequest('Comment savoir si mes pages sont indexées ?'), env)
+    assert.equal(response.status, 200)
+    assert.deepEqual(await response.json(), {
+      answer: 'Utilise une commande site: et le rapport Pages de Search Console.', resources: [],
+    })
+    assert.equal(JSON.parse(calls[2].options.body).tools, undefined)
+  } finally {
+    console.warn = previousWarn
+    globalThis.fetch = originalFetch
+  }
+})
+
+test('file search failure falls back to general SEO without fabricated references', async () => {
+  const originalFetch = globalThis.fetch
+  const calls = []
+  globalThis.fetch = async (url, options) => {
+    calls.push({ url: String(url), options })
+    if (String(url).endsWith('/auth/v1/user')) return Response.json({ id: 'user-1' })
+    if (String(url).includes('/learn_course_entitlements?')) return Response.json([{ course_slug: 'seo' }])
+    if (calls.length === 3) return new Response(null, { status: 503 })
+    return modelResponse('seo', 'Vérifie le rapport Pages dans Search Console.', ['seo-lesson-05'])
+  }
+  const previousWarn = console.warn
+  console.warn = () => {}
+  try {
+    const env = { ...environment(), LEARN_AI_RAG_ENABLED: 'true', OPENAI_VECTOR_STORE_ID: 'vs_test' }
+    const response = await worker.fetch(chatRequest('Comment savoir si mes pages sont indexées ?'), env)
+    assert.deepEqual(await response.json(), {
+      answer: 'Vérifie le rapport Pages dans Search Console.', resources: [],
+    })
+    assert.equal(calls.length, 4)
+    assert.equal(JSON.parse(calls[3].options.body).tools, undefined)
+  } finally {
+    console.warn = previousWarn
+    globalThis.fetch = originalFetch
+  }
+})
+
+test('accepts bounded conversation history and rejects oversized history', async () => {
+  const originalFetch = globalThis.fetch
+  let sentBody
+  globalThis.fetch = async (url, options) => {
+    if (String(url).endsWith('/auth/v1/user')) return Response.json({ id: 'user-1' })
+    sentBody = JSON.parse(options.body)
+    return modelResponse('seo', 'Le sitemap aide à découvrir les URL.')
+  }
+  try {
+    const request = new Request('https://worker.example/chat', {
+      method: 'POST',
+      headers: { Origin: origin, Authorization: 'Bearer user-access-token', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: 'Et le sitemap ?', history: [{ role: 'user', content: 'À quoi sert robots.txt ?' }, { role: 'assistant', content: 'Il guide les robots.' }] }),
+    })
+    assert.equal((await worker.fetch(request, environment())).status, 200)
+    assert.deepEqual(sentBody.input.map(({ role }) => role), ['user', 'assistant', 'user'])
+    const invalid = new Request('https://worker.example/chat', {
+      method: 'POST',
+      headers: { Origin: origin, Authorization: 'Bearer user-access-token', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: 'SEO ?', history: [{ role: 'user', content: 'x'.repeat(1_501) }] }),
+    })
+    assert.equal((await worker.fetch(invalid, environment())).status, 400)
   } finally {
     globalThis.fetch = originalFetch
   }

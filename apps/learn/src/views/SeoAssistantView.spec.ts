@@ -11,7 +11,11 @@ vi.mock('@/stores/auth', () => ({
 }))
 
 vi.mock('@/services/seoAssistant', () => ({
-  askSeoAssistant: vi.fn(async () => '**Commence** par quelques mots-clés précis.'),
+  askSeoAssistant: vi.fn(async () => ({
+    answer: '**Commence** par quelques mots-clés précis.',
+    resources: [],
+  })),
+  isSeoResource: (item: unknown) => typeof item === 'object' && item !== null,
 }))
 
 function mountPage() {
@@ -19,6 +23,7 @@ function mountPage() {
     global: {
       stubs: {
         BaseContainer: { template: '<div><slot /></div>' },
+        RouterLink: { props: ['to'], template: '<a :href="to"><slot /></a>' },
       },
     },
   })
@@ -58,11 +63,33 @@ describe('Assistant SEO', () => {
 
     expect(askSeoAssistant).toHaveBeenCalledWith(
       'Comment trouver les bons mots-clés ?',
+      [],
       expect.any(AbortSignal),
     )
     expect(wrapper.text()).toContain('Commence par quelques mots-clés précis.')
     expect(wrapper.find('strong').text()).toBe('Commence')
     expect(wrapper.text()).toContain('Nouvelle conversation')
+    wrapper.unmount()
+  })
+
+  it('affiche une leçon vérifiée lorsque la réponse en contient une', async () => {
+    vi.mocked(askSeoAssistant).mockResolvedValueOnce({
+      answer: 'Le fichier robots.txt guide l’exploration.',
+      resources: [{
+        id: 'seo-lesson-15',
+        number: 15,
+        title: 'Comprendre robots.txt, sitemap et balises canoniques',
+        moduleTitle: 'Maîtriser les fondamentaux techniques',
+        url: '/formation/lesson-15',
+      }],
+    })
+    const wrapper = mountPage()
+    await wrapper.get('textarea').setValue('À quoi sert robots.txt ?')
+    await wrapper.get('textarea').trigger('keydown', { key: 'Enter' })
+    await flushPromises()
+
+    expect(wrapper.text()).toContain('Pour aller plus loin')
+    expect(wrapper.get('a[href="/formation/lesson-15"]').text()).toBe('Découvrir la leçon')
     wrapper.unmount()
   })
 
@@ -88,9 +115,9 @@ describe('Assistant SEO', () => {
   })
 
   it('empêche un second envoi pendant la génération', async () => {
-    let finish!: (answer: string) => void
+    let finish!: (answer: { answer: string; resources: [] }) => void
     vi.mocked(askSeoAssistant).mockImplementationOnce(
-      () => new Promise<string>((resolve) => (finish = resolve)),
+      () => new Promise((resolve) => (finish = resolve)),
     )
     const wrapper = mountPage()
     const textarea = wrapper.get('textarea')
@@ -101,7 +128,7 @@ describe('Assistant SEO', () => {
 
     await useSeoConversation().sendQuestion('Une seconde question ?')
     expect(askSeoAssistant).toHaveBeenCalledTimes(1)
-    finish('Réponse terminée.')
+    finish({ answer: 'Réponse terminée.', resources: [] })
     await flushPromises()
     wrapper.unmount()
   })

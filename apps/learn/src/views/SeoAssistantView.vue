@@ -132,8 +132,8 @@ async function startNewConversation() {
       class="mt-4 flex flex-wrap items-start justify-between gap-x-6 gap-y-3 px-1 text-xs leading-5 text-muted"
     >
       <p class="max-w-xl">
-        L'IA peut se tromper : vérifie ses recommandations. Chaque question est traitée séparément
-        pour le moment.
+        L'IA peut se tromper : vérifie ses recommandations. L'assistant tient compte des échanges
+        récents de cette conversation.
       </p>
       <label class="flex cursor-pointer items-center gap-2 text-ink-soft">
         <input v-model="localSaving" type="checkbox" class="size-4 accent-[#315960]" />
