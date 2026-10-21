@@ -4,7 +4,8 @@
   "private": true,
   "workspaces": [
     "apps/*",
-    "packages/*"
+    "packages/*",
+    "workers/*"
   ],
   "scripts": {
     "dev:website": "npm run dev --workspace=@altruisme/website",
@@ -14,6 +15,7 @@
     "dev:cloud": "npm run dev --workspace=@altruisme/cloud",
     "dev:learn": "npm run dev --workspace=@altruisme/learn",
     "dev:os": "npm run dev --workspace=@altruisme/os",
+    "dev:learn-ai": "npm run dev --workspace=@altruisme/learn-ai",
     "build:website": "npm run build --workspace=@altruisme/website",
     "build:builder": "npm run build --workspace=@altruisme/builder",
     "build:fondation": "npm run build --workspace=@altruisme/fondation",
@@ -23,6 +25,8 @@
     "build:cloud": "npm run build --workspace=@altruisme/cloud",
     "build:learn": "npm run build --workspace=@altruisme/learn",
     "build:os": "npm run build --workspace=@altruisme/os",
+    "build:learn-ai": "npm run build --workspace=@altruisme/learn-ai",
+    "deploy:learn-ai": "npm run deploy --workspace=@altruisme/learn-ai",
     "test:website": "npm run test:unit --workspace=@altruisme/website",
     "test:learn": "npm run test:unit --workspace=@altruisme/learn",
     "test:os": "npm run test:unit --workspace=@altruisme/os",

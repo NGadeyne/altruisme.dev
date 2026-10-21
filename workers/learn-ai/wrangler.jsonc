@@ -1,0 +1,28 @@
+{
+  "name": "altruisme-learn-ai",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-10",
+  "vars": {
+    "OPENAI_MODEL": "gpt-6-luna",
+  },
+  "secrets": {
+    "required": ["OPENAI_API_KEY", "SUPABASE_URL", "SUPABASE_PUBLISHABLE_KEY"],
+  },
+  "ratelimits": [
+    {
+      "name": "IP_RATE_LIMITER",
+      "namespace_id": "821947301",
+      "simple": { "limit": 30, "period": 60 },
+    },
+    {
+      "name": "USER_RATE_LIMITER",
+      "namespace_id": "821947302",
+      "simple": { "limit": 10, "period": 60 },
+    },
+    {
+      "name": "GLOBAL_RATE_LIMITER",
+      "namespace_id": "821947303",
+      "simple": { "limit": 120, "period": 60 },
+    },
+  ],
+}
