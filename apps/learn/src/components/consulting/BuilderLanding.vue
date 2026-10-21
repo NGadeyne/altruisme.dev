@@ -3,8 +3,10 @@ import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { BaseContainer } from '@altruisme/ui'
 import portraitOcean from '@/assets/portrait-ocean.webp'
 import { OPEN_COOKIE_SETTINGS_EVENT } from '@/composables/useCookieConsent'
+import { formatSeoMinutes, seoPracticeMinutes, seoReadingMinutes } from '@/data/seoProgram'
 
 const footerYear = new Date().getFullYear()
+const totalTrainingMinutes = seoReadingMinutes + seoPracticeMinutes
 const openFaq = ref<number | null>(null)
 const landingRoot = ref<HTMLElement | null>(null)
 let revealObserver: IntersectionObserver | undefined
@@ -226,7 +228,7 @@ const faqs = [
               <span class="builder-button builder-button--primary pointer-events-none">Être informé du lancement <span class="ml-2" aria-hidden="true">↗</span></span>
               <a href="#methode-pedagogique" class="builder-button builder-button--secondary">Découvrir le programme</a>
             </div>
-            <p class="mt-7 text-sm font-medium text-muted-light">SEO <span class="mx-2 font-bold text-petrol/80">·</span> Niveau débutant <span class="mx-2 font-bold text-petrol/80">·</span> 3 à 4 heures <span class="mx-2 font-bold text-petrol/80">·</span> Exercices pratiques</p>
+            <p class="mt-7 text-sm font-medium text-muted-light">SEO <span class="mx-2 font-bold text-petrol/80">·</span> Niveau débutant <span class="mx-2 font-bold text-petrol/80">·</span> Environ {{ formatSeoMinutes(totalTrainingMinutes) }} avec exercices <span class="mx-2 font-bold text-petrol/80">·</span> À ton rythme</p>
           </div>
         </BaseContainer>
       </section>
@@ -235,12 +237,12 @@ const faqs = [
         <BaseContainer>
           <div class="grid gap-3 sm:gap-4 md:grid-cols-3">
             <div data-builder-reveal class="builder-reveal builder-proof-card flex min-h-36 flex-col items-center justify-center rounded-2xl px-3 py-7 text-center sm:min-h-44 sm:px-6 sm:py-9">
-              <p class="text-[1.8rem] font-semibold tracking-tight text-[#315d61] sm:text-[2.15rem]">6</p>
+              <p class="text-[1.8rem] font-semibold tracking-tight text-[#315d61] sm:text-[2.15rem]">9</p>
               <p class="mt-2 font-medium text-[#315d61]">Modules</p>
               <p class="mt-1 max-w-[13rem] text-sm leading-6 text-muted">Pour comprendre les fondamentaux et les appliquer sur ton site.</p>
             </div>
             <div data-builder-reveal class="builder-reveal builder-proof-card flex min-h-36 flex-col items-center justify-center rounded-2xl px-3 py-7 text-center sm:min-h-44 sm:px-6 sm:py-9">
-              <p class="text-[1.8rem] font-semibold tracking-tight text-[#315d61] sm:text-[2.15rem]">20</p>
+              <p class="text-[1.8rem] font-semibold tracking-tight text-[#315d61] sm:text-[2.15rem]">28</p>
               <p class="mt-2 font-medium text-[#315d61]">Leçons</p>
               <p class="mt-1 max-w-[13rem] text-sm leading-6 text-muted">Des explications accessibles, des exemples et des démonstrations concrètes.</p>
             </div>
@@ -449,9 +451,9 @@ const faqs = [
               <div>
                 <h4 class="font-semibold text-[#254e54]">Le programme</h4>
                 <ul class="mt-3 list-disc space-y-1 pl-5 leading-7 text-muted marker:text-petrol">
-                  <li>6 modules</li>
-                  <li>20 leçons</li>
-                  <li>3 à 4 heures de formation</li>
+                  <li>9 modules</li>
+                  <li>28 leçons</li>
+                  <li>Environ {{ formatSeoMinutes(seoReadingMinutes) }} de lecture</li>
                   <li>Niveau débutant</li>
                   <li>À ton rythme</li>
                 </ul>
@@ -515,7 +517,7 @@ const faqs = [
             <h2 class="mx-auto max-w-3xl text-3xl font-semibold leading-[1.12] tracking-[-0.04em] sm:text-5xl">Et si tu prenais enfin ton SEO en main ?</h2>
             <p class="mx-auto mt-6 max-w-lg text-lg leading-8 text-[#dbe8e4]">Ton site mérite mieux que des optimisations au hasard. Apprends à comprendre son référencement, à identifier les bonnes opportunités et à construire une méthode pour améliorer progressivement ta visibilité. Une formation concrète, des exercices pratiques et les fondamentaux nécessaires pour avancer en autonomie.</p>
             <span class="builder-button builder-button--inverse pointer-events-none mt-9">Être informé du lancement <span class="ml-2" aria-hidden="true">↗</span></span>
-            <p class="mt-5 text-sm text-[#bdd1c9]">6 modules · 20 leçons · 5 ressources pratiques</p>
+            <p class="mt-5 text-sm text-[#bdd1c9]">9 modules · 28 leçons · 5 ressources pratiques</p>
           </div>
         </BaseContainer>
       </section>

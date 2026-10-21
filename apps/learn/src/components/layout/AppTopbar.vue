@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
 import { useAuthStore } from '@/stores/auth'
+import { pilotageAvailable, workshopsAvailable } from '@/config/features'
 
 const router = useRouter()
 const route = useRoute()
@@ -46,7 +47,7 @@ async function handleLogout() {
 <template>
   <header class="sticky top-0 z-20 border-b border-petrol/15 bg-sand-light/95 backdrop-blur-xl">
     <div class="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-      <RouterLink to="/app" class="text-sm font-semibold tracking-tight text-ink md:hidden"
+      <RouterLink to="/formation" class="text-sm font-semibold tracking-tight text-ink md:hidden"
         >Altruisme Learn</RouterLink
       >
       <p class="hidden text-sm font-medium text-muted md:block">Espace apprenant</p>
@@ -73,12 +74,19 @@ async function handleLogout() {
       aria-label="Navigation principale"
     >
       <RouterLink
-        to="/app"
+        to="/formation"
         class="shrink-0 rounded-lg px-3 py-2 text-sm font-medium text-muted"
         active-class="bg-mist text-petrol-dark"
         >Formation</RouterLink
       >
       <RouterLink
+        :to="{ name: 'learning-plan' }"
+        class="shrink-0 rounded-lg px-3 py-2 text-sm font-medium text-muted"
+        active-class="bg-mist text-petrol-dark"
+        >Mon plan d'action</RouterLink
+      >
+      <RouterLink
+        v-if="workshopsAvailable"
         to="/ateliers"
         class="shrink-0 rounded-lg px-3 py-2 text-sm font-medium text-muted"
         active-class="bg-mist text-petrol-dark"
@@ -91,6 +99,13 @@ async function handleLogout() {
         >Ressources</RouterLink
       >
       <RouterLink
+        :to="{ name: 'seo-assistant' }"
+        class="shrink-0 rounded-lg px-3 py-2 text-sm font-medium text-muted"
+        active-class="bg-mist text-petrol-dark"
+        >Assistant SEO</RouterLink
+      >
+      <RouterLink
+        v-if="pilotageAvailable"
         to="/pilotage"
         class="shrink-0 rounded-lg px-3 py-2 text-sm font-medium text-muted"
         active-class="bg-mist text-petrol-dark"

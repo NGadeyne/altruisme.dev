@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
+import { pilotageAvailable, workshopsAvailable } from '@/config/features'
 
 const route = useRoute()
 const consultingUrl = 'https://consulting.altruisme.dev/'
@@ -11,7 +12,11 @@ const consultingUrl = 'https://consulting.altruisme.dev/'
   >
     <!-- Logo -->
     <div class="flex h-16 shrink-0 items-center border-b border-petrol/15 px-5">
-      <RouterLink to="/app" class="flex items-center gap-3" aria-label="Altruisme Learn, formation">
+      <RouterLink
+        to="/formation"
+        class="flex items-center gap-3"
+        aria-label="Altruisme Learn, formation"
+      >
         <span
           class="flex size-9 items-center justify-center rounded-xl border border-petrol/20 bg-petrol/8 text-sm font-bold text-petrol"
           >A.</span
@@ -28,7 +33,7 @@ const consultingUrl = 'https://consulting.altruisme.dev/'
       <nav class="space-y-1 p-4" aria-label="Navigation principale">
         <!-- Formation -->
         <RouterLink
-          to="/app"
+          to="/formation"
           class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-muted transition hover:bg-mist hover:text-ink"
           active-class="bg-mist text-petrol-dark"
         >
@@ -55,8 +60,30 @@ const consultingUrl = 'https://consulting.altruisme.dev/'
           Formation
         </RouterLink>
 
+        <RouterLink
+          :to="{ name: 'learning-plan' }"
+          class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-muted transition hover:bg-mist hover:text-ink"
+          active-class="bg-mist text-petrol-dark"
+        >
+          <svg
+            class="size-5 shrink-0"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M9 4h10a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-1" />
+            <path d="m3 8 2 2 4-4M11 9h6M3 15l2 2 4-4M11 16h6" />
+          </svg>
+          Mon plan d'action
+        </RouterLink>
+
         <!-- Ateliers -->
         <RouterLink
+          v-if="workshopsAvailable"
           to="/ateliers"
           class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-muted transition hover:bg-mist hover:text-ink"
           active-class="bg-mist text-petrol-dark"
@@ -102,8 +129,32 @@ const consultingUrl = 'https://consulting.altruisme.dev/'
           Ressources
         </RouterLink>
 
+        <RouterLink
+          :to="{ name: 'seo-assistant' }"
+          class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-muted transition hover:bg-mist hover:text-ink"
+          active-class="bg-mist text-petrol-dark"
+        >
+          <svg
+            class="size-5 shrink-0"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path
+              d="M5 5.5A2.5 2.5 0 0 1 7.5 3h9A2.5 2.5 0 0 1 19 5.5v9a2.5 2.5 0 0 1-2.5 2.5H10l-5 4v-4.5A2.5 2.5 0 0 1 2.5 14V8A2.5 2.5 0 0 1 5 5.5Z"
+            />
+            <path d="m11 7 .8 2.2L14 10l-2.2.8L11 13l-.8-2.2L8 10l2.2-.8L11 7Z" />
+          </svg>
+          Assistant SEO
+        </RouterLink>
+
         <!-- Pilotage -->
         <RouterLink
+          v-if="pilotageAvailable"
           to="/pilotage"
           class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-muted transition hover:bg-mist hover:text-ink"
           active-class="bg-mist text-petrol-dark"

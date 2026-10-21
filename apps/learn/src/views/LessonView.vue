@@ -88,7 +88,7 @@ watch(
       <h1 class="mt-2 text-3xl font-bold tracking-tight text-ink">Cette leçon n’existe pas.</h1>
 
       <RouterLink
-        to="/app"
+        to="/formation"
         class="learn-button-primary mt-6 inline-flex rounded-xl px-5 py-3 text-sm font-semibold"
       >
         Retour à la formation
@@ -98,7 +98,7 @@ watch(
     <!-- Lesson -->
     <div v-else class="mx-auto max-w-4xl">
       <RouterLink
-        to="/app"
+        to="/formation"
         class="inline-flex items-center gap-2 text-sm font-medium text-muted transition hover:text-ink"
       >
         ← Formation
@@ -203,7 +203,7 @@ watch(
           </p>
         </RouterLink>
 
-        <RouterLink v-else to="/app" class="learn-button-primary rounded-2xl p-5 text-right">
+        <RouterLink v-else to="/formation" class="learn-button-primary rounded-2xl p-5 text-right">
           <p class="text-xs font-semibold uppercase tracking-wide text-muted-light">
             Formation terminée
           </p>

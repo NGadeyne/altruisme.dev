@@ -26,7 +26,7 @@ async function handleLogin() {
   try {
     await authStore.login(email.value, password.value)
 
-    const redirect = typeof route.query.redirect === 'string' ? route.query.redirect : '/app'
+    const redirect = typeof route.query.redirect === 'string' ? route.query.redirect : '/formation'
 
     await router.push(redirect)
   } catch (error) {
@@ -61,7 +61,7 @@ async function handleLogin() {
         <h1 class="mt-8 text-3xl font-semibold tracking-tight text-ink">Ton espace apprenant</h1>
 
         <p class="mt-3 text-sm leading-6 text-muted">
-          Connecte-toi pour accéder à ta formation et à tes outils.
+          Connecte-toi pour accéder à ton espace et à tes outils.
         </p>
       </div>
 

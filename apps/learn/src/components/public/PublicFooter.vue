@@ -45,7 +45,7 @@ function openCookieSettings() {
             Retrouve ta formation et tes outils depuis ton espace.
           </p>
           <RouterLink
-            to="/app"
+            to="/formation"
             class="mt-5 inline-flex items-center gap-2 text-sm font-semibold !text-[#d8e7e3] transition hover:!text-white"
             >Accéder à mon espace <span aria-hidden="true">→</span></RouterLink
           >
