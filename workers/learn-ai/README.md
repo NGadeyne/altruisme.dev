@@ -2,6 +2,8 @@
 
 Worker Cloudflare TypeScript pour l'assistant SEO de Learn. Il utilise la [Responses API](https://developers.openai.com/api/docs/guides/text) et répond uniquement aux utilisateurs dont le jeton de session Supabase est validé côté serveur. Le nom Wrangler `altruisme-learn-ai` cible le Worker existant ; aucun domaine ni route de production n'est configuré ici.
 
+L'assistant est limité aux questions liées au SEO par les instructions envoyées à OpenAI. Chaque question utilise une seule requête Responses API avec une sortie structurée (`seo` ou `off_topic`). Pour `off_topic`, le Worker remplace toute sortie du modèle par le message de refus défini côté serveur. Les questions mixtes sont traitées uniquement sous leur angle SEO. Les tests vérifient ce contrat et les cas représentatifs ; la pertinence réelle du modèle reste à contrôler lors des essais fonctionnels.
+
 ## Installation et développement
 
 Depuis la racine du monorepo :
