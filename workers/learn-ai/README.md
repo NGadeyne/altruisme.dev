@@ -49,13 +49,22 @@ Les origines CORS autorisées sont `https://learn.altruisme.dev` et les origines
 
 ## Configuration du Worker existant
 
-Les trois valeurs de `.dev.vars` doivent exister comme secrets sur `altruisme-learn-ai`. Conserver le secret `OPENAI_API_KEY` existant ; ajouter les deux valeurs Supabase avec Wrangler si elles n'existent pas :
+Le fichier `wrangler.jsonc` cible le Worker `altruisme-learn-ai` dans l'environnement par défaut (aucun bloc `env` n'est défini). Les trois noms de `secrets.required` sont nécessaires : `OPENAI_API_KEY` pour OpenAI, puis `SUPABASE_URL` et `SUPABASE_PUBLISHABLE_KEY` pour valider le jeton de session avec Supabase avant tout appel payant. `OPENAI_MODEL` est une variable non secrète définie dans `wrangler.jsonc`.
+
+Dans **Workers & Pages > altruisme-learn-ai > Settings > Variables & Secrets**, vérifier que les trois noms existent sur ce Worker, dans le bon compte Cloudflare, comme variables d'exécution. Les variables et secrets définis dans **Settings > Build > Build Variables and Secrets** sont accessibles au build uniquement et ne remplacent pas les bindings d'exécution. Les secrets d'un autre Worker, d'une Preview ou d'un environnement nommé ne sont pas hérités par l'environnement par défaut. Ne pas copier leurs valeurs dans le dépôt ou dans les journaux de build.
+
+Pour lister uniquement les **noms** des secrets du Worker ciblé, depuis le compte Cloudflare utilisé pour le déploiement :
 
 ```sh
 cd workers/learn-ai
-npx wrangler secret put SUPABASE_URL
-npx wrangler secret put SUPABASE_PUBLISHABLE_KEY
+npx wrangler secret list --format pretty
 ```
+
+Si un nom manque, l'ajouter dans les variables et secrets d'exécution de **ce Worker** depuis le tableau de bord Cloudflare. `wrangler secret put` crée immédiatement une nouvelle version et la déploie ; ne l'utiliser que si ce déploiement est voulu.
+
+Pour l'intégration Git Cloudflare, vérifier dans **Settings > Builds** : le dépôt et la branche attendus, le compte associé au jeton de build, le répertoire racine `workers/learn-ai`, la commande de build `npm run build` et la commande de déploiement `npx wrangler deploy`. Éviter `--env` et `CLOUDFLARE_ENV` tant qu'aucun environnement nommé n'est configuré dans `wrangler.jsonc`. Si un environnement nommé est ajouté, ses secrets et ses bindings de limitation de requêtes devront aussi être configurés pour cet environnement. Le nom du Worker dans Cloudflare doit correspondre exactement à `name` dans `wrangler.jsonc`.
+
+L'erreur « The following required secrets have not been set » signifie que Wrangler ne trouve pas ces bindings sur **la cible du déploiement**. Elle ne permet pas, à elle seule, de conclure que les valeurs n'existent nulle part dans Cloudflare. Vérifier d'abord le compte, le Worker, l'environnement et l'emplacement des variables dans le tableau de bord. Le build local avec `--dry-run` n'interroge pas les secrets distants et ne prouve donc pas leur présence sur la cible.
 
 La commande de déploiement, à lancer explicitement après revue de la configuration et des secrets, est :
 
