@@ -18,7 +18,7 @@ SUPABASE_URL="https://votre-projet.supabase.co"
 SUPABASE_PUBLISHABLE_KEY="votre_cle_publiable_supabase"
 ```
 
-Utiliser le même projet Supabase que `apps/learn`. La clé Supabase est publiable, mais elle reste hors du dépôt comme toute autre clé API. Le modèle est configuré par `OPENAI_MODEL` dans `wrangler.jsonc` (`gpt-6-luna` par défaut) ; modifiez cette variable pour changer de modèle.
+Utiliser le même projet Supabase que `apps/learn`. La clé Supabase est publiable, mais elle reste hors du dépôt comme toute autre clé API. Le modèle est configuré par `OPENAI_MODEL` dans `wrangler.jsonc` (`gpt-5-mini` par défaut) ; modifiez cette variable pour changer de modèle. OpenAI annonce l'arrêt de ce modèle le 11 décembre 2026 : prévoir son remplacement avant cette date.
 
 ```sh
 npm run dev --workspace=@altruisme/learn-ai

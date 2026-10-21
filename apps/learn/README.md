@@ -1,5 +1,13 @@
 # apps/learn
 
+## Assistant SEO
+
+La route authentifiée `/assistant-seo` appelle le Worker `altruisme-learn-ai` sur `POST /chat` avec le jeton d'accès Supabase de la session Learn. Pour le développement local, démarrer le Worker avec `npm run dev:learn-ai` depuis la racine ; l'interface utilise `http://localhost:8787` par défaut. Pour une autre adresse, définir `VITE_LEARN_AI_API_URL` dans l'environnement Vite de Learn (URL de base, sans `/chat`). En production, cette variable doit pointer vers l'URL HTTPS publique du Worker.
+
+Le Worker autorise déjà les origines `http://localhost:5173` et `https://learn.altruisme.dev` dans sa configuration CORS. Il faut aussi configurer ses secrets comme indiqué dans `workers/learn-ai/README.md`. Aucune clé OpenAI n'est utilisée dans le frontend.
+
+L'historique reste en mémoire pendant la navigation. La sauvegarde dans le navigateur est facultative, limitée aux 40 derniers messages et séparée par compte ; désactiver l'option l'efface. Le Worker traite actuellement chaque question séparément : l'historique affiché n'est pas transmis comme contexte à l'IA.
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup

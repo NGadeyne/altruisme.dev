@@ -7,7 +7,7 @@ const origin = 'https://learn.altruisme.dev'
 function environment(limit = () => ({ success: true })) {
   return {
     OPENAI_API_KEY: 'test-key',
-    OPENAI_MODEL: 'gpt-6-luna',
+    OPENAI_MODEL: 'gpt-5-mini',
     SUPABASE_URL: 'https://example.supabase.co',
     SUPABASE_PUBLISHABLE_KEY: 'test-publishable-key',
     IP_RATE_LIMITER: { limit },
@@ -76,7 +76,7 @@ test('validates the session and message, then calls Responses API', async () => 
     assert.equal(calls[0].url, 'https://example.supabase.co/auth/v1/user')
     assert.equal(calls[1].url, 'https://api.openai.com/v1/responses')
     const body = JSON.parse(calls[1].options.body)
-    assert.equal(body.model, 'gpt-6-luna')
+    assert.equal(body.model, 'gpt-5-mini')
     assert.equal(body.store, false)
     assert.equal(body.input, 'Comment débuter ?')
     assert.equal(body.max_output_tokens, 600)

@@ -21,6 +21,7 @@
     "@altruisme/supabase": "0.0.0",
     "@supabase/supabase-js": "^2.112.4",
     "@tailwindcss/vite": "^4.3.3",
+    "markdown-it": "^15.0.3",
     "pinia": "^4.0.2",
     "tailwindcss": "^4.3.3",
     "vue": "^3.5.40",

@@ -3,7 +3,7 @@
   "main": "src/index.ts",
   "compatibility_date": "2026-09-10",
   "vars": {
-    "OPENAI_MODEL": "gpt-6-luna",
+    "OPENAI_MODEL": "gpt-5-mini",
   },
   "secrets": {
     "required": ["OPENAI_API_KEY", "SUPABASE_URL", "SUPABASE_PUBLISHABLE_KEY"],
