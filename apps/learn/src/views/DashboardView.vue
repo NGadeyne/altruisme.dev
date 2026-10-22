@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { computed, ref } from 'vue'
+
 import BaseContainer from '@/components/ui/BaseContainer.vue'
 import UnavailableLinkIcon from '@/components/ui/UnavailableLinkIcon.vue'
+import { useSeoModuleProgress } from '@/composables/useSeoModuleProgress'
 import { isSeoLessonAvailable } from '@/config/features'
 import {
   estimateSeoMinutes,
@@ -12,7 +15,12 @@ import {
   type SeoProgramModule,
 } from '@/data/seoProgram'
 import { seoResources } from '@/data/seoResources'
+import { useAuthStore } from '@/stores/auth'
 
+const authStore = useAuthStore()
+const userId = computed(() => authStore.user?.id)
+const { completedCount, percentage, isCompleted, toggleCompleted } = useSeoModuleProgress(userId)
+const progressError = ref('')
 const lessonCount = seoProgram.reduce((total, module) => total + module.lessons.length, 0)
 const totalMinutes = seoReadingMinutes + seoPracticeMinutes
 
@@ -29,6 +37,12 @@ function formatNumber(number: number) {
 
 function practiceRoute(number: number) {
   return `seo-practice-${formatNumber(number)}`
+}
+
+function toggleModule(moduleId: string) {
+  progressError.value = toggleCompleted(moduleId)
+    ? ''
+    : "Impossible d'enregistrer ta progression. Réessaie."
 }
 </script>
 
@@ -95,6 +109,39 @@ function practiceRoute(number: number) {
         Ouvrir mon plan d'action →
       </RouterLink>
     </header>
+
+    <section
+      class="mt-8 rounded-2xl border border-petrol/15 bg-white p-6 shadow-sm sm:p-8"
+      aria-labelledby="course-progress-heading"
+    >
+      <div class="flex flex-wrap items-baseline justify-between gap-2">
+        <h2 id="course-progress-heading" class="text-lg font-semibold text-ink">Ma progression</h2>
+        <p class="text-sm font-semibold text-petrol-dark">
+          {{ completedCount }} module{{ completedCount > 1 ? 's' : '' }} terminé{{
+            completedCount > 1 ? 's' : ''
+          }}
+          sur {{ seoProgram.length }} · {{ percentage }} %
+        </p>
+      </div>
+      <div
+        class="mt-4 h-2.5 overflow-hidden rounded-full bg-mist"
+        role="progressbar"
+        :aria-valuenow="completedCount"
+        aria-valuemin="0"
+        :aria-valuemax="seoProgram.length"
+        aria-label="Modules terminés"
+      >
+        <div
+          class="h-full rounded-full bg-petrol transition-[width] duration-200"
+          :style="{ width: `${percentage}%` }"
+        />
+      </div>
+      <p class="mt-3 text-sm text-muted">
+        Marque chaque module comme terminé lorsque tu l'as suivi. Ton plan d'action avance
+        séparément.
+      </p>
+      <p v-if="progressError" class="mt-2 text-sm text-red-700" role="alert">{{ progressError }}</p>
+    </section>
 
     <section class="mt-10 grid gap-5 lg:grid-cols-2" aria-label="Modules de la formation">
       <article
@@ -207,6 +254,18 @@ function practiceRoute(number: number) {
             </div>
           </div>
         </div>
+        <button
+          type="button"
+          class="mt-5 w-fit rounded-lg border border-petrol/25 px-4 py-2.5 text-sm font-semibold text-petrol-dark transition hover:bg-mist focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-petrol"
+          :aria-pressed="isCompleted(module.id)"
+          @click="toggleModule(module.id)"
+        >
+          {{
+            isCompleted(module.id)
+              ? '✓ Module terminé · Annuler'
+              : 'Marquer le module comme terminé'
+          }}
+        </button>
       </article>
     </section>
   </BaseContainer>

@@ -1,5 +1,7 @@
 import { mount, RouterLinkStub } from '@vue/test-utils'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
+
+vi.mock('@/stores/auth', () => ({ useAuthStore: () => ({ user: { id: 'learner-a' } }) }))
 
 import router from '@/router'
 import DashboardView from '@/views/DashboardView.vue'
