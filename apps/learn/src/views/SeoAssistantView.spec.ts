@@ -65,10 +65,32 @@ describe('Assistant SEO', () => {
       'Comment trouver les bons mots-clés ?',
       [],
       expect.any(AbortSignal),
+      expect.any(Function),
     )
     expect(wrapper.text()).toContain('Commence par quelques mots-clés précis.')
     expect(wrapper.find('strong').text()).toBe('Commence')
     expect(wrapper.text()).toContain('Nouvelle conversation')
+    wrapper.unmount()
+  })
+
+  it('affiche progressivement la réponse sans enregistrer de fragment incomplet', async () => {
+    let finish!: (answer: { answer: string; resources: [] }) => void
+    vi.mocked(askSeoAssistant).mockImplementationOnce((_question, _history, _signal, onDelta) => {
+      onDelta?.('Une première phrase.')
+      return new Promise((resolve) => (finish = resolve))
+    })
+    const wrapper = mountPage()
+    await wrapper.get('input[type="checkbox"]').setValue(true)
+    await wrapper.get('textarea').setValue('Comment commencer ?')
+    await wrapper.get('textarea').trigger('keydown', { key: 'Enter' })
+    await flushPromises()
+    expect(wrapper.text()).toContain('Une première phrase.')
+    expect(wrapper.text()).toContain('Rédaction en cours…')
+    expect(localStorage.getItem('altruisme:learn:seo-assistant:v1:learner-1')).not.toContain('Une première phrase.')
+    finish({ answer: 'Une première phrase. Puis une seconde.', resources: [] })
+    await flushPromises()
+    expect(wrapper.text()).toContain('Une première phrase. Puis une seconde.')
+    expect(wrapper.text()).not.toContain('Rédaction en cours…')
     wrapper.unmount()
   })
 

@@ -114,6 +114,7 @@ async function requestAnswer(url: URL, message: string, history: SeoChatTurn[], 
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
+        Accept: 'text/event-stream',
       },
       body: JSON.stringify({ message, history }),
       cache: 'no-store',
@@ -126,18 +127,78 @@ async function requestAnswer(url: URL, message: string, history: SeoChatTurn[], 
     }
     throw new SeoAssistantError('network', 'Connexion impossible avec l’assistant. Réessaie.')
   }
-  return response
+  return { response, timeoutSignal }
+}
+
+function parseReply(data: unknown): SeoAssistantReply | null {
+  if (
+    typeof data !== 'object' ||
+    data === null ||
+    !('answer' in data) ||
+    typeof data.answer !== 'string' ||
+    !data.answer.trim()
+  ) return null
+  const resources: SeoResource[] = []
+  if ('resources' in data && Array.isArray(data.resources)) {
+    for (const item of data.resources.slice(0, 3)) {
+      if (isSeoResource(item)) resources.push(item)
+    }
+  }
+  return { answer: data.answer.trim(), resources }
+}
+
+async function readStream(response: Response, onDelta?: (text: string) => void): Promise<SeoAssistantReply> {
+  if (!response.body) {
+    throw new SeoAssistantError('invalid-response', 'Réponse inattendue de l’assistant. Réessaie.')
+  }
+  const reader = response.body.getReader()
+  const decoder = new TextDecoder()
+  let buffer = ''
+  try {
+    while (true) {
+      const { done, value } = await reader.read()
+      buffer += decoder.decode(value, { stream: !done }).replace(/\r\n/g, '\n')
+      const frames = buffer.split('\n\n')
+      buffer = frames.pop() ?? ''
+      for (const frame of frames) {
+        const event = frame.split('\n').find((line) => line.startsWith('event: '))?.slice(7)
+        const data = frame.split('\n').find((line) => line.startsWith('data: '))?.slice(6)
+        if (!event || !data) continue
+        let payload: unknown
+        try {
+          payload = JSON.parse(data)
+        } catch {
+          throw new SeoAssistantError('invalid-response', 'Réponse inattendue de l’assistant. Réessaie.')
+        }
+        if (event === 'delta' && typeof payload === 'object' && payload !== null && 'text' in payload && typeof payload.text === 'string') {
+          onDelta?.(payload.text)
+        } else if (event === 'done') {
+          const reply = parseReply(payload)
+          if (reply) return reply
+          throw new SeoAssistantError('invalid-response', 'Réponse inattendue de l’assistant. Réessaie.')
+        } else if (event === 'error') {
+          throw new SeoAssistantError('server', 'L’assistant est momentanément indisponible. Réessaie.')
+        }
+      }
+      if (done) break
+    }
+  } finally {
+    await reader.cancel().catch(() => undefined)
+    reader.releaseLock()
+  }
+  throw new SeoAssistantError('invalid-response', 'Réponse interrompue. Réessaie.')
 }
 
 export async function askSeoAssistant(
   message: string,
   history: SeoChatTurn[] = [],
   signal?: AbortSignal,
+  onDelta?: (text: string) => void,
 ): Promise<SeoAssistantReply> {
   const url = chatUrl()
   const recentHistory = boundedHistory(message, history)
   let token = await accessToken()
-  let response = await requestAnswer(url, message, recentHistory, token, signal)
+  let { response, timeoutSignal } = await requestAnswer(url, message, recentHistory, token, signal)
 
   if (response.status === 401) {
     try {
@@ -149,7 +210,9 @@ export async function askSeoAssistant(
     } catch {
       throw new SeoAssistantError('authentication', 'Ta session a expiré. Reconnecte-toi.')
     }
-    response = await requestAnswer(url, message, recentHistory, token, signal)
+    const retry = await requestAnswer(url, message, recentHistory, token, signal)
+    response = retry.response
+    timeoutSignal = retry.timeoutSignal
   }
 
   if (response.status === 401 || response.status === 403) {
@@ -187,23 +250,21 @@ export async function askSeoAssistant(
     throw new SeoAssistantError('server', message)
   }
 
-  try {
-    const data: unknown = await response.json()
-    if (
-      typeof data === 'object' &&
-      data !== null &&
-      'answer' in data &&
-      typeof data.answer === 'string' &&
-      data.answer.trim()
-    ) {
-      const resources: SeoResource[] = []
-      if ('resources' in data && Array.isArray(data.resources)) {
-        for (const item of data.resources.slice(0, 3)) {
-          if (isSeoResource(item)) resources.push(item)
-        }
+  if (response.headers.get('content-type')?.includes('text/event-stream')) {
+    try {
+      return await readStream(response, onDelta)
+    } catch (cause) {
+      if (signal?.aborted) throw cause
+      if (timeoutSignal.aborted) {
+        throw new SeoAssistantError('timeout', 'La réponse prend trop de temps. Réessaie.')
       }
-      return { answer: data.answer.trim(), resources }
+      if (cause instanceof SeoAssistantError) throw cause
+      throw new SeoAssistantError('network', 'Connexion interrompue avec l’assistant. Réessaie.')
     }
+  }
+  try {
+    const reply = parseReply(await response.json())
+    if (reply) return reply
   } catch {
     // An invalid JSON response is handled below.
   }

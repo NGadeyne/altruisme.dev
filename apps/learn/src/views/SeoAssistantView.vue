@@ -11,6 +11,7 @@ const authStore = useAuthStore()
 const {
   messages,
   isSending,
+  streamingAnswer,
   error,
   storageError,
   saveOnDevice,
@@ -86,12 +87,13 @@ async function startNewConversation() {
     </header>
 
     <section
-      class="mt-5 flex h-[min(62dvh,50rem)] min-h-[28rem] flex-col overflow-hidden rounded-3xl border border-petrol/15 bg-white shadow-[0_18px_55px_-45px_rgba(27,69,69,0.5)] sm:h-[min(68dvh,50rem)]"
+      class="mt-5 flex h-[min(72dvh,56rem)] min-h-[32rem] flex-col overflow-hidden rounded-3xl border border-petrol/15 bg-white shadow-[0_18px_55px_-45px_rgba(27,69,69,0.5)] sm:h-[min(78dvh,60rem)]"
       aria-label="Assistant conversationnel SEO"
     >
       <SeoChatMessages
         :messages="messages"
         :is-sending="isSending"
+        :streaming-answer="streamingAnswer"
         :error="error"
         @suggest="sendSuggestion"
         @retry="retryLastQuestion"

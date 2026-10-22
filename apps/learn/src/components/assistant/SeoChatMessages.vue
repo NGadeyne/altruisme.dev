@@ -7,6 +7,7 @@ import type { SeoMessage } from '@/composables/useSeoConversation'
 const props = defineProps<{
   messages: SeoMessage[]
   isSending: boolean
+  streamingAnswer: string
   error: { message: string; canRetry: boolean } | null
 }>()
 
@@ -27,10 +28,15 @@ const copiedIndex = ref<number | null>(null)
 const copyErrorIndex = ref<number | null>(null)
 
 watch(
-  () => [props.messages.length, props.isSending, props.error?.message],
-  async () => {
+  () => [props.messages.length, props.isSending, props.error?.message, props.streamingAnswer.length],
+  async (current, previous) => {
+    const area = scrollArea.value
+    const nearBottom = !area || area.scrollHeight - area.scrollTop - area.clientHeight < 160
+    const newMessage = !previous || current[0] !== previous[0]
     await nextTick()
-    if (scrollArea.value) scrollArea.value.scrollTop = scrollArea.value.scrollHeight
+    if (scrollArea.value && (nearBottom || newMessage)) {
+      scrollArea.value.scrollTop = scrollArea.value.scrollHeight
+    }
     if (props.messages.length === 0) {
       copiedIndex.value = null
       copyErrorIndex.value = null
@@ -151,7 +157,21 @@ async function copyAnswer(content: string, index: number) {
       </li>
 
       <li
-        v-if="isSending"
+        v-if="isSending && streamingAnswer"
+        class="flex justify-start"
+        aria-live="off"
+      >
+        <div class="min-w-0 max-w-full rounded-2xl rounded-bl-md border border-petrol/10 bg-sand-light/60 px-4 py-4 sm:px-6">
+          <p class="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#3d6970]">
+            Assistant SEO
+          </p>
+          <SeoMarkdown :content="streamingAnswer" />
+          <p class="mt-4 text-xs text-ink-soft" role="status">Rédaction en cours…</p>
+        </div>
+      </li>
+
+      <li
+        v-else-if="isSending"
         class="flex justify-start"
         role="status"
         aria-label="L'assistant prépare sa réponse"

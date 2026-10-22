@@ -273,7 +273,7 @@ function retrievedLessonIds(data: unknown): Set<string> {
   return ids
 }
 
-async function requestOpenAI(env: Env, input: ChatInput, useLessons: boolean): Promise<Response> {
+async function requestOpenAI(env: Env, input: ChatInput, useLessons: boolean, stream = false): Promise<Response> {
   const body: Record<string, unknown> = {
     model: env.OPENAI_MODEL,
     instructions: SYSTEM_PROMPT,
@@ -285,6 +285,7 @@ async function requestOpenAI(env: Env, input: ChatInput, useLessons: boolean): P
     max_output_tokens: 3_072,
     store: false,
   }
+  if (stream) body.stream = true
   if (useLessons) {
     body.tools = [{
       type: 'file_search',
@@ -303,6 +304,120 @@ async function requestOpenAI(env: Env, input: ChatInput, useLessons: boolean): P
     body: JSON.stringify(body),
     signal: AbortSignal.timeout(30_000),
   })
+}
+
+function visibleAnswer(output: string): string | null {
+  // The schema puts scope first. Do not release any model text until it says SEO.
+  const prefix = /^\s*\{\s*"scope"\s*:\s*"seo"\s*,\s*"answer"\s*:\s*"/.exec(output)
+  if (!prefix) return null
+  const start = prefix[0].length
+  let end = start
+  let escaped = false
+  for (; end < output.length; end += 1) {
+    const character = output[end]
+    if (escaped) {
+      escaped = false
+    } else if (character === '\\') {
+      escaped = true
+    } else if (character === '"') {
+      break
+    }
+  }
+  // A delta may end inside a JSON escape (including a Unicode escape).
+  for (let safeEnd = end; safeEnd >= Math.max(start, end - 6); safeEnd -= 1) {
+    try {
+      return JSON.parse(`"${output.slice(start, safeEnd)}"`) as string
+    } catch {
+      // Wait for the rest of the escape sequence.
+    }
+  }
+  return null
+}
+
+function streamingResponse(upstream: Response, searched: boolean, origin: string | null): Response {
+  const encoder = new TextEncoder()
+  let reader: ReadableStreamDefaultReader<Uint8Array> | null = null
+  let cancelled = false
+  const stream = new ReadableStream<Uint8Array>({
+    async start(controller) {
+      const send = (event: string, data: unknown) => {
+        if (!cancelled) controller.enqueue(encoder.encode(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`))
+      }
+      if (!upstream.body) {
+        send('error', { error: 'Le service de réponse est indisponible.' })
+        controller.close()
+        return
+      }
+      reader = upstream.body.getReader()
+      const decoder = new TextDecoder()
+      let buffer = ''
+      let output = ''
+      let displayed = ''
+      let completed = false
+      try {
+        while (true) {
+          const { done, value } = await reader.read()
+          buffer += decoder.decode(value, { stream: !done }).replace(/\r\n/g, '\n')
+          const frames = buffer.split('\n\n')
+          buffer = frames.pop() ?? ''
+          for (const frame of frames) {
+            const dataLine = frame.split('\n').find((line) => line.startsWith('data: '))
+            if (!dataLine || dataLine === 'data: [DONE]') continue
+            let event: unknown
+            try {
+              event = JSON.parse(dataLine.slice(6))
+            } catch {
+              continue
+            }
+            if (typeof event !== 'object' || event === null || !('type' in event)) continue
+            if (event.type === 'response.output_text.delta' && 'delta' in event && typeof event.delta === 'string') {
+              output += event.delta
+              if (output.length > 24_000) throw new Error('OpenAI output exceeded limit')
+              const partial = visibleAnswer(output)
+              if (partial !== null && partial.length > displayed.length) {
+                if (partial.length > MAX_ANSWER_LENGTH) throw new Error('Answer exceeded limit')
+                send('delta', { text: partial.slice(displayed.length) })
+                displayed = partial
+              }
+            } else if (event.type === 'response.completed' && 'response' in event) {
+              const reply = scopedAnswer(event.response)
+              if (!reply) throw new Error('Invalid OpenAI answer')
+              const retrieved = searched ? retrievedLessonIds(event.response) : new Set<string>()
+              const resources = reply.lessonIds
+                .filter((id, index, all) => retrieved.has(id) && all.indexOf(id) === index)
+                .map((id) => lessonCatalog.find((lesson) => lesson.id === id))
+                .filter((lesson): lesson is (typeof lessonCatalog)[number] => lesson !== undefined)
+                .map(({ id, number, title, moduleTitle, url }) => ({ id, number, title, moduleTitle, url }))
+              send('done', { answer: reply.answer, resources })
+              completed = true
+            } else if (event.type === 'response.failed' || event.type === 'error') {
+              throw new Error('OpenAI stream failed')
+            }
+          }
+          if (completed || done) break
+        }
+        if (!completed) throw new Error('OpenAI stream ended early')
+      } catch {
+        send('error', { error: 'Le service de réponse est indisponible.' })
+      } finally {
+        await reader.cancel().catch(() => undefined)
+        reader.releaseLock()
+        if (!cancelled) controller.close()
+      }
+    },
+    cancel() {
+      cancelled = true
+      void reader?.cancel().catch(() => undefined)
+    },
+  })
+  const headers = new Headers({
+    'Content-Type': 'text/event-stream; charset=utf-8',
+    'Cache-Control': 'no-store, no-transform',
+    Vary: 'Origin',
+    'X-Content-Type-Options': 'nosniff',
+  })
+  if (allowedOrigin(origin)) headers.set('Access-Control-Allow-Origin', origin)
+  return new Response(stream, { status: 200, headers })
 }
 
 async function chat(request: Request, env: Env, origin: string | null): Promise<Response> {
@@ -352,21 +467,22 @@ async function chat(request: Request, env: Env, origin: string | null): Promise<
     env.LEARN_AI_RAG_ENABLED === 'true' &&
     Boolean(env.OPENAI_VECTOR_STORE_ID) &&
     (await hasSeoEntitlement(token, userId, env))
+  const wantsStream = request.headers.get('accept')?.includes('text/event-stream') ?? false
 
   let response: Response
   let searched = useLessons
   try {
-    response = await requestOpenAI(env, input, useLessons)
+    response = await requestOpenAI(env, input, useLessons, wantsStream)
     if (useLessons && !response.ok) {
       console.warn('SEO file search response unavailable', response.status)
-      response = await requestOpenAI(env, input, false)
+      response = await requestOpenAI(env, input, false, wantsStream)
       searched = false
     }
   } catch {
     if (!useLessons) return errorResponse('Le service de réponse est indisponible.', 502, origin)
     console.warn('SEO file search request unavailable')
     try {
-      response = await requestOpenAI(env, input, false)
+      response = await requestOpenAI(env, input, false, wantsStream)
       searched = false
     } catch {
       return errorResponse('Le service de réponse est indisponible.', 502, origin)
@@ -374,6 +490,7 @@ async function chat(request: Request, env: Env, origin: string | null): Promise<
   }
 
   if (!response.ok) return errorResponse('Le service de réponse est indisponible.', 502, origin)
+  if (wantsStream) return streamingResponse(response, searched, origin)
   try {
     const data: unknown = await response.json()
     if (

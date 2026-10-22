@@ -19,6 +19,7 @@ const STORAGE_PREFIX = 'altruisme:learn:seo-assistant:v1:'
 // Module state keeps the current exchange when the user navigates away and back.
 const messages = ref<SeoMessage[]>([])
 const isSending = ref(false)
+const streamingAnswer = ref('')
 const error = ref<ConversationError | null>(null)
 const storageError = ref('')
 const saveOnDevice = ref(false)
@@ -89,6 +90,7 @@ function setUser(id: string | null): void {
   userId = id
   messages.value = []
   isSending.value = false
+  streamingAnswer.value = ''
   error.value = null
   storageError.value = ''
   saveOnDevice.value = false
@@ -116,6 +118,7 @@ function newConversation(): void {
   requestSequence += 1
   messages.value = []
   isSending.value = false
+  streamingAnswer.value = ''
   error.value = null
   save()
 }
@@ -134,6 +137,7 @@ async function generate(question: string, appendQuestion: boolean): Promise<void
   if (appendQuestion) messages.value = [...messages.value, { role: 'user', content: text }]
   error.value = null
   isSending.value = true
+  streamingAnswer.value = ''
   save()
 
   const sequence = ++requestSequence
@@ -145,7 +149,9 @@ async function generate(question: string, appendQuestion: boolean): Promise<void
       .filter((item) => item.content.length <= 1_500)
       .slice(-8)
       .map(({ role, content }) => ({ role, content }))
-    const reply = await askSeoAssistant(text, history, controller.signal)
+    const reply = await askSeoAssistant(text, history, controller.signal, (delta) => {
+      if (sequence === requestSequence) streamingAnswer.value += delta
+    })
     if (sequence !== requestSequence) return
     messages.value = [...messages.value, { role: 'assistant', content: reply.answer, resources: reply.resources }]
     save()
@@ -161,6 +167,7 @@ async function generate(question: string, appendQuestion: boolean): Promise<void
   } finally {
     if (sequence === requestSequence) {
       isSending.value = false
+      streamingAnswer.value = ''
       activeRequest = null
     }
   }
@@ -180,6 +187,7 @@ export function useSeoConversation() {
   return {
     messages,
     isSending,
+    streamingAnswer,
     error,
     storageError,
     saveOnDevice,

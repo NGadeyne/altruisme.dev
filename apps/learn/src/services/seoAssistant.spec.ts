@@ -41,8 +41,41 @@ describe('service Assistant SEO', () => {
     expect(options?.headers).toEqual({
       Authorization: 'Bearer current-token',
       'Content-Type': 'application/json',
+      Accept: 'text/event-stream',
     })
     expect(options?.body).toBe(JSON.stringify({ message: 'Comment débuter ?', history: [] }))
+  })
+
+  it('affiche les fragments du flux puis valide la réponse finale', async () => {
+    const events = [
+      'event: delta\ndata: {"text":"Commence par "}\n\n',
+      'event: delta\ndata: {"text":"tes mots-clés."}\n\n',
+      'event: done\ndata: {"answer":"Commence par tes mots-clés.","resources":[]}\n\n',
+    ]
+    const stream = new ReadableStream<Uint8Array>({
+      start(controller) {
+        const encoder = new TextEncoder()
+        for (const event of events) controller.enqueue(encoder.encode(event))
+        controller.close()
+      },
+    })
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(stream, {
+      headers: { 'Content-Type': 'text/event-stream' },
+    })))
+    const received: string[] = []
+    const reply = await askSeoAssistant('Quels mots-clés ?', [], undefined, (delta) => received.push(delta))
+    expect(received).toEqual(['Commence par ', 'tes mots-clés.'])
+    expect(reply).toEqual({ answer: 'Commence par tes mots-clés.', resources: [] })
+  })
+
+  it('signale un flux interrompu avant la réponse finale', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response('event: delta\ndata: {"text":"Début"}\n\n', {
+      headers: { 'Content-Type': 'text/event-stream' },
+    })))
+    const received: string[] = []
+    await expect(askSeoAssistant('Une question ?', [], undefined, (delta) => received.push(delta)))
+      .rejects.toMatchObject({ kind: 'invalid-response' })
+    expect(received).toEqual(['Début'])
   })
 
   it('renouvelle une session expirée puis réessaie une fois', async () => {

@@ -35,6 +35,8 @@ Les raccourcis racine `npm run dev:learn-ai` et `npm run build:learn-ai` sont au
 - `GET /health` → `{ "status": "ok" }` (sans authentification).
 - `POST /chat` → `{ "answer": "...", "resources": [] }`. Corps JSON : `{ "message": "Ma question SEO", "history": [] }` (`history` est facultatif, huit messages précédents au maximum). La question contient 1 à 2 000 caractères ; chaque message de contexte, 1 à 1 500 caractères ; la requête entière, 8 Kio maximum. En-tête requis : `Authorization: Bearer <jeton d'accès Supabase>`.
 
+Pour afficher la réponse progressivement, envoyer aussi `Accept: text/event-stream`. Le Worker renvoie alors des événements SSE `delta` (`{ "text": "..." }`), puis `done` (`{ "answer": "...", "resources": [] }`). Un événement `error` termine un flux interrompu. Le texte n'est diffusé qu'après confirmation du périmètre SEO ; les références de leçons sont vérifiées et transmises dans `done`. Sans cet en-tête, le contrat JSON existant reste disponible.
+
 `resources` contient au plus trois références `{ id, number, title, moduleTitle, url }`. Les URLs sont des chemins internes du catalogue réel (`/formation/lesson-15` par exemple). Le Worker ne renvoie une référence que si File Search a réellement retrouvé un document appartenant à la formation et que l'identifiant proposé par le modèle correspond à ce document. Sans droit d'accès, sans recherche ou sans passage pertinent, le tableau est vide.
 
 Exemple local après connexion à Learn :
