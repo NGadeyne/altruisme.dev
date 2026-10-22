@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 
 import BaseContainer from '@/components/ui/BaseContainer.vue'
 import UnavailableLinkIcon from '@/components/ui/UnavailableLinkIcon.vue'
@@ -19,8 +19,16 @@ import { useAuthStore } from '@/stores/auth'
 
 const authStore = useAuthStore()
 const userId = computed(() => authStore.user?.id)
-const { completedCount, percentage, isCompleted, toggleCompleted } = useSeoModuleProgress(userId)
-const progressError = ref('')
+const {
+  completedCount,
+  percentage,
+  loading: progressLoading,
+  error: progressError,
+  isCompleted,
+  isSaving,
+  reload: reloadProgress,
+  toggleCompleted,
+} = useSeoModuleProgress(userId)
 const lessonCount = seoProgram.reduce((total, module) => total + module.lessons.length, 0)
 const totalMinutes = seoReadingMinutes + seoPracticeMinutes
 
@@ -37,12 +45,6 @@ function formatNumber(number: number) {
 
 function practiceRoute(number: number) {
   return `seo-practice-${formatNumber(number)}`
-}
-
-function toggleModule(moduleId: string) {
-  progressError.value = toggleCompleted(moduleId)
-    ? ''
-    : "Impossible d'enregistrer ta progression. Réessaie."
 }
 </script>
 
@@ -116,7 +118,7 @@ function toggleModule(moduleId: string) {
     >
       <div class="flex flex-wrap items-baseline justify-between gap-2">
         <h2 id="course-progress-heading" class="text-lg font-semibold text-ink">Ma progression</h2>
-        <p class="text-sm font-semibold text-petrol-dark">
+        <p v-if="!progressLoading" class="text-sm font-semibold text-petrol-dark">
           {{ completedCount }} module{{ completedCount > 1 ? 's' : '' }} terminé{{
             completedCount > 1 ? 's' : ''
           }}
@@ -124,6 +126,7 @@ function toggleModule(moduleId: string) {
         </p>
       </div>
       <div
+        v-if="!progressLoading"
         class="mt-4 h-2.5 overflow-hidden rounded-full bg-mist"
         role="progressbar"
         :aria-valuenow="completedCount"
@@ -140,7 +143,19 @@ function toggleModule(moduleId: string) {
         Marque chaque module comme terminé lorsque tu l'as suivi. Ton plan d'action avance
         séparément.
       </p>
-      <p v-if="progressError" class="mt-2 text-sm text-red-700" role="alert">{{ progressError }}</p>
+      <p v-if="progressLoading" class="mt-2 text-sm text-muted" role="status">
+        Chargement de ta progression…
+      </p>
+      <div v-if="progressError" class="mt-2 flex flex-wrap items-center gap-3" role="alert">
+        <p class="text-sm text-red-700">{{ progressError }}</p>
+        <button
+          type="button"
+          class="text-sm font-semibold text-petrol-dark underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-petrol"
+          @click="reloadProgress"
+        >
+          Réessayer
+        </button>
+      </div>
     </section>
 
     <section class="mt-10 grid gap-5 lg:grid-cols-2" aria-label="Modules de la formation">
@@ -258,12 +273,15 @@ function toggleModule(moduleId: string) {
           type="button"
           class="mt-5 w-fit rounded-lg border border-petrol/25 px-4 py-2.5 text-sm font-semibold text-petrol-dark transition hover:bg-mist focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-petrol"
           :aria-pressed="isCompleted(module.id)"
-          @click="toggleModule(module.id)"
+          :disabled="progressLoading || Boolean(progressError) || isSaving(module.id)"
+          @click="toggleCompleted(module.id)"
         >
           {{
-            isCompleted(module.id)
-              ? '✓ Module terminé · Annuler'
-              : 'Marquer le module comme terminé'
+            isSaving(module.id)
+              ? 'Enregistrement…'
+              : isCompleted(module.id)
+                ? '✓ Module terminé · Annuler'
+                : 'Marquer le module comme terminé'
           }}
         </button>
       </article>

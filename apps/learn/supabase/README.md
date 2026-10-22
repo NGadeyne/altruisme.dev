@@ -24,3 +24,22 @@ Après application, vérifier avec deux comptes apprenants que chacun ne voit qu
 ses actions et qu'une action enregistrée pour `seo` n'apparaît pas dans une autre
 formation. Vérifier également qu'une insertion, une modification et une
 suppression visant l'`user_id` de l'autre compte sont refusées par RLS.
+
+## Progression des modules SEO
+
+Appliquer aussi `migrations/202610220001_module_progress.sql` au projet Supabase
+utilisé par Learn avant de déployer la progression sauvegardée sur le compte.
+Cette migration crée `learn_module_progress` et ses politiques RLS, sans modifier
+les tables existantes. Elle n'est pas exécutée par le build.
+
+La clé `(user_id, course_slug, module_id)` évite les doublons. Les modules sont
+marqués manuellement et restent indépendants des actions du plan. Au premier
+chargement après déploiement, Learn importe les modules terminés auparavant dans
+le navigateur de l'apprenant. La copie locale n'est supprimée qu'après une
+sauvegarde réussie sur Supabase. Si plusieurs appareils contiennent des états
+locaux différents, leurs modules terminés sont réunis lors de leur premier accès.
+
+Après application, vérifier avec deux comptes apprenants : terminer un module,
+actualiser, se reconnecter depuis un autre navigateur, puis rouvrir le module.
+Le second compte ne doit voir aucun changement. Une requête d'insertion ou de
+suppression portant sur l'`user_id` de l'autre compte doit être refusée par RLS.
