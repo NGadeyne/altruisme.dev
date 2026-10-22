@@ -122,7 +122,7 @@ async function handleLogin() {
 
         <div class="mt-6 border-t border-petrol/15 pt-6 text-center">
           <p class="text-xs leading-5 text-muted">
-            Ton accès est créé manuellement après ton inscription à l'accompagnement.
+            L'accès à la formation est lié à ton compte Learn.
           </p>
         </div>
       </div>

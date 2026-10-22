@@ -14,11 +14,9 @@ existante. Elle n'est pas exécutée automatiquement par le build.
   de la progression des leçons.
 
 Les politiques RLS n'autorisent la lecture et l'écriture qu'au propriétaire des
-données. Le droit d'ouvrir la formation suit actuellement la convention de Learn :
-une session Supabase authentifiée. Learn ne possède pas encore de registre
-d'inscriptions par formation ; si des formations privées sont ajoutées, leurs
-droits d'accès devront être vérifiés dans les routes **et** dans les politiques
-RLS avant leur ouverture.
+données. Le droit d'ouvrir les pages de la formation SEO est vérifié séparément
+dans le routeur à partir de `learn_course_entitlements`. Les tables de progression
+ne contrôlent pas encore ce droit au niveau RLS.
 
 Après application, vérifier avec deux comptes apprenants que chacun ne voit que
 ses actions et qu'une action enregistrée pour `seo` n'apparaît pas dans une autre
@@ -43,3 +41,19 @@ Après application, vérifier avec deux comptes apprenants : terminer un module,
 actualiser, se reconnecter depuis un autre navigateur, puis rouvrir le module.
 Le second compte ne doit voir aucun changement. Une requête d'insertion ou de
 suppression portant sur l'`user_id` de l'autre compte doit être refusée par RLS.
+
+## Accès à la formation SEO
+
+`migrations/202610210001_course_entitlements.sql` définit les droits de lecture
+par formation. Le routeur Learn distingue un visiteur, un compte sans accès et
+un apprenant autorisé. Une erreur de vérification ne donne pas accès aux pages.
+
+Avant de publier ce contrôle d'accès, attribuer le droit `seo` uniquement aux
+comptes Learn existants explicitement identifiés. Un compte sans ligne dans
+`learn_course_entitlements` sera redirigé vers `/acces`. Les futurs comptes ne
+reçoivent aucun droit par défaut ; un processus de confiance devra leur
+attribuer ce droit après achat.
+
+Le routeur protège la navigation, mais les fichiers JavaScript de la formation
+restent publics. Avant la vente, servir le contenu payant depuis un point d'accès
+contrôlé côté serveur et étendre les politiques RLS aux données de cours privées.

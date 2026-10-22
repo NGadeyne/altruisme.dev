@@ -28,6 +28,16 @@ const router = createRouter({
     },
 
     {
+      path: '/acces',
+      name: 'access-pending',
+      component: () => import('@/views/AccessPendingView.vue'),
+      meta: {
+        requiresAuth: true,
+        layout: 'auth',
+      },
+    },
+
+    {
       path: '/',
       name: 'landing',
       component: () => import('@/views/LandingView.vue'),
@@ -299,6 +309,19 @@ router.beforeEach(async (to) => {
     }
   }
 
+  if (authStore.user && (to.meta.requiresAuth || to.name === 'login')) {
+    const userId = authStore.user.id
+    const access = await authStore.refreshSeoAccess()
+    if (authStore.user?.id !== userId) return { name: 'login' }
+
+    if (to.name === 'login' || to.name === 'access-pending') {
+      if (access === 'granted') return { name: 'dashboard' }
+      if (to.name === 'login') return { name: 'access-pending' }
+    } else if (access !== 'granted') {
+      return { name: 'access-pending' }
+    }
+  }
+
   if (to.name === 'lesson' && !lessonsAvailable) {
     return { name: 'dashboard' }
   }
@@ -325,12 +348,6 @@ router.beforeEach(async (to) => {
     (to.name === 'pilotage' || to.name === 'opportunities' || to.name === 'actions')
   ) {
     return { name: 'dashboard' }
-  }
-
-  if (to.name === 'login' && authStore.user) {
-    return {
-      name: 'dashboard',
-    }
   }
 
   return true
