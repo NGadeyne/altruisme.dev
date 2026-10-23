@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest'
 
 import SeoLesson27Quiz from './SeoLesson27Quiz.vue'
 
-describe('questionnaire de la vingt-septième leçon SEO', () => {
+describe('questionnaire de la vingt-quatrième leçon SEO', () => {
   it('corrige les quatre réponses après validation', async () => {
     const wrapper = mount(SeoLesson27Quiz)
 
@@ -18,6 +18,6 @@ describe('questionnaire de la vingt-septième leçon SEO', () => {
 
     expect(wrapper.get('[role="status"]').text()).toBe('4 bonnes réponses sur 4.')
     expect(wrapper.text()).toContain('Question 4 : B.')
-    expect(wrapper.text()).toContain("avant de décider d'une modification")
+    expect(wrapper.text()).toContain('facilitent sa compréhension')
   })
 })

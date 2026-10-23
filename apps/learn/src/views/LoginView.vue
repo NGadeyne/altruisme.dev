@@ -26,13 +26,15 @@ async function handleLogin() {
   try {
     await authStore.login(email.value, password.value)
 
-    const redirect = typeof route.query.redirect === 'string' ? route.query.redirect : '/formation'
+    const redirect = typeof route.query.redirect === 'string' ? route.query.redirect : '/formations'
 
     await router.push(redirect)
   } catch (error) {
     console.error(error)
-
-    errorMessage.value = 'Email ou mot de passe incorrect.'
+    errorMessage.value =
+      error && typeof error === 'object' && 'code' in error && error.code === 'email_not_confirmed'
+        ? 'Confirme ton adresse e-mail avant de te connecter. Vérifie aussi tes courriers indésirables.'
+        : 'Email ou mot de passe incorrect.'
   } finally {
     loading.value = false
   }
@@ -121,9 +123,13 @@ async function handleLogin() {
         </form>
 
         <div class="mt-6 border-t border-petrol/15 pt-6 text-center">
-          <p class="text-xs leading-5 text-muted">
-            L'accès à la formation est lié à ton compte Learn.
-          </p>
+          <p class="text-xs leading-5 text-muted">Tu découvres Altruisme Learn ?</p>
+          <RouterLink
+            to="/"
+            class="mt-3 inline-block text-sm font-semibold text-petrol-dark underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-petrol"
+          >
+            Découvrir la formation SEO
+          </RouterLink>
         </div>
       </div>
 

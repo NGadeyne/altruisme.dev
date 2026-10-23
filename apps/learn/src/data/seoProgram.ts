@@ -224,27 +224,57 @@ export const seoProgram: SeoProgramModule[] = [
     practiceMinutes: { min: 15, max: 20 },
   },
   {
-    id: 'seo-visibilite-geo',
+    id: 'seo-visibilite-locale',
     number: 8,
+    title: 'Développer sa visibilité locale',
+    description:
+      'Comprendre le référencement local, optimiser sa présence sur Google Search et Google Maps et développer sa visibilité auprès des clients situés dans sa zone géographique.',
+    lessons: [
+      {
+        id: 'seo-lesson-23',
+        number: 23,
+        title: 'Comprendre le SEO local et Google Maps',
+        readingMinutes: { min: 18, max: 18 },
+      },
+      {
+        id: 'seo-lesson-24',
+        number: 24,
+        title: "Créer et optimiser sa fiche d'établissement Google",
+        readingMinutes: { min: 18, max: 20 },
+      },
+      {
+        id: 'seo-lesson-25',
+        number: 25,
+        title: 'Développer sa visibilité locale et mesurer ses résultats',
+        readingMinutes: { min: 19, max: 19 },
+      },
+    ],
+    exercise:
+      "Vérifier sa présence locale, optimiser sa fiche d'établissement Google et identifier trois actions prioritaires.",
+    practiceMinutes: { min: 25, max: 25 },
+  },
+  {
+    id: 'seo-visibilite-geo',
+    number: 9,
     title: 'Être visible dans les moteurs IA (GEO)',
     description:
       'Comprendre comment rendre ses contenus accessibles et citables par les moteurs IA.',
     lessons: [
       {
-        id: 'seo-lesson-23',
-        number: 23,
+        id: 'seo-lesson-26',
+        number: 26,
         title: 'Comprendre comment ChatGPT, Gemini et les moteurs IA utilisent les sources',
         readingMinutes: { min: 15, max: 20 },
       },
       {
-        id: 'seo-lesson-24',
-        number: 24,
+        id: 'seo-lesson-27',
+        number: 27,
         title: 'Rendre son site accessible, compréhensible et citable par les IA',
         readingMinutes: { min: 15, max: 20 },
       },
       {
-        id: 'seo-lesson-25',
-        number: 25,
+        id: 'seo-lesson-28',
+        number: 28,
         title: 'Mesurer sa visibilité et ses citations dans les moteurs IA',
         readingMinutes: { min: 15, max: 20 },
       },
@@ -254,25 +284,25 @@ export const seoProgram: SeoProgramModule[] = [
   },
   {
     id: 'seo-mesurer-progresser',
-    number: 9,
+    number: 10,
     title: 'Mesurer et progresser',
     description: 'Savoir évaluer les progrès et définir les prochaines actions.',
     lessons: [
       {
-        id: 'seo-lesson-26',
-        number: 26,
+        id: 'seo-lesson-29',
+        number: 29,
         title: 'Mesurer les bons indicateurs SEO',
         readingMinutes: { min: 15, max: 20 },
       },
       {
-        id: 'seo-lesson-27',
-        number: 27,
+        id: 'seo-lesson-30',
+        number: 30,
         title: 'Identifier et prioriser les prochaines optimisations',
         readingMinutes: { min: 15, max: 20 },
       },
       {
-        id: 'seo-lesson-28',
-        number: 28,
+        id: 'seo-lesson-31',
+        number: 31,
         title: "Construire ton plan d'action SEO sur 90 jours",
         readingMinutes: { min: 15, max: 20 },
       },

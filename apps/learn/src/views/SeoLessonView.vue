@@ -98,6 +98,15 @@ const lessonContents: Record<string, Component> = {
   'seo-lesson-28': defineAsyncComponent(
     () => import('@/components/courses/SeoLesson28Content.vue'),
   ),
+  'seo-lesson-29': defineAsyncComponent(
+    () => import('@/components/courses/SeoLesson29Content.vue'),
+  ),
+  'seo-lesson-30': defineAsyncComponent(
+    () => import('@/components/courses/SeoLesson30Content.vue'),
+  ),
+  'seo-lesson-31': defineAsyncComponent(
+    () => import('@/components/courses/SeoLesson31Content.vue'),
+  ),
 }
 
 const lessonDetails: Record<string, { objective: string; videoId: string }> = {
@@ -214,29 +223,44 @@ const lessonDetails: Record<string, { objective: string; videoId: string }> = {
   'seo-lesson-23': {
     videoId: 'aqz-KE-bpKQ',
     objective:
-      "Comprendre comment les assistants et moteurs de recherche utilisant l'intelligence artificielle peuvent produire des réponses à partir de leurs connaissances et de sources externes, distinguer une mention d'une citation et identifier les premiers enjeux de visibilité pour un site, sans confondre GEO, référencement naturel et entraînement des modèles.",
+      "Comprendre le fonctionnement du référencement local dans Google Search et Google Maps, découvrir le rôle de la fiche d'établissement Google, distinguer les résultats locaux des résultats naturels classiques et identifier les trois principaux critères de classement local : pertinence, distance et notoriété.",
   },
   'seo-lesson-24': {
     videoId: 'aqz-KE-bpKQ',
     objective:
-      "Comprendre les conditions qui permettent aux moteurs de recherche et assistants IA d'accéder aux contenus d'un site, apprendre à vérifier les principales restrictions techniques et identifier les améliorations éditoriales qui rendent les informations plus claires, fiables et faciles à citer, sans recourir à des optimisations GEO non démontrées.",
+      "Apprendre à créer ou revendiquer une fiche d'établissement Google, comprendre les étapes de validation et renseigner les informations essentielles — catégorie, nom, adresse, zone desservie, prestations, coordonnées et photographies — afin de présenter son entreprise de manière fiable et conforme aux règles de Google.",
   },
   'seo-lesson-25': {
     videoId: 'aqz-KE-bpKQ',
     objective:
-      'Apprendre à mesurer les premières formes de visibilité de son entreprise dans les moteurs IA, distinguer les mentions de marque, les citations de sources et les visites réellement générées, puis construire un tableau de suivi simple pour comparer les résultats dans le temps, sans confondre observations ponctuelles et indicateurs fiables de performance.',
+      "Apprendre à développer durablement sa visibilité locale grâce aux avis clients, aux contenus géographiques pertinents et aux références professionnelles, puis mesurer les interactions générées par sa fiche d'établissement Google et son site internet pour identifier trois améliorations prioritaires.",
   },
   'seo-lesson-26': {
     videoId: 'aqz-KE-bpKQ',
     objective:
-      "Apprendre à sélectionner et interpréter les indicateurs essentiels pour suivre son référencement naturel, distinguer la visibilité dans Google, les visites sur son site et les résultats pour son activité, puis construire un tableau de bord SEO simple permettant de mesurer les progrès et d'orienter les prochaines optimisations.",
+      "Comprendre comment les assistants et moteurs de recherche utilisant l'intelligence artificielle peuvent produire des réponses à partir de leurs connaissances et de sources externes, distinguer une mention d'une citation et identifier les premiers enjeux de visibilité pour un site, sans confondre GEO, référencement naturel et entraînement des modèles.",
   },
   'seo-lesson-27': {
     videoId: 'aqz-KE-bpKQ',
     objective:
-      "Apprendre à transformer les données de son audit et de son tableau de bord SEO en opportunités d'amélioration, distinguer les problèmes avérés des hypothèses, puis hiérarchiser les actions selon leur impact potentiel, leur urgence, leur niveau de confiance et l'effort nécessaire pour les réaliser.",
+      "Comprendre les conditions qui permettent aux moteurs de recherche et assistants IA d'accéder aux contenus d'un site, apprendre à vérifier les principales restrictions techniques et identifier les améliorations éditoriales qui rendent les informations plus claires, fiables et faciles à citer, sans recourir à des optimisations GEO non démontrées.",
   },
   'seo-lesson-28': {
+    videoId: 'aqz-KE-bpKQ',
+    objective:
+      'Apprendre à mesurer les premières formes de visibilité de son entreprise dans les moteurs IA, distinguer les mentions de marque, les citations de sources et les visites réellement générées, puis construire un tableau de suivi simple pour comparer les résultats dans le temps, sans confondre observations ponctuelles et indicateurs fiables de performance.',
+  },
+  'seo-lesson-29': {
+    videoId: 'aqz-KE-bpKQ',
+    objective:
+      "Apprendre à sélectionner et interpréter les indicateurs essentiels pour suivre son référencement naturel, distinguer la visibilité dans Google, les visites sur son site et les résultats pour son activité, puis construire un tableau de bord SEO simple permettant de mesurer les progrès et d'orienter les prochaines optimisations.",
+  },
+  'seo-lesson-30': {
+    videoId: 'aqz-KE-bpKQ',
+    objective:
+      "Apprendre à transformer les données de son audit et de son tableau de bord SEO en opportunités d'amélioration, distinguer les problèmes avérés des hypothèses, puis hiérarchiser les actions selon leur impact potentiel, leur urgence, leur niveau de confiance et l'effort nécessaire pour les réaliser.",
+  },
+  'seo-lesson-31': {
     videoId: 'aqz-KE-bpKQ',
     objective:
       'Apprendre à transformer les observations et les priorités identifiées pendant la formation en un plan SEO réalisable sur 90 jours, organiser les actions dans un ordre logique, définir des échéances et des critères de réussite, puis mettre en place un rythme de suivi permettant de progresser durablement en autonomie.',
@@ -258,9 +282,9 @@ const relatedAction = computed(() =>
         action.key === 'seo_technical_checks') ||
       (['seo-lesson-20', 'seo-lesson-22'].includes(lesson.value?.id ?? '') &&
         action.key === 'seo_backlink_opportunities') ||
-      (['seo-lesson-23', 'seo-lesson-24'].includes(lesson.value?.id ?? '') &&
+      (['seo-lesson-26', 'seo-lesson-27'].includes(lesson.value?.id ?? '') &&
         action.key === 'seo_geo_visibility') ||
-      (lesson.value?.id === 'seo-lesson-27' && action.key === 'seo_90_day_plan'),
+      (lesson.value?.id === 'seo-lesson-30' && action.key === 'seo_90_day_plan'),
   ),
 )
 const practiceRoute = computed(() => {
@@ -273,6 +297,7 @@ const practiceRoute = computed(() => {
   if (lesson.value?.id === 'seo-lesson-22') return 'seo-practice-07'
   if (lesson.value?.id === 'seo-lesson-25') return 'seo-practice-08'
   if (lesson.value?.id === 'seo-lesson-28') return 'seo-practice-09'
+  if (lesson.value?.id === 'seo-lesson-31') return 'seo-practice-10'
   return null
 })
 const availableLessons = seoProgram
@@ -281,19 +306,21 @@ const availableLessons = seoProgram
 const lessonIndex = computed(() =>
   availableLessons.findIndex((item) => item.id === lesson.value?.id),
 )
-const previousLesson = computed(() =>
-  lessonIndex.value > 0 ? availableLessons[lessonIndex.value - 1] : undefined,
-)
-const nextLesson = computed(() =>
-  lessonIndex.value >= 0 ? availableLessons[lessonIndex.value + 1] : undefined,
-)
+const previousLesson = computed(() => {
+  const previous = availableLessons[lessonIndex.value - 1]
+  return previous?.number === (lesson.value?.number ?? 0) - 1 ? previous : undefined
+})
+const nextLesson = computed(() => {
+  const next = availableLessons[lessonIndex.value + 1]
+  return next?.number === (lesson.value?.number ?? 0) + 1 ? next : undefined
+})
 </script>
 
 <template>
   <BaseContainer>
     <div class="mx-auto max-w-3xl">
       <RouterLink
-        to="/formation"
+        to="/formations/seo"
         class="text-sm font-medium text-petrol-dark hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-petrol"
         >← Formation SEO</RouterLink
       >
@@ -372,6 +399,21 @@ const nextLesson = computed(() =>
             Voir dans mon plan d'action
           </RouterLink>
         </div>
+      </section>
+      <section
+        v-else-if="practiceRoute && module?.exercise"
+        class="mt-10 rounded-2xl border border-petrol/15 bg-white p-6 shadow-sm"
+      >
+        <p class="text-xs font-semibold uppercase tracking-[0.12em] text-[#3d6970]">
+          À mettre en pratique
+        </p>
+        <h2 class="mt-2 text-lg font-semibold text-ink">{{ module.exercise }}</h2>
+        <RouterLink
+          :to="{ name: practiceRoute }"
+          class="learn-button-primary mt-5 inline-flex rounded-xl px-5 py-3 text-sm font-semibold"
+        >
+          Faire la mise en pratique
+        </RouterLink>
       </section>
       <nav
         v-if="previousLesson || nextLesson"

@@ -28,6 +28,41 @@ const router = createRouter({
     },
 
     {
+      path: '/inscription',
+      redirect: { name: 'checkout' },
+    },
+
+    {
+      path: '/activation',
+      name: 'account-activation',
+      component: () => import('@/views/AccountActivationView.vue'),
+      meta: {
+        public: true,
+        layout: 'auth',
+      },
+    },
+
+    {
+      path: '/confirmation-email',
+      name: 'email-confirmation',
+      component: () => import('@/views/EmailConfirmationView.vue'),
+      meta: {
+        public: true,
+        layout: 'auth',
+      },
+    },
+
+    {
+      path: '/paiement',
+      name: 'checkout',
+      component: () => import('@/views/CheckoutView.vue'),
+      meta: {
+        public: true,
+        layout: 'auth',
+      },
+    },
+
+    {
       path: '/acces',
       name: 'access-pending',
       component: () => import('@/views/AccessPendingView.vue'),
@@ -60,7 +95,16 @@ const router = createRouter({
     },
 
     {
-      path: '/formation',
+      path: '/formations',
+      name: 'formations',
+      component: () => import('@/views/FormationsView.vue'),
+      meta: {
+        requiresAuth: true,
+      },
+    },
+
+    {
+      path: '/formations/seo',
       name: 'dashboard',
       component: DashboardView,
       meta: {
@@ -170,6 +214,15 @@ const router = createRouter({
     },
 
     {
+      path: '/formation/pratique-10',
+      name: 'seo-practice-10',
+      component: () => import('@/views/SeoPractice10View.vue'),
+      meta: {
+        requiresAuth: true,
+      },
+    },
+
+    {
       path: '/formation/:lessonSlug',
       name: 'seo-lesson',
       component: () => import('@/views/SeoLessonView.vue'),
@@ -232,7 +285,7 @@ const router = createRouter({
     },
 
     {
-      path: '/assistant-seo',
+      path: '/assistant',
       name: 'seo-assistant',
       component: () => import('@/views/SeoAssistantView.vue'),
       meta: {
@@ -286,7 +339,8 @@ const router = createRouter({
     },
   ],
 
-  scrollBehavior() {
+  scrollBehavior(to) {
+    if (to.hash) return { el: to.hash, top: 96 }
     return {
       top: 0,
     }

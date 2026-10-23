@@ -6,75 +6,74 @@ import SeoLessonQuiz from './SeoLessonQuiz.vue'
 const questions: QuizQuestion[] = [
   {
     id: 1,
-    prompt: "Quel est le rôle principal d'OAI-SearchBot ?",
-    options: [
-      { letter: 'A', text: 'Garantir que chaque page explorée sera recommandée par ChatGPT.' },
-      {
-        letter: 'B',
-        text: "Permettre l'exploration de contenus pour les fonctionnalités de recherche ChatGPT.",
-      },
-      { letter: 'C', text: 'Mesurer automatiquement le Domain Rating des sites.' },
-    ],
-    correct: 'B',
-    explanation:
-      'OAI-SearchBot est associé aux fonctionnalités de recherche ChatGPT. Autoriser son exploration peut faciliter la prise en compte des contenus accessibles, mais ne garantit pas leur apparition dans une réponse.',
-  },
-  {
-    id: 2,
-    prompt: 'Quelle affirmation concernant GPTBot est correcte ?',
+    prompt:
+      'Ton entreprise possède déjà une fiche Google que tu ne gères pas. Quelle est la meilleure première démarche ?',
     options: [
       {
         letter: 'A',
-        text: "Il est associé à l'exploration de contenus susceptibles de contribuer à l'entraînement des modèles OpenAI.",
+        text: 'Créer immédiatement une deuxième fiche avec un nom légèrement différent.',
       },
       {
         letter: 'B',
-        text: 'Il constitue le seul robot utilisé pour toutes les fonctionnalités de recherche ChatGPT.',
+        text: "Vérifier la fiche existante et utiliser la procédure de revendication ou de demande d'accès adaptée.",
       },
+      { letter: 'C', text: 'Ajouter une adresse virtuelle pour créer un nouvel établissement.' },
+    ],
+    correct: 'B',
+    explanation:
+      "Lorsqu'une fiche existe déjà, il est préférable de rechercher les possibilités de revendication ou de récupération de gestion plutôt que de créer un doublon.",
+  },
+  {
+    id: 2,
+    prompt: "Quel nom faut-il utiliser dans une fiche d'établissement Google ?",
+    options: [
+      { letter: 'A', text: "Le nom réel de l'entreprise, tel qu'il est présenté à ses clients." },
       {
-        letter: 'C',
-        text: "Son autorisation garantit qu'un site apparaîtra dans les citations des moteurs IA.",
+        letter: 'B',
+        text: 'Une combinaison de tous les mots-clés commerciaux les plus recherchés.',
       },
+      { letter: 'C', text: 'Le nom de la ville suivi de la mention « meilleur professionnel ».' },
     ],
     correct: 'A',
     explanation:
-      "GPTBot est documenté par OpenAI comme un robot destiné à explorer des contenus susceptibles d'être utilisés dans l'entraînement de ses modèles. Son rôle est distinct de celui d'OAI-SearchBot.",
+      "Le nom de la fiche doit refléter le nom réel de l'entreprise. L'ajout artificiel de mots-clés ou de mentions promotionnelles peut contrevenir aux règles de Google.",
   },
   {
     id: 3,
-    prompt: 'Que faut-il faire pour apparaître dans les fonctionnalités IA de Google ?',
+    prompt:
+      'Un artisan travaille depuis son domicile et intervient exclusivement chez ses clients. Quelle configuration est généralement appropriée ?',
     options: [
-      { letter: 'A', text: 'Installer obligatoirement un fichier llms.txt.' },
-      { letter: 'B', text: 'Ajouter une balise spéciale garantissant une citation.' },
+      { letter: 'A', text: 'Afficher son domicile comme une boutique ouverte au public.' },
+      { letter: 'B', text: 'Créer une fiche dans chaque ville de sa zone commerciale.' },
       {
         letter: 'C',
-        text: 'Respecter les fondamentaux du SEO et les exigences techniques de Google Search, sans garantie de sélection.',
+        text: 'Utiliser une fiche de service de proximité éligible, masquer son adresse et renseigner les zones réellement desservies.',
       },
     ],
     correct: 'C',
     explanation:
-      "Google indique qu'aucune optimisation technique supplémentaire n'est nécessaire pour ses Aperçus IA et son Mode IA. Les fondamentaux du référencement restent pertinents, sans garantie de citation.",
+      'Une entreprise éligible intervenant exclusivement auprès de ses clients doit normalement masquer son adresse et présenter une zone desservie adaptée à son activité réelle.',
   },
   {
     id: 4,
-    prompt: 'Quelle amélioration peut rendre un contenu plus compréhensible ?',
+    prompt: 'Google demande une validation vidéo pour une nouvelle fiche. Que faut-il faire ?',
     options: [
       {
         letter: 'A',
-        text: 'Répéter artificiellement les mêmes mots-clés dans tous les paragraphes.',
+        text: "Envoyer une vidéo publicitaire déjà montée pour présenter l'entreprise.",
       },
       {
         letter: 'B',
-        text: 'Présenter clairement les informations essentielles, utiliser des titres explicites et fournir des explications fiables.',
+        text: 'Suivre les instructions de Google et réaliser la validation avec les preuves authentiques demandées.',
       },
       {
         letter: 'C',
-        text: 'Supprimer toutes les sources et tous les exemples pour raccourcir au maximum la page.',
+        text: "Créer plusieurs nouvelles fiches jusqu'à obtenir une autre méthode de validation.",
       },
     ],
     correct: 'B',
     explanation:
-      'Des informations explicites, des titres compréhensibles et des explications vérifiables améliorent la qualité du contenu pour les lecteurs et facilitent sa compréhension.',
+      "Les méthodes de validation sont déterminées par Google. Lorsqu'une vidéo est demandée, elle doit respecter les instructions officielles et fournir des éléments authentiques permettant de vérifier l'établissement.",
   },
 ]
 </script>
@@ -82,6 +81,6 @@ const questions: QuizQuestion[] = [
 <template>
   <SeoLessonQuiz
     :questions="questions"
-    intro="Avant de terminer cette leçon, prends quelques instants pour vérifier que tu as compris les principales notions concernant l'accessibilité et la compréhension des contenus par les moteurs IA."
+    intro="Avant de terminer cette leçon, prends quelques instants pour vérifier que tu as compris les principales étapes de création et d'optimisation d'une fiche d'établissement Google."
   />
 </template>

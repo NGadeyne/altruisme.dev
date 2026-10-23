@@ -18,6 +18,6 @@ describe('questionnaire de la vingt-quatrième leçon SEO', () => {
 
     expect(wrapper.get('[role="status"]').text()).toBe('4 bonnes réponses sur 4.')
     expect(wrapper.text()).toContain('Question 4 : B.')
-    expect(wrapper.text()).toContain('facilitent sa compréhension')
+    expect(wrapper.text()).toContain('preuves authentiques')
   })
 })

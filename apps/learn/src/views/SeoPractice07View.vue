@@ -8,7 +8,7 @@ const practiceMinutes = getSeoPracticeMinutes(7)
   <BaseContainer>
     <div class="mx-auto max-w-3xl">
       <RouterLink
-        to="/formation"
+        to="/formations/seo"
         class="text-sm font-medium text-petrol-dark hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-petrol"
         >← Formation SEO</RouterLink
       >
@@ -221,7 +221,7 @@ const practiceMinutes = getSeoPracticeMinutes(7)
           </p>
           <p class="mt-4">
             <strong class="font-semibold text-ink"
-              >Prochain module : Être visible dans les moteurs IA.</strong
+              >Prochain module : Développer sa visibilité locale.</strong
             >
           </p>
           <div class="mt-6 border-t border-petrol/15 pt-5">

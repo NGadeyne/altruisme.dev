@@ -28,7 +28,10 @@ export const isSeoLessonAvailable = (lessonId: string) =>
   lessonId === 'seo-lesson-25' ||
   lessonId === 'seo-lesson-26' ||
   lessonId === 'seo-lesson-27' ||
-  lessonId === 'seo-lesson-28'
+  lessonId === 'seo-lesson-28' ||
+  lessonId === 'seo-lesson-29' ||
+  lessonId === 'seo-lesson-30' ||
+  lessonId === 'seo-lesson-31'
 export const resourcesAvailable = false
 export const workshopsAvailable = false
 export const pilotageAvailable = false

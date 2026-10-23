@@ -639,14 +639,95 @@ describe('lien entre une leçon SEO et le plan', () => {
     })
   })
 
-  it('ouvre la vingt-troisième leçon et l’action GEO du plan', async () => {
+  it('affiche la leçon 23 sur le SEO local et son questionnaire', async () => {
     routeParams.lessonSlug = 'lesson-23'
     const wrapper = await mountLesson()
 
+    expect(wrapper.get('h1').text()).toBe('23 — Comprendre le SEO local et Google Maps')
+    expect(wrapper.text()).toContain('Module 8 · Développer sa visibilité locale')
+    expect(wrapper.text()).toContain('Lecture : environ 18 min')
+    expect(wrapper.text()).toContain('pertinence, la distance et la notoriété')
+    expect(wrapper.text()).toContain('Tes futurs clients ne cherchent pas toujours une information')
+    expect(wrapper.text()).toContain('Question 4 — Une entreprise indique plusieurs villes')
+    expect(wrapper.text()).not.toContain('Question 4 : B.')
+    expect(wrapper.text()).not.toContain('Le contenu de cette leçon est en préparation.')
+
+    const links = wrapper.findAllComponents(RouterLinkStub)
+    expect(links.find((link) => link.text().includes('Leçon précédente'))?.props('to')).toEqual({
+      name: 'seo-lesson',
+      params: { lessonSlug: 'lesson-22' },
+    })
+    expect(links.find((link) => link.text().includes('Leçon suivante'))?.props('to')).toEqual({
+      name: 'seo-lesson',
+      params: { lessonSlug: 'lesson-24' },
+    })
+  })
+
+  it('affiche la leçon 24, sa démonstration et son questionnaire', async () => {
+    routeParams.lessonSlug = 'lesson-24'
+    const wrapper = await mountLesson()
+
+    expect(wrapper.get('h1').text()).toBe("24 — Créer et optimiser sa fiche d'établissement Google")
+    expect(wrapper.text()).toContain('Module 8 · Développer sa visibilité locale')
+    expect(wrapper.text()).toContain('Lecture : environ 19 min')
+    expect(wrapper.text()).toContain('Vérifier son éligibilité avant de créer une fiche')
+    expect(wrapper.text()).toContain('Démonstration — Créons la fiche Google')
+    expect(wrapper.findAll('table')).toHaveLength(1)
+    expect(wrapper.text()).toContain('Question 4 — Google demande une validation vidéo')
+    expect(wrapper.text()).not.toContain('Question 4 : B.')
+    expect(wrapper.text()).not.toContain('Le contenu de cette leçon est en préparation.')
+
+    const links = wrapper.findAllComponents(RouterLinkStub)
+    expect(links.find((link) => link.text().includes('Leçon précédente'))?.props('to')).toEqual({
+      name: 'seo-lesson',
+      params: { lessonSlug: 'lesson-23' },
+    })
+    expect(links.find((link) => link.text().includes('Leçon suivante'))?.props('to')).toEqual({
+      name: 'seo-lesson',
+      params: { lessonSlug: 'lesson-25' },
+    })
+  })
+
+  it('affiche la leçon 25, son questionnaire et la mise en pratique locale', async () => {
+    routeParams.lessonSlug = 'lesson-25'
+    const wrapper = await mountLesson()
+
     expect(wrapper.get('h1').text()).toBe(
-      '23 — Comprendre comment ChatGPT, Gemini et les moteurs IA utilisent les sources',
+      '25 — Développer sa visibilité locale et mesurer ses résultats',
     )
-    expect(wrapper.text()).toContain('Module 8 · Être visible dans les moteurs IA (GEO)')
+    expect(wrapper.text()).toContain('Module 8 · Développer sa visibilité locale')
+    expect(wrapper.text()).toContain('Lecture : environ 19 min')
+    expect(wrapper.text()).toContain('Développer sa visibilité grâce aux avis clients')
+    expect(wrapper.text()).toContain('Démonstration — Développons la visibilité locale')
+    expect(wrapper.findAll('table')).toHaveLength(1)
+    expect(wrapper.text()).toContain('Question 4 — Quel est le meilleur indicateur')
+    expect(wrapper.text()).not.toContain('Question 4 : C.')
+    expect(wrapper.text()).toContain('Félicitations, tu as terminé le module 8 !')
+
+    const links = wrapper.findAllComponents(RouterLinkStub)
+    expect(
+      links.find((link) => link.text().includes('Faire la mise en pratique'))?.props('to'),
+    ).toEqual({
+      name: 'seo-practice-08',
+    })
+    expect(links.find((link) => link.text().includes('Leçon précédente'))?.props('to')).toEqual({
+      name: 'seo-lesson',
+      params: { lessonSlug: 'lesson-24' },
+    })
+    expect(links.find((link) => link.text().includes('Leçon suivante'))?.props('to')).toEqual({
+      name: 'seo-lesson',
+      params: { lessonSlug: 'lesson-26' },
+    })
+  })
+
+  it('ouvre la vingt-sixième leçon et l’action GEO du plan', async () => {
+    routeParams.lessonSlug = 'lesson-26'
+    const wrapper = await mountLesson()
+
+    expect(wrapper.get('h1').text()).toBe(
+      '26 — Comprendre comment ChatGPT, Gemini et les moteurs IA utilisent les sources',
+    )
+    expect(wrapper.text()).toContain('Module 9 · Être visible dans les moteurs IA (GEO)')
     expect(wrapper.text()).toContain('Lecture : environ 18 min')
     expect(wrapper.text()).toContain(
       'Les internautes ne cherchent plus toujours une liste de liens',
@@ -660,22 +741,22 @@ describe('lien entre une leçon SEO et le plan', () => {
     ).toEqual({ name: 'learning-plan', query: { action: 'seo_geo_visibility' } })
     expect(links.find((link) => link.text().includes('Leçon précédente'))?.props('to')).toEqual({
       name: 'seo-lesson',
-      params: { lessonSlug: 'lesson-22' },
+      params: { lessonSlug: 'lesson-25' },
     })
     expect(links.find((link) => link.text().includes('Leçon suivante'))?.props('to')).toEqual({
       name: 'seo-lesson',
-      params: { lessonSlug: 'lesson-24' },
+      params: { lessonSlug: 'lesson-27' },
     })
   })
 
-  it('ouvre la vingt-quatrième leçon et l’action GEO du plan', async () => {
-    routeParams.lessonSlug = 'lesson-24'
+  it('ouvre la vingt-septième leçon et l’action GEO du plan', async () => {
+    routeParams.lessonSlug = 'lesson-27'
     const wrapper = await mountLesson()
 
     expect(wrapper.get('h1').text()).toBe(
-      '24 — Rendre son site accessible, compréhensible et citable par les IA',
+      '27 — Rendre son site accessible, compréhensible et citable par les IA',
     )
-    expect(wrapper.text()).toContain('Module 8 · Être visible dans les moteurs IA (GEO)')
+    expect(wrapper.text()).toContain('Module 9 · Être visible dans les moteurs IA (GEO)')
     expect(wrapper.text()).toContain('Lecture : environ 18 min')
     expect(wrapper.text()).toContain(
       'Pour être cité, encore faut-il pouvoir être découvert et compris',
@@ -689,22 +770,22 @@ describe('lien entre une leçon SEO et le plan', () => {
     ).toEqual({ name: 'learning-plan', query: { action: 'seo_geo_visibility' } })
     expect(links.find((link) => link.text().includes('Leçon précédente'))?.props('to')).toEqual({
       name: 'seo-lesson',
-      params: { lessonSlug: 'lesson-23' },
+      params: { lessonSlug: 'lesson-26' },
     })
     expect(links.find((link) => link.text().includes('Leçon suivante'))?.props('to')).toEqual({
       name: 'seo-lesson',
-      params: { lessonSlug: 'lesson-25' },
+      params: { lessonSlug: 'lesson-28' },
     })
   })
 
-  it('ouvre la vingt-cinquième leçon et la mise en pratique GEO', async () => {
-    routeParams.lessonSlug = 'lesson-25'
+  it('ouvre la vingt-huitième leçon et la mise en pratique GEO', async () => {
+    routeParams.lessonSlug = 'lesson-28'
     const wrapper = await mountLesson()
 
     expect(wrapper.get('h1').text()).toBe(
-      '25 — Mesurer sa visibilité et ses citations dans les moteurs IA',
+      '28 — Mesurer sa visibilité et ses citations dans les moteurs IA',
     )
-    expect(wrapper.text()).toContain('Module 8 · Être visible dans les moteurs IA (GEO)')
+    expect(wrapper.text()).toContain('Module 9 · Être visible dans les moteurs IA (GEO)')
     expect(wrapper.text()).toContain('Lecture : environ 18 min')
     expect(wrapper.text()).toContain("Être visible dans une réponse IA, c'est bien")
     expect(wrapper.findAll('table')).toHaveLength(2)
@@ -714,26 +795,26 @@ describe('lien entre une leçon SEO et le plan', () => {
     const links = wrapper.findAllComponents(RouterLinkStub)
     expect(
       links.find((link) => link.text().includes('Faire la mise en pratique'))?.props('to'),
-    ).toEqual({ name: 'seo-practice-08' })
+    ).toEqual({ name: 'seo-practice-09' })
     expect(
       links.find((link) => link.text().includes("Voir dans mon plan d'action"))?.props('to'),
     ).toEqual({ name: 'learning-plan', query: { action: 'seo_geo_visibility' } })
     expect(links.find((link) => link.text().includes('Leçon précédente'))?.props('to')).toEqual({
       name: 'seo-lesson',
-      params: { lessonSlug: 'lesson-24' },
+      params: { lessonSlug: 'lesson-27' },
     })
     expect(links.find((link) => link.text().includes('Leçon suivante'))?.props('to')).toEqual({
       name: 'seo-lesson',
-      params: { lessonSlug: 'lesson-26' },
+      params: { lessonSlug: 'lesson-29' },
     })
   })
 
-  it('ouvre la vingt-sixième leçon, ses tableaux et son action de suivi SEO', async () => {
-    routeParams.lessonSlug = 'lesson-26'
+  it('ouvre la vingt-neuvième leçon, ses tableaux et son action de suivi SEO', async () => {
+    routeParams.lessonSlug = 'lesson-29'
     const wrapper = await mountLesson()
 
-    expect(wrapper.get('h1').text()).toBe('26 — Mesurer les bons indicateurs SEO')
-    expect(wrapper.text()).toContain('Module 9 · Mesurer et progresser')
+    expect(wrapper.get('h1').text()).toBe('29 — Mesurer les bons indicateurs SEO')
+    expect(wrapper.text()).toContain('Module 10 · Mesurer et progresser')
     expect(wrapper.text()).toContain('Lecture : environ 18 min')
     expect(wrapper.text()).toContain('Améliorer son référencement sans mesurer les résultats')
     expect(wrapper.findAll('table')).toHaveLength(3)
@@ -748,22 +829,22 @@ describe('lien entre une leçon SEO et le plan', () => {
     ).toEqual({ name: 'learning-plan', query: { action: 'seo_record_baseline' } })
     expect(links.find((link) => link.text().includes('Leçon précédente'))?.props('to')).toEqual({
       name: 'seo-lesson',
-      params: { lessonSlug: 'lesson-25' },
+      params: { lessonSlug: 'lesson-28' },
     })
     expect(links.find((link) => link.text().includes('Leçon suivante'))?.props('to')).toEqual({
       name: 'seo-lesson',
-      params: { lessonSlug: 'lesson-27' },
+      params: { lessonSlug: 'lesson-30' },
     })
   })
 
-  it('ouvre la vingt-septième leçon et ses tableaux de priorisation', async () => {
-    routeParams.lessonSlug = 'lesson-27'
+  it('ouvre la trentième leçon et ses tableaux de priorisation', async () => {
+    routeParams.lessonSlug = 'lesson-30'
     const wrapper = await mountLesson()
 
     expect(wrapper.get('h1').text()).toBe(
-      '27 — Identifier et prioriser les prochaines optimisations',
+      '30 — Identifier et prioriser les prochaines optimisations',
     )
-    expect(wrapper.text()).toContain('Module 9 · Mesurer et progresser')
+    expect(wrapper.text()).toContain('Module 10 · Mesurer et progresser')
     expect(wrapper.text()).toContain('Lecture : environ 18 min')
     expect(wrapper.text()).toContain('Savoir quoi améliorer est aussi important')
     expect(wrapper.findAll('table')).toHaveLength(2)
@@ -776,20 +857,20 @@ describe('lien entre une leçon SEO et le plan', () => {
     ).toEqual({ name: 'learning-plan', query: { action: 'seo_90_day_plan' } })
     expect(links.find((link) => link.text().includes('Leçon précédente'))?.props('to')).toEqual({
       name: 'seo-lesson',
-      params: { lessonSlug: 'lesson-26' },
+      params: { lessonSlug: 'lesson-29' },
     })
     expect(links.find((link) => link.text().includes('Leçon suivante'))?.props('to')).toEqual({
       name: 'seo-lesson',
-      params: { lessonSlug: 'lesson-28' },
+      params: { lessonSlug: 'lesson-31' },
     })
   })
 
-  it('ouvre la vingt-huitième leçon, la pratique et le plan sur 90 jours', async () => {
-    routeParams.lessonSlug = 'lesson-28'
+  it('ouvre la trente et unième leçon, la pratique et le plan sur 90 jours', async () => {
+    routeParams.lessonSlug = 'lesson-31'
     const wrapper = await mountLesson()
 
-    expect(wrapper.get('h1').text()).toBe("28 — Construire ton plan d'action SEO sur 90 jours")
-    expect(wrapper.text()).toContain('Module 9 · Mesurer et progresser')
+    expect(wrapper.get('h1').text()).toBe("31 — Construire ton plan d'action SEO sur 90 jours")
+    expect(wrapper.text()).toContain('Module 10 · Mesurer et progresser')
     expect(wrapper.text()).toContain('Lecture : environ 18 min')
     expect(wrapper.text()).toContain('Tu as appris à améliorer ton référencement')
     expect(wrapper.findAll('table')).toHaveLength(1)
@@ -804,14 +885,14 @@ describe('lien entre une leçon SEO et le plan', () => {
     expect(
       links.find((link) => link.text().includes('Faire la mise en pratique'))?.props('to'),
     ).toEqual({
-      name: 'seo-practice-09',
+      name: 'seo-practice-10',
     })
     expect(
       links.find((link) => link.text().includes("Voir dans mon plan d'action"))?.props('to'),
     ).toEqual({ name: 'learning-plan', query: { action: 'seo_90_day_plan' } })
     expect(links.find((link) => link.text().includes('Leçon précédente'))?.props('to')).toEqual({
       name: 'seo-lesson',
-      params: { lessonSlug: 'lesson-27' },
+      params: { lessonSlug: 'lesson-30' },
     })
     expect(links.some((link) => link.text().includes('Leçon suivante'))).toBe(false)
   })

@@ -1009,7 +1009,7 @@ import SeoLesson22Quiz from './SeoLesson22Quiz.vue'
       Il sera de comprendre cette nouvelle dimension de la découverte d'informations et de renforcer
       les qualités qui rendent déjà un site utile, accessible et fiable.
     </p>
-    <p><strong>Prochain module : Être visible dans les moteurs IA (GEO).</strong></p>
+    <p><strong>Prochain module : Développer sa visibilité locale.</strong></p>
     <p>
       <strong
         >Prochaine leçon : Comprendre comment ChatGPT, Gemini et les moteurs IA utilisent les

@@ -6,85 +6,71 @@ import SeoLessonQuiz from './SeoLessonQuiz.vue'
 const questions: QuizQuestion[] = [
   {
     id: 1,
-    prompt: 'Quelle affirmation concernant les assistants IA est correcte ?',
+    prompt: 'Quelle affirmation concernant le référencement local est correcte ?',
     options: [
-      {
-        letter: 'A',
-        text: 'Ils effectuent systématiquement une recherche sur Internet avant chaque réponse.',
-      },
+      { letter: 'A', text: 'Il concerne uniquement les sites qui vendent des produits en ligne.' },
       {
         letter: 'B',
-        text: 'Ils peuvent répondre à partir de connaissances apprises ou utiliser des sources externes selon leurs fonctionnalités et le contexte.',
+        text: "Il permet de travailler la visibilité d'une entreprise sur des recherches associées à une zone géographique.",
       },
       {
         letter: 'C',
-        text: 'Ils citent obligatoirement toutes les pages qui ont servi à entraîner leurs modèles.',
+        text: "Il consiste uniquement à ajouter le nom d'une ville dans tous les titres du site.",
       },
     ],
     correct: 'B',
     explanation:
-      "Un assistant peut produire une réponse à partir des connaissances acquises pendant son entraînement ou utiliser des informations récupérées depuis des sources externes. La recherche Web n'est pas systématiquement déclenchée.",
+      'Le référencement local vise à améliorer la visibilité des entreprises sur des recherches possédant une dimension géographique. Il peut concerner à la fois les pages web et les résultats associés aux établissements.',
   },
   {
     id: 2,
-    prompt: 'Quelle différence existe entre une mention de marque et une citation de source ?',
+    prompt: 'Quels sont les trois principaux critères du classement local indiqués par Google ?',
     options: [
-      {
-        letter: 'A',
-        text: "Une mention peut simplement nommer une entreprise, tandis qu'une citation peut présenter une ressource identifiable utilisée ou proposée pour étayer la réponse.",
-      },
-      {
-        letter: 'B',
-        text: "Une mention garantit toujours un lien vers le site de l'entreprise.",
-      },
+      { letter: 'A', text: 'La pertinence, la distance et la notoriété.' },
+      { letter: 'B', text: 'Le nombre de pages, la longueur des articles et le Domain Rating.' },
       {
         letter: 'C',
-        text: "Une citation signifie que l'outil recommande officiellement tous les services de l'entreprise.",
+        text: 'Le prix des prestations, la couleur du site et le nombre de publications sur les réseaux sociaux.',
       },
     ],
     correct: 'A',
     explanation:
-      "Une mention peut simplement faire apparaître le nom d'une entreprise. Une citation ou une référence renvoie à une ressource présentée comme source ou comme information complémentaire. Ces deux formes de visibilité ne possèdent pas nécessairement le même intérêt.",
+      'Google explique que le classement local repose principalement sur la pertinence, la distance et la notoriété. Ces dimensions sont combinées pour sélectionner les établissements susceptibles de répondre aux besoins des utilisateurs.',
   },
   {
     id: 3,
-    prompt: 'Que recommande Google pour apparaître dans les fonctionnalités IA de sa recherche ?',
+    prompt:
+      "Une entreprise exerce exclusivement son activité en ligne, sans recevoir ni rencontrer physiquement ses clients. Peut-elle normalement créer une fiche d'établissement Google ?",
     options: [
-      {
-        letter: 'A',
-        text: 'Créer obligatoirement un fichier spécial destiné aux modèles de langage.',
-      },
-      {
-        letter: 'B',
-        text: 'Répéter le nom de son entreprise dans chaque paragraphe.',
-      },
+      { letter: 'A', text: 'Oui, à condition de louer une adresse virtuelle.' },
+      { letter: 'B', text: 'Oui, en créant une fiche dans chaque ville où elle souhaite vendre.' },
       {
         letter: 'C',
-        text: "Continuer à appliquer les bonnes pratiques fondamentales du SEO, notamment l'accessibilité technique et la qualité des contenus.",
+        text: 'Non, les activités exclusivement en ligne ne sont normalement pas éligibles.',
       },
     ],
     correct: 'C',
     explanation:
-      "Google indique qu'aucune optimisation spéciale n'est obligatoire pour ses Aperçus IA et son Mode IA. Les fondamentaux du SEO restent pertinents, notamment l'indexation, l'accessibilité des pages et la qualité des contenus.",
+      "Les entreprises exclusivement en ligne ne sont normalement pas éligibles à une fiche d'établissement. Une adresse virtuelle ne permet pas de contourner cette condition.",
   },
   {
     id: 4,
     prompt:
-      "Ton entreprise n'apparaît pas dans une réponse générée par un assistant. Que peux-tu en conclure ?",
+      'Une entreprise indique plusieurs villes dans sa zone desservie. Que peut-on en conclure ?',
     options: [
       {
         letter: 'A',
-        text: "Ton site est nécessairement bloqué par tous les robots d'intelligence artificielle.",
+        text: 'Elle apparaîtra automatiquement en première position dans toutes ces villes.',
       },
       {
         letter: 'B',
-        text: "Ce test précis n'a pas montré de mention, mais il ne suffit pas à établir ton absence de visibilité dans toutes les réponses.",
+        text: 'Elle indique les territoires dans lesquels elle intervient, mais sa visibilité dépend toujours des critères de classement local.',
       },
-      { letter: 'C', text: 'Tu dois immédiatement acheter des backlinks pour être cité.' },
+      { letter: 'C', text: "Elle n'a plus besoin de posséder un site internet." },
     ],
     correct: 'B',
     explanation:
-      "Les réponses générées peuvent varier selon les questions, les outils et le contexte. L'absence d'une marque dans un test isolé ne permet pas de conclure qu'elle n'apparaît jamais.",
+      "Définir une zone desservie permet de présenter le territoire d'intervention d'une entreprise éligible. Cela ne garantit pas une visibilité identique ni une position particulière dans toutes les villes concernées.",
   },
 ]
 </script>
@@ -92,6 +78,6 @@ const questions: QuizQuestion[] = [
 <template>
   <SeoLessonQuiz
     :questions="questions"
-    intro="Avant de terminer cette leçon, prends quelques instants pour vérifier que tu as compris les principaux mécanismes de recherche et de citation dans les moteurs IA."
+    intro="Avant de terminer cette leçon, prends quelques instants pour vérifier que tu as compris les principales notions du référencement local."
   />
 </template>

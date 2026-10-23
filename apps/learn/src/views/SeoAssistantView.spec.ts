@@ -29,7 +29,7 @@ function mountPage() {
   })
 }
 
-describe('Assistant SEO', () => {
+describe('Assistant', () => {
   beforeEach(() => {
     localStorage.clear()
     useSeoConversation().setUser(null)
@@ -41,12 +41,12 @@ describe('Assistant SEO', () => {
   })
 
   it('garde la route protégée et affiche les suggestions initiales', () => {
-    const route = router.resolve('/assistant-seo')
+    const route = router.resolve('/assistant')
     expect(route.name).toBe('seo-assistant')
     expect(route.meta.requiresAuth).toBe(true)
 
     const wrapper = mountPage()
-    expect(wrapper.get('h1').text()).toBe('Assistant SEO')
+    expect(wrapper.get('h1').text()).toBe('Assistant')
     expect(wrapper.text()).toContain('Une question sur le SEO ?')
     expect(wrapper.text()).toContain('Comment améliorer mon maillage interne ?')
     wrapper.unmount()

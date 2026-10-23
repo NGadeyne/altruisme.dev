@@ -6,75 +6,85 @@ import SeoLessonQuiz from './SeoLessonQuiz.vue'
 const questions: QuizQuestion[] = [
   {
     id: 1,
-    prompt: 'Que représente une impression dans Google Search Console ?',
-    options: [
-      { letter: 'A', text: 'Une vente réalisée grâce au référencement naturel.' },
-      {
-        letter: 'B',
-        text: "Une apparition d'un résultat associé à ton site dans Google, selon les règles de comptabilisation du rapport.",
-      },
-      { letter: 'C', text: "Une visite garantie d'une personne différente." },
-    ],
-    correct: 'B',
-    explanation:
-      "Une impression correspond à l'apparition d'un résultat associé au site dans les conditions prises en compte par Google. Elle ne représente ni une visite unique ni une conversion.",
-  },
-  {
-    id: 2,
-    prompt:
-      'Une page enregistre de nombreuses impressions, mais peu de clics. Quelle est la meilleure interprétation ?',
-    options: [
-      { letter: 'A', text: 'La page est nécessairement mauvaise et doit être supprimée.' },
-      {
-        letter: 'B',
-        text: 'Il faut systématiquement répéter davantage son mot-clé dans les titres.',
-      },
-      {
-        letter: 'C',
-        text: 'Il faut examiner les requêtes, la position et la présentation du résultat avant de déterminer si une amélioration est pertinente.',
-      },
-    ],
-    correct: 'C',
-    explanation:
-      "Un CTR faible peut avoir différentes explications. Il faut examiner la position du résultat, les recherches concernées et les informations affichées avant de décider d'une optimisation.",
-  },
-  {
-    id: 3,
-    prompt:
-      'Pourquoi les clics de Search Console et les sessions de Google Analytics peuvent-ils différer ?',
+    prompt: 'Quelle affirmation concernant les assistants IA est correcte ?',
     options: [
       {
         letter: 'A',
-        text: 'Les deux outils utilisent des méthodes de comptabilisation et de collecte différentes.',
+        text: 'Ils effectuent systématiquement une recherche sur Internet avant chaque réponse.',
       },
       {
         letter: 'B',
-        text: 'Tous les clics qui ne deviennent pas des sessions sont nécessairement frauduleux.',
+        text: 'Ils peuvent répondre à partir de connaissances apprises ou utiliser des sources externes selon leurs fonctionnalités et le contexte.',
       },
       {
         letter: 'C',
-        text: 'Search Console mesure exclusivement les ventes réalisées depuis Google.',
+        text: 'Ils citent obligatoirement toutes les pages qui ont servi à entraîner leurs modèles.',
+      },
+    ],
+    correct: 'B',
+    explanation:
+      "Un assistant peut produire une réponse à partir des connaissances acquises pendant son entraînement ou utiliser des informations récupérées depuis des sources externes. La recherche Web n'est pas systématiquement déclenchée.",
+  },
+  {
+    id: 2,
+    prompt: 'Quelle différence existe entre une mention de marque et une citation de source ?',
+    options: [
+      {
+        letter: 'A',
+        text: "Une mention peut simplement nommer une entreprise, tandis qu'une citation peut présenter une ressource identifiable utilisée ou proposée pour étayer la réponse.",
+      },
+      {
+        letter: 'B',
+        text: "Une mention garantit toujours un lien vers le site de l'entreprise.",
+      },
+      {
+        letter: 'C',
+        text: "Une citation signifie que l'outil recommande officiellement tous les services de l'entreprise.",
       },
     ],
     correct: 'A',
     explanation:
-      "Les clics et les sessions ne représentent pas exactement les mêmes événements. Les différences de collecte, de configuration et d'attribution peuvent notamment expliquer les écarts entre Search Console et Analytics.",
+      "Une mention peut simplement faire apparaître le nom d'une entreprise. Une citation ou une référence renvoie à une ressource présentée comme source ou comme information complémentaire. Ces deux formes de visibilité ne possèdent pas nécessairement le même intérêt.",
+  },
+  {
+    id: 3,
+    prompt: 'Que recommande Google pour apparaître dans les fonctionnalités IA de sa recherche ?',
+    options: [
+      {
+        letter: 'A',
+        text: 'Créer obligatoirement un fichier spécial destiné aux modèles de langage.',
+      },
+      {
+        letter: 'B',
+        text: 'Répéter le nom de son entreprise dans chaque paragraphe.',
+      },
+      {
+        letter: 'C',
+        text: "Continuer à appliquer les bonnes pratiques fondamentales du SEO, notamment l'accessibilité technique et la qualité des contenus.",
+      },
+    ],
+    correct: 'C',
+    explanation:
+      "Google indique qu'aucune optimisation spéciale n'est obligatoire pour ses Aperçus IA et son Mode IA. Les fondamentaux du SEO restent pertinents, notamment l'indexation, l'accessibilité des pages et la qualité des contenus.",
   },
   {
     id: 4,
     prompt:
-      'Quel indicateur est particulièrement intéressant pour un consultant souhaitant développer son activité grâce au SEO ?',
+      "Ton entreprise n'apparaît pas dans une réponse générée par un assistant. Que peux-tu en conclure ?",
     options: [
-      { letter: 'A', text: 'Uniquement le Domain Rating de son site.' },
+      {
+        letter: 'A',
+        text: "Ton site est nécessairement bloqué par tous les robots d'intelligence artificielle.",
+      },
       {
         letter: 'B',
-        text: 'Les demandes qualifiées attribuables au référencement, en complément des données de visibilité et de trafic.',
+        text: "Ce test précis n'a pas montré de mention, mais il ne suffit pas à établir ton absence de visibilité dans toutes les réponses.",
       },
-      { letter: 'C', text: 'Le nombre de mots publiés chaque mois.' },
+      { letter: 'C', text: 'Tu dois immédiatement acheter des backlinks pour être cité.' },
     ],
     correct: 'B',
     explanation:
-      "Les demandes qualifiées permettent de rapprocher les performances SEO des objectifs commerciaux. Elles doivent être interprétées avec les autres indicateurs et les limites de l'attribution.",
+      "Les réponses générées peuvent varier selon les questions, les outils et le contexte. L'absence d'une marque dans un test isolé ne permet pas de conclure qu'elle n'apparaît jamais.",
   },
 ]
 </script>
@@ -82,6 +92,6 @@ const questions: QuizQuestion[] = [
 <template>
   <SeoLessonQuiz
     :questions="questions"
-    intro="Avant de terminer cette leçon, prends quelques instants pour vérifier que tu as compris les principaux indicateurs et la manière de les interpréter."
+    intro="Avant de terminer cette leçon, prends quelques instants pour vérifier que tu as compris les principaux mécanismes de recherche et de citation dans les moteurs IA."
   />
 </template>

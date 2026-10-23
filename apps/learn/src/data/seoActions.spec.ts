@@ -25,7 +25,7 @@ describe('catalogue du plan SEO', () => {
       seoProgram.map(
         (module) => seoActions.filter((action) => action.moduleId === module.id).length,
       ),
-    ).toEqual([1, 3, 3, 3, 1, 2, 1, 1, 2])
+    ).toEqual([1, 3, 3, 3, 1, 2, 1, 0, 1, 2])
     expect(seoActions.filter((action) => action.isNew).map((action) => action.key)).toEqual([
       'seo_backlink_opportunities',
       'seo_geo_visibility',
@@ -56,7 +56,7 @@ describe('catalogue du plan SEO', () => {
       'seo-lesson-21',
     )
     expect(seoActions.find((action) => action.key === 'seo_geo_visibility')?.lessonId).toBe(
-      'seo-lesson-25',
+      'seo-lesson-28',
     )
     expect(seoActions.find((action) => action.key === 'seo_record_baseline')?.order).toBe(16)
     expect(seoActions.find((action) => action.key === 'seo_90_day_plan')?.order).toBe(17)

@@ -50,6 +50,12 @@ function practiceRoute(number: number) {
 
 <template>
   <BaseContainer>
+    <RouterLink
+      :to="{ name: 'formations' }"
+      class="mb-6 inline-flex text-sm font-medium text-petrol-dark hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-petrol"
+    >
+      ← Toutes les formations
+    </RouterLink>
     <header
       class="overflow-hidden rounded-3xl border border-petrol/15 bg-[linear-gradient(148deg,#faf7f0_0%,#eef3ef_60%,#dce9e5_100%)] p-6 sm:p-10 lg:p-12"
     >
@@ -67,7 +73,7 @@ function practiceRoute(number: number) {
         <span
           class="w-fit shrink-0 rounded-full border border-petrol/20 bg-white/70 px-4 py-2 text-xs font-semibold text-petrol-dark"
         >
-          28 leçons disponibles
+          {{ lessonCount }} leçons au programme
         </span>
       </div>
 
@@ -99,7 +105,7 @@ function practiceRoute(number: number) {
       </div>
 
       <p class="mt-6 max-w-3xl text-sm leading-7 text-ink-soft">
-        Les neuf mises en pratique représentent environ {{ formatSeoMinutes(seoPracticeMinutes) }}
+        Les dix mises en pratique représentent environ {{ formatSeoMinutes(seoPracticeMinutes) }}
         d'exercices guidés. Avec la lecture des leçons, prévois environ
         {{ formatSeoMinutes(totalMinutes) }} pour l'ensemble de la formation. La durée des vidéos
         sera précisée lorsqu'elles seront disponibles.
@@ -172,7 +178,7 @@ function practiceRoute(number: number) {
           <div class="min-w-0 flex-1">
             <h2
               :id="`module-${module.number}`"
-              class="text-xl font-semibold tracking-tight text-ink sm:text-2xl"
+              class="scroll-mt-24 text-xl font-semibold tracking-tight text-ink sm:text-2xl"
             >
               {{ module.title }}
             </h2>
@@ -273,15 +279,22 @@ function practiceRoute(number: number) {
           type="button"
           class="mt-5 w-fit rounded-lg border border-petrol/25 px-4 py-2.5 text-sm font-semibold text-petrol-dark transition hover:bg-mist focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-petrol"
           :aria-pressed="isCompleted(module.id)"
-          :disabled="progressLoading || Boolean(progressError) || isSaving(module.id)"
+          :disabled="
+            progressLoading ||
+            Boolean(progressError) ||
+            isSaving(module.id) ||
+            module.lessons.some((lesson) => !isSeoLessonAvailable(lesson.id))
+          "
           @click="toggleCompleted(module.id)"
         >
           {{
-            isSaving(module.id)
-              ? 'Enregistrement…'
-              : isCompleted(module.id)
-                ? '✓ Module terminé · Annuler'
-                : 'Marquer le module comme terminé'
+            module.lessons.some((lesson) => !isSeoLessonAvailable(lesson.id))
+              ? 'Leçons en préparation'
+              : isSaving(module.id)
+                ? 'Enregistrement…'
+                : isCompleted(module.id)
+                  ? '✓ Module terminé · Annuler'
+                  : 'Marquer le module comme terminé'
           }}
         </button>
       </article>

@@ -61,7 +61,7 @@ async function copyAnswer(content: string, index: number) {
     ref="scrollArea"
     class="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-6 sm:px-8 sm:py-8"
     role="log"
-    aria-label="Conversation avec l'assistant SEO"
+    aria-label="Conversation avec l'assistant"
     aria-live="polite"
     aria-relevant="additions"
   >
@@ -115,7 +115,7 @@ async function copyAnswer(content: string, index: number) {
           class="min-w-0 max-w-full rounded-2xl rounded-bl-md border border-petrol/10 bg-sand-light/60 px-4 py-4 sm:px-6"
         >
           <p class="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#3d6970]">
-            Assistant SEO
+            Assistant
           </p>
           <SeoMarkdown :content="message.content" />
           <div
@@ -163,7 +163,7 @@ async function copyAnswer(content: string, index: number) {
       >
         <div class="min-w-0 max-w-full rounded-2xl rounded-bl-md border border-petrol/10 bg-sand-light/60 px-4 py-4 sm:px-6">
           <p class="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#3d6970]">
-            Assistant SEO
+            Assistant
           </p>
           <SeoMarkdown :content="streamingAnswer" />
           <p class="mt-4 text-xs text-ink-soft" role="status">Rédaction en cours…</p>

@@ -225,7 +225,7 @@ const faqs = [
               Une formation pratique pour comprendre le référencement naturel, optimiser ton propre site et apprendre à attirer les bonnes personnes depuis Google. Sans jargon inutile, à ton rythme.
             </p>
             <div class="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
-              <span class="builder-button builder-button--primary pointer-events-none">Être informé du lancement <span class="ml-2" aria-hidden="true">↗</span></span>
+              <RouterLink to="/paiement" class="builder-button builder-button--primary">Acheter la formation <span class="ml-2" aria-hidden="true">↗</span></RouterLink>
               <a href="#methode-pedagogique" class="builder-button builder-button--secondary">Découvrir le programme</a>
             </div>
             <p class="mt-7 text-sm font-medium text-muted-light">SEO <span class="mx-2 font-bold text-petrol/80">·</span> Niveau débutant <span class="mx-2 font-bold text-petrol/80">·</span> Environ {{ formatSeoMinutes(totalTrainingMinutes) }} avec exercices <span class="mx-2 font-bold text-petrol/80">·</span> À ton rythme</p>
@@ -451,8 +451,8 @@ const faqs = [
               <div>
                 <h4 class="font-semibold text-[#254e54]">Le programme</h4>
                 <ul class="mt-3 list-disc space-y-1 pl-5 leading-7 text-muted marker:text-petrol">
-                  <li>9 modules</li>
-                  <li>28 leçons</li>
+                  <li>10 modules</li>
+                  <li>31 leçons au programme</li>
                   <li>Environ {{ formatSeoMinutes(seoReadingMinutes) }} de lecture</li>
                   <li>Niveau débutant</li>
                   <li>À ton rythme</li>
@@ -476,11 +476,10 @@ const faqs = [
             <div class="mt-10 flex flex-col gap-6 border-t border-petrol/15 pt-8 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p class="text-4xl font-semibold tracking-tight text-[#254e54]">97 €</p>
-                <p class="mt-1 text-sm italic text-[#597e80]">Prix de lancement prévu</p>
+                <p class="mt-1 text-sm italic text-[#597e80]">Prix de la formation</p>
               </div>
               <div class="flex flex-col items-start gap-2 sm:items-end">
-                <span class="builder-button builder-button--primary pointer-events-none">Être informé du lancement <span class="ml-2" aria-hidden="true">↗</span></span>
-                <p class="text-sm text-[#597e80]">Inscription gratuite à la liste d'attente · Sans engagement</p>
+                <RouterLink to="/paiement" class="builder-button builder-button--primary">Acheter la formation <span class="ml-2" aria-hidden="true">↗</span></RouterLink>
               </div>
             </div>
           </article>
@@ -516,8 +515,8 @@ const faqs = [
           <div data-builder-reveal class="builder-reveal relative mx-auto max-w-4xl text-center">
             <h2 class="mx-auto max-w-3xl text-3xl font-semibold leading-[1.12] tracking-[-0.04em] sm:text-5xl">Et si tu prenais enfin ton SEO en main ?</h2>
             <p class="mx-auto mt-6 max-w-lg text-lg leading-8 text-[#dbe8e4]">Ton site mérite mieux que des optimisations au hasard. Apprends à comprendre son référencement, à identifier les bonnes opportunités et à construire une méthode pour améliorer progressivement ta visibilité. Une formation concrète, des exercices pratiques et les fondamentaux nécessaires pour avancer en autonomie.</p>
-            <span class="builder-button builder-button--inverse pointer-events-none mt-9">Être informé du lancement <span class="ml-2" aria-hidden="true">↗</span></span>
-            <p class="mt-5 text-sm text-[#bdd1c9]">9 modules · 28 leçons · 5 ressources pratiques</p>
+            <RouterLink to="/paiement" class="builder-button builder-button--inverse mt-9">Acheter la formation <span class="ml-2" aria-hidden="true">↗</span></RouterLink>
+            <p class="mt-5 text-sm text-[#bdd1c9]">10 modules · 31 leçons au programme · 5 ressources pratiques</p>
           </div>
         </BaseContainer>
       </section>

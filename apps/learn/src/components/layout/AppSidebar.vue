@@ -13,9 +13,9 @@ const consultingUrl = 'https://consulting.altruisme.dev/'
     <!-- Logo -->
     <div class="flex h-16 shrink-0 items-center border-b border-petrol/15 px-5">
       <RouterLink
-        to="/formation"
+        to="/formations"
         class="flex items-center gap-3"
-        aria-label="Altruisme Learn, formation"
+        aria-label="Altruisme Learn, formations"
       >
         <span
           class="flex size-9 items-center justify-center rounded-xl border border-petrol/20 bg-petrol/8 text-sm font-bold text-petrol"
@@ -33,9 +33,9 @@ const consultingUrl = 'https://consulting.altruisme.dev/'
       <nav class="space-y-1 p-4" aria-label="Navigation principale">
         <!-- Formation -->
         <RouterLink
-          to="/formation"
-          class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-muted transition hover:bg-mist hover:text-ink"
-          active-class="bg-mist text-petrol-dark"
+          to="/formations"
+          class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition hover:bg-mist hover:text-ink"
+          :class="route.path.startsWith('/formations') ? 'bg-mist text-petrol-dark' : 'text-muted'"
         >
           <svg
             class="size-5 shrink-0"
@@ -57,7 +57,7 @@ const consultingUrl = 'https://consulting.altruisme.dev/'
             />
           </svg>
 
-          Formation
+          Formations
         </RouterLink>
 
         <RouterLink
@@ -149,7 +149,7 @@ const consultingUrl = 'https://consulting.altruisme.dev/'
             />
             <path d="m11 7 .8 2.2L14 10l-2.2.8L11 13l-.8-2.2L8 10l2.2-.8L11 7Z" />
           </svg>
-          Assistant SEO
+          Assistant
         </RouterLink>
 
         <!-- Pilotage -->

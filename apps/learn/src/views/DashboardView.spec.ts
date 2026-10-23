@@ -34,11 +34,12 @@ function mountDashboard() {
 }
 
 describe('progression de la formation SEO', () => {
-  it('affiche trois modules terminés sur neuf et restaure la progression', async () => {
+  it('affiche trois modules terminés sur dix et restaure la progression', async () => {
     const wrapper = mountDashboard()
     await flushPromises()
     const buttons = wrapper.findAll('button[aria-pressed]')
-    expect(buttons).toHaveLength(9)
+    expect(buttons).toHaveLength(10)
+    expect(buttons[7]?.attributes('disabled')).toBeUndefined()
     expect(wrapper.get('[role="progressbar"]').attributes('aria-valuenow')).toBe('0')
 
     for (const button of buttons.slice(0, 3)) {
@@ -46,18 +47,18 @@ describe('progression de la formation SEO', () => {
       await flushPromises()
     }
 
-    expect(wrapper.text()).toContain('3 modules terminés sur 9')
+    expect(wrapper.text()).toContain('3 modules terminés sur 10')
     expect(wrapper.get('[role="progressbar"]').attributes('aria-valuenow')).toBe('3')
-    expect(wrapper.get('[role="progressbar"]').attributes('aria-valuemax')).toBe('9')
-    expect(wrapper.get('[role="progressbar"] > div').attributes('style')).toContain('33%')
+    expect(wrapper.get('[role="progressbar"]').attributes('aria-valuemax')).toBe('10')
+    expect(wrapper.get('[role="progressbar"] > div').attributes('style')).toContain('30%')
 
     wrapper.unmount()
     localStorage.clear()
     const restored = mountDashboard()
     await flushPromises()
-    expect(restored.text()).toContain('3 modules terminés sur 9')
+    expect(restored.text()).toContain('3 modules terminés sur 10')
     await restored.findAll('button[aria-pressed]')[0]!.trigger('click')
     await flushPromises()
-    expect(restored.text()).toContain('2 modules terminés sur 9')
+    expect(restored.text()).toContain('2 modules terminés sur 10')
   })
 })

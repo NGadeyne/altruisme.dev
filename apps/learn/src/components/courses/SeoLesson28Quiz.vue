@@ -6,78 +6,85 @@ import SeoLessonQuiz from './SeoLessonQuiz.vue'
 const questions: QuizQuestion[] = [
   {
     id: 1,
-    prompt: "Quel est le principal objectif d'un plan SEO sur 90 jours ?",
-    options: [
-      { letter: 'A', text: 'Garantir la première position sur Google en trois mois.' },
-      {
-        letter: 'B',
-        text: 'Organiser les actions prioritaires, suivre leur réalisation et mesurer progressivement les résultats.',
-      },
-      { letter: 'C', text: 'Publier obligatoirement un article chaque jour.' },
-    ],
-    correct: 'B',
-    explanation:
-      "Un plan SEO sur 90 jours constitue un cadre d'organisation. Il permet de sélectionner les actions importantes, de les réaliser progressivement et d'observer leurs résultats, sans garantir une position particulière.",
-  },
-  {
-    id: 2,
-    prompt:
-      'Quelle différence existe entre un critère de réalisation et un indicateur de résultat ?',
+    prompt: 'Quelle différence existe entre une mention de marque et une citation documentaire ?',
     options: [
       {
         letter: 'A',
-        text: "Le critère de réalisation permet de vérifier qu'une action a été effectuée, tandis qu'un indicateur de résultat permet d'observer ses effets éventuels.",
+        text: "Une mention correspond à l'apparition d'une entreprise dans la réponse, tandis qu'une citation renvoie à une ressource présentée comme source ou référence.",
       },
-      {
-        letter: 'B',
-        text: 'Les deux représentent obligatoirement le nombre de visiteurs du site.',
-      },
+      { letter: 'B', text: 'Une mention garantit toujours un lien cliquable vers le site.' },
       {
         letter: 'C',
-        text: "Une action ne peut être terminée que lorsqu'elle a généré une hausse de trafic.",
+        text: "Une citation prouve automatiquement que l'entreprise est recommandée comme meilleur prestataire.",
       },
     ],
     correct: 'A',
     explanation:
-      "Un critère de réalisation permet de vérifier qu'une amélioration a été effectuée. Un indicateur de résultat mesure une évolution éventuelle de la visibilité, du trafic ou des objectifs commerciaux.",
+      "Une mention peut simplement faire apparaître le nom d'une entreprise dans une réponse. Une citation correspond à une référence documentaire. Ces deux formes de visibilité peuvent se compléter, mais ne sont pas équivalentes.",
   },
   {
-    id: 3,
+    id: 2,
     prompt:
-      "Que faut-il faire lorsqu'une nouvelle urgence technique apparaît pendant le calendrier ?",
+      "Tu testes six réponses et ton entreprise apparaît dans deux d'entre elles. Que peux-tu conclure ?",
     options: [
-      { letter: 'A', text: 'Continuer le programme sans examiner le problème.' },
-      { letter: 'B', text: 'Abandonner définitivement toutes les actions prévues.' },
+      {
+        letter: 'A',
+        text: 'Ton entreprise possède exactement 33 % de visibilité sur tous les moteurs IA.',
+      },
+      {
+        letter: 'B',
+        text: "Ton site est désormais garanti d'apparaître dans les futures réponses.",
+      },
       {
         letter: 'C',
-        text: "Évaluer l'urgence, adapter les priorités si nécessaire et conserver une organisation cohérente.",
+        text: 'Ton entreprise a été mentionnée dans deux observations sur six, mais ce résultat ne représente pas une mesure globale de sa visibilité.',
       },
     ],
     correct: 'C',
     explanation:
-      "Un calendrier doit rester adaptable. Lorsqu'un problème important apparaît, il est pertinent d'évaluer son urgence et de modifier les priorités sans abandonner systématiquement l'ensemble du plan.",
+      "Deux mentions sur six réponses représentent uniquement le résultat de l'échantillon testé. Ce chiffre ne constitue pas une part de marché ni une mesure exhaustive de la visibilité dans les moteurs IA.",
   },
   {
-    id: 4,
-    prompt:
-      "À la fin des 90 jours, les positions d'une page n'ont pas progressé. Quelle est la meilleure approche ?",
+    id: 3,
+    prompt: "Que permet de mesurer le rapport dédié à l'IA générative dans Google Search Console ?",
     options: [
       {
         letter: 'A',
-        text: 'Considérer automatiquement que tout le travail réalisé est inutile.',
+        text: 'Toutes les conversations privées des utilisateurs de ChatGPT.',
       },
       {
         letter: 'B',
-        text: 'Examiner les actions terminées, les données disponibles, le contexte et les délais possibles avant de décider de la suite.',
+        text: "Les impressions des URL du site dans certaines fonctionnalités d'IA générative de Google Search, notamment les Aperçus IA et le Mode IA.",
       },
       {
         letter: 'C',
-        text: 'Modifier immédiatement toutes les URL du site pour relancer son référencement.',
+        text: 'Le nombre exact de fois où Gemini recommande une entreprise dans toutes ses conversations.',
       },
     ],
     correct: 'B',
     explanation:
-      "Les effets du SEO peuvent prendre du temps et dépendent de nombreux facteurs. Il faut examiner les performances, les modifications réalisées et le contexte avant de conclure qu'une action était inutile ou de choisir une nouvelle optimisation.",
+      "Google Search Console propose des données d'impressions concernant certaines fonctionnalités d'IA générative de sa recherche. Ces informations ne permettent pas de mesurer les conversations ou les citations produites par tous les assistants.",
+  },
+  {
+    id: 4,
+    prompt: 'Quelle est une bonne démarche pour suivre la visibilité GEO dans le temps ?',
+    options: [
+      {
+        letter: 'A',
+        text: 'Conserver des questions représentatives, documenter les outils et les conditions de test, puis comparer les observations avec prudence.',
+      },
+      {
+        letter: 'B',
+        text: 'Modifier systématiquement ses questions pour obtenir davantage de mentions.',
+      },
+      {
+        letter: 'C',
+        text: 'Rechercher son entreprise une seule fois et considérer cette réponse comme un classement définitif.',
+      },
+    ],
+    correct: 'A',
+    explanation:
+      "Un suivi cohérent repose sur des questions comparables, des conditions documentées et une interprétation prudente des résultats. Les réponses pouvant varier, il faut éviter de tirer des conclusions définitives à partir d'un seul test.",
   },
 ]
 </script>
@@ -85,6 +92,6 @@ const questions: QuizQuestion[] = [
 <template>
   <SeoLessonQuiz
     :questions="questions"
-    intro="Avant de terminer la formation, prends quelques instants pour vérifier que tu as compris les principaux principes permettant de construire un plan SEO réaliste."
+    intro="Avant de terminer ce module, prends quelques instants pour vérifier que tu as compris les principales notions concernant la mesure de la visibilité GEO."
   />
 </template>

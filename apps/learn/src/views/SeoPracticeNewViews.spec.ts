@@ -11,13 +11,14 @@ import SeoPractice06View from '@/views/SeoPractice06View.vue'
 import SeoPractice07View from '@/views/SeoPractice07View.vue'
 import SeoPractice08View from '@/views/SeoPractice08View.vue'
 import SeoPractice09View from '@/views/SeoPractice09View.vue'
+import SeoPractice10View from '@/views/SeoPractice10View.vue'
 
 const stubs = {
   BaseContainer: { template: '<div><slot /></div>' },
   RouterLink: RouterLinkStub,
 }
 
-describe('mises en pratique des modules 5, 7 et 8', () => {
+describe('mises en pratique des modules 5, 7 et 9', () => {
   it.each([
     {
       number: '05',
@@ -36,8 +37,8 @@ describe('mises en pratique des modules 5, 7 et 8', () => {
       planRoute: { name: 'learning-plan', query: { action: 'seo_backlink_opportunities' } },
     },
     {
-      number: '08',
-      component: SeoPractice08View,
+      number: '09',
+      component: SeoPractice09View,
       title: 'Mise en pratique — Observer sa visibilité dans les moteurs IA',
       objective: "Réaliser un premier état des lieux de l'accessibilité de son site aux moteurs IA",
       lastStep: 'Étape 4 — Choisis une amélioration et conserve tes observations',
@@ -61,7 +62,7 @@ describe('mises en pratique des modules 5, 7 et 8', () => {
   it('relie les trois exercices depuis le programme', () => {
     const wrapper = mount(DashboardView, { global: { stubs } })
     const routes = wrapper.findAllComponents(RouterLinkStub).map((link) => link.props('to'))
-    for (const number of ['05', '07', '08']) {
+    for (const number of ['05', '07', '09']) {
       expect(routes).toContainEqual({ name: `seo-practice-${number}` })
     }
   })
@@ -72,7 +73,7 @@ describe('mises en pratique des modules 5, 7 et 8', () => {
   })
 })
 
-describe('mises en pratique des modules 4, 6 et 9', () => {
+describe('mises en pratique des modules 4, 6 et 10', () => {
   it.each([
     {
       number: '04',
@@ -89,8 +90,8 @@ describe('mises en pratique des modules 4, 6 et 9', () => {
       lastStep: 'Étape 4 — Vérifie la cohérence de ton programme',
     },
     {
-      number: '09',
-      component: SeoPractice09View,
+      number: '10',
+      component: SeoPractice10View,
       title: "Mise en pratique — Finaliser son plan d'action SEO sur 90 jours",
       objective: 'Rassembler les observations et les priorités identifiées pendant la formation',
       lastStep: 'Étape 4 — Définis les indicateurs et les prochains rendez-vous',
@@ -115,14 +116,31 @@ describe('mises en pratique des modules 4, 6 et 9', () => {
   it('relie les trois exercices depuis le programme', () => {
     const wrapper = mount(DashboardView, { global: { stubs } })
     const routes = wrapper.findAllComponents(RouterLinkStub).map((link) => link.props('to'))
-    for (const number of ['04', '06', '09']) {
+    for (const number of ['04', '06', '10']) {
       expect(routes).toContainEqual({ name: `seo-practice-${number}` })
     }
     expect(wrapper.text()).toContain('11 min')
-    expect(wrapper.text()).toContain('7 h 39')
-    expect(wrapper.text()).toContain('2 h 54')
-    expect(wrapper.text()).toContain('10 h 33')
+    expect(wrapper.text()).toContain('8 h 35')
+    expect(wrapper.text()).toContain('3 h 19')
+    expect(wrapper.text()).toContain('11 h 54')
     expect(wrapper.text()).toContain('Lecture estimée')
     expect(wrapper.text()).not.toContain('Vidéo estimée')
+  })
+})
+
+describe('mise en pratique du module 8', () => {
+  it('ouvre le contrôle de visibilité locale depuis le programme', () => {
+    expect(router.resolve('/formation/pratique-08').name).toBe('seo-practice-08')
+    const wrapper = mount(SeoPractice08View, { global: { stubs } })
+    expect(wrapper.get('h1').text()).toBe('Mise en pratique — Développer sa visibilité locale')
+    expect(wrapper.text()).toContain('Vérifie ta visibilité dans Google et Google Maps')
+    expect(wrapper.text()).toContain('Sélectionne tes trois actions prioritaires')
+    expect(wrapper.text()).toContain('25 minutes')
+    expect(wrapper.text()).toContain('Prochain module : Être visible dans les moteurs IA (GEO).')
+    expect(
+      wrapper.findAllComponents(RouterLinkStub).map((link) => link.props('to')),
+    ).toContainEqual({
+      name: 'learning-plan',
+    })
   })
 })

@@ -10,11 +10,11 @@ import {
 } from '@/data/seoProgram'
 
 describe('programme de la formation SEO', () => {
-  it('contient neuf modules et vingt-huit leçons aux identifiants et numéros uniques', () => {
-    expect(seoProgram.map((module) => module.number)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9])
+  it('contient dix modules et trente et une leçons aux identifiants et numéros uniques', () => {
+    expect(seoProgram.map((module) => module.number)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
     const lessons = seoProgram.flatMap((module) => module.lessons)
     expect(lessons.map((lesson) => lesson.number)).toEqual(
-      Array.from({ length: 28 }, (_, index) => index + 1),
+      Array.from({ length: 31 }, (_, index) => index + 1),
     )
     expect(lessons.map((lesson) => lesson.id)).toEqual(
       lessons.map((lesson) => `seo-lesson-${String(lesson.number).padStart(2, '0')}`),
@@ -39,10 +39,15 @@ describe('programme de la formation SEO', () => {
     ])
     expect(seoProgram[6]?.title).toBe('Développer son autorité et ses backlinks')
     expect(seoProgram[6]?.exercise).toBeTruthy()
-    expect(seoProgram[7]?.title).toBe('Être visible dans les moteurs IA (GEO)')
+    expect(seoProgram[7]?.title).toBe('Développer sa visibilité locale')
     expect(seoProgram[7]?.exercise).toBeTruthy()
-    expect(seoProgram[8]?.title).toBe('Mesurer et progresser')
-    expect(seoProgram[8]?.id).toBe('seo-mesurer-progresser')
+    expect(
+      seoProgram[7]?.lessons.map((lesson) => estimateSeoMinutes(lesson.readingMinutes)),
+    ).toEqual([18, 19, 19])
+    expect(seoProgram[8]?.title).toBe('Être visible dans les moteurs IA (GEO)')
+    expect(seoProgram[8]?.exercise).toBeTruthy()
+    expect(seoProgram[9]?.title).toBe('Mesurer et progresser')
+    expect(seoProgram[9]?.id).toBe('seo-mesurer-progresser')
     expect(
       seoProgram.flatMap((module) => module.lessons).map((lesson) => lesson.title),
     ).not.toContain('Développer son autorité et obtenir des liens pertinents')
@@ -56,9 +61,9 @@ describe('programme de la formation SEO', () => {
     expect(lessons[0]?.readingMinutes).toEqual({ min: 10, max: 12 })
     expect(estimateSeoMinutes(lessons[0]!.readingMinutes)).toBe(11)
     expect(getSeoPracticeMinutes(1)).toBe(13)
-    expect(seoReadingMinutes).toBe(459)
-    expect(seoPracticeMinutes).toBe(174)
-    expect(formatSeoMinutes(seoReadingMinutes)).toBe('7 h 39')
-    expect(formatSeoMinutes(seoReadingMinutes + seoPracticeMinutes)).toBe('10 h 33')
+    expect(seoReadingMinutes).toBe(515)
+    expect(seoPracticeMinutes).toBe(199)
+    expect(formatSeoMinutes(seoReadingMinutes)).toBe('8 h 35')
+    expect(formatSeoMinutes(seoReadingMinutes + seoPracticeMinutes)).toBe('11 h 54')
   })
 })

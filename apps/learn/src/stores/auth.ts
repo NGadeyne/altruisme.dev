@@ -96,6 +96,24 @@ export const useAuthStore = defineStore('auth', () => {
     return data.user
   }
 
+  async function resendConfirmation(email: string) {
+    const { error } = await supabase.auth.resend({
+      type: 'signup',
+      email,
+      options: {
+        emailRedirectTo: `${window.location.origin}/confirmation-email`,
+      },
+    })
+
+    if (error) throw error
+  }
+
+  async function setPassword(password: string) {
+    const { data, error } = await supabase.auth.updateUser({ password })
+    if (error) throw error
+    if (data.user) setUser(data.user)
+  }
+
   async function logout() {
     const { error } = await supabase.auth.signOut()
 
@@ -113,6 +131,8 @@ export const useAuthStore = defineStore('auth', () => {
     learnerState,
     initialize,
     login,
+    resendConfirmation,
+    setPassword,
     logout,
     refreshSeoAccess,
   }

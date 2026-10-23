@@ -6,72 +6,75 @@ import SeoLessonQuiz from './SeoLessonQuiz.vue'
 const questions: QuizQuestion[] = [
   {
     id: 1,
-    prompt:
-      'Tu constates une baisse de clics sur une page importante. Quelle est la meilleure première démarche ?',
+    prompt: "Quel est le rôle principal d'OAI-SearchBot ?",
     options: [
-      { letter: 'A', text: "Réécrire immédiatement l'intégralité de la page." },
+      { letter: 'A', text: 'Garantir que chaque page explorée sera recommandée par ChatGPT.' },
       {
         letter: 'B',
-        text: 'Examiner les performances, les requêtes et le contexte avant de formuler une hypothèse.',
+        text: "Permettre l'exploration de contenus pour les fonctionnalités de recherche ChatGPT.",
       },
-      { letter: 'C', text: 'Acheter des backlinks pour compenser la baisse.' },
+      { letter: 'C', text: 'Mesurer automatiquement le Domain Rating des sites.' },
     ],
     correct: 'B',
     explanation:
-      "Une baisse de clics peut avoir plusieurs explications. L'analyse des pages, des requêtes et des périodes comparables permet de construire une hypothèse plus solide avant d'intervenir.",
+      'OAI-SearchBot est associé aux fonctionnalités de recherche ChatGPT. Autoriser son exploration peut faciliter la prise en compte des contenus accessibles, mais ne garantit pas leur apparition dans une réponse.',
   },
   {
     id: 2,
-    prompt:
-      'Une page commerciale possède une instruction noindex involontaire. Comment faut-il considérer cette situation ?',
+    prompt: 'Quelle affirmation concernant GPTBot est correcte ?',
     options: [
       {
         letter: 'A',
-        text: 'Comme un problème technique concret qui mérite une correction si la page doit être indexable.',
+        text: "Il est associé à l'exploration de contenus susceptibles de contribuer à l'entraînement des modèles OpenAI.",
       },
-      { letter: 'B', text: 'Comme une simple opportunité esthétique.' },
+      {
+        letter: 'B',
+        text: 'Il constitue le seul robot utilisé pour toutes les fonctionnalités de recherche ChatGPT.',
+      },
       {
         letter: 'C',
-        text: 'Comme une preuve que Google considère le contenu comme mauvais.',
+        text: "Son autorisation garantit qu'un site apparaîtra dans les citations des moteurs IA.",
       },
     ],
     correct: 'A',
     explanation:
-      "Une instruction noindex involontaire sur une page destinée à apparaître dans Google constitue un problème identifiable. Sa correction peut rétablir l'indexabilité souhaitée, sans garantir un classement.",
+      "GPTBot est documenté par OpenAI comme un robot destiné à explorer des contenus susceptibles d'être utilisés dans l'entraînement de ses modèles. Son rôle est distinct de celui d'OAI-SearchBot.",
   },
   {
     id: 3,
-    prompt: 'Quels critères permettent de prioriser simplement des actions SEO ?',
+    prompt: 'Que faut-il faire pour apparaître dans les fonctionnalités IA de Google ?',
     options: [
-      {
-        letter: 'A',
-        text: 'Uniquement le nombre de recommandations affichées par un outil.',
-      },
-      { letter: 'B', text: 'Uniquement le Domain Rating des concurrents.' },
+      { letter: 'A', text: 'Installer obligatoirement un fichier llms.txt.' },
+      { letter: 'B', text: 'Ajouter une balise spéciale garantissant une citation.' },
       {
         letter: 'C',
-        text: "L'impact potentiel, l'effort nécessaire, le niveau de confiance et, lorsque c'est pertinent, l'urgence.",
+        text: 'Respecter les fondamentaux du SEO et les exigences techniques de Google Search, sans garantie de sélection.',
       },
     ],
     correct: 'C',
     explanation:
-      "Une bonne priorisation tient compte de l'intérêt potentiel de l'action, des ressources nécessaires et de la solidité des informations disponibles. Les problèmes urgents et les dépendances doivent également être considérés.",
+      "Google indique qu'aucune optimisation technique supplémentaire n'est nécessaire pour ses Aperçus IA et son Mode IA. Les fondamentaux du référencement restent pertinents, sans garantie de citation.",
   },
   {
     id: 4,
-    prompt:
-      'Une page possède de nombreuses impressions, mais peu de clics. Que peut-on en conclure ?',
+    prompt: 'Quelle amélioration peut rendre un contenu plus compréhensible ?',
     options: [
-      { letter: 'A', text: 'Il faut obligatoirement modifier son titre.' },
+      {
+        letter: 'A',
+        text: 'Répéter artificiellement les mêmes mots-clés dans tous les paragraphes.',
+      },
       {
         letter: 'B',
-        text: 'Il faut examiner les recherches, les positions et la présentation des résultats avant de choisir une optimisation.',
+        text: 'Présenter clairement les informations essentielles, utiliser des titres explicites et fournir des explications fiables.',
       },
-      { letter: 'C', text: "Il faut supprimer la page, puisqu'elle ne fonctionne pas." },
+      {
+        letter: 'C',
+        text: 'Supprimer toutes les sources et tous les exemples pour raccourcir au maximum la page.',
+      },
     ],
     correct: 'B',
     explanation:
-      "Un faible CTR ne suffit pas à identifier une erreur. Il faut comprendre les requêtes concernées, les positions et le contexte d'affichage avant de décider d'une modification.",
+      'Des informations explicites, des titres compréhensibles et des explications vérifiables améliorent la qualité du contenu pour les lecteurs et facilitent sa compréhension.',
   },
 ]
 </script>
@@ -79,6 +82,6 @@ const questions: QuizQuestion[] = [
 <template>
   <SeoLessonQuiz
     :questions="questions"
-    intro="Avant de terminer cette leçon, prends quelques instants pour vérifier que tu as compris les principaux critères de priorisation SEO."
+    intro="Avant de terminer cette leçon, prends quelques instants pour vérifier que tu as compris les principales notions concernant l'accessibilité et la compréhension des contenus par les moteurs IA."
   />
 </template>

@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest'
 import SeoLesson23Quiz from './SeoLesson23Quiz.vue'
 
 describe('questionnaire de la vingt-troisième leçon SEO', () => {
-  it('corrige les quatre réponses après validation', async () => {
+  it('affiche la correction après les quatre réponses', async () => {
     const wrapper = mount(SeoLesson23Quiz)
 
     expect(wrapper.get('button[type="submit"]').attributes('disabled')).toBeDefined()
@@ -18,6 +18,6 @@ describe('questionnaire de la vingt-troisième leçon SEO', () => {
 
     expect(wrapper.get('[role="status"]').text()).toBe('4 bonnes réponses sur 4.')
     expect(wrapper.text()).toContain('Question 4 : B.')
-    expect(wrapper.text()).toContain("ne permet pas de conclure qu'elle n'apparaît jamais")
+    expect(wrapper.text()).toContain('ne garantit pas une visibilité identique')
   })
 })

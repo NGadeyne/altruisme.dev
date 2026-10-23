@@ -47,7 +47,7 @@ async function handleLogout() {
 <template>
   <header class="sticky top-0 z-20 border-b border-petrol/15 bg-sand-light/95 backdrop-blur-xl">
     <div class="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-      <RouterLink to="/formation" class="text-sm font-semibold tracking-tight text-ink md:hidden"
+      <RouterLink to="/formations" class="text-sm font-semibold tracking-tight text-ink md:hidden"
         >Altruisme Learn</RouterLink
       >
       <p class="hidden text-sm font-medium text-muted md:block">Espace apprenant</p>
@@ -74,10 +74,10 @@ async function handleLogout() {
       aria-label="Navigation principale"
     >
       <RouterLink
-        to="/formation"
-        class="shrink-0 rounded-lg px-3 py-2 text-sm font-medium text-muted"
-        active-class="bg-mist text-petrol-dark"
-        >Formation</RouterLink
+        to="/formations"
+        class="shrink-0 rounded-lg px-3 py-2 text-sm font-medium"
+        :class="route.path.startsWith('/formations') ? 'bg-mist text-petrol-dark' : 'text-muted'"
+        >Formations</RouterLink
       >
       <RouterLink
         :to="{ name: 'learning-plan' }"
@@ -102,7 +102,7 @@ async function handleLogout() {
         :to="{ name: 'seo-assistant' }"
         class="shrink-0 rounded-lg px-3 py-2 text-sm font-medium text-muted"
         active-class="bg-mist text-petrol-dark"
-        >Assistant SEO</RouterLink
+        >Assistant</RouterLink
       >
       <RouterLink
         v-if="pilotageAvailable"

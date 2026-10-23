@@ -46,7 +46,7 @@ describe('progression des modules SEO', () => {
       expect(await progress.toggleCompleted(module.id)).toBe(true)
     }
     expect(progress.completedCount.value).toBe(3)
-    expect(progress.percentage.value).toBe(33)
+    expect(progress.percentage.value).toBe(30)
 
     userId.value = 'learner-b'
     await nextTick()

@@ -12,7 +12,7 @@ const practiceMinutes = getSeoPracticeMinutes(3)
   <BaseContainer>
     <div class="mx-auto max-w-3xl">
       <RouterLink
-        to="/formation"
+        to="/formations/seo"
         class="text-sm font-medium text-petrol-dark hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-petrol"
       >
         ← Formation SEO

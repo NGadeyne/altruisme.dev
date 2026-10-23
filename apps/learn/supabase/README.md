@@ -57,3 +57,46 @@ attribuer ce droit après achat.
 Le routeur protège la navigation, mais les fichiers JavaScript de la formation
 restent publics. Avant la vente, servir le contenu payant depuis un point d'accès
 contrôlé côté serveur et étendre les politiques RLS aux données de cours privées.
+
+## Parcours d'achat (front seulement)
+
+Les liens d'achat publics mènent à `/paiement` sans demander de compte Learn.
+Cette page présente le récapitulatif, mais son bouton de paiement est inactif :
+aucune session Stripe, aucun webhook et aucune création automatique de compte
+après achat ne sont encore implémentés. L'ancienne route `/inscription` renvoie
+vers `/paiement`.
+
+À l'intégration du paiement, le compte devra être créé ou retrouvé et le droit
+`seo` accordé uniquement après confirmation du paiement côté serveur. L'acheteur
+recevra ensuite un lien sécurisé pour activer son compte ou se connecter.
+
+## Activation par invitation Supabase
+
+La route `/activation` accepte la session issue d'un lien d'invitation Supabase.
+Elle permet au nouvel apprenant de choisir son mot de passe avec
+`supabase.auth.updateUser()`, puis vérifie son droit `seo` avant d'ouvrir la
+formation. Un utilisateur sans droit reste sur `/acces` ; le simple fait de
+définir un mot de passe n'accorde aucun accès payant.
+
+Pour un test manuel sans Stripe, inviter une nouvelle adresse depuis
+**Supabase Auth → Users** avec l'URL de redirection
+`http://localhost:5173/activation`, et attribuer séparément le droit `seo` à
+ce compte. Ajouter cette URL, ainsi que
+`https://learn.altruisme.dev/activation`, aux Redirect URLs autorisées dans
+Supabase Auth. L'invitation doit être envoyée par un service de confiance ou
+depuis le tableau de bord Supabase : ne jamais utiliser de clé secrète dans
+le navigateur. Si le lien a expiré, l'interface propose de demander un nouvel
+envoi par e-mail à l'équipe Learn. Son renvoi automatique reste à intégrer au
+futur service après achat.
+
+## Ancienne confirmation de l'e-mail
+
+La route `/confirmation-email` reste disponible pour les liens de confirmation
+déjà envoyés avant le changement de parcours. Elle renvoie un compte confirmé
+vers `/acces` ou directement vers la formation selon son droit d'accès.
+
+Un compte confirmé ne reçoit aucun droit SEO automatiquement. Le droit reste
+dans `learn_course_entitlements` et doit être accordé par un processus de
+confiance après achat. Les e-mails d'authentification passent par la
+configuration SMTP de Supabase Auth ; ne jamais placer ses identifiants dans
+le navigateur ni dans le dépôt.

@@ -68,7 +68,7 @@ async function startNewConversation() {
             Altruisme Learn · Formation SEO
           </p>
           <h1 class="mt-3 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            Assistant SEO
+            Assistant
           </h1>
           <p class="mt-3 max-w-2xl text-sm leading-7 text-ink-soft sm:text-base">
             Ton compagnon d'apprentissage pour comprendre le SEO et passer à l'action, une question
@@ -88,7 +88,7 @@ async function startNewConversation() {
 
     <section
       class="mt-5 flex h-[min(72dvh,56rem)] min-h-[32rem] flex-col overflow-hidden rounded-3xl border border-petrol/15 bg-white shadow-[0_18px_55px_-45px_rgba(27,69,69,0.5)] sm:h-[min(78dvh,60rem)]"
-      aria-label="Assistant conversationnel SEO"
+      aria-label="Assistant conversationnel"
     >
       <SeoChatMessages
         :messages="messages"

@@ -8,16 +8,16 @@ describe('questionnaire de la vingt-cinquième leçon SEO', () => {
     const wrapper = mount(SeoLesson25Quiz)
 
     expect(wrapper.get('button[type="submit"]').attributes('disabled')).toBeDefined()
-    expect(wrapper.text()).not.toContain('Question 4 : A.')
+    expect(wrapper.text()).not.toContain('Question 4 : C.')
 
-    await wrapper.get('input[name="quiz-question-1"][value="A"]').setValue()
+    await wrapper.get('input[name="quiz-question-1"][value="B"]').setValue()
     await wrapper.get('input[name="quiz-question-2"][value="C"]').setValue()
-    await wrapper.get('input[name="quiz-question-3"][value="B"]').setValue()
-    await wrapper.get('input[name="quiz-question-4"][value="A"]').setValue()
+    await wrapper.get('input[name="quiz-question-3"][value="A"]').setValue()
+    await wrapper.get('input[name="quiz-question-4"][value="C"]').setValue()
     await wrapper.get('form').trigger('submit')
 
     expect(wrapper.get('[role="status"]').text()).toBe('4 bonnes réponses sur 4.')
-    expect(wrapper.text()).toContain('Question 4 : A.')
-    expect(wrapper.text()).toContain("à partir d'un seul test")
+    expect(wrapper.text()).toContain('Question 4 : C.')
+    expect(wrapper.text()).toContain('contacts réellement obtenus')
   })
 })

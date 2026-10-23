@@ -157,7 +157,7 @@ export const seoActions: PlanActionDefinition[] = [
     completionCriterion:
       'Avoir vérifié les conditions d’accès au site, réalisé trois recherches pertinentes et identifié une amélioration possible.',
     moduleId: 'seo-visibilite-geo',
-    lessonId: 'seo-lesson-25',
+    lessonId: 'seo-lesson-28',
     order: 15,
     isNew: true,
   },
@@ -169,7 +169,7 @@ export const seoActions: PlanActionDefinition[] = [
     completionCriterion:
       'Avoir identifié les données de référence disponibles et celles qui manquent.',
     moduleId: 'seo-mesurer-progresser',
-    lessonId: 'seo-lesson-26',
+    lessonId: 'seo-lesson-29',
     order: 16,
   },
   {
@@ -180,7 +180,7 @@ export const seoActions: PlanActionDefinition[] = [
     completionCriterion:
       'Avoir identifié trois à cinq priorités, leurs prochaines étapes et les indicateurs à suivre.',
     moduleId: 'seo-mesurer-progresser',
-    lessonId: 'seo-lesson-28',
+    lessonId: 'seo-lesson-31',
     order: 17,
   },
 ]

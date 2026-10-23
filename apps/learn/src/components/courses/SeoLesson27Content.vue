@@ -4,1087 +4,1105 @@ import SeoLesson27Quiz from './SeoLesson27Quiz.vue'
 
 <template>
   <article class="seo-lesson-content">
-    <h2>Savoir quoi améliorer est aussi important que savoir comment l'améliorer</h2>
+    <h2>Pour être cité, encore faut-il pouvoir être découvert et compris</h2>
     <p>
-      Imagine que tu travailles ton référencement naturel depuis plusieurs semaines. Tu as vérifié
-      l'indexation de tes pages, analysé les performances de ton site et commencé à construire une
-      stratégie de contenu. Tu connais désormais les principales optimisations techniques,
-      éditoriales et sémantiques qui peuvent contribuer à améliorer ta visibilité dans Google.
+      Imagine que tu possèdes un site internet sur lequel tu publies des guides particulièrement
+      complets. Tu connais ton domaine, tu réponds aux questions de tes futurs clients et tu prends
+      le temps de vérifier les informations que tu présentes. Tes contenus sont utiles et tu
+      commences à obtenir des visites depuis Google. Pourtant, lorsque tu poses certaines questions
+      à des assistants comme ChatGPT ou Gemini, ton site n'apparaît pas parmi les sources proposées.
     </p>
     <p>
-      Mais lorsque tu examines l'ensemble de ton travail, tu découvres une nouvelle difficulté : tu
-      possèdes beaucoup plus d'idées d'amélioration que de temps disponible pour les réaliser.
+      Tu pourrais alors penser qu'il te manque une optimisation spécifique pour les moteurs IA.
+      Peut-être faudrait-il ajouter un fichier particulier, modifier ton code ou répéter certaines
+      formulations afin d'augmenter tes chances d'être cité.
     </p>
     <p>
-      Certaines pages pourraient être enrichies. D'autres possèdent des titres peu explicites. Ton
-      site présente peut-être quelques problèmes techniques et plusieurs contenus mériteraient
-      d'être publiés. Tu pourrais également développer ton maillage interne, améliorer les
-      performances mobiles ou rechercher de nouveaux partenaires susceptibles de parler de ton
-      activité.
-    </p>
-    <p>Toutes ces actions semblent intéressantes. Mais sont-elles réellement prioritaires ?</p>
-    <p>
-      Reprenons notre photographe professionnel à Bordeaux. Dans la leçon précédente, nous avons
-      construit son premier tableau de bord SEO. Il a découvert que ses guides généraient une part
-      importante des impressions de son site, tandis que sa page consacrée aux prestations de
-      mariage recevait moins de visites. Il a également constaté que certaines pages apparaissaient
-      sur des recherches pertinentes, mais que leurs performances restaient modestes.
+      Mais avant d'envisager ces modifications, une question plus fondamentale mérite d'être posée :
+      les systèmes susceptibles de rechercher tes contenus peuvent-ils réellement y accéder, et les
+      informations présentées sont-elles suffisamment claires pour être comprises et utilisées ?
     </p>
     <p>
-      Notre photographe pourrait immédiatement décider de réécrire ses contenus, de modifier tous
-      ses titres ou de publier cinq nouveaux articles. Pourtant, ces décisions ne seraient pas
-      nécessairement justifiées par les informations disponibles.
+      Reprenons notre photographe professionnel à Bordeaux. Depuis le début de la formation, nous
+      avons construit un site cohérent, optimisé ses pages et préparé plusieurs guides sur la
+      photographie de mariage. Il possède maintenant une ressource expliquant comment choisir un
+      professionnel, une autre consacrée aux délais de réservation et plusieurs pages présentant ses
+      réalisations.
     </p>
     <p>
-      Une page qui reçoit peu de clics peut avoir plusieurs explications. Elle peut apparaître loin
-      dans les résultats, répondre à une recherche peu fréquente ou présenter un titre qui ne
-      correspond pas suffisamment aux attentes des internautes. De même, une page non indexée peut
-      être volontairement exclue de Google ou rencontrer un véritable problème technique.
+      Imaginons qu'une personne demande à ChatGPT : « Comment choisir un photographe de mariage à
+      Bordeaux et quelles questions faut-il lui poser ? » L'assistant peut éventuellement rechercher
+      des informations sur le Web pour construire sa réponse. Mais si le guide de notre photographe
+      n'est pas accessible au robot concerné, il peut être plus difficile pour certains systèmes de
+      le récupérer directement.
     </p>
     <p>
-      Avant d'intervenir, il faut donc comprendre ce que les données permettent réellement
-      d'affirmer.
+      À l'inverse, même si sa page est parfaitement accessible, elle ne sera pas nécessairement
+      citée. L'assistant peut trouver d'autres sources, privilégier des informations différentes ou
+      ne pas présenter de liens vers tous les contenus consultés.
     </p>
     <p>
-      <strong
-        >Le rôle d'une bonne stratégie SEO n'est pas de corriger tout ce qui pourrait être amélioré.
-        Il est d'identifier les actions susceptibles d'apporter le plus de valeur, puis de les
-        réaliser dans un ordre cohérent.</strong
-      >
-    </p>
-    <p>
-      Dans la leçon 26, nous avons appris à mesurer les bons indicateurs. Nous allons maintenant
-      utiliser ces informations pour prendre des décisions. L'objectif est de passer d'un tableau de
-      bord à une liste de priorités concrètes, sans chercher à appliquer toutes les recommandations
-      d'un outil SEO.
-    </p>
-    <p>
-      À la fin de cette leçon, tu sauras identifier les problèmes qui méritent une intervention,
-      distinguer les opportunités des simples variations statistiques et sélectionner les actions
-      les plus intéressantes pour ton activité.
-    </p>
-    <h2>Commencer par distinguer un problème d'une opportunité</h2>
-    <p>Lorsque tu analyses ton site, tu peux rencontrer deux grandes catégories de situations.</p>
-    <p>
-      La première correspond aux problèmes qui empêchent une page ou une fonctionnalité de
-      fonctionner comme prévu. Une page commerciale renvoyant une erreur 404, une instruction
-      <code>noindex</code> ajoutée involontairement ou une redirection incorrecte constituent des
-      exemples de difficultés concrètes.
-    </p>
-    <p>
-      Dans ces situations, il existe généralement un écart identifiable entre le fonctionnement
-      attendu et le fonctionnement réel.
-    </p>
-    <p>
-      La deuxième catégorie correspond aux opportunités d'amélioration. Une page peut être
-      correctement indexée, recevoir des impressions et proposer un contenu utile, mais présenter
-      encore des possibilités d'optimisation.
-    </p>
-    <p>
-      Imaginons que notre photographe possède une page de prestation accessible et indexée. Elle
-      reçoit quelques visites depuis Google, mais ses explications commerciales restent assez
-      générales.
-    </p>
-    <p>
-      Il pourrait envisager de présenter plus précisément les différentes prestations, d'ajouter des
-      exemples de reportages ou de clarifier les informations nécessaires pour demander un devis.
-    </p>
-    <p>Nous ne parlons pas ici d'une erreur technique empêchant la page de fonctionner.</p>
-    <p>Nous parlons d'une possibilité d'améliorer son utilité.</p>
-    <p>
-      Cette distinction est importante, car les deux situations ne doivent pas nécessairement être
-      traitées de la même manière.
-    </p>
-    <p>
-      Une page stratégique rendue inaccessible par une erreur technique peut nécessiter une
-      intervention rapide. Une amélioration éditoriale peut être planifiée selon son intérêt
-      potentiel et les ressources disponibles.
-    </p>
-    <h3>Identifier les véritables blocages</h3>
-    <p>
-      Nous avons découvert dans le module 5 plusieurs difficultés techniques susceptibles de
-      perturber l'exploration, l'indexation ou l'utilisation d'un site.
-    </p>
-    <p>Imaginons qu'une page de prestation soit accidentellement bloquée à l'indexation.</p>
-    <p>
-      Si cette page doit normalement apparaître dans Google, le problème mérite une attention
-      particulière.
-    </p>
-    <p>
-      De même, une page qui renvoie une erreur serveur ou une redirection vers une ressource sans
-      rapport peut empêcher les visiteurs d'accéder à l'information attendue.
-    </p>
-    <p>
-      Mais il faut conserver une nuance : toutes les URL exclues de l'index ne constituent pas des
-      erreurs.
-    </p>
-    <p>
-      Une ancienne page redirigée, une URL canonique alternative ou une ressource volontairement
-      marquée <code>noindex</code> peut parfaitement correspondre au fonctionnement souhaité.
-    </p>
-    <p>
-      Avant de classer une situation comme problématique, demande-toi donc si elle concerne
-      réellement une page importante et si son comportement est contraire à l'objectif prévu.
+      Il faut donc distinguer deux objectifs : rendre les informations accessibles lorsqu'un système
+      souhaite les consulter, puis proposer des contenus suffisamment utiles et compréhensibles pour
+      pouvoir servir de ressources pertinentes.
     </p>
     <p>
       <strong
-        >Une anomalie dans un outil n'est pas automatiquement une erreur SEO. Elle devient un
-        problème lorsqu'elle révèle un fonctionnement indésirable pour une page ou un parcours
-        important.</strong
+        >Tu ne peux pas imposer à une intelligence artificielle de citer ton site. En revanche, tu
+        peux éviter les obstacles inutiles et améliorer la qualité des informations que tu mets à sa
+        disposition.</strong
       >
     </p>
-    <h2>Ne pas confondre observation et explication</h2>
     <p>
-      C'est probablement l'un des réflexes les plus importants à développer lorsque tu analyses des
-      données.
+      Dans la leçon précédente, nous avons appris à distinguer les réponses générées à partir des
+      connaissances d'un modèle, les recherches effectuées sur le Web et les sources affichées à
+      l'utilisateur. Nous allons maintenant appliquer ces connaissances à ton propre site.
     </p>
     <p>
-      Imaginons que notre photographe constate une baisse de 20 % des clics sur son guide consacré
-      au choix d'un professionnel.
+      L'objectif n'est pas d'apprendre à programmer un moteur IA, mais de comprendre les principaux
+      points de contrôle techniques et éditoriaux qui peuvent contribuer à une meilleure
+      accessibilité de tes contenus.
     </p>
-    <p>Ce chiffre constitue une observation.</p>
-    <p>Mais il n'explique pas, à lui seul, pourquoi les clics ont diminué.</p>
+    <h2>Le GEO commence par des fondamentaux déjà connus</h2>
     <p>
-      Notre photographe pourrait penser que Google considère désormais son contenu comme moins
-      pertinent. Il pourrait également supposer qu'un concurrent a publié un meilleur article.
-    </p>
-    <p>Ces explications sont possibles, mais elles restent des hypothèses.</p>
-    <p>
-      La baisse peut aussi provenir d'une diminution du nombre de recherches, d'un changement dans
-      la présentation des résultats ou d'une fluctuation temporaire.
-    </p>
-    <p>Il serait donc prématuré de réécrire entièrement le guide.</p>
-    <h3>Examiner les données avant de choisir une correction</h3>
-    <p>La première étape consiste à comparer des périodes suffisamment cohérentes.</p>
-    <p>
-      Dans Search Console, tu peux examiner les clics, les impressions et les positions moyennes sur
-      les périodes concernées.
+      Depuis le début de la formation, nous avons consacré plusieurs modules à la qualité des pages,
+      à leur organisation et à leur accessibilité.
     </p>
     <p>
-      Tu peux ensuite sélectionner la page affectée et consulter les requêtes qui contribuent à ses
-      performances.
+      Nous avons notamment étudié le fonctionnement de Google, les intentions de recherche,
+      l'indexation, les redirections, le fichier <code>robots.txt</code>, le maillage interne et la
+      structure des contenus.
+    </p>
+    <p>Ces connaissances restent directement utiles.</p>
+    <p>
+      Une page qui présente clairement son sujet, répond à une question précise et peut être
+      consultée sans difficulté possède de bonnes fondations pour être découverte sur le Web.
     </p>
     <p>
-      Imaginons que notre photographe remarque que les impressions et les clics ont diminué, mais
-      que les positions sur ses principales recherches sont restées relativement stables.
-    </p>
-    <p>Cette situation pourrait indiquer une baisse de la demande pour certains sujets.</p>
-    <p>
-      À l'inverse, si les impressions restent proches de leur niveau précédent, mais que les clics
-      diminuent fortement, il pourrait examiner les changements de position et la présentation du
-      résultat dans Google.
+      Cela ne signifie pas qu'elle sera automatiquement sélectionnée par un assistant IA. Mais ces
+      caractéristiques restent pertinentes, indépendamment de la manière dont les internautes
+      accèdent aux informations.
     </p>
     <p>
-      Il peut également consulter Google Trends lorsque la saisonnalité ou l'évolution de l'intérêt
-      pour une recherche semble pertinente.
-    </p>
-    <p>Mais ces vérifications ne garantissent pas toujours une explication définitive.</p>
-    <p>Certaines variations résultent de plusieurs facteurs.</p>
-    <p>
-      Il faut donc accepter qu'une analyse SEO puisse parfois aboutir à une hypothèse plutôt qu'à
-      une certitude.
-    </p>
-    <h3>Formuler une hypothèse vérifiable</h3>
-    <p>Pour passer de l'observation à l'action, il peut être utile de rédiger une phrase simple.</p>
-    <p>
-      Par exemple : « La page de prestation apparaît sur des recherches pertinentes, mais certaines
-      informations essentielles ne sont pas suffisamment claires. En enrichissant ces explications,
-      nous pourrions améliorer la compréhension de l'offre et faciliter les demandes de contact. »
+      Imaginons que notre photographe publie un guide intitulé « Comment préparer les photos de
+      groupe pendant un mariage ? ».
     </p>
     <p>
-      Cette hypothèse possède un avantage : elle précise ce que tu souhaites améliorer et pourquoi.
-    </p>
-    <p>Mais elle ne prétend pas garantir une augmentation des positions ou des conversions.</p>
-    <p>Tu pourras ensuite réaliser la modification, conserver sa date et observer les résultats.</p>
-    <p>La méthode est la même pour une difficulté technique.</p>
-    <p>
-      Imaginons que la page de prestation ne soit plus indexée à cause d'une instruction
-      <code>noindex</code> involontaire.
+      Si cette page possède une adresse stable, un titre compréhensible, des paragraphes organisés
+      et des informations précises, les visiteurs peuvent facilement comprendre son contenu. Les
+      moteurs de recherche peuvent également plus facilement identifier les grandes parties de la
+      page.
     </p>
     <p>
-      L'observation est la présence de cette instruction. L'hypothèse est qu'elle empêche
-      l'indexation souhaitée. L'action consiste à corriger le paramétrage, puis à vérifier que
-      Google peut à nouveau prendre en compte la page.
+      À l'inverse, si les informations essentielles sont dissimulées dans une interface difficile
+      d'accès, si le contenu est très vague ou si la page renvoie fréquemment des erreurs, sa
+      consultation peut devenir plus compliquée.
     </p>
-    <p>Dans ce cas, le lien entre le problème et la correction est beaucoup plus direct.</p>
+    <p>
+      Les moteurs IA ne suppriment donc pas les problèmes que nous avons étudiés dans les modules
+      précédents.
+    </p>
+    <p>Ils rendent simplement utile d'examiner ces problèmes dans un contexte supplémentaire.</p>
+    <h3>Il n'existe pas de référencement IA universel</h3>
+    <p>
+      Un point mérite d'être clarifié dès le départ : les différents outils n'utilisent pas
+      nécessairement les mêmes mécanismes de découverte, de recherche ou de citation.
+    </p>
+    <p>
+      Google Search possède ses propres systèmes d'exploration et d'indexation. ChatGPT Search
+      utilise notamment des mécanismes de découverte associés à OpenAI et peut recourir à des
+      fournisseurs de recherche tiers. D'autres assistants disposent de leurs propres systèmes ou
+      s'appuient sur des services externes.
+    </p>
+    <p>
+      Une page accessible dans Google n'est donc pas automatiquement garantie d'apparaître dans
+      ChatGPT, et inversement.
+    </p>
+    <p>Il faut également distinguer l'accessibilité d'une page de sa sélection dans une réponse.</p>
+    <p>
+      Tu peux rendre une ressource publique, techniquement accessible et parfaitement compréhensible
+      sans qu'elle soit jamais citée pour une question particulière.
+    </p>
+    <p>
+      Il n'existe pas de fichier magique, de balise universelle ou de formulation capable de
+      garantir le contraire.
+    </p>
     <p>
       <strong
-        >Une bonne optimisation répond à un problème identifié ou à une hypothèse raisonnable. Elle
-        ne doit pas être réalisée uniquement parce qu'un outil affiche une recommandation.</strong
+        >Le GEO doit donc être abordé comme un ensemble de bonnes pratiques et d'observations, pas
+        comme une recette permettant de contrôler les réponses des modèles.</strong
       >
     </p>
-    <h2>Rechercher les premières opportunités dans Search Console</h2>
+    <h2>Vérifier que tes contenus importants sont accessibles</h2>
+    <p>La première étape consiste à examiner les conditions d'accès à tes pages.</p>
     <p>
-      Ton tableau de bord constitue un excellent point de départ pour identifier les pages qui
-      méritent une attention particulière.
+      Une ressource doit pouvoir être consultée par le système qui cherche à la récupérer pour que
+      son contenu soit directement exploitable lors de cette consultation.
+    </p>
+    <p>Cela semble évident, mais plusieurs mécanismes peuvent compliquer l'accès.</p>
+    <p>Imaginons que notre photographe possède une page consacrée à ses prestations de mariage.</p>
+    <p>Lorsqu'un visiteur ouvre cette page, le navigateur affiche correctement le contenu.</p>
+    <p>
+      Mais un système automatisé peut rencontrer une situation différente si certaines protections
+      bloquent les requêtes, si le serveur renvoie des erreurs ou si des règles particulières
+      limitent l'exploration.
     </p>
     <p>
-      Mais il ne faut pas examiner uniquement le nombre total de clics ou la position moyenne
-      globale.
+      L'existence d'une page publique ne garantit donc pas que tous les robots puissent y accéder
+      dans les mêmes conditions.
+    </p>
+    <h3>Les erreurs techniques restent importantes</h3>
+    <p>Dans la leçon 13, nous avons appris à identifier les principales erreurs HTTP.</p>
+    <p>
+      Une page qui renvoie normalement une réponse 200 peut être consultée. Une redirection
+      permanente peut indiquer qu'une ressource a changé d'adresse. Une erreur 404 signale qu'une
+      page n'a pas été trouvée, tandis que certaines réponses 5xx indiquent des difficultés côté
+      serveur.
+    </p>
+    <p>Ces mécanismes conservent leur importance.</p>
+    <p>
+      Imaginons que notre photographe ait déplacé son guide vers une nouvelle URL, mais que
+      l'ancienne adresse soit encore utilisée par plusieurs publications.
     </p>
     <p>
-      Comme nous l'avons vu dans la leçon précédente, les données deviennent surtout intéressantes
-      lorsqu'elles sont reliées aux pages et aux recherches importantes pour ton activité.
-    </p>
-    <p>Commençons par les pages qui possèdent déjà une certaine visibilité.</p>
-    <h3>Les pages visibles, mais insuffisamment utiles</h3>
-    <p>
-      Imaginons que notre photographe possède une page de prestation qui apparaît régulièrement sur
-      des recherches liées à la photographie de mariage à Bordeaux.
-    </p>
-    <p>Il constate qu'elle reçoit des impressions et quelques clics.</p>
-    <p>
-      Mais lorsqu'il consulte cette page, il remarque que les prestations sont présentées en
-      quelques phrases très générales. Les visiteurs doivent parcourir plusieurs autres pages pour
-      comprendre son approche et découvrir des réalisations pertinentes.
-    </p>
-    <p>Nous disposons alors d'une opportunité éditoriale plausible.</p>
-    <p>
-      Notre photographe pourrait enrichir sa page, clarifier le déroulement de ses prestations et
-      faciliter l'accès aux informations nécessaires avant une demande de devis.
-    </p>
-    <p>Il faut toutefois distinguer deux objectifs.</p>
-    <p>
-      Si la page est déjà visible, l'amélioration de son contenu peut contribuer à mieux répondre
-      aux recherches. Mais elle peut également améliorer l'expérience des visiteurs sans entraîner
-      de progression de classement.
-    </p>
-    <p>Ces deux bénéfices sont intéressants, mais ils ne sont pas identiques.</p>
-    <p>
-      L'action doit donc être évaluée selon sa contribution potentielle à l'activité, pas uniquement
-      selon la position de la page dans Google.
-    </p>
-    <h3>Les pages qui reçoivent beaucoup d'impressions, mais peu de clics</h3>
-    <p>
-      Une autre situation fréquente concerne les pages possédant de nombreuses impressions et un CTR
-      relativement faible.
+      Si aucune redirection appropriée n'existe, les visiteurs et les systèmes qui suivent ces liens
+      peuvent rencontrer une erreur.
     </p>
     <p>
-      Imaginons que notre photographe découvre qu'un guide apparaît 7 000 fois dans les résultats
-      sur une période, mais reçoit seulement 90 clics.
-    </p>
-    <p>Il pourrait immédiatement considérer que son titre est mauvais.</p>
-    <p>Mais nous savons désormais que cette conclusion serait trop rapide.</p>
-    <p>
-      Le taux de clics dépend notamment des positions, des recherches et de la présentation des
-      résultats.
-    </p>
-    <p>Il faut donc consulter les requêtes qui génèrent ces impressions.</p>
-    <p>
-      Si une grande partie provient de recherches sur lesquelles la page apparaît loin dans les
-      résultats, le faible CTR peut être cohérent avec cette situation.
+      À l'inverse, une redirection permanente vers une page réellement équivalente permet de
+      préserver un parcours cohérent.
     </p>
     <p>
-      À l'inverse, si une page apparaît régulièrement sur des recherches pertinentes avec une
-      visibilité importante, mais que peu d'utilisateurs cliquent, il peut être utile d'examiner la
-      manière dont son résultat est présenté.
+      Il faut également examiner les restrictions imposées par certains pare-feu, réseaux de
+      diffusion de contenu ou systèmes de protection contre les robots.
     </p>
     <p>
-      Le titre permet-il de comprendre le sujet ? Le contenu correspond-il réellement à l'intention
-      de recherche ? Les autres résultats proposent-ils une réponse plus adaptée ?
+      Ces dispositifs peuvent être utiles pour protéger un site, mais une configuration trop
+      restrictive peut parfois empêcher l'accès de robots légitimes.
     </p>
-    <p>Ces questions permettent de formuler une hypothèse raisonnable.</p>
+    <p>Cela ne signifie pas qu'il faut désactiver toutes les protections.</p>
     <p>
-      Mais il faut éviter de modifier systématiquement tous les titres possédant un CTR inférieur à
-      une valeur arbitraire.
+      L'objectif est de comprendre quelles requêtes sont autorisées ou bloquées et d'adapter les
+      règles en fonction de tes choix.
     </p>
-    <p>Il n'existe pas de seuil universel à partir duquel une page doit être réécrite.</p>
-    <h3>Les contenus qui ne répondent pas encore suffisamment aux recherches</h3>
+    <h2>Comprendre les différents robots associés à OpenAI</h2>
+    <p>Dans la leçon 15, nous avons étudié le rôle du fichier <code>robots.txt</code>.</p>
+    <p>Nous savons qu'il permet de communiquer des règles d'exploration aux robots compatibles.</p>
     <p>
-      Tu peux également découvrir que certaines pages apparaissent sur des requêtes auxquelles elles
-      ne répondent que partiellement.
-    </p>
-    <p>
-      Imaginons que notre photographe possède une page sur ses prestations de mariage et qu'elle
-      reçoive des impressions sur des questions concernant les tarifs.
-    </p>
-    <p>Mais la page explique très peu ce qui influence les prix.</p>
-    <p>Il pourrait être intéressant d'améliorer cette information.</p>
-    <p>
-      Selon l'intention de recherche, il pourra choisir d'enrichir la page commerciale ou de créer
-      une ressource pédagogique complémentaire.
-    </p>
-    <p>Nous avons étudié cette distinction dans le module 6.</p>
-    <p>
-      L'important est d'éviter de produire plusieurs pages presque identiques uniquement pour
-      couvrir toutes les variations de mots-clés.
-    </p>
-    <p>Une optimisation pertinente doit améliorer la réponse apportée au lecteur.</p>
-    <h2>Identifier les problèmes techniques qui méritent une intervention</h2>
-    <p>Les opportunités éditoriales ne doivent pas faire oublier les fondamentaux techniques.</p>
-    <p>Certaines difficultés peuvent empêcher une page importante de remplir sa fonction.</p>
-    <p>
-      Imaginons que notre photographe découvre que sa page consacrée aux reportages de mariage est
-      inaccessible depuis plusieurs liens internes.
-    </p>
-    <p>Les visiteurs rencontrent une erreur 404.</p>
-    <p>
-      Si cette page constitue une ressource stratégique, le problème peut représenter une priorité
-      importante.
+      Dans le contexte des moteurs IA, cette notion devient particulièrement importante, car une
+      même entreprise peut utiliser différents robots pour des finalités distinctes.
     </p>
     <p>
-      De même, une redirection incorrecte ou une instruction d'indexation involontaire peut
-      perturber la découverte d'une page.
+      OpenAI documente notamment trois identités qu'il est utile de connaître :
+      <code>OAI-SearchBot</code>, <code>GPTBot</code> et <code>ChatGPT-User</code>.
     </p>
-    <p>Mais toutes les difficultés techniques ne possèdent pas le même impact.</p>
+    <p>Elles ne remplissent pas le même rôle.</p>
+    <h3>OAI-SearchBot : la recherche dans ChatGPT</h3>
+    <p><code>OAI-SearchBot</code> est associé aux fonctionnalités de recherche de ChatGPT.</p>
     <p>
-      Une erreur présente sur une ancienne URL sans intérêt n'est pas nécessairement aussi
-      importante qu'un problème touchant une page commerciale essentielle.
+      OpenAI indique que ce robot sert à permettre aux sites d'apparaître dans les résultats de ses
+      expériences de recherche.
     </p>
-    <h3>Tenir compte des pages affectées</h3>
     <p>
-      Lorsque tu découvres une difficulté technique, commence par identifier les ressources
+      Si tu souhaites que tes contenus puissent être pris en compte dans les résumés et extraits de
+      ChatGPT Search, il est important de vérifier que ce robot n'est pas bloqué sur les pages
       concernées.
     </p>
+    <p>Cela ne garantit toutefois pas leur apparition dans une réponse.</p>
+    <p>Imaginons que notre photographe possède un guide accessible à <code>OAI-SearchBot</code>.</p>
     <p>
-      Le problème affecte-t-il une page stratégique, plusieurs contenus importants ou une ressource
-      secondaire ?
+      Son contenu peut être récupéré par ce mécanisme lorsque les autres conditions sont réunies,
+      mais ChatGPT reste libre de sélectionner les sources qu'il considère comme pertinentes.
     </p>
     <p>
-      Empêche-t-il réellement l'accès aux informations ou correspond-il à un fonctionnement
-      volontaire ?
+      L'autorisation d'accès correspond donc à une condition technique favorable, pas à une promesse
+      de citation.
     </p>
+    <h3>GPTBot : l'exploration destinée à l'entraînement</h3>
+    <p><code>GPTBot</code> possède une autre fonction.</p>
     <p>
-      Cette analyse permet de distinguer les problèmes qui nécessitent une intervention rapide de
-      ceux qui peuvent être examinés ultérieurement.
+      OpenAI le documente comme un robot utilisé pour explorer des contenus susceptibles de
+      contribuer à l'entraînement de ses modèles d'intelligence artificielle.
     </p>
-    <p>Imaginons que notre photographe découvre un lien interne cassé sur sa page d'accueil.</p>
+    <p>Ce rôle doit être distingué de la recherche Web.</p>
     <p>
-      Si ce lien devait conduire les visiteurs vers son formulaire de contact, sa correction peut
-      présenter un intérêt immédiat.
+      Un propriétaire de site peut souhaiter autoriser l'exploration destinée à la recherche tout en
+      refusant l'utilisation de contenus collectés par GPTBot pour l'entraînement des modèles.
     </p>
-    <p>
-      À l'inverse, une ancienne URL volontairement supprimée et ne recevant aucun lien important ne
-      nécessite pas forcément de travail supplémentaire.
-    </p>
-    <p>Le nombre d'erreurs affichées par un outil ne suffit donc pas à déterminer l'urgence.</p>
-    <h3>Ne pas chercher à obtenir des scores parfaits</h3>
-    <p>
-      Nous avons également découvert dans la leçon 16 les indicateurs de performance et les Core Web
-      Vitals.
-    </p>
-    <p>Ces informations peuvent aider à identifier des problèmes d'expérience utilisateur.</p>
-    <p>
-      Mais il ne faut pas considérer qu'un score PageSpeed inférieur à 100 nécessite automatiquement
-      une correction urgente.
-    </p>
-    <p>
-      Imaginons que notre photographe possède une page affichant correctement ses prestations, mais
-      qu'une image particulièrement lourde ralentisse nettement son chargement sur mobile.
-    </p>
-    <p>
-      Si cette difficulté est confirmée par les données disponibles et qu'elle nuit à l'expérience
-      des visiteurs, une optimisation peut être pertinente.
-    </p>
-    <p>
-      En revanche, passer plusieurs jours à améliorer un score de laboratoire déjà satisfaisant,
-      sans problème utilisateur identifiable, ne constitue pas nécessairement une bonne priorité.
-    </p>
-    <p>Comme pour les autres dimensions du SEO, il faut examiner la situation réelle.</p>
+    <p>OpenAI prévoit des réglages distincts pour ces deux usages.</p>
     <p>
       <strong
-        >La priorité d'une correction technique dépend de ses conséquences, pas uniquement du nombre
-        d'alertes ou de la note affichée par un outil.</strong
+        >Autoriser <code>OAI-SearchBot</code> et refuser <code>GPTBot</code> sont donc deux
+        décisions compatibles.</strong
       >
     </p>
-    <h2>Prioriser selon l'impact potentiel sur ton activité</h2>
-    <p>Nous avons maintenant identifié plusieurs types d'opportunités.</p>
-    <p>Mais il reste à déterminer lesquelles méritent d'être traitées en premier.</p>
-    <p>Pour cela, je te propose de commencer par évaluer leur impact potentiel.</p>
     <p>
-      L'impact correspond à la valeur que pourrait apporter une amélioration si elle produit le
-      résultat attendu.
+      Il n'est pas nécessaire d'autoriser l'entraînement pour demander que son site reste accessible
+      à la recherche ChatGPT.
     </p>
     <p>
-      Cette valeur peut prendre plusieurs formes : permettre à une page importante d'être indexée,
-      améliorer l'accès à une prestation, développer une visibilité pertinente ou faciliter les
-      demandes de contact.
+      Inversement, autoriser GPTBot ne garantit pas qu'un site apparaîtra dans les réponses de
+      ChatGPT Search.
     </p>
-    <p>Mais l'impact doit toujours être apprécié dans le contexte de ton activité.</p>
-    <p>Imaginons que notre photographe hésite entre deux actions.</p>
+    <h3>ChatGPT-User : certaines consultations déclenchées par un utilisateur</h3>
+    <p><code>ChatGPT-User</code> correspond à une autre catégorie d'accès.</p>
     <p>
-      La première consiste à améliorer la page présentant ses prestations de mariage. La deuxième
-      consiste à rédiger un nouveau guide sur un sujet assez éloigné de ses services.
-    </p>
-    <p>Le nouveau guide pourrait éventuellement attirer davantage de visiteurs.</p>
-    <p>
-      Mais la page de prestation possède un lien beaucoup plus direct avec les demandes de devis.
-    </p>
-    <p>Son amélioration peut donc présenter un impact commercial potentiel plus important.</p>
-    <p>Cela ne signifie pas qu'il faut abandonner tous les contenus informationnels.</p>
-    <p>
-      Ils peuvent contribuer à faire découvrir ton activité et accompagner les futurs clients dans
-      leur parcours.
+      OpenAI indique que cet agent peut être utilisé lors de certaines actions initiées par des
+      utilisateurs de ChatGPT ou de GPT personnalisés.
     </p>
     <p>
-      Mais lorsque le temps est limité, il faut comprendre ce que chaque action pourrait apporter.
-    </p>
-    <h3>L'impact n'est pas toujours mesurable à l'avance</h3>
-    <p>Il est important de rester prudent.</p>
-    <p>
-      Tu ne peux pas savoir précisément combien de clics supplémentaires une modification de titre
-      générera ou combien de demandes de devis une amélioration éditoriale produira.
+      Il ne correspond pas à un robot d'exploration automatique général destiné à constituer les
+      résultats de recherche.
     </p>
     <p>
-      Les résultats dépendent de nombreux facteurs, dont certains ne sont pas directement
-      contrôlables.
-    </p>
-    <p>L'objectif n'est donc pas de prévoir des chiffres exacts.</p>
-    <p>
-      Pour commencer, tu peux simplement classer l'impact potentiel comme faible, moyen ou élevé.
+      OpenAI précise également que, puisque certaines de ces requêtes sont déclenchées par les
+      utilisateurs, les règles <code>robots.txt</code> peuvent ne pas s'appliquer de la même
+      manière.
     </p>
     <p>
-      Une correction permettant de rétablir l'accès à une page commerciale importante pourra
-      généralement recevoir une estimation d'impact élevée.
+      Il serait donc incorrect de considérer que bloquer <code>ChatGPT-User</code> revient à retirer
+      son site des résultats de ChatGPT Search.
     </p>
     <p>
-      Une modification cosmétique sans problème identifié pourra recevoir une estimation plus
-      faible.
+      Pour gérer l'accès aux fonctionnalités de recherche, c'est principalement la configuration
+      concernant <code>OAI-SearchBot</code> qu'il faut examiner.
     </p>
-    <p>Ces appréciations ne constituent pas des vérités absolues.</p>
+    <h3>Faut-il modifier son fichier robots.txt ?</h3>
+    <p>Pas automatiquement.</p>
     <p>
-      Elles permettent simplement de comparer plusieurs actions et de concentrer les efforts sur
-      celles qui semblent les plus utiles.
+      Imaginons que notre photographe ouvre son fichier <code>robots.txt</code> et ne découvre
+      aucune instruction destinée spécifiquement aux robots d'OpenAI.
     </p>
-    <h2>Prendre en compte l'effort nécessaire</h2>
-    <p>L'impact potentiel ne suffit pas pour décider d'une priorité.</p>
-    <p>Il faut également considérer le travail nécessaire pour réaliser l'amélioration.</p>
-    <p>Imaginons que notre photographe envisage deux actions.</p>
+    <p>Cela ne signifie pas que son site est nécessairement bloqué.</p>
     <p>
-      La première consiste à corriger un lien interne cassé sur sa page de prestation. La correction
-      peut probablement être réalisée rapidement.
+      Il faut examiner les règles réellement applicables, notamment celles qui concernent tous les
+      robots avec <code>User-agent: *</code>.
     </p>
     <p>
-      La deuxième consiste à produire une étude complète sur les habitudes de réservation des futurs
-      mariés. Elle nécessitera de rassembler des données, de vérifier leur fiabilité, de rédiger le
-      contenu et de préparer sa publication.
+      À l'inverse, si le fichier contient une restriction spécifique visant
+      <code>OAI-SearchBot</code>, celle-ci peut limiter son accès aux URL concernées.
     </p>
-    <p>Les deux actions peuvent présenter un intérêt.</p>
-    <p>Mais elles ne demandent pas le même investissement.</p>
-    <p>Pour un entrepreneur qui possède peu de temps, cette différence est essentielle.</p>
-    <h3>Évaluer l'effort de manière réaliste</h3>
-    <p>L'effort ne correspond pas uniquement au nombre d'heures de travail.</p>
     <p>
-      Il peut également dépendre des compétences nécessaires, des outils disponibles ou de
-      l'intervention d'un prestataire.
+      Mais avant de modifier quoi que ce soit, il faut comprendre l'objectif de la configuration
+      existante.
     </p>
-    <p>Imaginons qu'une correction technique nécessite de modifier la configuration du serveur.</p>
     <p>
-      Même si le changement semble simple, notre photographe ne possède peut-être pas les
-      compétences nécessaires pour le réaliser lui-même.
+      Certains propriétaires souhaitent volontairement limiter l'accès de robots à leurs contenus.
     </p>
-    <p>L'action dépendra donc d'une intervention extérieure.</p>
     <p>
-      À l'inverse, il peut améliorer certaines explications de sa page commerciale sans difficulté
-      particulière.
+      D'autres possèdent des contraintes liées à la sécurité, aux licences ou aux ressources de leur
+      serveur.
     </p>
-    <p>Il faut tenir compte de ces différences dans la priorisation.</p>
-    <p>Pour commencer, tu peux également classer l'effort comme faible, moyen ou élevé.</p>
-    <p>Mais évite de considérer qu'une action complexe doit systématiquement être repoussée.</p>
     <p>
-      Un problème technique important peut justifier un effort élevé lorsque ses conséquences sont
-      significatives.
+      Ces choix ne doivent pas être supprimés simplement pour chercher à améliorer un indicateur de
+      visibilité IA.
+    </p>
+    <p>
+      Il faut également rappeler que <code>robots.txt</code> n'est pas une solution de sécurité
+      permettant de protéger des informations confidentielles.
     </p>
     <p>
       <strong
-        >Une action rapide n'est pas nécessairement prioritaire. Une action difficile n'est pas
-        nécessairement secondaire. Il faut examiner l'effort en relation avec l'impact
-        attendu.</strong
+        >Pour cette formation, retiens une méthode simple : comprendre le rôle du robot, identifier
+        les règles applicables, vérifier leur cohérence avec tes objectifs et éviter toute
+        modification dont tu ne maîtrises pas les conséquences.</strong
       >
     </p>
-    <h2>Ajouter un critère essentiel : le niveau de confiance</h2>
-    <p>Nous allons maintenant introduire une troisième dimension : le niveau de confiance.</p>
+    <h2>Que faut-il vérifier pour les fonctionnalités IA de Google ?</h2>
     <p>
-      Il correspond à la solidité des éléments qui te permettent de penser qu'une action pourrait
-      résoudre un problème ou produire une amélioration.
+      Google adopte une approche différente pour les fonctionnalités IA intégrées à son moteur de
+      recherche.
     </p>
     <p>
-      Imaginons que notre photographe découvre une instruction <code>noindex</code> involontaire sur
-      sa page de prestation.
+      Dans sa documentation officielle, l'entreprise indique que les bonnes pratiques SEO
+      habituelles restent pertinentes pour les Aperçus IA et le Mode IA.
     </p>
     <p>
-      Nous savons que cette instruction empêche normalement la page concernée d'être indexée lorsque
-      Google la prend en compte.
-    </p>
-    <p>La relation entre le problème et la correction est donc relativement claire.</p>
-    <p>
-      Nous pouvons considérer que notre niveau de confiance dans l'utilité de cette correction est
-      élevé pour rétablir son indexabilité, sans garantir son classement.
-    </p>
-    <p>Prenons maintenant une autre situation.</p>
-    <p>
-      Notre photographe pense que modifier la couleur de son bouton de contact pourrait améliorer
-      son référencement dans Google.
-    </p>
-    <p>Il ne possède aucune donnée permettant d'établir cette relation.</p>
-    <p>
-      Cette action peut éventuellement être pertinente pour améliorer l'expérience utilisateur, mais
-      son intérêt SEO direct n'est pas démontré.
-    </p>
-    <p>Le niveau de confiance serait donc faible pour un objectif de classement.</p>
-    <p>Entre ces deux situations, nous pouvons rencontrer des opportunités plus nuancées.</p>
-    <p>
-      Par exemple, enrichir une page qui répond insuffisamment à une intention de recherche peut
-      constituer une hypothèse raisonnable, mais le résultat reste incertain.
-    </p>
-    <h3>Pourquoi la confiance évite les optimisations inutiles</h3>
-    <p>
-      Ce critère permet d'éviter une erreur fréquente : transformer des suppositions en priorités.
-    </p>
-    <p>Imaginons qu'un outil SEO recommande d'augmenter le nombre de mots d'un article.</p>
-    <p>Sans autre explication, cette recommandation ne suffit pas.</p>
-    <p>Il faut examiner si le contenu actuel répond réellement à la question de l'internaute.</p>
-    <p>Si certaines informations importantes manquent, l'enrichissement peut être pertinent.</p>
-    <p>
-      Mais si la page apporte déjà une réponse complète, ajouter plusieurs paragraphes uniquement
-      pour atteindre une longueur cible ne présente pas nécessairement d'intérêt.
+      Elle précise notamment qu'aucune optimisation technique supplémentaire n'est exigée pour
+      apparaître dans ces expériences.
     </p>
     <p>
-      Le niveau de confiance augmente lorsque tu peux relier l'action à un besoin réel ou à une
-      difficulté identifiable.
+      Pour qu'une page puisse être présentée comme lien de soutien, elle doit respecter les
+      exigences techniques de Google Search, être indexée et pouvoir être affichée avec un extrait.
+    </p>
+    <p>Mais cela ne garantit pas sa sélection.</p>
+    <p>
+      Imaginons que notre photographe possède un guide indexé dans Google et accessible sans
+      restriction particulière.
+    </p>
+    <p>Cette situation constitue une base favorable.</p>
+    <p>
+      Mais Google peut très bien ne pas sélectionner cette page pour un Aperçu IA, notamment si
+      d'autres ressources correspondent davantage aux besoins de la recherche.
     </p>
     <p>
-      L'objectif est donc de distinguer les optimisations fondées sur des observations solides de
-      celles qui reposent principalement sur des croyances ou des recommandations génériques.
+      Il est donc inutile de chercher une balise spéciale censée déclencher automatiquement son
+      apparition.
     </p>
-    <h2>Utiliser une méthode de priorisation simple</h2>
+    <h3>Les fondamentaux à conserver</h3>
     <p>
-      Nous possédons maintenant trois critères : l'impact potentiel, l'effort et le niveau de
-      confiance.
-    </p>
-    <p>Nous pouvons les utiliser pour construire une première méthode de priorisation.</p>
-    <p>
-      Tu rencontreras peut-être différents modèles dans les outils de gestion de projet, comme les
-      méthodes ICE ou RICE.
-    </p>
-    <p>Ces approches peuvent être utiles dans certains contextes.</p>
-    <p>
-      Mais pour une première stratégie SEO, il n'est pas nécessaire de construire un calcul
-      complexe.
+      Les premières vérifications restent celles que nous avons étudiées dans les modules
+      précédents.
     </p>
     <p>
-      Nous allons simplement classer nos actions selon leur impact potentiel, l'effort nécessaire et
-      la confiance accordée à l'hypothèse.
+      Les pages importantes doivent être accessibles à Googlebot lorsque tu souhaites qu'elles
+      soient explorées. Leurs contenus doivent être indexables si ton objectif est de les rendre
+      visibles dans la recherche. Les liens internes doivent permettre de découvrir les ressources
+      importantes, et les informations principales doivent être disponibles dans le contenu
+      réellement accessible.
     </p>
     <p>
-      Il faudra également tenir compte de l'urgence lorsqu'un problème empêche une page importante
-      de fonctionner.
-    </p>
-    <h3>Les priorités hautes</h3>
-    <p>
-      Une priorité haute correspond généralement à une action dont l'intérêt est clairement
-      identifiable et qui mérite d'être réalisée rapidement.
+      Il faut également veiller à la cohérence des URL canoniques, des redirections et des
+      instructions d'indexation.
     </p>
     <p>
-      Imaginons qu'une page de prestation importante soit inaccessible à cause d'une erreur
-      technique.
+      Une page volontairement exclue des résultats Google ne doit pas être considérée comme
+      automatiquement éligible aux fonctionnalités IA du moteur.
+    </p>
+    <p>L'objectif est donc de poursuivre une démarche de SEO technique cohérente.</p>
+    <p>
+      <strong
+        >Pour les fonctionnalités IA de Google, il est préférable de corriger un véritable problème
+        d'exploration ou d'indexation plutôt que d'ajouter une optimisation GEO sans utilité
+        démontrée.</strong
+      >
+      &lt;Cite ref="turn895837search5"/&gt;
+    </p>
+    <h2>Rendre les informations faciles à comprendre</h2>
+    <p>L'accessibilité technique constitue une première dimension, mais elle ne suffit pas.</p>
+    <p>
+      Une page peut être parfaitement accessible tout en proposant des informations difficiles à
+      interpréter.
+    </p>
+    <p>Imaginons que notre photographe possède une page intitulée « Des moments inoubliables ».</p>
+    <p>
+      Elle comporte de magnifiques photographies et plusieurs phrases évoquant l'émotion, les
+      souvenirs et l'importance d'une journée particulière.
     </p>
     <p>
-      Si cette page joue un rôle essentiel dans ton activité, rétablir son fonctionnement possède
-      une priorité élevée.
+      Mais elle ne précise presque jamais qu'il propose des prestations de photographie de mariage à
+      Bordeaux.
     </p>
-    <p>Une autre action peut également être prioritaire sans correspondre à une panne.</p>
+    <p>Pour un visiteur qui connaît déjà son activité, le contenu peut sembler clair.</p>
     <p>
-      Par exemple, améliorer une page commerciale déjà visible dans Google, lorsque ses informations
-      sont manifestement insuffisantes et que la correction demande peu de travail, peut constituer
-      une opportunité intéressante.
-    </p>
-    <h3>Les priorités moyennes</h3>
-    <p>
-      Une priorité moyenne correspond à une action utile, mais qui n'exige pas nécessairement une
-      intervention immédiate.
+      Pour une personne découvrant son site, les informations essentielles sont beaucoup moins
+      explicites.
     </p>
     <p>
-      Imaginons que notre photographe possède un guide intéressant qui pourrait être complété par
-      plusieurs exemples.
+      Et pour un système automatisé cherchant à identifier des ressources sur la photographie de
+      mariage à Bordeaux, cette ambiguïté peut également compliquer la compréhension du sujet.
     </p>
     <p>
-      L'amélioration peut avoir du sens, mais elle ne doit pas forcément passer avant la correction
-      d'un problème affectant directement une page commerciale.
+      Il ne s'agit pas de répéter artificiellement « photographe mariage Bordeaux » dans tous les
+      paragraphes.
     </p>
     <p>
-      De même, la préparation d'un nouveau contenu peut être importante pour développer la stratégie
-      éditoriale, sans constituer une urgence technique.
+      Il s'agit de présenter clairement l'activité, les prestations, les publics concernés et les
+      informations utiles.
     </p>
-    <h3>Les priorités faibles</h3>
+    <h3>Décrire précisément ce que tu proposes</h3>
+    <p>Une page de prestation doit permettre de comprendre ce qu'une entreprise réalise.</p>
     <p>
-      Une priorité faible correspond à une action dont l'intérêt reste limité, incertain ou
-      disproportionné par rapport aux ressources nécessaires.
+      Notre photographe pourrait expliquer qu'il accompagne des couples pour leurs reportages de
+      mariage en Gironde, présenter son approche photographique et préciser les principales étapes
+      de sa prestation.
     </p>
     <p>
-      Imaginons que notre photographe souhaite consacrer plusieurs jours à faire passer son score
-      PageSpeed de 96 à 100 sur une page qui ne présente aucun problème d'expérience utilisateur
-      identifié.
+      Il peut également décrire les informations nécessaires pour demander un devis ou consulter ses
+      disponibilités.
     </p>
-    <p>Il peut être préférable de reporter ce travail.</p>
+    <p>Ces éléments rendent sa page plus utile pour les visiteurs.</p>
     <p>
-      De même, chercher à augmenter artificiellement le Domain Rating de son site ne constitue pas
-      un objectif prioritaire en soi.
+      Ils permettent aussi de mieux identifier les informations importantes sans devoir les déduire
+      de formulations trop générales.
     </p>
-    <p>Une priorité faible ne signifie pas nécessairement que l'action est inutile.</p>
+    <p>Le même principe s'applique à d'autres activités.</p>
     <p>
-      Elle signifie simplement qu'elle ne représente pas le meilleur investissement au moment de
-      l'analyse.
+      Un consultant SEO peut préciser les prestations qu'il propose, les entreprises qu'il
+      accompagne et le déroulement de ses interventions.
+    </p>
+    <p>
+      Un développeur indépendant peut présenter les types de produits qu'il réalise, les
+      technologies utilisées et les étapes de collaboration.
+    </p>
+    <p>
+      Un artisan peut détailler ses services, sa zone d'intervention et les conditions de ses
+      prestations.
     </p>
     <p>
       <strong
-        >L'objectif de cette méthode n'est pas de produire un classement mathématique parfait. Il
-        est de rendre tes décisions plus cohérentes et de réduire le risque de consacrer du temps à
-        des améliorations secondaires.</strong
+        >Une information claire et vérifiable est plus utile qu'une formule marketing
+        impressionnante mais difficile à interpréter.</strong
       >
     </p>
-    <h2>Tenir compte des dépendances entre les actions</h2>
+    <h2>Structurer ses contenus pour répondre aux bonnes questions</h2>
     <p>
-      Il existe une dernière dimension importante : certaines optimisations dépendent d'autres
-      actions.
+      Dans le module 4, nous avons appris à utiliser les titres et les paragraphes pour organiser
+      les informations.
+    </p>
+    <p>Ces principes restent pertinents dans le contexte du GEO.</p>
+    <p>Imaginons que notre photographe possède un guide consacré au choix d'un professionnel.</p>
+    <p>
+      Le contenu peut commencer par expliquer les principaux critères à comparer, puis approfondir
+      les questions relatives au style, à l'expérience, au devis et aux conditions de réservation.
+    </p>
+    <p>Cette structure permet au lecteur de comprendre rapidement le sujet.</p>
+    <p>
+      Elle facilite également l'identification des différentes informations présentes dans la page.
     </p>
     <p>
-      Imaginons que notre photographe souhaite améliorer le positionnement d'une page de prestation.
+      Mais attention : il ne faut pas chercher à transformer chaque phrase en une réponse très
+      courte simplement parce qu'une intelligence artificielle pourrait éventuellement la reprendre.
     </p>
     <p>
-      Mais cette page est actuellement exclue de l'index à cause d'une instruction
-      <code>noindex</code> involontaire.
+      Un guide peut parfaitement proposer des explications développées, des nuances et des exemples.
     </p>
     <p>
-      Il serait peu pertinent de commencer par modifier son titre ou de rechercher des backlinks
-      vers cette page sans avoir d'abord rétabli son indexabilité.
+      L'objectif n'est pas de rédiger uniquement des définitions destinées aux modèles de langage.
     </p>
-    <p>La correction technique constitue ici une condition préalable.</p>
+    <p>Il est de construire une progression claire.</p>
+    <h3>Donner une réponse explicite avant de l'approfondir</h3>
     <p>
-      De même, si notre photographe souhaite développer des liens vers un guide, il peut être
-      préférable de finaliser son contenu et de vérifier son accessibilité avant de le présenter à
-      des partenaires.
+      Imaginons que le guide de notre photographe comporte une section intitulée « Quand faut-il
+      réserver son photographe de mariage ? ».
     </p>
-    <p>Les dépendances permettent donc d'organiser les actions dans un ordre logique.</p>
     <p>
-      Il faut simplement éviter d'en déduire que toutes les optimisations techniques doivent être
-      terminées avant de travailler les contenus.
+      Il pourrait commencer par expliquer qu'il est préférable d'anticiper sa recherche,
+      particulièrement lorsque la date du mariage est connue, puis préciser que les délais varient
+      selon la saison, le lieu et les disponibilités du professionnel.
     </p>
-    <p>Un site peut progresser sur plusieurs dimensions en parallèle.</p>
+    <p>Cette réponse donne immédiatement une orientation au lecteur.</p>
     <p>
-      L'essentiel est de repérer les situations dans lesquelles une action serait prématurée parce
-      qu'un élément indispensable manque encore.
+      Les paragraphes suivants peuvent ensuite développer les différents facteurs et présenter des
+      exemples.
     </p>
-    <h2>Démonstration — Priorisons les optimisations de notre photographe</h2>
+    <p>Cette approche possède plusieurs avantages.</p>
+    <p>
+      Elle évite les introductions inutilement longues, facilite la lecture et rend les informations
+      plus explicites.
+    </p>
+    <p>
+      Mais elle n'offre aucune garantie qu'un assistant IA sélectionnera cette phrase comme
+      citation.
+    </p>
+    <p>Elle correspond avant tout à une bonne pratique de rédaction.</p>
+    <h3>Éviter les contenus génériques et les réponses inventées</h3>
+    <p>
+      Il peut être tentant de multiplier les questions-réponses pour couvrir toutes les formulations
+      imaginables.
+    </p>
+    <p>Mais cette approche peut rapidement produire des contenus répétitifs.</p>
+    <p>
+      Imaginons que notre photographe publie dix pages presque identiques pour expliquer quand
+      réserver un professionnel, comment réserver son photographe ou combien de temps avant le
+      mariage effectuer une réservation.
+    </p>
+    <p>
+      Si toutes ces pages répondent à la même intention, elles risquent de disperser les
+      informations sans créer de véritable valeur supplémentaire.
+    </p>
+    <p>
+      Il serait souvent plus pertinent de proposer une ressource complète, claire et régulièrement
+      actualisée.
+    </p>
+    <p>
+      De même, il ne faut pas inventer des réponses pour satisfaire toutes les questions possibles.
+    </p>
+    <p>Si une information dépend des circonstances, il faut l'expliquer.</p>
+    <p>Si un chiffre n'est pas connu, il vaut mieux éviter de le présenter comme un fait.</p>
+    <p>
+      Les contenus utiles ne sont pas nécessairement ceux qui donnent des réponses catégoriques. Ce
+      sont ceux qui permettent de comprendre correctement un sujet.
+    </p>
+    <h2>Développer la crédibilité et la traçabilité de ses informations</h2>
+    <p>
+      Dans les modules précédents, nous avons étudié l'importance de l'expérience, de l'expertise et
+      de la fiabilité.
+    </p>
+    <p>
+      Ces notions restent particulièrement pertinentes lorsqu'une page est susceptible d'être
+      utilisée comme source d'information.
+    </p>
+    <p>
+      Imaginons que notre photographe publie un guide détaillé sur l'organisation d'un reportage.
+    </p>
+    <p>
+      Il peut expliquer sa méthode de préparation, présenter des exemples issus de son expérience et
+      montrer certaines réalisations avec les autorisations nécessaires.
+    </p>
+    <p>Ces éléments permettent de mieux comprendre l'origine de ses conseils.</p>
+    <p>
+      À l'inverse, un contenu rempli d'affirmations vagues, sans exemple ni explication, peut être
+      moins utile pour une personne qui cherche des informations précises.
+    </p>
+    <p>
+      Il faut donc réfléchir à la manière dont tu peux montrer sur quoi reposent les informations
+      importantes.
+    </p>
+    <h3>Identifier clairement l'entreprise ou l'auteur</h3>
+    <p>
+      Sur un site professionnel, il est utile de présenter suffisamment d'informations pour
+      permettre aux visiteurs de comprendre qui publie les contenus.
+    </p>
+    <p>
+      Cela peut notamment passer par une page de présentation, des coordonnées professionnelles, une
+      description claire de l'activité ou des informations sur les personnes responsables des
+      ressources.
+    </p>
+    <p>Il n'est pas nécessaire d'ajouter une longue biographie à chaque article.</p>
+    <p>L'objectif est de rendre l'identité éditoriale suffisamment explicite.</p>
+    <p>
+      Pour notre photographe, une page présentant son parcours, ses prestations et ses réalisations
+      peut permettre aux futurs clients de mieux comprendre son expérience.
+    </p>
+    <p>
+      Pour un guide rédigé par plusieurs intervenants, il peut également être pertinent de préciser
+      leurs contributions lorsque cela apporte une information utile.
+    </p>
+    <p>Ces éléments participent à la transparence.</p>
+    <p>
+      Mais il serait trompeur d'affirmer qu'ajouter systématiquement une biographie ou une signature
+      garantit une citation dans ChatGPT.
+    </p>
+    <h3>Vérifier les faits et citer les sources pertinentes</h3>
+    <p>
+      Lorsqu'un contenu présente des informations vérifiables, il est important de pouvoir les
+      justifier.
+    </p>
+    <p>Imaginons que notre photographe rédige un article consacré aux tendances du mariage.</p>
+    <p>
+      S'il utilise une statistique issue d'une étude, il doit vérifier sa source et son périmètre.
+    </p>
+    <p>
+      S'il présente une recommandation fondée sur son expérience, il peut expliquer les situations
+      rencontrées et les limites de son observation.
+    </p>
+    <p>
+      De même, un consultant SEO qui explique le fonctionnement des balises canoniques peut
+      s'appuyer sur la documentation officielle de Google.
+    </p>
+    <p>Une source externe n'est pas obligatoire pour chaque phrase.</p>
+    <p>
+      Mais les affirmations importantes, particulièrement lorsqu'elles sont techniques ou
+      susceptibles d'évoluer, doivent reposer sur des informations fiables.
+    </p>
+    <p>Cela permet au lecteur de vérifier les explications.</p>
+    <p>Cela rend également le contenu plus transparent lorsqu'il est repris, résumé ou cité.</p>
+    <p>
+      <strong
+        >Chercher à être citable commence par publier des informations qui méritent d'être citées :
+        exactes, contextualisées et suffisamment claires pour ne pas être déformées
+        facilement.</strong
+      >
+    </p>
+    <h2>Les données structurées peuvent-elles aider les moteurs IA ?</h2>
+    <p>
+      Tu as peut-être déjà rencontré le terme <em>Schema.org</em> ou l'expression
+      <em>données structurées</em>.
+    </p>
+    <p>
+      Il s'agit de formats permettant d'apporter des indications supplémentaires sur la nature des
+      informations présentes dans une page.
+    </p>
+    <p>
+      Par exemple, certaines données structurées peuvent décrire une organisation, un article, un
+      produit ou une entreprise locale.
+    </p>
+    <p>
+      Google utilise certains types de données structurées pour mieux comprendre les contenus et
+      permettre, dans des conditions précises, des affichages enrichis dans ses résultats.
+    </p>
+    <p>
+      Mais il faut éviter une idée reçue :
+      <strong
+        >ajouter des données structurées ne garantit pas qu'une page sera citée par les moteurs
+        IA</strong
+      >.
+    </p>
+    <p>
+      Google précise qu'aucun balisage spécial n'est requis pour apparaître dans ses fonctionnalités
+      IA.
+    </p>
+    <p>
+      Il indique également que les informations présentes dans les données structurées doivent
+      rester cohérentes avec le contenu visible de la page.
+    </p>
+    <h3>Quand les données structurées sont-elles utiles ?</h3>
+    <p>Imaginons que notre photographe possède un site présentant clairement son activité.</p>
+    <p>
+      Des données structurées adaptées peuvent éventuellement aider à décrire son entreprise ou
+      certaines informations relatives à ses contenus.
+    </p>
+    <p>Mais elles doivent correspondre à des éléments réels et vérifiables.</p>
+    <p>
+      Il ne serait pas pertinent de déclarer des prestations inexistantes, d'inventer des avis
+      clients ou de présenter de fausses distinctions professionnelles simplement pour enrichir le
+      balisage.
+    </p>
+    <p>
+      De plus, toutes les données structurées ne donnent pas accès à un affichage spécifique dans
+      Google.
+    </p>
+    <p>Chaque fonctionnalité possède ses propres conditions.</p>
+    <p>
+      Pour un débutant, la priorité reste donc de présenter des informations claires dans les pages
+      elles-mêmes.
+    </p>
+    <p>
+      Les données structurées peuvent constituer une amélioration complémentaire lorsque leur usage
+      est adapté et correctement implémenté.
+    </p>
+    <p>Elles ne doivent pas devenir une étape obligatoire de la stratégie GEO.</p>
+    <h2>Faut-il créer un fichier llms.txt ?</h2>
+    <p>
+      Tu rencontreras peut-être des articles affirmant qu'il faut absolument créer un fichier
+      <code>llms.txt</code> à la racine de son site pour être visible dans les moteurs IA.
+    </p>
+    <p>
+      Ce fichier a été proposé comme un moyen de faciliter l'accès de certains outils à une
+      présentation structurée des ressources importantes d'un site.
+    </p>
+    <p>
+      L'idée est de proposer une forme de documentation destinée aux systèmes utilisant des modèles
+      de langage.
+    </p>
+    <p>
+      Mais il faut distinguer l'existence d'une proposition technique de son adoption effective par
+      les principaux moteurs et assistants.
+    </p>
+    <p>
+      À ce jour, il n'existe pas de preuve suffisante permettant d'affirmer qu'un fichier
+      <code>llms.txt</code> améliore automatiquement les citations dans ChatGPT ou Gemini.
+    </p>
+    <p>
+      Google indique explicitement qu'aucun fichier de ce type n'est nécessaire pour apparaître dans
+      ses fonctionnalités IA, et que Google Search n'utilise pas <code>llms.txt</code> comme
+      mécanisme spécifique d'optimisation.
+    </p>
+    <p>
+      Il serait donc incorrect de présenter ce fichier comme un équivalent obligatoire du sitemap
+      XML.
+    </p>
+    <h3>Que faire si ton site possède déjà un fichier llms.txt ?</h3>
+    <p>
+      Si ton site dispose déjà de ce fichier, il n'est pas nécessaire de le supprimer uniquement
+      parce que son impact SEO n'est pas démontré.
+    </p>
+    <p>
+      Il peut éventuellement répondre à un besoin documentaire ou être exploité par certains outils
+      qui choisissent de le prendre en charge.
+    </p>
+    <p>Mais il ne faut pas considérer sa présence comme une garantie de citation.</p>
+    <p>
+      Pour un entrepreneur qui débute, il existe généralement des priorités plus importantes :
+      vérifier que les pages stratégiques sont accessibles, améliorer la clarté des informations et
+      publier des contenus utiles.
+    </p>
+    <p>
+      L'objectif est d'investir son temps dans des améliorations dont l'intérêt est compréhensible.
+    </p>
+    <p>
+      <strong
+        >Ne transforme pas chaque nouveauté technique présentée comme une « révolution GEO » en une
+        tâche obligatoire. Vérifie d'abord si son usage est réellement documenté et pertinent pour
+        ton site.</strong
+      >
+    </p>
+    <h2>La notoriété contribue-t-elle à la visibilité dans les moteurs IA ?</h2>
+    <p>Dans le module 7, nous avons découvert le rôle des backlinks et des mentions externes.</p>
+    <p>
+      Ces éléments peuvent également être intéressants dans le contexte plus large de la découverte
+      d'informations.
+    </p>
+    <p>
+      Imaginons que notre photographe soit régulièrement présenté dans des publications
+      professionnelles, participe à des événements et possède plusieurs réalisations documentées sur
+      des sites partenaires.
+    </p>
+    <p>Ces références peuvent permettre à davantage de personnes de découvrir son activité.</p>
+    <p>
+      Elles peuvent également contribuer à rendre son nom professionnel et ses prestations plus
+      présents dans les informations publiques accessibles sur le Web.
+    </p>
+    <p>
+      Mais il serait excessif d'affirmer que chaque nouvelle mention augmente directement une note
+      d'autorité GEO ou garantit sa présence dans les réponses générées.
+    </p>
+    <p>
+      Les systèmes de recherche et de génération restent différents, et leurs mécanismes de
+      sélection ne sont pas entièrement publics.
+    </p>
+    <p>
+      La bonne approche consiste donc à poursuivre une stratégie de notoriété légitime, comme nous
+      l'avons étudié dans les leçons précédentes.
+    </p>
+    <p>
+      Un article de presse, une collaboration professionnelle ou une citation de source doit
+      posséder un intérêt indépendant de son effet éventuel sur les moteurs IA.
+    </p>
+    <p>
+      L'objectif est de renforcer une présence crédible et cohérente, plutôt que de fabriquer
+      artificiellement des références.
+    </p>
+    <h2>Démonstration — Vérifions si le site de notre photographe est prêt à être découvert</h2>
     <p>Passons maintenant à une démonstration concrète.</p>
     <p>
-      Nous allons reprendre notre photographe professionnel à Bordeaux et utiliser les données
-      fictives de son tableau de bord.
+      Nous allons reprendre notre photographe professionnel à Bordeaux et examiner l'une de ses
+      pages stratégiques.
     </p>
     <p>
-      Notre objectif est d'identifier plusieurs situations, de comprendre ce qu'elles signifient et
-      de sélectionner trois actions prioritaires.
-    </p>
-    <p>Il ne s'agit pas de prévoir précisément les résultats obtenus dans Google.</p>
-    <p>Nous allons simplement construire une méthode de décision cohérente.</p>
-    <h3>Étape 1 — Reprendre les observations</h3>
-    <p>
-      Dans la leçon précédente, notre photographe avait enregistré 12 000 impressions et 240 clics
-      sur une période de vingt-huit jours.
+      Notre objectif n'est pas de vérifier qu'il apparaît déjà dans ChatGPT ou Gemini. Nous
+      réaliserons ce travail dans la prochaine leçon.
     </p>
     <p>
-      Sa page de prestation consacrée aux mariages recevait 1 500 impressions et 60 clics, tandis
-      que son guide sur le choix d'un photographe enregistrait 7 000 impressions et 90 clics.
+      Nous allons plutôt identifier les éléments techniques et éditoriaux qui pourraient faciliter
+      l'accès à ses contenus et leur compréhension.
     </p>
-    <p>Nous allons compléter cet exemple avec plusieurs observations fictives.</p>
+    <p>Les URL et les configurations présentées dans cet exemple sont fictives.</p>
+    <h3>Étape 1 — Choisir une page importante</h3>
+    <p>Commençons par sélectionner le guide consacré au choix d'un photographe de mariage.</p>
+    <p>Nous utiliserons cette adresse fictive :</p>
+    <p><code>https://exemple.fr/guides/choisir-photographe-mariage</code></p>
     <p>
-      Notre photographe remarque que sa page de prestation pourrait présenter plus clairement ses
-      formules et le déroulement de l'accompagnement.
+      Cette page répond à une question importante pour les futurs clients et possède un lien naturel
+      avec les prestations proposées.
     </p>
+    <p>Elle constitue donc une bonne candidate pour notre premier contrôle.</p>
+    <p>Nous commençons par l'ouvrir dans un navigateur.</p>
     <p>
-      Il découvre également qu'une ancienne page de réalisations importante est marquée
-      <code>noindex</code> alors qu'elle devait être publique et indexable.
-    </p>
-    <p>
-      Son guide pédagogique possède de nombreuses impressions, mais son CTR reste relativement
-      faible.
-    </p>
-    <p>
-      Enfin, il constate qu'une grande photographie ralentit le chargement mobile d'une page
-      stratégique et qu'il possède plusieurs idées de nouveaux contenus.
-    </p>
-    <p>Nous avons donc plusieurs pistes.</p>
-    <p>Mais elles n'ont pas toutes la même importance.</p>
-    <h3>Étape 2 — Distinguer les faits des hypothèses</h3>
-    <p>Commençons par la page de réalisations.</p>
-    <p>L'instruction <code>noindex</code> est présente et son utilisation n'est pas volontaire.</p>
-    <p>Nous avons identifié un problème technique précis.</p>
-    <p>La correction peut être justifiée par le fonctionnement attendu de la page.</p>
-    <p>Passons à la page commerciale.</p>
-    <p>Nous constatons que certaines informations manquent ou pourraient être clarifiées.</p>
-    <p>
-      L'amélioration éditoriale constitue une opportunité plausible, mais nous ne pouvons pas
-      garantir qu'elle augmentera les demandes de devis.
+      Nous vérifions qu'elle fonctionne, que son contenu est visible et qu'aucune connexion à un
+      compte n'est nécessaire pour lire le guide.
     </p>
     <p>
-      Concernant le guide pédagogique, nous observons un nombre important d'impressions et un CTR
-      relativement faible.
-    </p>
-    <p>Mais cette donnée ne suffit pas à expliquer ses performances.</p>
-    <p>Il faudra examiner les requêtes et les positions avant de décider d'une modification.</p>
-    <p>
-      Enfin, la photographie lourde peut représenter un problème de performance. Mais il faudra
-      vérifier son impact réel sur le chargement et l'expérience mobile avant de lui attribuer une
-      priorité.
-    </p>
-    <p>Cette étape nous permet déjà d'éviter plusieurs décisions précipitées.</p>
-    <h3>Étape 3 — Évaluer les actions possibles</h3>
-    <p>Nous allons maintenant classer nos opportunités.</p>
-    <div class="mt-6 overflow-x-auto rounded-xl border border-petrol/15">
-      <table class="w-full min-w-[620px] border-collapse text-left text-sm">
-        <thead class="bg-mist text-ink">
-          <tr>
-            <th scope="col" class="px-4 py-3 font-semibold">Action envisagée</th>
-            <th scope="col" class="px-4 py-3 font-semibold">Impact potentiel</th>
-            <th scope="col" class="px-4 py-3 font-semibold">Effort</th>
-            <th scope="col" class="px-4 py-3 font-semibold">Confiance</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-petrol/10">
-          <tr>
-            <td class="px-4 py-3">
-              Corriger le <code>noindex</code> involontaire de la page de réalisations
-            </td>
-            <td class="px-4 py-3">Élevé</td>
-            <td class="px-4 py-3">Faible</td>
-            <td class="px-4 py-3">Élevée</td>
-          </tr>
-          <tr>
-            <td class="px-4 py-3">Clarifier les prestations et le parcours de contact</td>
-            <td class="px-4 py-3">Élevé</td>
-            <td class="px-4 py-3">Moyen</td>
-            <td class="px-4 py-3">Moyenne</td>
-          </tr>
-          <tr>
-            <td class="px-4 py-3">Examiner puis améliorer le CTR du guide si nécessaire</td>
-            <td class="px-4 py-3">Moyen</td>
-            <td class="px-4 py-3">Faible à moyen</td>
-            <td class="px-4 py-3">À confirmer</td>
-          </tr>
-          <tr>
-            <td class="px-4 py-3">Optimiser l'image lourde après vérification des performances</td>
-            <td class="px-4 py-3">Moyen</td>
-            <td class="px-4 py-3">Faible à moyen</td>
-            <td class="px-4 py-3">À confirmer</td>
-          </tr>
-          <tr>
-            <td class="px-4 py-3">Publier un nouveau guide sur un sujet secondaire</td>
-            <td class="px-4 py-3">Faible à moyen</td>
-            <td class="px-4 py-3">Élevé</td>
-            <td class="px-4 py-3">Moyenne</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p>Les évaluations sont fictives et servent uniquement à illustrer la méthode.</p>
-    <p>Elles ne correspondent pas à des probabilités précises ni à des gains garantis.</p>
-    <p>
-      Nous remarquons immédiatement que la correction de l'instruction <code>noindex</code> possède
-      une justification forte.
+      Si la page demande une authentification, le contenu privé ne pourra pas être consulté
+      librement par les systèmes de recherche.
     </p>
     <p>
-      L'amélioration de la page commerciale semble également intéressante en raison de son rôle dans
-      les demandes de devis.
+      Il faut donc distinguer les ressources volontairement publiques des contenus que l'entreprise
+      souhaite réserver à certaines personnes.
     </p>
-    <p>En revanche, les deux autres optimisations nécessitent des vérifications complémentaires.</p>
-    <h3>Étape 4 — Sélectionner trois priorités</h3>
-    <p>Notre photographe décide de retenir trois actions pour sa prochaine période de travail.</p>
+    <h3>Étape 2 — Vérifier l'indexation dans Google</h3>
+    <p>Nous ouvrons maintenant Google Search Console et utilisons l'outil d'inspection d'URL.</p>
+    <p>Nous renseignons l'adresse du guide.</p>
     <p>
-      La première consiste à corriger l'instruction <code>noindex</code> involontaire sur la page de
-      réalisations, puis à vérifier son accessibilité et son indexation.
+      Imaginons que Search Console indique que la page est indexée et qu'aucune restriction
+      importante n'empêche son exploration.
     </p>
+    <p>Cette information confirme une partie de son accessibilité dans l'écosystème Google.</p>
     <p>
-      La deuxième consiste à améliorer la page de prestation mariage en clarifiant les services
-      proposés, les réalisations disponibles et les informations nécessaires pour demander un devis.
+      Mais elle ne nous permet pas de conclure que ChatGPT ou d'autres assistants utilisent cette
+      page.
     </p>
+    <p>Chaque système possède ses propres mécanismes.</p>
+    <p>Nous conservons donc simplement cette observation.</p>
     <p>
-      La troisième consiste à analyser plus précisément les requêtes et les positions de son
-      principal guide, afin de déterminer si une optimisation de son titre ou de son contenu est
-      réellement justifiée.
+      Si la page n'était pas indexée, il faudrait examiner la raison de cette situation avant
+      d'envisager une optimisation spécifique aux moteurs IA.
     </p>
-    <p>Nous remarquons que cette dernière priorité correspond d'abord à une analyse.</p>
-    <p>C'est parfaitement légitime.</p>
-    <p>Une action prioritaire ne consiste pas toujours à modifier immédiatement une page.</p>
+    <h3>Étape 3 — Examiner le fichier robots.txt</h3>
+    <p>Nous ouvrons ensuite l'adresse :</p>
+    <p><code>https://exemple.fr/robots.txt</code></p>
+    <p>Nous recherchons les éventuelles règles concernant Googlebot et les robots d'OpenAI.</p>
     <p>
-      Elle peut consister à obtenir les informations nécessaires pour éviter une mauvaise décision.
-    </p>
-    <h3>Étape 5 — Définir le résultat attendu pour chaque action</h3>
-    <p>
-      Nous allons maintenant préciser ce que notre photographe souhaite vérifier après chaque
-      intervention.
-    </p>
-    <p>
-      Pour la correction du <code>noindex</code>, le premier résultat attendu est technique : la
-      page doit être correctement accessible et ne plus posséder de restriction involontaire.
-    </p>
-    <p>Cela ne garantit pas son indexation immédiate ni son classement.</p>
-    <p>
-      Pour la page commerciale, le premier résultat attendu est éditorial : les visiteurs doivent
-      pouvoir comprendre plus facilement les prestations et les conditions de prise de contact.
+      Imaginons que notre photographe ne découvre aucune restriction explicite visant
+      <code>OAI-SearchBot</code>.
     </p>
     <p>
-      Notre photographe pourra ensuite observer les performances de cette page et les éventuelles
-      demandes commerciales.
+      Nous devons néanmoins tenir compte des autres règles éventuellement applicables et ne pas
+      déduire automatiquement que tous les accès sont autorisés.
     </p>
     <p>
-      Enfin, l'analyse du guide doit permettre de comprendre quelles recherches contribuent à ses
-      impressions et si une amélioration présente un intérêt réel.
+      Si une restriction spécifique est présente, nous pouvons noter qu'elle mérite une
+      vérification.
     </p>
-    <p>Nous possédons désormais trois actions accompagnées d'un objectif compréhensible.</p>
-    <h3>Étape 6 — Conserver les priorités dans un tableau</h3>
-    <p>Notre photographe regroupe maintenant les actions sélectionnées dans un tableau simple.</p>
-    <div class="mt-6 overflow-x-auto rounded-xl border border-petrol/15">
-      <table class="w-full min-w-[620px] border-collapse text-left text-sm">
-        <thead class="bg-mist text-ink">
-          <tr>
-            <th scope="col" class="px-4 py-3 font-semibold">Priorité</th>
-            <th scope="col" class="px-4 py-3 font-semibold">Action</th>
-            <th scope="col" class="px-4 py-3 font-semibold">Résultat à vérifier</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-petrol/10">
-          <tr>
-            <td class="px-4 py-3">Haute</td>
-            <td class="px-4 py-3">Corriger le <code>noindex</code> involontaire</td>
-            <td class="px-4 py-3">Page indexable, sans restriction non souhaitée</td>
-          </tr>
-          <tr>
-            <td class="px-4 py-3">Haute</td>
-            <td class="px-4 py-3">Clarifier la page commerciale</td>
-            <td class="px-4 py-3">Offre et parcours de contact plus compréhensibles</td>
-          </tr>
-          <tr>
-            <td class="px-4 py-3">Moyenne</td>
-            <td class="px-4 py-3">Analyser les performances du guide</td>
-            <td class="px-4 py-3">Hypothèse d'optimisation confirmée ou écartée</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p>Ce tableau ne constitue pas encore un plan SEO complet.</p>
-    <p>Il ne comporte pas de calendrier détaillé ni de séquencement sur plusieurs mois.</p>
+    <p>Mais nous ne la supprimons pas immédiatement.</p>
+    <p>Il faut d'abord comprendre si elle correspond à un choix volontaire.</p>
     <p>
-      Mais il représente une étape essentielle : nous avons transformé des observations en décisions
-      concrètes.
+      Il faut également tenir compte d'éventuelles restrictions provenant du serveur, du pare-feu ou
+      de l'hébergement, qui ne sont pas nécessairement visibles dans <code>robots.txt</code>.
+    </p>
+    <h3>Étape 4 — Examiner la clarté des informations</h3>
+    <p>Nous retournons maintenant sur notre guide.</p>
+    <p>
+      Son titre permet-il de comprendre immédiatement le sujet ? Les premières explications
+      répondent-elles réellement à la question principale ? Les différentes parties sont-elles
+      organisées de manière cohérente ?
     </p>
     <p>
-      Nous pourrons maintenant utiliser ces priorités pour construire notre plan d'action sur 90
-      jours dans la prochaine leçon.
+      Imaginons que notre photographe découvre un article intitulé « Le plus beau jour de votre vie
+      », alors que son contenu explique en réalité comment sélectionner un prestataire.
+    </p>
+    <p>
+      Il pourrait envisager un titre plus explicite : « Comment choisir son photographe de mariage ?
+      »
+    </p>
+    <p>Cette modification ne garantit pas une citation dans un moteur IA.</p>
+    <p>Elle permet surtout de clarifier le sujet pour les visiteurs.</p>
+    <p>
+      Nous examinons également les informations concernant l'auteur, les exemples utilisés et les
+      éventuelles affirmations qui nécessitent une vérification.
+    </p>
+    <p>
+      L'objectif est de repérer les passages qui pourraient être améliorés pour rendre le contenu
+      plus précis et plus fiable.
+    </p>
+    <h3>Étape 5 — Vérifier les ressources complémentaires</h3>
+    <p>Notre photographe possède également une page de prestation consacrée aux mariages.</p>
+    <p>
+      Nous vérifions si le guide permet naturellement d'accéder à cette page lorsque le lecteur
+      souhaite découvrir ses services.
+    </p>
+    <p>
+      Nous examinons également les autres contenus complémentaires, notamment celui consacré aux
+      délais de réservation.
+    </p>
+    <p>
+      Si les liens internes sont pertinents, ils peuvent faciliter la navigation et la découverte
+      des informations.
+    </p>
+    <p>Nous ne cherchons pas à créer artificiellement un lien vers chaque page du site.</p>
+    <p>L'objectif est de proposer un parcours cohérent.</p>
+    <h3>Étape 6 — Identifier les premières améliorations</h3>
+    <p>À partir de notre analyse, nous pouvons maintenant distinguer plusieurs situations.</p>
+    <p>
+      La page est techniquement accessible et indexée dans Google. Elle ne présente pas de
+      restriction volontairement identifiée concernant <code>OAI-SearchBot</code>. Mais son titre
+      pourrait être plus explicite et certains passages gagneraient à présenter des exemples
+      concrets.
+    </p>
+    <p>Nous pouvons donc sélectionner une première amélioration éditoriale.</p>
+    <p>
+      Notre photographe pourrait notamment clarifier la réponse principale et ajouter un exemple
+      réellement issu de son expérience.
+    </p>
+    <p>
+      En revanche, il ne possède aucune raison particulière de créer immédiatement un fichier
+      <code>llms.txt</code>, d'ajouter des données structurées sans usage identifié ou de modifier
+      toutes les instructions de ses robots.
+    </p>
+    <p>
+      Nous avons donc identifié une amélioration utile sans multiplier les changements techniques.
     </p>
     <h3>Ce que cette démonstration nous apprend</h3>
+    <p>Nous venons d'effectuer un premier contrôle GEO en partant des fondamentaux.</p>
     <p>
-      Nous venons de sélectionner trois actions prioritaires sans chercher à réaliser immédiatement
-      toutes les optimisations possibles.
+      Nous avons vérifié l'accessibilité de la page, examiné son indexation dans Google, consulté
+      les éventuelles restrictions d'exploration et analysé la clarté du contenu.
     </p>
     <p>
-      Nous avons commencé par distinguer les problèmes techniques avérés des opportunités
-      éditoriales.
+      Nous avons également appris à distinguer une véritable amélioration éditoriale d'une
+      optimisation présentée comme indispensable sans justification suffisante.
     </p>
     <p>
-      Nous avons ensuite évalué leur impact potentiel, l'effort nécessaire et le niveau de confiance
-      associé.
-    </p>
-    <p>
-      Enfin, nous avons formulé un résultat attendu pour chaque action afin de savoir ce que nous
-      devrons vérifier après sa réalisation.
+      À aucun moment nous n'avons affirmé que ces vérifications garantiraient une citation dans
+      ChatGPT ou Gemini.
     </p>
     <p>
       <strong
-        >Une bonne priorisation SEO ne consiste pas à choisir les actions les plus visibles dans un
-        outil. Elle consiste à sélectionner celles qui répondent le mieux aux besoins réels du site
-        et de l'activité.</strong
+        >La bonne démarche consiste à rendre les contenus accessibles et compréhensibles, puis à
+        observer leur visibilité réelle plutôt que de supposer qu'une modification technique
+        produira automatiquement un résultat.</strong
       >
     </p>
     <p>C'est maintenant à toi d'appliquer cette méthode.</p>
-    <h2>À toi de jouer — Sélectionne tes trois prochaines priorités SEO</h2>
+    <h2>À toi de jouer — Réalise un premier contrôle GEO de ton site</h2>
     <p>
-      Dans la leçon précédente, tu as construit ton premier tableau de bord et identifié trois pages
-      importantes pour ton activité.
+      Dans la leçon précédente, tu as découvert les différentes formes de visibilité dans les
+      moteurs IA et commencé à observer les réponses générées sur des questions liées à ton
+      activité.
     </p>
     <p>
-      Nous allons maintenant utiliser ces informations, ainsi que les observations réalisées dans
-      les modules précédents, pour établir une première liste d'optimisations.
+      Nous allons maintenant examiner une page importante de ton site pour identifier les
+      éventuelles difficultés techniques ou éditoriales qui pourraient compliquer son accès ou sa
+      compréhension.
     </p>
-    <p>L'objectif n'est pas encore de créer ton calendrier sur 90 jours.</p>
-    <p>Nous allons d'abord sélectionner les actions qui méritent réellement d'être réalisées.</p>
+    <p>
+      L'objectif n'est pas de réaliser un audit technique avancé ni de modifier des fichiers
+      sensibles.
+    </p>
+    <p>
+      Nous allons simplement reprendre les fondamentaux déjà étudiés dans la formation et les
+      appliquer au contexte des moteurs IA.
+    </p>
     <p><strong>Durée estimée : 15 à 20 minutes.</strong></p>
-    <h3>Étape 1 — Reprends ton tableau de bord</h3>
-    <p>Commence par ouvrir le tableau construit pendant la leçon 26.</p>
+    <h3>Étape 1 — Sélectionne une page stratégique</h3>
+    <p>Commence par choisir une page importante de ton site.</p>
     <p>
-      Examine les performances globales, puis les trois pages stratégiques que tu as sélectionnées.
-    </p>
-    <p>Essaie d'identifier les situations qui méritent une analyse complémentaire.</p>
-    <p>
-      Une page importante est-elle absente de l'index ? Certaines ressources reçoivent-elles des
-      impressions sur des recherches pertinentes ? Une page commerciale possède-t-elle des
-      informations insuffisamment claires ?
+      Tu peux sélectionner une prestation, un guide pédagogique ou une ressource qui répond à une
+      question fréquente de tes futurs clients.
     </p>
     <p>
-      Tu peux également reprendre les difficultés techniques identifiées pendant le module 5 et les
-      opportunités de contenu sélectionnées pendant le module 6.
+      Ouvre cette page dans ton navigateur et vérifie qu'elle est accessible sans authentification,
+      si elle est destinée au public.
+    </p>
+    <p>Observe également si son contenu principal est correctement affiché.</p>
+    <p>Note les éventuelles difficultés rencontrées.</p>
+    <h3>Étape 2 — Vérifie son accessibilité dans Google</h3>
+    <p>Ouvre Google Search Console et utilise l'outil d'inspection d'URL.</p>
+    <p>Vérifie si la page est indexée et consulte les éventuelles restrictions signalées.</p>
+    <p>
+      Si la page n'est pas indexée, note la situation sans en conclure automatiquement qu'il existe
+      un problème GEO.
+    </p>
+    <p>Il faudra d'abord comprendre les raisons de l'absence d'indexation.</p>
+    <p>
+      Tu peux également consulter le fichier <code>robots.txt</code> de ton site pour repérer les
+      éventuelles règles concernant les robots d'exploration.
+    </p>
+    <p>Ne modifie pas immédiatement ces instructions.</p>
+    <h3>Étape 3 — Examine les règles concernant les robots IA</h3>
+    <p>
+      Dans ton fichier <code>robots.txt</code>, recherche notamment les éventuelles références à
+      <code>OAI-SearchBot</code> et <code>GPTBot</code>.
+    </p>
+    <p>Essaie de comprendre la différence entre les deux.</p>
+    <p>
+      Le premier est associé à la recherche ChatGPT, tandis que le second concerne l'exploration de
+      contenus susceptibles d'être utilisés pour l'entraînement des modèles OpenAI.
     </p>
     <p>
-      L'objectif est de rassembler les observations importantes, sans chercher immédiatement à
-      toutes les corriger.
-    </p>
-    <h3>Étape 2 — Identifie cinq actions possibles</h3>
-    <p>À partir de ces observations, note cinq actions que tu pourrais entreprendre.</p>
-    <p>
-      Il peut s'agir d'une correction technique, d'une amélioration éditoriale, d'une optimisation
-      de page ou d'une analyse complémentaire.
+      Si aucune règle spécifique n'est présente, examine également les règles générales avant de
+      tirer une conclusion.
     </p>
     <p>
-      Pour chaque action, essaie d'expliquer brièvement le problème observé ou l'opportunité
-      identifiée.
-    </p>
-    <p>Évite les formulations trop vagues comme « améliorer le SEO » ou « optimiser le site ».</p>
-    <p>
-      Privilégie des actions précises, par exemple : « Vérifier pourquoi ma page de prestation n'est
-      pas indexée » ou « Compléter les informations manquantes sur ma principale page commerciale ».
-    </p>
-    <p>Si une action repose sur une hypothèse, indique-le.</p>
-    <h3>Étape 3 — Évalue l'impact, l'effort et la confiance</h3>
-    <p>Pour chacune de tes cinq actions, estime son impact potentiel sur ton activité.</p>
-    <p>Essaie ensuite d'évaluer l'effort nécessaire.</p>
-    <p>
-      Enfin, demande-toi si tu disposes d'éléments suffisamment solides pour justifier
-      l'intervention.
-    </p>
-    <p>Tu peux utiliser les valeurs faible, moyen et élevé.</p>
-    <p>Tu n'as pas besoin de réaliser des calculs compliqués.</p>
-    <p>
-      L'objectif est simplement de comparer tes opportunités et d'identifier celles qui possèdent le
-      meilleur équilibre entre intérêt et ressources nécessaires.
+      Si ton site utilise un pare-feu ou un service de protection contre les robots, note simplement
+      qu'une vérification complémentaire pourrait être nécessaire en cas de problème d'accès
+      suspecté.
     </p>
     <p>
-      Si certaines actions nécessitent une analyse avant d'être réalisées, conserve cette étape dans
-      ton tableau.
+      L'objectif est de comprendre ta configuration, pas de chercher à autoriser tous les robots
+      indistinctement.
     </p>
-    <h3>Étape 4 — Sélectionne trois actions prioritaires</h3>
-    <p>À partir de tes évaluations, choisis les trois actions qui méritent ton attention.</p>
+    <h3>Étape 4 — Évalue la clarté de ton contenu</h3>
+    <p>Retourne sur la page sélectionnée.</p>
     <p>
-      Commence par considérer les éventuels blocages affectant directement tes pages importantes.
-    </p>
-    <p>
-      Examine ensuite les améliorations susceptibles d'avoir un impact pertinent pour ton activité.
-    </p>
-    <p>Enfin, tiens compte du temps et des compétences nécessaires.</p>
-    <p>
-      Tu n'as pas besoin de sélectionner trois actions techniques ni trois améliorations
-      éditoriales.
-    </p>
-    <p>Le choix doit correspondre à la situation réelle de ton site.</p>
-    <h3>Étape 5 — Définis le résultat attendu</h3>
-    <p>
-      Pour terminer, rédige une phrase précisant ce que tu souhaites vérifier après chaque action.
+      Demande-toi si une personne qui découvre ton site peut comprendre rapidement le sujet, les
+      informations principales et l'objectif du contenu.
     </p>
     <p>
-      Par exemple : « Ma page commerciale ne doit plus être bloquée à l'indexation » ou « Les
-      prestations proposées doivent être clairement compréhensibles dès la lecture de la page ».
+      Vérifie si les titres sont suffisamment explicites, si les réponses importantes sont
+      clairement formulées et si les informations peuvent être justifiées.
     </p>
     <p>
-      Lorsque tu souhaites améliorer une performance mesurable, conserve également l'indicateur qui
-      te permettra d'observer son évolution.
+      Essaie également d'identifier les exemples concrets, les réalisations ou les sources qui
+      pourraient renforcer la valeur du contenu.
+    </p>
+    <p>Si une amélioration te semble pertinente, note-la.</p>
+    <p>Tu n'as pas besoin de réécrire toute la page.</p>
+    <h3>Étape 5 — Sélectionne une amélioration prioritaire</h3>
+    <p>Pour terminer, reprends tes observations.</p>
+    <p>
+      Tu peux avoir identifié un problème technique, une information trop vague ou une page qui
+      gagnerait à être reliée à une ressource complémentaire.
+    </p>
+    <p>Choisis une seule amélioration prioritaire lorsque cela est nécessaire.</p>
+    <p>
+      Si aucune difficulté évidente n'apparaît, indique simplement que les premiers contrôles n'ont
+      révélé aucun problème particulier.
     </p>
     <p>
-      Ne promets pas un nombre précis de positions ou de clics si tu ne disposes pas d'éléments
-      permettant de justifier cet objectif.
+      <strong>Ton résultat attendu :</strong> avoir examiné l'accessibilité d'une page, compris les
+      principales règles applicables aux robots de recherche et identifié une amélioration
+      éventuelle pour rendre son contenu plus clair ou plus fiable.
     </p>
     <p>
-      <strong>Ton résultat attendu :</strong> avoir identifié cinq optimisations possibles, évalué
-      leur impact, leur effort et ton niveau de confiance, puis sélectionné trois actions
-      prioritaires accompagnées d'un résultat à vérifier.
+      Ces observations viendront compléter l'action « Évaluer ma visibilité dans les moteurs IA »
+      dans « Mon plan d'action ».
     </p>
     <p>
-      Ces priorités serviront directement à construire ton plan SEO sur 90 jours dans la prochaine
-      leçon.
+      Tu disposes désormais des éléments nécessaires pour réaliser des tests de visibilité plus
+      structurés dans la prochaine leçon.
     </p>
-    <p>Tu n'as pas besoin de réaliser les trois actions pour terminer cet exercice.</p>
     <h2>Ce qu'il faut retenir</h2>
     <p>
-      Identifier les prochaines optimisations SEO consiste à transformer les données disponibles en
-      décisions concrètes.
+      Rendre un site accessible, compréhensible et citable par les moteurs IA ne nécessite pas de
+      reconstruire entièrement sa stratégie SEO.
     </p>
     <p>
-      Nous avons découvert qu'il faut commencer par distinguer un problème avéré d'une opportunité
-      d'amélioration.
+      Les fondamentaux que nous avons étudiés restent importants : des pages accessibles, une
+      architecture cohérente, des liens internes pertinents et des contenus utiles, fiables et
+      clairement organisés.
     </p>
     <p>
-      Une page commerciale accidentellement bloquée à l'indexation ne correspond pas à la même
-      situation qu'un guide dont le titre pourrait être amélioré.
-    </p>
-    <p>Nous avons également appris à distinguer les observations des hypothèses.</p>
-    <p>
-      Une baisse de clics ou un CTR relativement faible ne révèle pas automatiquement une erreur de
-      contenu.
+      Nous avons découvert que les robots associés à certains services d'intelligence artificielle
+      possèdent des fonctions différentes.
     </p>
     <p>
-      Il faut examiner les pages, les requêtes, les positions et le contexte avant de choisir une
-      correction.
+      Chez OpenAI, <code>OAI-SearchBot</code> intervient dans la recherche ChatGPT, tandis que
+      <code>GPTBot</code> concerne l'exploration de contenus susceptibles d'être utilisés pour
+      l'entraînement des modèles. <code>ChatGPT-User</code> peut intervenir lors de certaines
+      consultations déclenchées par les utilisateurs.
+    </p>
+    <p>Ces usages ne doivent pas être confondus.</p>
+    <p>
+      Nous avons également appris que Google ne demande aucune optimisation technique spéciale pour
+      apparaître dans ses Aperçus IA ou son Mode IA. Les exigences classiques d'exploration,
+      d'indexation et de qualité restent pertinentes.
     </p>
     <p>
-      Nous avons ensuite construit une méthode de priorisation fondée sur trois critères : l'impact
-      potentiel, l'effort nécessaire et le niveau de confiance.
+      Du côté éditorial, nous avons compris l'intérêt de présenter des informations explicites, de
+      répondre clairement aux questions importantes et de fournir des éléments fiables permettant de
+      comprendre l'origine des affirmations.
     </p>
     <p>
-      L'impact permet d'estimer la valeur que pourrait apporter une action. L'effort aide à
-      comprendre les ressources nécessaires. Le niveau de confiance permet de distinguer les
-      hypothèses solides des suppositions encore incertaines.
+      Les données structurées peuvent être utiles lorsqu'elles correspondent à un usage réel, mais
+      elles ne garantissent pas une citation.
     </p>
     <p>
-      Nous avons également découvert l'importance de l'urgence et des dépendances entre les tâches.
+      De même, un fichier <code>llms.txt</code> n'est pas une obligation universelle et ne possède
+      pas d'effet démontré garantissant la visibilité dans les principaux moteurs IA.
     </p>
-    <p>
-      Certaines corrections techniques doivent être réalisées avant d'autres optimisations lorsque
-      leur absence empêche une page importante de fonctionner normalement.
-    </p>
-    <p>Enfin, nous avons appris à définir un résultat attendu pour chaque action.</p>
-    <p>
-      Cette démarche permet de vérifier ce qui a réellement été amélioré sans promettre une
-      progression automatique dans les résultats Google.
-    </p>
+    <p>Enfin, nous avons vu qu'une stratégie GEO doit rester fondée sur des objectifs réalistes.</p>
     <p>
       <strong
-        >Le bon réflexe SEO n'est pas de se demander « Qu'est-ce que je pourrais encore optimiser ?
-        », mais « Quelle amélioration mérite le plus mon attention aujourd'hui, et pourquoi ?
-        »</strong
+        >Tu ne peux pas garantir qu'un assistant IA citera ton site. Mais tu peux rendre tes
+        contenus plus faciles à consulter, à comprendre et à vérifier, ce qui améliore leur qualité
+        bien au-delà du GEO.</strong
       >
     </p>
     <p>
-      Tu disposes maintenant d'une méthode pour transformer les informations de ton audit et de ton
-      tableau de bord en une sélection d'actions pertinentes.
+      Tu possèdes désormais une méthode pour examiner les premiers éléments techniques et éditoriaux
+      de ton site sans te disperser dans des optimisations incertaines.
     </p>
     <SeoLesson27Quiz />
     <h2>Dans la prochaine leçon</h2>
     <p>
-      Tu sais désormais mesurer les principaux indicateurs de ton référencement et transformer les
-      observations en opportunités d'amélioration.
+      Tu comprends désormais comment améliorer les conditions dans lesquelles ton site peut être
+      découvert et consulté par les moteurs IA.
     </p>
     <p>
-      Tu as appris à distinguer les problèmes techniques des optimisations éditoriales, à formuler
-      des hypothèses et à sélectionner tes priorités selon leur impact potentiel, leur effort et ton
-      niveau de confiance.
-    </p>
-    <p>Tu possèdes maintenant trois actions prioritaires, accompagnées d'un résultat attendu.</p>
-    <p>
-      Il nous reste une dernière étape : organiser ces actions dans un calendrier réaliste pour
-      continuer à progresser après la formation.
-    </p>
-    <p>Dans la prochaine leçon, nous allons construire ton plan d'action SEO sur 90 jours.</p>
-    <p>
-      Nous apprendrons à répartir les optimisations dans le temps, à distinguer les actions
-      immédiates des travaux de fond et à prévoir des moments de mesure pour examiner les résultats.
+      Tu sais distinguer les principaux robots associés à OpenAI, vérifier les règles générales
+      d'exploration et comprendre pourquoi les fondamentaux SEO restent importants dans les
+      fonctionnalités IA de Google.
     </p>
     <p>
-      Nous verrons également comment adapter ton planning lorsque certaines tâches demandent plus de
-      temps que prévu ou lorsque de nouvelles priorités apparaissent.
+      Tu as également appris à reconnaître les optimisations éditoriales réellement utiles et à
+      prendre du recul face aux fichiers ou aux balises présentés comme indispensables au GEO.
     </p>
-    <p>L'objectif ne sera pas de réaliser toutes les optimisations possibles en trois mois.</p>
     <p>
-      Il sera de construire une méthode durable, adaptée à ton activité et à tes ressources, pour
-      améliorer progressivement ton site en autonomie.
+      Mais une question importante reste à explorer : comment savoir si ton entreprise ou tes
+      contenus apparaissent réellement dans les réponses générées ?
     </p>
-    <p><strong>Prochaine leçon : Construire ton plan d'action SEO sur 90 jours.</strong></p>
+    <p>
+      Dans la prochaine leçon, nous allons apprendre à observer ta visibilité dans plusieurs
+      expériences de recherche utilisant l'intelligence artificielle.
+    </p>
+    <p>
+      Nous découvrirons comment préparer des questions représentatives de ton activité, distinguer
+      les mentions des citations et conserver un historique simple pour suivre les résultats dans le
+      temps.
+    </p>
+    <p>
+      Nous verrons également pourquoi un test isolé ne suffit pas à mesurer une visibilité stable et
+      quelles précautions prendre lorsque les réponses varient d'un outil à l'autre.
+    </p>
+    <p>
+      L'objectif ne sera pas de construire un indicateur artificiellement précis, mais de disposer
+      d'une première méthode de suivi accessible, sans abonnement à un outil GEO spécialisé.
+    </p>
+    <p>
+      <strong>Prochaine leçon : Mesurer sa visibilité et ses citations dans les moteurs IA.</strong>
+    </p>
   </article>
 </template>
 

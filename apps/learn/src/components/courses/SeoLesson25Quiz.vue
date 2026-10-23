@@ -6,85 +6,78 @@ import SeoLessonQuiz from './SeoLessonQuiz.vue'
 const questions: QuizQuestion[] = [
   {
     id: 1,
-    prompt: 'Quelle différence existe entre une mention de marque et une citation documentaire ?',
-    options: [
-      {
-        letter: 'A',
-        text: "Une mention correspond à l'apparition d'une entreprise dans la réponse, tandis qu'une citation renvoie à une ressource présentée comme source ou référence.",
-      },
-      { letter: 'B', text: 'Une mention garantit toujours un lien cliquable vers le site.' },
-      {
-        letter: 'C',
-        text: "Une citation prouve automatiquement que l'entreprise est recommandée comme meilleur prestataire.",
-      },
-    ],
-    correct: 'A',
-    explanation:
-      "Une mention peut simplement faire apparaître le nom d'une entreprise dans une réponse. Une citation correspond à une référence documentaire. Ces deux formes de visibilité peuvent se compléter, mais ne sont pas équivalentes.",
-  },
-  {
-    id: 2,
     prompt:
-      "Tu testes six réponses et ton entreprise apparaît dans deux d'entre elles. Que peux-tu conclure ?",
+      'Quelle démarche permet de recueillir des avis clients conformément aux règles de Google ?',
     options: [
-      {
-        letter: 'A',
-        text: 'Ton entreprise possède exactement 33 % de visibilité sur tous les moteurs IA.',
-      },
+      { letter: 'A', text: 'Proposer une remise aux clients qui déposent un avis cinq étoiles.' },
       {
         letter: 'B',
-        text: "Ton site est désormais garanti d'apparaître dans les futures réponses.",
+        text: "Inviter les clients ayant réellement bénéficié d'une prestation à partager librement leur expérience, sans récompense ni pression.",
       },
       {
         letter: 'C',
-        text: 'Ton entreprise a été mentionnée dans deux observations sur six, mais ce résultat ne représente pas une mesure globale de sa visibilité.',
-      },
-    ],
-    correct: 'C',
-    explanation:
-      "Deux mentions sur six réponses représentent uniquement le résultat de l'échantillon testé. Ce chiffre ne constitue pas une part de marché ni une mesure exhaustive de la visibilité dans les moteurs IA.",
-  },
-  {
-    id: 3,
-    prompt: "Que permet de mesurer le rapport dédié à l'IA générative dans Google Search Console ?",
-    options: [
-      {
-        letter: 'A',
-        text: 'Toutes les conversations privées des utilisateurs de ChatGPT.',
-      },
-      {
-        letter: 'B',
-        text: "Les impressions des URL du site dans certaines fonctionnalités d'IA générative de Google Search, notamment les Aperçus IA et le Mode IA.",
-      },
-      {
-        letter: 'C',
-        text: 'Le nombre exact de fois où Gemini recommande une entreprise dans toutes ses conversations.',
+        text: 'Demander uniquement aux clients satisfaits de publier un avis positif.',
       },
     ],
     correct: 'B',
     explanation:
-      "Google Search Console propose des données d'impressions concernant certaines fonctionnalités d'IA générative de sa recherche. Ces informations ne permettent pas de mesurer les conversations ou les citations produites par tous les assistants.",
+      "Google autorise les demandes d'avis reposant sur des expériences réelles, à condition de ne pas proposer de récompenses ni chercher à influencer artificiellement la note ou le contenu des commentaires.",
   },
   {
-    id: 4,
-    prompt: 'Quelle est une bonne démarche pour suivre la visibilité GEO dans le temps ?',
+    id: 2,
+    prompt:
+      'Une entreprise intervient dans plusieurs villes. Quelle approche éditoriale est la plus pertinente ?',
     options: [
       {
         letter: 'A',
-        text: 'Conserver des questions représentatives, documenter les outils et les conditions de test, puis comparer les observations avec prudence.',
+        text: 'Créer une page presque identique pour chaque commune en remplaçant uniquement le nom de la ville.',
       },
       {
         letter: 'B',
-        text: 'Modifier systématiquement ses questions pour obtenir davantage de mentions.',
+        text: "Ajouter toutes les villes possibles dans chaque paragraphe de sa page d'accueil.",
       },
       {
         letter: 'C',
-        text: 'Rechercher son entreprise une seule fois et considérer cette réponse comme un classement définitif.',
+        text: 'Proposer des pages locales lorsque chacune apporte des informations utiles et réellement spécifiques au territoire concerné.',
       },
+    ],
+    correct: 'C',
+    explanation:
+      'Une page locale doit répondre à un besoin réel et apporter une valeur spécifique. La multiplication de pages presque identiques destinées uniquement à cibler différentes villes peut relever de pratiques contraires aux règles de Google.',
+  },
+  {
+    id: 3,
+    prompt:
+      "Le rapport Google Business Profile indique 25 clics sur le bouton d'appel. Que peut-on en conclure ?",
+    options: [
+      {
+        letter: 'A',
+        text: "Les utilisateurs ont cliqué 25 fois sur le bouton d'appel selon les règles de comptabilisation, sans garantie que 25 conversations ont eu lieu.",
+      },
+      { letter: 'B', text: "L'entreprise a nécessairement reçu 25 appels aboutis." },
+      { letter: 'C', text: "L'entreprise a signé 25 nouveaux clients grâce à Google Maps." },
     ],
     correct: 'A',
     explanation:
-      "Un suivi cohérent repose sur des questions comparables, des conditions documentées et une interprétation prudente des résultats. Les réponses pouvant varier, il faut éviter de tirer des conclusions définitives à partir d'un seul test.",
+      "Le rapport mesure les clics sur le bouton d'appel. Il ne permet pas d'affirmer que toutes ces interactions ont donné lieu à une conversation téléphonique ou à une demande commerciale.",
+  },
+  {
+    id: 4,
+    prompt: "Quel est le meilleur indicateur pour évaluer l'intérêt commercial du SEO local ?",
+    options: [
+      { letter: 'A', text: 'Uniquement le nombre de photographies présentes sur la fiche.' },
+      {
+        letter: 'B',
+        text: "Uniquement la position observée lors d'une recherche effectuée depuis son domicile.",
+      },
+      {
+        letter: 'C',
+        text: 'Les interactions utiles et les demandes commerciales identifiables, complétées par les données de visibilité disponibles.',
+      },
+    ],
+    correct: 'C',
+    explanation:
+      "Les vues et les classements permettent d'observer une partie de la visibilité, mais les interactions pertinentes et les contacts réellement obtenus sont généralement plus proches des objectifs commerciaux d'une entreprise.",
   },
 ]
 </script>
@@ -92,6 +85,6 @@ const questions: QuizQuestion[] = [
 <template>
   <SeoLessonQuiz
     :questions="questions"
-    intro="Avant de terminer ce module, prends quelques instants pour vérifier que tu as compris les principales notions concernant la mesure de la visibilité GEO."
+    intro="Avant de terminer ce module, prends quelques instants pour vérifier que tu as compris les principaux leviers de visibilité locale et les indicateurs permettant d'observer leurs résultats."
   />
 </template>
