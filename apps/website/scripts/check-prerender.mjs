@@ -249,29 +249,30 @@ for (const path of [...prerenderPaths, '/404']) {
     assert.equal(document.querySelector('.media-feature'), null)
     assert.equal(
       document.querySelector('.media-news-list .media-arrow-link')?.getAttribute('href'),
-      '/actualites/semaine-42-2026',
+      '/actualites/semaine-43-2026',
     )
     assert.equal(document.querySelector('.media-resource .base-button')?.getAttribute('href'), '/checklist')
     assert.equal(document.querySelectorAll('nav[aria-label="Navigation principale"] a[href="/checklist"]').length, 1)
   }
   if (path === '/actualites') {
-    assert.equal(document.querySelectorAll('main article').length, 4)
+    assert.equal(document.querySelectorAll('main article').length, 5)
     assert.equal(document.querySelector('main h1')?.textContent.trim(), 'Actu Tech de la semaine')
     assert.equal(
       document.querySelector('main article h2')?.textContent.trim(),
-      'Actu Tech de la semaine #42 : Google s’attaque au grand verrou du quantique',
+      'Actu Tech de la semaine #43 : PHP2Shell secoue le Web',
     )
     assert.equal(document.querySelector('main article img'), null)
     assert.equal(
       document.querySelector('main article a')?.getAttribute('href'),
-      '/actualites/semaine-42-2026',
+      '/actualites/semaine-43-2026',
     )
     assert.equal(document.querySelectorAll('script[type="application/ld+json"]').length, 0)
   }
-  if (['/actualites/semaine-39-2026', '/actualites/semaine-40-2026', '/actualites/semaine-41-2026', '/actualites/semaine-42-2026'].includes(path)) {
+  if (['/actualites/semaine-39-2026', '/actualites/semaine-40-2026', '/actualites/semaine-41-2026', '/actualites/semaine-42-2026', '/actualites/semaine-43-2026'].includes(path)) {
     const publishedAt = path.endsWith('semaine-39-2026') ? '2026-09-26'
       : path.endsWith('semaine-40-2026') ? '2026-10-02'
-        : path.endsWith('semaine-41-2026') ? '2026-10-10' : '2026-10-17'
+        : path.endsWith('semaine-41-2026') ? '2026-10-10'
+          : path.endsWith('semaine-42-2026') ? '2026-10-17' : '2026-10-23'
     const canonical = document.querySelector('link[rel="canonical"]')?.getAttribute('href')
     assert.equal(document.querySelectorAll('link[rel="canonical"]').length, 1, path)
     assert.equal(document.querySelectorAll('script[type="application/ld+json"]').length, 1, path)
@@ -322,6 +323,43 @@ for (const path of [...prerenderPaths, '/404']) {
       assert.equal(tags.length, 1, `${property}: ${path}`)
       assert.equal(tags[0].content, publishedAt)
     }
+  }
+  if (path === '/actualites/semaine-43-2026') {
+    const source = await readFile(resolve('src/content/news/actu-tech-semaine-43-2026.txt'), 'utf8')
+    const publishedBlocks = [...document.querySelectorAll('.news-body h2, .news-body p')]
+      .map((element) => element.textContent.trim())
+    assert.deepEqual(
+      publishedBlocks,
+      source.trim().split(/\r?\n\s*\r?\n/).map((block) =>
+        block.replace(/^## /, '').replace(/\[([^\]]+)\]\((?:https?:\/\/|\/)[^)]+\)/g, '$1').replace(/\*\*|`/g, '').replace(/\r?\n/g, ' '),
+      ),
+    )
+    assert.equal(document.title, 'Actu Tech semaine #43 : PHP2Shell secoue le Web')
+    assert.equal(document.querySelector('meta[name="description"]').content,
+      'PHP2Shell, puces IA, OpenAI chez Google Cloud, lunettes Meta et ChatGPT chez Uber : découvre les actualités Tech à retenir de la semaine #43.')
+    assert.equal(document.querySelector('meta[property="og:title"]').content,
+      'Actu Tech de la semaine #43 : PHP2Shell secoue le Web')
+    assert.equal(document.querySelector('meta[property="og:description"]').content,
+      'Deux failles critiques secouent PHP, Amazon attaque le verrou logiciel de NVIDIA, OpenAI arrive chez Google Cloud et Uber déploie ChatGPT à grande échelle.')
+    assert.equal(document.querySelector('meta[property="og:image:alt"]').content,
+      'Actu Tech de la semaine #43 — Altruisme.DEV')
+    assert.equal(document.querySelector('main img')?.getAttribute('src'),
+      '/images/news/actu-tech-semaine-43-2026.webp')
+    assert.equal(document.querySelector('main img')?.getAttribute('alt'),
+      'Actu Tech de la semaine #43 : PHP2Shell secoue le Web')
+    assert.deepEqual(
+      [...document.querySelectorAll('.news-body a')].map((link) => [link.textContent, link.href, link.target, link.rel]),
+      [
+        ['quatre nouvelles versions de sécurité', 'https://www.php.net/', '_blank', 'noopener noreferrer'],
+        ['Patch the Planet', 'https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/', '_blank', 'noopener noreferrer'],
+        ['TorchNeuron', 'https://aws.amazon.com/about-aws/whats-new/2026/10/aws-announce-native-pytorch-support-trainium/', '_blank', 'noopener noreferrer'],
+        ['Model Garden de Google Cloud', 'https://openai.com/index/openai-models-google-cloud/', '_blank', 'noopener noreferrer'],
+        ['ChatGPT Work', 'https://openai.com/index/uber-chatgpt-work-rollout/', '_blank', 'noopener noreferrer'],
+      ],
+    )
+    assert.equal(document.querySelector('.news-body code')?.textContent, 'mod_php')
+    assert.equal(document.querySelector('nav[aria-label="Navigation entre les éditions"] a')?.getAttribute('href'),
+      '/actualites/semaine-42-2026')
   }
   if (path === '/actualites/semaine-42-2026') {
     const source = await readFile(resolve('src/content/news/actu-tech-semaine-42-2026.txt'), 'utf8')

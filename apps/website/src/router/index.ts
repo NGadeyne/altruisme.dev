@@ -8,6 +8,7 @@ import { week39 } from '@/content/news/week39Metadata'
 import { week40 } from '@/content/news/week40Metadata'
 import { week41 } from '@/content/news/week41Metadata'
 import { week42 } from '@/content/news/week42Metadata'
+import { week43 } from '@/content/news/week43Metadata'
 
 export const routes: RouteRecordRaw[] = [
   {
@@ -92,6 +93,27 @@ export const routes: RouteRecordRaw[] = [
       title: 'Actualités tech de la semaine | Altruisme.DEV',
       description:
         'Une sélection hebdomadaire des actualités produit, SaaS, IA, automatisation, freelance et entreprises tech, expliquées avec du contexte.',
+    },
+  },
+  {
+    path: `/actualites/${week43.slug}`,
+    name: 'news-week-43',
+    component: () => import('../views/news/Week43View.vue'),
+    meta: {
+      title: 'Actu Tech semaine #43 : PHP2Shell secoue le Web',
+      description:
+        'PHP2Shell, puces IA, OpenAI chez Google Cloud, lunettes Meta et ChatGPT chez Uber : découvre les actualités Tech à retenir de la semaine #43.',
+      ogTitle: week43.title,
+      ogDescription:
+        'Deux failles critiques secouent PHP, Amazon attaque le verrou logiciel de NVIDIA, OpenAI arrive chez Google Cloud et Uber déploie ChatGPT à grande échelle.',
+      image: week43.image,
+      imageAlt: week43.imageAlt,
+      ogImageAlt: 'Actu Tech de la semaine #43 — Altruisme.DEV',
+      article: true,
+      articleSection: week43.format,
+      publishedAt: week43.publishedAt,
+      modifiedAt: week43.modifiedAt,
+      author: week43.author,
     },
   },
   {

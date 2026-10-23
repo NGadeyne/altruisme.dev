@@ -1,0 +1,181 @@
+Une semaine de plus dans la Tech, et encore beaucoup trop de choses à suivre. Alors on a fait le tri.
+
+Ces dernières semaines, nous avons beaucoup parlé des nouvelles capacités de l’intelligence artificielle. Les modèles deviennent plus autonomes, les agents obtiennent des outils et les entreprises commencent à les intégrer directement dans leurs processus. Cette semaine rappelle cependant une réalité beaucoup moins spectaculaire : toute cette nouvelle couche technologique repose toujours sur des décennies de logiciels, de protocoles et d’infrastructures dont certaines faiblesses peuvent rester invisibles pendant très longtemps.
+
+PHP vient d’en donner une démonstration assez brutale. Deux vulnérabilités critiques ont déclenché une course mondiale aux mises à jour, entraîné la fermeture préventive de nombreux services et provoqué des millions de tentatives d’exploitation en quelques heures.
+
+Et l’un des détails les plus intéressants de cette histoire est précisément la manière dont ces failles ont été découvertes.
+
+## PHP2Shell secoue une partie du Web
+
+Le 21 octobre, l’équipe derrière PHP a publié [quatre nouvelles versions de sécurité](https://www.php.net/) : PHP 8.5.12, 8.4.27, 8.3.36 et 8.2.35. Leur objectif était de corriger deux vulnérabilités critiques baptisées CVE-2026-109618 et CVE-2026-109619, capables dans certaines configurations de permettre à un attaquant d’exécuter du code à distance sans disposer au préalable d’un compte ou d’un accès au serveur. Le projet PHP a demandé à l’ensemble des utilisateurs exploitant des sites web de mettre à jour immédiatement leurs installations.
+
+Ce type d’annonce serait déjà important pour n’importe quel logiciel largement utilisé. Avec PHP, l’échelle est différente. Le langage existe depuis les années 1990 et constitue encore aujourd’hui l’une des fondations du Web. WordPress, Drupal, Joomla, Magento et énormément d’applications développées sur mesure fonctionnent avec PHP côté serveur. Une vulnérabilité présente suffisamment bas dans cette pile peut donc concerner une quantité gigantesque de systèmes qui n’ont, à première vue, absolument rien en commun.
+
+Les deux failles ont rapidement reçu le surnom de **PHP2Shell**. Elles peuvent être déclenchées par des requêtes HTTP spécialement construites et toucher différentes manières d’exécuter PHP, notamment PHP-FPM, CGI, LiteSpeed ou encore `mod_php` avec Apache. L’équipe PHP considère d’ailleurs ce dernier cas comme particulièrement risqué, puisqu’un exploit a pu être démontré avant même que le code de l’application ne commence réellement à s’exécuter.
+
+Cette nuance est importante. Lorsqu’une vulnérabilité touche un plugin WordPress ou une application précise, il est généralement possible de réduire le problème à un logiciel ou une version particulière. Ici, la faiblesse se situe beaucoup plus profondément dans l’environnement capable d’interpréter l’application. Un site peut donc avoir été développé correctement tout en restant exposé à cause de la couche située en dessous.
+
+Mais ce qui rend PHP2Shell particulièrement intéressant n’est peut-être pas uniquement sa gravité.
+
+Une partie du problème avait déjà été aperçue auparavant.
+
+Reuters rapporte qu’une des vulnérabilités avait été signalée dès 2024. À l’époque, le comportement avait été identifié, mais les chercheurs n’avaient pas réussi à démontrer un chemin d’exploitation suffisamment clair pour établir qu’un attaquant pouvait réellement en tirer parti. La PHP Foundation reconnaît aujourd’hui que le traitement de ce signal n’a pas été satisfaisant et parle d’un problème structurel dans la manière dont le sujet avait été évalué.
+
+Puis les capacités des modèles ont progressé.
+
+Dans le cadre d’une initiative baptisée [Patch the Planet](https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/), la société Calif a utilisé GPT-5.6 Sol pour rechercher des vulnérabilités dans des logiciels open source largement déployés. Le modèle a contribué à identifier une faille critique dans PHP et à construire une chaîne permettant de montrer qu’elle pouvait réellement être exploitée. Wiz a de son côté découvert indépendamment les deux vulnérabilités et les a également signalées aux responsables du projet. OpenAI, Calif, Wiz, Cloudflare et plusieurs autres acteurs ont ensuite travaillé avec les mainteneurs de PHP pour préparer les correctifs et différentes protections avant la divulgation publique.
+
+C’est ici que l’histoire dépasse largement PHP.
+
+Découvrir une vulnérabilité ne consiste pas seulement à repérer une ligne de code étrange. Dans un logiciel utilisé et modifié depuis plusieurs décennies, il faut comprendre comment différentes fonctions interagissent, imaginer des entrées inhabituelles, suivre leur propagation dans le programme puis déterminer si plusieurs comportements apparemment anodins peuvent être assemblés pour produire quelque chose de réellement dangereux.
+
+C’est précisément le type de recherche où les agents IA commencent à devenir intéressants. Ils peuvent explorer énormément de code, tester différentes hypothèses et poursuivre certaines pistes beaucoup plus longtemps qu’un simple assistant auquel on pose ponctuellement une question.
+
+Cela ne signifie évidemment pas que l’intelligence artificielle vient de remplacer les chercheurs en cybersécurité. La découverte, la validation, la compréhension du risque, la création du correctif et surtout la coordination nécessaire pour mettre à jour une technologie aussi répandue restent des problèmes profondément humains et organisationnels. Mais l’IA peut désormais augmenter considérablement le nombre de pistes qu’un chercheur est capable d’explorer.
+
+Le résultat a aussi un revers évident.
+
+Une fois les vulnérabilités rendues publiques, les attaquants disposent des mêmes outils.
+
+Cloudflare explique avoir préparé plusieurs protections pour son pare-feu applicatif avant la divulgation et les avoir activées environ neuf heures avant l’annonce officielle. Pourtant, dès que les détails sont devenus publics, les chercheurs de l’entreprise ont observé des attaquants modifier rapidement leurs requêtes afin d’essayer de contourner les protections mises en place. Cloudflare a même dû introduire une nouvelle méthode combinant l’analyse de la requête HTTP avec celle de la réponse produite par le serveur pour déterminer plus précisément si une tentative avait réussi.
+
+En quelques heures, la situation a pris une dimension internationale. Cloudflare et Amazon ont observé des millions de tentatives d’exploitation, tandis que plusieurs administrations et entreprises ont choisi de mettre temporairement certains services hors ligne. En Europe comme en Asie, les agences nationales de cybersécurité ont demandé aux organisations de vérifier rapidement leurs infrastructures et d’appliquer les correctifs. Au Japon, des entreprises comme SoftBank, Nomura, ANA ou JR East ainsi que plusieurs services gouvernementaux ont interrompu certains systèmes par précaution.
+
+On pourrait facilement résumer l’affaire par « une grosse faille PHP vient d’être corrigée ». Mais quelque chose de plus important est peut-être en train de se produire.
+
+Pendant des décennies, la sécurité logicielle a reposé sur une asymétrie relativement simple. Trouver une vulnérabilité suffisamment subtile nécessitait énormément de compétences, de temps et d’efforts. Cette difficulté constituait elle-même une petite barrière à l’entrée.
+
+Les modèles commencent à réduire cette barrière.
+
+Cela bénéficie d’abord aux défenseurs lorsqu’ils disposent des meilleurs outils et qu’ils peuvent prévenir les mainteneurs avant une divulgation. OpenAI parle d’ailleurs d’une **Defender’s Window**, une période pendant laquelle des modèles de pointe peuvent permettre aux chercheurs de découvrir et corriger une vulnérabilité avant que les mêmes capacités deviennent suffisamment accessibles pour faciliter son exploitation.
+
+Mais cette fenêtre ne restera probablement jamais très grande.
+
+Un modèle capable d’explorer automatiquement un projet open source pour trouver une faille peut également être utilisé pour comprendre un correctif fraîchement publié, reconstruire ce qu’il protège puis générer rapidement différentes variantes d’un exploit. La vitesse à laquelle les attaques contre PHP2Shell ont commencé après la divulgation donne déjà une idée du problème.
+
+L’enjeu des prochaines années ne sera donc probablement pas simplement de découvrir davantage de vulnérabilités grâce à l’IA.
+
+Il faudra surtout réussir à les corriger et à déployer ces corrections plus vite que les attaquants ne peuvent les transformer en armes.
+
+## Amazon attaque le verrou logiciel de NVIDIA
+
+La deuxième actualité de la semaine paraît beaucoup moins spectaculaire, mais elle touche à l’un des éléments les plus importants de la domination de NVIDIA.
+
+AWS a lancé [TorchNeuron](https://aws.amazon.com/about-aws/whats-new/2026/10/aws-announce-native-pytorch-support-trainium/), un backend PyTorch open source permettant d’utiliser ses puces Trainium beaucoup plus directement depuis du code conçu avec PyTorch. Un développeur peut notamment déplacer son modèle vers Trainium avec une instruction comme `.to("neuron")`, tout en conservant les API PyTorch habituelles et la compatibilité avec `torch.compile`. La bêta publique fonctionne actuellement sur les instances Trainium2 et Trainium3 d’Amazon EC2.
+
+Sur le papier, cela ressemble simplement à une amélioration technique supplémentaire dans l’écosystème AWS. Mais le véritable sujet se situe ailleurs : changer de puce coûte cher, même lorsque le matériel concurrent est intéressant.
+
+Une équipe qui a construit pendant plusieurs années ses modèles et ses outils autour des GPU NVIDIA possède généralement énormément de code, de bibliothèques et de compétences optimisés pour cet environnement. Tester une nouvelle architecture implique donc souvent de modifier une partie du logiciel, vérifier que les résultats restent identiques, reconstruire certains composants puis former les ingénieurs à de nouveaux outils.
+
+Ce coût crée une forme de verrou logiciel extrêmement puissante.
+
+AWS l’explique d’ailleurs très directement : jusqu’ici, tester une nouvelle puce pouvait demander plusieurs semaines de travail avant même de savoir si le changement était réellement intéressant. TorchNeuron cherche à réduire cette friction en permettant aux équipes de conserver autant que possible leur manière habituelle de travailler avec PyTorch.
+
+C’est probablement l’un des fronts les plus intéressants de la bataille actuelle autour des accélérateurs IA. NVIDIA possède toujours un avantage matériel et logiciel considérable, mais Amazon, Google et d’autres acteurs ne sont pas obligés de battre ses GPU uniquement sur les performances brutes. Ils peuvent aussi essayer de rendre le changement de matériel suffisamment simple pour que les entreprises commencent réellement à comparer.
+
+La bataille des puces IA pourrait donc se jouer autant dans les frameworks et l’expérience développeur que dans le silicium lui-même.
+
+## OpenAI arrive chez… Google Cloud
+
+Autre rapprochement assez révélateur cette semaine : OpenAI et Google Cloud ont annoncé que les modèles de pointe d’OpenAI ainsi que les workflows agentiques de Codex allaient être proposés directement dans le [Model Garden de Google Cloud](https://openai.com/index/openai-models-google-cloud/).
+
+Les entreprises clientes de Google pourront donc utiliser ces modèles depuis l’environnement Cloud dans lequel elles travaillent déjà, tout en conservant leurs outils de gouvernance des données, leurs contrôles d’accès et leur infrastructure existante.
+
+Vu de loin, la situation peut sembler légèrement étrange. Google développe Gemini, l’un des principaux concurrents de GPT, investit des milliards dans ses propres infrastructures IA et essaie évidemment de convaincre les entreprises d’utiliser ses modèles. Pourtant, son Cloud va également permettre à ses clients d’acheter et d’exécuter les modèles de son concurrent.
+
+En réalité, la décision est assez logique.
+
+Le marché du Cloud fonctionne depuis longtemps de cette manière. AWS, Microsoft Azure et Google Cloud ne vendent pas simplement leurs propres logiciels. Ils cherchent surtout à devenir l’endroit où les entreprises font tourner l’ensemble de leur infrastructure, y compris des technologies développées par d’autres sociétés.
+
+Avec les modèles de langage, la même logique commence à apparaître. Une grande entreprise n’a probablement aucune envie de déplacer ses données, reconstruire toute sa gouvernance ou renégocier l’intégralité de son infrastructure simplement parce qu’un autre modèle devient meilleur pendant quelques mois.
+
+Le fournisseur Cloud qui peut proposer Gemini, Claude, GPT et plusieurs modèles open source depuis la même plateforme devient alors extrêmement intéressant.
+
+Et cela pourrait progressivement réduire l’importance de la fidélité à un modèle particulier. Une entreprise pourrait utiliser un modèle pour le développement logiciel, un autre pour analyser certains documents et un troisième pour des tâches moins coûteuses, tout en conservant le même environnement d’infrastructure.
+
+La compétition entre OpenAI et Google ne disparaît donc absolument pas.
+
+Elle commence simplement à coexister avec une autre bataille : celle qui consiste à devenir la plateforme sur laquelle tous les modèles sont disponibles.
+
+## Les lunettes Meta rencontrent le problème des gens qui ne les portent pas
+
+Les Ray-Ban Meta sont probablement l’un des premiers produits IA portables à rencontrer un véritable succès grand public. Selon les données d’Omdia rapportées par Reuters, les lunettes issues du partenariat entre Meta et EssilorLuxottica représentaient **81,3 % des livraisons mondiales de lunettes intégrant de l’IA au premier semestre 2026**. Le marché est lui-même passé d’environ 2,1 millions d’unités livrées en 2024 à 8,4 millions en 2025.
+
+Mais leur succès commence à faire émerger un problème que Google avait déjà rencontré avec ses Glass il y a plus d’une décennie : une paire de lunettes connectées n’est pas uniquement un produit pour celui qui la porte.
+
+Elle est également un appareil capable de regarder les autres.
+
+La discrétion des Ray-Ban Meta constitue justement une grande partie de leur réussite. Contrairement aux Google Glass originales, elles ressemblent presque à des lunettes normales. Mais cette intégration rend également beaucoup plus difficile pour une personne située à proximité de savoir précisément lorsqu’elle est filmée ou enregistrée.
+
+Le Comité européen de la protection des données s’est récemment inquiété de cette capacité à enregistrer discrètement des conversations ou des personnes. Parmi les pistes évoquées figurent des indicateurs visuels ou sonores plus explicites, des notifications sur les appareils situés à proximité, le floutage automatique de certains visages ou encore des limitations géographiques dans des endroits sensibles comme les écoles ou les hôpitaux. Ces recommandations restent pour le moment préliminaires et non contraignantes.
+
+Certains pays vont déjà plus loin. La Norvège envisage une interdiction temporaire des lunettes IA dans certains lieux, tandis que l’Australie réfléchit à des restrictions dans les espaces de travail gouvernementaux. Des autorités en Italie et en Autriche enquêtent également sur des incidents impliquant leur utilisation dans des établissements scolaires, et la CNIL française a déjà reçu plusieurs plaintes.
+
+C’est probablement l’un des exemples les plus intéressants de la différence entre adoption technologique et acceptation sociale.
+
+Les lunettes peuvent fonctionner parfaitement, proposer de bonnes traductions, prendre des photos rapidement et devenir suffisamment discrètes pour être portées tous les jours. Cela ne signifie pas automatiquement que les personnes situées autour du propriétaire accepteront d’être potentiellement filmées par un objet qu’elles ne remarquent même plus.
+
+Meta et EssilorLuxottica vont donc devoir convaincre deux catégories d’utilisateurs en même temps : ceux qui portent les lunettes et tous les autres.
+
+Et si les lunettes intelligentes doivent réellement devenir l’une des interfaces importantes de l’informatique après le smartphone, cette deuxième catégorie pourrait finalement être la plus difficile à satisfaire.
+
+## Uber donne ChatGPT Work à ses 30 000 employés
+
+Les annonces autour de l’IA en entreprise parlent souvent de pilotes, de quelques équipes volontaires ou de démonstrations réalisées sur un nombre limité de tâches. Uber vient cette semaine de changer légèrement d’échelle.
+
+Après une expérimentation auprès d’environ 1 000 salariés, l’entreprise va déployer [ChatGPT Work](https://openai.com/index/uber-chatgpt-work-rollout/) **auprès de plus de 30 000 employés dans le monde**. L’agent peut travailler avec Google Drive, Gmail, Google Calendar ou Slack afin de rechercher des informations, préparer des documents, analyser des données ou réaliser des workflows comprenant plusieurs étapes.
+
+Le chiffre le plus intéressant n’est cependant peut-être pas celui des 30 000 employés.
+
+Lors du pilote, environ **80 % des premiers utilisateurs n’étaient pas des ingénieurs**. Uber explique qu’ils ont utilisé l’outil pour analyser des données opérationnelles, adapter des formations à différents marchés ou construire des tableaux de bord personnalisés. L’entreprise avait parallèlement créé des « AI pods » dans lesquels des ingénieurs spécialisés étaient intégrés temporairement à différentes équipes pour identifier les parties de leur travail susceptibles d’être automatisées.
+
+C’est une étape importante parce qu’une grande partie de la discussion autour de l’IA au travail a jusqu’ici été fortement influencée par le développement logiciel. Les ingénieurs ont été parmi les premiers à disposer d’agents suffisamment performants pour modifier directement leur environnement de travail.
+
+Uber essaie maintenant d’appliquer cette logique à beaucoup d’autres fonctions.
+
+Cela ne signifie pas que les 30 000 employés vont soudainement automatiser la moitié de leur travail. Uber dit d’ailleurs vouloir observer la manière dont les équipes utilisent réellement l’outil, les workflows qu’elles inventent et les gains obtenus avant de décider comment aller plus loin. L’entreprise n’a pas non plus communiqué le coût du déploiement.
+
+Et c’est précisément ce qui rend l’expérience intéressante.
+
+Le débat va progressivement pouvoir quitter les démonstrations impressionnantes pour revenir vers des questions beaucoup plus classiques : combien coûte réellement l’outil ? Combien de temps économise-t-il ? Quelles tâches sont réellement améliorées ? Combien de processus peuvent être automatisés sans créer davantage de contrôle ou de vérification derrière ?
+
+Si les agents doivent devenir une couche importante du travail en entreprise, ce sont probablement ces métriques beaucoup moins spectaculaires qui finiront par déterminer leur succès.
+
+## Pourquoi ça compte pour les gens de la Tech
+
+Parce que cette semaine montre assez bien ce qui arrive lorsqu’une technologie commence à devenir suffisamment mature pour quitter les démonstrations.
+
+Elle rencontre l’existant.
+
+L’intelligence artificielle peut découvrir une vulnérabilité extrêmement subtile, mais il faut ensuite mettre à jour des millions de serveurs PHP installés parfois depuis des années. Amazon peut construire une puce différente de celles de NVIDIA, mais elle doit permettre aux développeurs de conserver leurs outils habituels si elle veut réellement qu’ils changent de matériel.
+
+OpenAI et Google peuvent être concurrents sur les modèles tout en devenant partenaires lorsqu’un client souhaite utiliser GPT depuis son infrastructure Google Cloud. Les lunettes Meta peuvent devenir suffisamment bonnes pour être portées tous les jours, mais elles doivent alors respecter les personnes qui se trouvent autour. Uber peut déployer un agent auprès de 30 000 salariés, mais il lui faudra ensuite démontrer que ces outils améliorent réellement leur travail.
+
+C’est finalement une étape assez classique dans l’histoire des technologies.
+
+Au début, l’attention se concentre sur ce qu’elles rendent techniquement possible. Ensuite vient une phase beaucoup plus compliquée où il faut les intégrer à des systèmes, des organisations et des comportements qui existaient déjà avant elles.
+
+Cette phase demande souvent moins de démonstrations spectaculaires et beaucoup plus d’ingénierie.
+
+Il faut gérer les mises à jour, les dépendances, la compatibilité, les permissions, les coûts, la gouvernance, la sécurité et parfois simplement l’acceptation des personnes qui vont devoir vivre avec la technologie.
+
+Et c’est probablement là que nous commençons à entrer avec l’intelligence artificielle.
+
+## Ce qu’on retient de la semaine
+
+PHP2Shell est probablement l’histoire qui résume le mieux cette semaine. Une vulnérabilité présente dans une technologie utilisée depuis des décennies est devenue beaucoup plus visible au moment où des agents suffisamment capables ont pu explorer le problème, démontrer son exploitabilité puis aider les chercheurs à préparer une réponse.
+
+Quelques heures après sa divulgation, d’autres acteurs utilisaient déjà les mêmes progrès technologiques pour accélérer leurs tentatives d’attaque.
+
+Cette dynamique va probablement devenir de plus en plus fréquente.
+
+Dans le même temps, Amazon essaie de réduire le verrou logiciel qui protège encore largement NVIDIA, Google transforme son Cloud en plateforme capable d’accueillir les modèles de son principal concurrent, Meta découvre que l’avenir des lunettes intelligentes dépend autant de la vie privée que de leurs capacités techniques, et Uber commence à tester les agents à l’échelle d’une organisation entière.
+
+Le fil rouge de la semaine n’est donc peut-être pas simplement l’intelligence artificielle.
+
+C’est ce qui se passe lorsqu’elle commence réellement à toucher les systèmes que nous utilisons déjà.
+
+Pendant plusieurs années, nous nous sommes demandé jusqu’où les modèles pouvaient progresser.
+
+Nous allons maintenant devoir découvrir si toute l’infrastructure autour est capable de progresser aussi vite.
