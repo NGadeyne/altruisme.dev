@@ -95,15 +95,6 @@ const router = createRouter({
     },
 
     {
-      path: '/formations',
-      name: 'formations',
-      component: () => import('@/views/FormationsView.vue'),
-      meta: {
-        requiresAuth: true,
-      },
-    },
-
-    {
       path: '/formations/seo',
       name: 'dashboard',
       component: DashboardView,

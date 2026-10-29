@@ -13,7 +13,7 @@ const consultingUrl = 'https://consulting.altruisme.dev/'
     <!-- Logo -->
     <div class="flex h-16 shrink-0 items-center border-b border-petrol/15 px-5">
       <RouterLink
-        to="/formations"
+        to="/formations/seo"
         class="flex items-center gap-3"
         aria-label="Altruisme Learn, formations"
       >
@@ -33,7 +33,7 @@ const consultingUrl = 'https://consulting.altruisme.dev/'
       <nav class="space-y-1 p-4" aria-label="Navigation principale">
         <!-- Formation -->
         <RouterLink
-          to="/formations"
+          to="/formations/seo"
           class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition hover:bg-mist hover:text-ink"
           :class="route.path.startsWith('/formations') ? 'bg-mist text-petrol-dark' : 'text-muted'"
         >

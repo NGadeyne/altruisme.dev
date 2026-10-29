@@ -26,7 +26,8 @@ async function handleLogin() {
   try {
     await authStore.login(email.value, password.value)
 
-    const redirect = typeof route.query.redirect === 'string' ? route.query.redirect : '/formations'
+    const redirect =
+      typeof route.query.redirect === 'string' ? route.query.redirect : '/formations/seo'
 
     await router.push(redirect)
   } catch (error) {

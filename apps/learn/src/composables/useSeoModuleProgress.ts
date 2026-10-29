@@ -120,6 +120,7 @@ export function useSeoModuleProgress(userId: Readonly<Ref<string | undefined>>) 
   }
 
   return {
+    completedModuleIds,
     completedCount,
     percentage,
     loading,

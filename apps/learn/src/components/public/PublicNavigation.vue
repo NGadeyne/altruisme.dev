@@ -4,7 +4,7 @@ import { BaseButton } from '@altruisme/ui'
 
 <template>
   <nav aria-label="Navigation principale">
-    <BaseButton to="/formations" variant="primary" size="small" class="learn-button-primary"
+    <BaseButton to="/formations/seo" variant="primary" size="small" class="learn-button-primary"
       >Espace apprenant</BaseButton
     >
   </nav>

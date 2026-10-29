@@ -120,10 +120,7 @@ describe('mises en pratique des modules 4, 6 et 10', () => {
       expect(routes).toContainEqual({ name: `seo-practice-${number}` })
     }
     expect(wrapper.text()).toContain('11 min')
-    expect(wrapper.text()).toContain('8 h 35')
-    expect(wrapper.text()).toContain('3 h 19')
-    expect(wrapper.text()).toContain('11 h 54')
-    expect(wrapper.text()).toContain('Lecture estimée')
+    expect(wrapper.text()).toContain('Durée estimée : 11 h 54 (lecture et exercices)')
     expect(wrapper.text()).not.toContain('Vidéo estimée')
   })
 })

@@ -30,18 +30,18 @@ describe('accès à la formation SEO', () => {
     expect(mock.auth.refreshSeoAccess).not.toHaveBeenCalled()
   })
 
-  it('protège les formations et les ouvre aux apprenants autorisés', async () => {
-    await router.push('/formations')
+  it('protège la formation SEO et l’ouvre aux apprenants autorisés', async () => {
+    await router.push('/formations/seo')
     expect(router.currentRoute.value.name).toBe('login')
-    expect(router.currentRoute.value.query.redirect).toBe('/formations')
+    expect(router.currentRoute.value.query.redirect).toBe('/formations/seo')
 
     mock.auth.user = { id: 'learner-without-access' }
-    await router.push('/formations')
+    await router.push('/formations/seo')
     expect(router.currentRoute.value.name).toBe('access-pending')
 
     mock.auth.refreshSeoAccess.mockResolvedValue('granted')
-    await router.push('/formations')
-    expect(router.currentRoute.value.name).toBe('formations')
+    await router.push('/formations/seo')
+    expect(router.currentRoute.value.name).toBe('dashboard')
   })
 
   it('laisse le paiement et l’activation accessibles sans compte', async () => {
@@ -82,16 +82,14 @@ describe('accès à la formation SEO', () => {
     expect(router.currentRoute.value.name).toBe('dashboard')
   })
 
-  it('sépare la liste /formations du programme /formations/seo', async () => {
+  it('ouvre directement le programme SEO', async () => {
     mock.auth.user = { id: 'learner-with-access' }
     mock.auth.refreshSeoAccess.mockResolvedValue('granted')
 
-    await router.push('/formations')
-    expect(router.currentRoute.value.path).toBe('/formations')
-    expect(router.currentRoute.value.name).toBe('formations')
     await router.push('/formations/seo')
     expect(router.currentRoute.value.name).toBe('dashboard')
     expect(router.currentRoute.value.path).toBe('/formations/seo')
+    expect(router.resolve('/formations/parcours').name).not.toBe('acquisition-overview')
     expect(router.resolve('/formation').name).toBe('not-found')
   })
 
