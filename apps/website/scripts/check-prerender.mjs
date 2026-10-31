@@ -249,30 +249,31 @@ for (const path of [...prerenderPaths, '/404']) {
     assert.equal(document.querySelector('.media-feature'), null)
     assert.equal(
       document.querySelector('.media-news-list .media-arrow-link')?.getAttribute('href'),
-      '/actualites/semaine-43-2026',
+      '/actualites/semaine-44-2026',
     )
     assert.equal(document.querySelector('.media-resource .base-button')?.getAttribute('href'), '/checklist')
     assert.equal(document.querySelectorAll('nav[aria-label="Navigation principale"] a[href="/checklist"]').length, 1)
   }
   if (path === '/actualites') {
-    assert.equal(document.querySelectorAll('main article').length, 5)
+    assert.equal(document.querySelectorAll('main article').length, 6)
     assert.equal(document.querySelector('main h1')?.textContent.trim(), 'Actu Tech de la semaine')
     assert.equal(
       document.querySelector('main article h2')?.textContent.trim(),
-      'Actu Tech de la semaine #43 : PHP2Shell secoue le Web',
+      'Actu Tech de la semaine #44 : la facture de l’IA rattrape Big Tech',
     )
     assert.equal(document.querySelector('main article img'), null)
     assert.equal(
       document.querySelector('main article a')?.getAttribute('href'),
-      '/actualites/semaine-43-2026',
+      '/actualites/semaine-44-2026',
     )
     assert.equal(document.querySelectorAll('script[type="application/ld+json"]').length, 0)
   }
-  if (['/actualites/semaine-39-2026', '/actualites/semaine-40-2026', '/actualites/semaine-41-2026', '/actualites/semaine-42-2026', '/actualites/semaine-43-2026'].includes(path)) {
+  if (['/actualites/semaine-39-2026', '/actualites/semaine-40-2026', '/actualites/semaine-41-2026', '/actualites/semaine-42-2026', '/actualites/semaine-43-2026', '/actualites/semaine-44-2026'].includes(path)) {
     const publishedAt = path.endsWith('semaine-39-2026') ? '2026-09-26'
       : path.endsWith('semaine-40-2026') ? '2026-10-02'
         : path.endsWith('semaine-41-2026') ? '2026-10-10'
-          : path.endsWith('semaine-42-2026') ? '2026-10-17' : '2026-10-23'
+          : path.endsWith('semaine-42-2026') ? '2026-10-17'
+            : path.endsWith('semaine-43-2026') ? '2026-10-23' : '2026-10-31'
     const canonical = document.querySelector('link[rel="canonical"]')?.getAttribute('href')
     assert.equal(document.querySelectorAll('link[rel="canonical"]').length, 1, path)
     assert.equal(document.querySelectorAll('script[type="application/ld+json"]').length, 1, path)
@@ -323,6 +324,42 @@ for (const path of [...prerenderPaths, '/404']) {
       assert.equal(tags.length, 1, `${property}: ${path}`)
       assert.equal(tags[0].content, publishedAt)
     }
+  }
+  if (path === '/actualites/semaine-44-2026') {
+    const source = await readFile(resolve('src/content/news/actu-tech-semaine-44-2026.txt'), 'utf8')
+    const publishedBlocks = [...document.querySelectorAll('.news-body h2, .news-body p')]
+      .map((element) => element.textContent.trim())
+    assert.deepEqual(
+      publishedBlocks,
+      source.trim().split(/\r?\n\s*\r?\n/).map((block) =>
+        block.replace(/^## /, '').replace(/\[([^\]]+)\]\((?:https?:\/\/|\/)[^)]+\)/g, '$1').replace(/\*\*|`/g, '').replace(/\r?\n/g, ' '),
+      ),
+    )
+    assert.equal(document.title, 'Actu Tech semaine #44 : la facture de l’IA rattrape Big Tech')
+    assert.equal(document.querySelector('meta[name="description"]').content,
+      'Big Tech dépense plus que jamais dans l’IA, Google lance Gemini 4 Carbon, Apple passe au tactile et le Web prépare de nouvelles règles pour l’entraînement IA.')
+    assert.equal(document.querySelector('meta[property="og:title"]').content,
+      'Actu Tech de la semaine #44 : la facture de l’IA rattrape Big Tech')
+    assert.equal(document.querySelector('meta[property="og:description"]').content,
+      'Les géants de la Tech brûlent des centaines de milliards dans l’IA, Google pousse la cyber avec Gemini 4 Carbon et la Chine durcit le contrôle sur ses technologies stratégiques.')
+    assert.equal(document.querySelector('meta[property="og:image:alt"]').content,
+      'Actu Tech de la semaine #44 — Altruisme.DEV')
+    assert.equal(document.querySelector('main img')?.getAttribute('src'),
+      '/images/news/actu-tech-semaine-44-2026.webp')
+    assert.equal(document.querySelector('main img')?.getAttribute('alt'),
+      'Actu Tech de la semaine #44 : la facture de l’IA rattrape Big Tech')
+    assert.deepEqual(
+      [...document.querySelectorAll('.news-body a')].map((link) => [link.textContent, link.href, link.target, link.rel]),
+      [
+        ['556,9 milliards de dollars', 'https://www.reuters.com/legal/transactional/big-tech-returns-smallest-share-cash-shareholders-15-years-given-ai-spending-2026-10-30/', '_blank', 'noopener noreferrer'],
+        ['Gemini 4 Carbon', 'https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/', '_blank', 'noopener noreferrer'],
+        ['Touch sur Mac', 'https://www.apple.com/newsroom/2026/10/apple-unveils-groundbreaking-macbook-pro-with-proled-xdr-display/', '_blank', 'noopener noreferrer'],
+        ['signal commun dans robots.txt', 'https://openai.com/index/helping-websites-express-ai-training-preferences/', '_blank', 'noopener noreferrer'],
+        ['23 technologies liées à l’intelligence artificielle', 'https://www.reuters.com/business/retail-consumer/chinas-new-export-curbs-draw-line-around-its-ai-crown-jewels-2026-10-28/', '_blank', 'noopener noreferrer'],
+      ],
+    )
+    assert.equal(document.querySelector('nav[aria-label="Navigation entre les éditions"] a')?.getAttribute('href'),
+      '/actualites/semaine-43-2026')
   }
   if (path === '/actualites/semaine-43-2026') {
     const source = await readFile(resolve('src/content/news/actu-tech-semaine-43-2026.txt'), 'utf8')

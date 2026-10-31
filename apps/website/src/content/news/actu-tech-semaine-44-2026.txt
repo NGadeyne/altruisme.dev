@@ -1,0 +1,191 @@
+Une semaine de plus dans la Tech, et encore beaucoup trop de choses à suivre. Alors on a fait le tri.
+
+Depuis deux ans, les chiffres associés à l’intelligence artificielle deviennent presque difficiles à appréhender. Quelques milliards investis dans un datacenter paraissent désormais ordinaires. Les grands groupes réservent des GPU plusieurs années à l’avance, construisent leurs propres puces et signent des contrats énergétiques capables d’alimenter des villes entières. Jusqu’ici, les investisseurs ont largement accepté cette course avec une idée simple : les entreprises qui construiront aujourd’hui l’infrastructure de l’IA récolteront demain une part considérable de la valeur qu’elle créera.
+
+Cette semaine montre cependant qu’une deuxième phase commence. Microsoft, Alphabet, Amazon, Meta et Oracle continuent de générer énormément d’argent. Mais ils en dépensent désormais tellement dans leurs infrastructures que, collectivement, leurs investissements dépassent le cash produit par leurs activités. Pour la première fois depuis le début de cette course, la question n’est donc plus seulement de savoir combien les géants de la Tech sont prêts à investir dans l’IA.
+
+Il faut maintenant savoir quand ces centaines de milliards commenceront réellement à rapporter.
+
+## La facture de l’IA rattrape Big Tech
+
+Les cinq grands groupes américains étudiés cette semaine par Reuters n’ont jamais généré autant d’argent. Microsoft, Alphabet, Amazon, Meta et Oracle ont produit ensemble environ **542,9 milliards de dollars de cash opérationnel sur les neuf premiers mois de 2026**, soit une progression de 29 % sur un an. Dans presque n’importe quel autre contexte, ce chiffre suffirait à raconter une année exceptionnelle.
+
+Le problème est qu’ils ont dépensé encore davantage.
+
+Sur la même période, leurs investissements ont atteint environ [556,9 milliards de dollars](https://www.reuters.com/legal/transactional/big-tech-returns-smallest-share-cash-shareholders-15-years-given-ai-spending-2026-10-30/), presque deux fois plus qu’un an auparavant. Une grande partie de cette augmentation vient des datacenters, des GPU, des accélérateurs maison, des réseaux et de toute l’infrastructure nécessaire pour entraîner puis faire fonctionner les modèles d’intelligence artificielle. Résultat : alors que ces entreprises avaient généré environ 143,5 milliards de dollars de free cash-flow sur la même période en 2025, elles affichent cette année un déficit combiné d’environ 14 milliards.
+
+Ce basculement ne signifie évidemment pas que Microsoft, Google ou Amazon sont soudainement en difficulté financière. Ces groupes disposent de bilans extrêmement solides et continuent de produire des dizaines de milliards de dollars grâce au Cloud, à la publicité, au logiciel ou au commerce. Le changement est ailleurs : une part de plus en plus importante de cet argent doit désormais être réinvestie simplement pour suivre le rythme de la course à l’IA.
+
+C’est exactement ce qui commence à inquiéter certains investisseurs.
+
+Pendant longtemps, les géants de la Tech avaient une caractéristique particulièrement appréciée des marchés : une fois leurs logiciels et plateformes construits, ils pouvaient générer énormément de revenus avec relativement peu d’investissements supplémentaires. Une partie de ce cash était ensuite redistribuée aux actionnaires sous forme de dividendes ou de rachats d’actions.
+
+L’intelligence artificielle modifie profondément cette mécanique.
+
+Construire une infrastructure capable de servir des centaines de millions d’utilisateurs demande des GPU extrêmement coûteux, des bâtiments, du réseau, du refroidissement, de l’électricité et une capacité de calcul qui doit régulièrement être renouvelée lorsque de nouvelles générations de puces arrivent. Le logiciel commence donc à adopter une partie des caractéristiques économiques d’une industrie beaucoup plus lourde.
+
+Cela se voit directement dans la manière dont les entreprises utilisent leur argent. Selon Reuters, les rachats d’actions des cinq groupes ont chuté d’environ **83 %**, à seulement 13,6 milliards de dollars sur les neuf premiers mois de l’année. Alphabet et Meta n’ont réalisé aucun rachat sur la période étudiée, tandis que Microsoft représente la grande majorité de ceux qui subsistent. La part du cash opérationnel reversée aux actionnaires est tombée à 9,3 %, son niveau le plus faible depuis au moins quinze ans.
+
+L’argent n’a pas disparu.
+
+Il est passé dans les datacenters.
+
+Et cette différence commence à changer la manière dont Wall Street regarde la course à l’intelligence artificielle.
+
+Jusqu’ici, annoncer davantage d’investissements IA était souvent perçu positivement. Dépenser plus signifiait disposer de davantage de GPU, attirer davantage de chercheurs et être mieux positionné pour profiter de la prochaine vague technologique. Aujourd’hui, le raisonnement devient progressivement plus nuancé : à partir d’un certain niveau, chaque milliard supplémentaire doit finir par produire suffisamment de revenus pour justifier son existence.
+
+Les résultats publiés cette semaine montrent d’ailleurs toute l’ambiguïté de la situation. Les activités Cloud continuent de progresser rapidement et les carnets de commandes restent gigantesques. Microsoft, Alphabet et Amazon possèdent ensemble près de **1 700 milliards de dollars de contrats et engagements futurs**, tandis que leurs dépenses annuelles pourraient approcher les 600 milliards de dollars. Les entreprises voient donc clairement une demande réelle pour leurs infrastructures IA.
+
+Mais les marchés commencent à regarder beaucoup plus attentivement la vitesse à laquelle cette demande se transforme en cash.
+
+Amazon constitue probablement l’un des meilleurs exemples. L’entreprise investit massivement dans AWS et ses datacenters, mais cette expansion pèse désormais fortement sur ses flux de trésorerie. Alphabet a de son côté enregistré plusieurs trimestres sous pression sur le free cash-flow, tandis que Microsoft a levé 25 milliards de dollars de dette malgré une activité toujours très rentable.
+
+Cela ne veut pas nécessairement dire que ces investissements sont mauvais.
+
+Construire AWS au début des années 2000 aurait également pu sembler excessivement coûteux avant que le Cloud ne devienne l’une des activités les plus rentables du monde. La même logique pourrait parfaitement s’appliquer à l’intelligence artificielle : les groupes qui acceptent de sacrifier aujourd’hui une partie de leur cash pourraient contrôler demain une infrastructure devenue indispensable à l’ensemble de l’économie.
+
+Mais il existe une différence importante.
+
+La capacité de calcul est beaucoup plus facilement comparable entre fournisseurs que certains produits logiciels historiques. Une entreprise peut utiliser des GPU NVIDIA chez AWS, des TPU chez Google ou ses propres accélérateurs dans un autre Cloud. Les modèles eux-mêmes deviennent également plus interchangeables. Un client peut travailler avec Gemini, Claude ou GPT sans nécessairement reconstruire toute son architecture.
+
+La question est donc de savoir combien de valeur durable chaque fournisseur pourra réellement conserver.
+
+Si les dépenses continuent de progresser plus vite que les revenus générés par l’IA, les marges pourraient se réduire. Et lorsqu’un datacenter construit aujourd’hui avec plusieurs milliards de dollars de GPU devra être renouvelé quelques années plus tard parce qu’une nouvelle génération de matériel est beaucoup plus efficace, la facture ne disparaîtra pas simplement une fois l’infrastructure construite.
+
+C’est probablement ici que commence la véritable interrogation économique autour de l’IA.
+
+Pendant deux ans, le débat autour d’une éventuelle bulle s’est souvent résumé à comparer les valorisations boursières avec celles de la bulle Internet. Mais ce n’est peut-être pas la question la plus intéressante. Les entreprises concernées génèrent de vrais revenus, possèdent de vrais clients et disposent de bilans infiniment plus solides que la majorité des startups Internet de 1999.
+
+Le risque est différent.
+
+Il serait possible que l’intelligence artificielle soit réellement révolutionnaire tout en nécessitant tellement d’investissements que les rendements économiques soient moins extraordinaires que prévu.
+
+Une technologie peut transformer le monde sans nécessairement produire les marges que les investisseurs imaginaient.
+
+C’est d’ailleurs pour cette raison que les prochains trimestres seront probablement beaucoup plus intéressants que la traditionnelle course aux benchmarks. Les entreprises vont devoir commencer à montrer non seulement que leurs modèles sont meilleurs, mais que les produits construits autour génèrent suffisamment de revenus pour financer les infrastructures nécessaires.
+
+Pendant longtemps, la question était : qui possède le meilleur modèle ?
+
+Puis elle est devenue : qui possède suffisamment de GPU ?
+
+Elle commence maintenant à devenir beaucoup plus classique : qui arrive réellement à gagner de l’argent avec tout cela ?
+
+## Google lance Gemini 4 Carbon et pousse encore plus loin la cybersécurité
+
+Pendant que Wall Street s’intéresse au coût de l’intelligence artificielle, Google continue d’accélérer sur les capacités des modèles. Seulement deux semaines après Gemini 4 Argon, l’entreprise a présenté [Gemini 4 Carbon](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/), qu’elle décrit comme son modèle le plus performant à ce jour.
+
+Carbon est particulièrement orienté vers les tâches longues, le développement logiciel et la cybersécurité. Google affirme notamment qu’il atteint 88,2 % sur SEC-bench Pro pour la recherche de vulnérabilités, 54,8 % sur ExploitGym pour leur exploitation et 71 % sur CWE-bench pour la génération de correctifs. Ces benchmarks ne racontent évidemment jamais l’intégralité des capacités d’un modèle, mais leur nature est intéressante : Google ne cherche plus seulement à mesurer si l’IA sait répondre à une question de sécurité. Elle doit être capable d’identifier une faiblesse dans un logiciel réel, vérifier qu’elle est exploitable puis corriger sa cause.
+
+Le modèle est également conçu pour fonctionner sur des tâches agentiques particulièrement longues. Google indique que certaines expérimentations internes ont vu Carbon travailler pendant plusieurs jours sur des problèmes d’ingénierie complexes, en poursuivant différentes pistes et en revenant sur certaines approches lorsqu’elles échouaient.
+
+Cette évolution rejoint directement ce que nous observions avec PHP2Shell la semaine dernière. La cybersécurité devient progressivement l’un des terrains où la progression des agents est la plus facile à mesurer concrètement : un modèle peut-il réellement trouver une faille que des humains n’avaient pas vue ? Peut-il démontrer son impact ? Peut-il proposer un patch fonctionnel ?
+
+Mais ces capacités sont également parmi les plus sensibles à distribuer. Google ne met donc pas immédiatement Carbon à disposition du grand public. Le modèle est d’abord accessible à un groupe sélectionné de spécialistes de la cyberdéfense via le programme Fairwind, avant un déploiement plus large prévu ultérieurement.
+
+Plus les modèles deviennent capables d’agir sur du code réel, plus leur déploiement ressemble donc à une question de sécurité autant qu’à une question de produit.
+
+## Apple met enfin du tactile sur le Mac
+
+Il existe des décisions produits qu’une entreprise repousse suffisamment longtemps pour qu’elles commencent presque à faire partie de son identité. Chez Apple, l’écran tactile sur Mac en faisait clairement partie.
+
+Depuis l’arrivée de l’iPhone et de l’iPad, Apple a toujours maintenu une séparation assez nette entre ses interfaces. L’iPhone et l’iPad sont pensés pour être manipulés avec les doigts. Le Mac repose sur un clavier, un trackpad ou une souris. Cette distinction a survécu à l’arrivée de Windows tactile, aux PC hybrides et à quinze années de rapprochement progressif entre macOS et iPadOS.
+
+Cette semaine, Apple a finalement changé de direction.
+
+Le nouveau MacBook Pro introduit pour la première fois [Touch sur Mac](https://www.apple.com/newsroom/2026/10/apple-unveils-groundbreaking-macbook-pro-with-proled-xdr-display/), associé à un nouvel écran PROLED XDR utilisant une technologie tandem OLED. Apple présente notamment des usages permettant de manipuler des modèles 3D, interagir directement avec certaines timelines ou utiliser des instruments virtuels à l’écran. macOS 27 a également été adapté pour rendre certains éléments de l’interface plus facilement accessibles au toucher.
+
+Apple ne transforme cependant pas le MacBook Pro en iPad géant. Le clavier et le trackpad restent évidemment au centre du produit, et l’écran tactile est présenté comme une possibilité supplémentaire plutôt qu’une nouvelle interface principale.
+
+C’est probablement ce qui rend l’annonce intéressante.
+
+Le débat autour du Mac tactile a longtemps été formulé de manière binaire : soit l’interface de bureau était adaptée au toucher, soit elle ne l’était pas. Apple semble finalement choisir une troisième voie beaucoup plus pragmatique. Certaines interactions fonctionnent très bien au trackpad, d’autres deviennent plus naturelles lorsque l’on peut simplement toucher directement l’élément situé devant soi.
+
+La frontière historique entre Mac et iPad devient donc légèrement moins nette.
+
+Et après des années pendant lesquelles Apple expliquait surtout pourquoi un écran tactile n’était pas nécessaire sur un Mac, l’entreprise va maintenant devoir montrer pourquoi il devient utile.
+
+## OpenAI soutient un standard commun pour refuser l’entraînement des IA
+
+Une annonce beaucoup moins spectaculaire pourrait avoir des conséquences particulièrement intéressantes pour le Web.
+
+OpenAI a annoncé cette semaine qu’il allait respecter un [signal commun dans robots.txt](https://openai.com/index/helping-websites-express-ai-training-preferences/) permettant aux propriétaires de sites d’indiquer leurs préférences concernant l’utilisation de leurs contenus pour l’entraînement des modèles génératifs.
+
+Jusqu’ici, la situation était particulièrement fragmentée. Un éditeur souhaitant limiter l’accès à son contenu devait identifier les différents crawlers utilisés par OpenAI, Google, Anthropic ou d’autres fournisseurs, puis maintenir une règle spécifique pour chacun. À mesure que le nombre d’acteurs augmente, cette approche devient rapidement difficile à gérer.
+
+Le nouveau mécanisme cherche à introduire une préférence commune pouvant être comprise par plusieurs fournisseurs simultanément. Il s’appuie sur les travaux en cours du groupe **AI Preferences de l’IETF**, l’organisation qui participe à l’élaboration de nombreux standards fondamentaux d’Internet. OpenAI prévoit d’implémenter ce signal dans les prochains mois tout en continuant de respecter ses contrôles existants.
+
+Le détail technique est presque secondaire par rapport à ce qu’il représente.
+
+Depuis le début de l’IA générative, la relation entre les modèles et le Web s’est construite de manière relativement désordonnée. Les entreprises ont lancé leurs propres crawlers, les éditeurs ont commencé à les bloquer individuellement, certains ont conclu des accords de licence tandis que d’autres ont engagé des poursuites judiciaires.
+
+Nous commençons maintenant à voir apparaître une tentative de standardisation.
+
+Un fichier comme `robots.txt` n’a jamais été conçu à l’origine pour gérer l’entraînement des modèles d’intelligence artificielle. Il est devenu progressivement l’un des endroits naturels où les éditeurs expriment leurs préférences parce qu’il existait déjà et que les moteurs de recherche l’utilisaient depuis longtemps.
+
+L’apparition d’un signal partagé montre que l’IA commence à devenir suffisamment structurelle pour nécessiter ses propres conventions au niveau du Web.
+
+Il restera évidemment une question essentielle : un fichier `robots.txt` repose largement sur le respect volontaire des instructions par les crawlers. Il ne constitue pas une protection technique empêchant physiquement quelqu’un de télécharger une page publique.
+
+Mais les standards du Web fonctionnent souvent ainsi. Leur force ne vient pas uniquement de la technologie, mais du fait que suffisamment d’acteurs décident de respecter les mêmes règles.
+
+Pour les médias, les éditeurs et les propriétaires de sites, disposer d’un vocabulaire commun permettant d’exprimer leurs choix serait déjà une évolution importante.
+
+## La Chine commence à protéger ses propres technologies IA
+
+Pendant plusieurs années, les restrictions technologiques entre les États-Unis et la Chine avaient une direction assez facile à comprendre. Washington cherchait principalement à empêcher Pékin d’accéder aux GPU, équipements de fabrication et technologies nécessaires pour développer les systèmes les plus avancés.
+
+La Chine commence maintenant à construire l’autre moitié de cette frontière.
+
+Pékin prépare de nouvelles restrictions à l’exportation qui ajouteraient [23 technologies liées à l’intelligence artificielle](https://www.reuters.com/business/retail-consumer/chinas-new-export-curbs-draw-line-around-its-ai-crown-jewels-2026-10-28/) aux listes de technologies soumises à contrôle ou interdites à l’export. Les catégories concernent notamment certains modèles avancés, les agents capables d’effectuer des tâches avec relativement peu de supervision humaine, des technologies de conception de puces ainsi que des systèmes permettant de coordonner de très grands clusters de calcul.
+
+L’approche choisie est particulièrement intéressante. Les entreprises chinoises pourraient toujours permettre à des clients étrangers d’utiliser leurs modèles depuis un site web ou une plateforme Cloud. En revanche, transférer certaines technologies sous-jacentes, des données, du savoir-faire ou déployer certaines infrastructures à l’étranger pourrait nécessiter une autorisation gouvernementale.
+
+Autrement dit, Pékin semble vouloir encourager une logique assez simple : **vendre l’accès à la technologie sans nécessairement vendre la technologie elle-même**.
+
+Pour des entreprises comme DeepSeek, Moonshot ou Z.AI, cela pourrait modifier la manière dont elles construisent leur expansion internationale. Les modèles resteraient entraînés et contrôlés depuis des infrastructures chinoises, tandis que les utilisateurs étrangers y accéderaient comme à un service.
+
+Les critères proposés montrent également l’ampleur des technologies que Pékin souhaite surveiller. Certains modèles pourraient notamment être concernés lorsqu’ils dépassent un seuil de calcul utilisé pour leur entraînement, atteignent deux mille milliards de paramètres ou figurent parmi les meilleurs systèmes mondiaux sur certaines évaluations. Le projet couvre aussi des technologies capables de coordonner plus de 10 000 puces IA.
+
+Cette évolution crée une sorte de symétrie assez intéressante dans la confrontation technologique entre les deux pays.
+
+Les États-Unis cherchent à contrôler l’entrée en Chine de puissance de calcul, de matériel avancé et de certains investissements. La Chine commence de son côté à contrôler davantage la sortie de ses modèles, de ses technologies et de son savoir-faire.
+
+L’intelligence artificielle rejoint donc progressivement les semi-conducteurs parmi les technologies considérées non plus seulement comme des produits commerciaux, mais comme des actifs stratégiques que les États veulent conserver sous leur contrôle.
+
+## Pourquoi ça compte pour les gens de la Tech
+
+Parce que les annonces de cette semaine montrent que l’intelligence artificielle commence à entrer dans une phase beaucoup plus mature.
+
+Pendant les premières années, les progrès pouvaient être observés assez simplement. Un nouveau modèle arrivait, obtenait de meilleurs scores, générait de meilleures images ou écrivait du code plus propre. L’attention était concentrée sur les capacités.
+
+Aujourd’hui, les questions deviennent plus complexes.
+
+Google peut construire un modèle capable de travailler plusieurs jours sur une vulnérabilité, mais il doit décider à qui donner accès à cette capacité. OpenAI peut entraîner ses modèles sur d’immenses quantités de données, mais le Web commence à réclamer des standards permettant aux éditeurs d’exprimer leurs choix. La Chine peut développer des modèles compétitifs, mais considère désormais certaines technologies suffisamment stratégiques pour contrôler leur exportation.
+
+Et au-dessus de tout cela apparaît une question économique beaucoup plus simple : combien coûte réellement cette transformation ?
+
+Les cinq plus grands investisseurs de la Tech viennent de consacrer plus d’un demi-billion de dollars à leurs infrastructures sur neuf mois. À cette échelle, l’IA ne peut plus rester indéfiniment une promesse de revenus futurs. Les entreprises devront progressivement démontrer qu’elle permet de vendre davantage de Cloud, de logiciels, de publicité ou de services que ce qu’elle coûte en matériel et en infrastructure.
+
+C’est probablement une bonne nouvelle pour la Tech.
+
+Une technologie commence réellement à mûrir lorsque la question n’est plus simplement de savoir si elle fonctionne.
+
+On commence à s’intéresser à son coût, sa sécurité, ses standards, ses règles et la manière dont elle s’intègre dans l’économie existante.
+
+C’est beaucoup moins spectaculaire qu’une démonstration d’un nouveau modèle.
+
+Mais c’est généralement à ce moment que les technologies commencent réellement à changer le monde.
+
+## Ce qu’on retient de la semaine
+
+La semaine #44 marque peut-être un petit changement de ton dans la course à l’intelligence artificielle. Les capacités continuent évidemment de progresser : Gemini 4 Carbon montre qu’un modèle peut désormais rechercher, valider et corriger des vulnérabilités avec une efficacité qui aurait semblé difficile à imaginer quelques années auparavant.
+
+Mais la performance brute n’est plus le seul sujet.
+
+Le Web commence à construire des règles permettant aux éditeurs d’exprimer leurs préférences face à l’entraînement des modèles. La Chine cherche à empêcher certaines technologies stratégiques de quitter son territoire. Et les géants américains de la Tech doivent maintenant expliquer pourquoi ils investissent davantage dans leurs infrastructures qu’ils ne génèrent collectivement de free cash-flow.
+
+Même Apple illustre à sa manière ce changement de phase. Après des années de dogmes autour de l’interface du Mac, l’entreprise accepte finalement d’intégrer le tactile lorsque la technologie et les usages lui semblent suffisamment mûrs.
+
+La Tech continue donc d’avancer très vite.
+
+Simplement, après plusieurs années passées à demander jusqu’où l’intelligence artificielle pouvait aller, nous commençons maintenant à poser une question peut-être encore plus importante : **comment construire autour d’elle quelque chose de durable ?**

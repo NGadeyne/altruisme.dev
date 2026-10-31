@@ -23,6 +23,7 @@ Les sujets principaux sont le Product Management, le SaaS, l'intelligence artifi
 ## Actualités et analyses
 
 - [Actualités](https://altruisme.dev/actualites): Actualités tech sélectionnées, analysées et contextualisées.
+- [Actu Tech de la semaine #44](https://altruisme.dev/actualites/semaine-44-2026): Dépenses IA de Big Tech, Gemini 4 Carbon, MacBook Pro tactile, robots.txt et restrictions chinoises.
 - [Actu Tech de la semaine #43](https://altruisme.dev/actualites/semaine-43-2026): PHP2Shell, puces IA, OpenAI chez Google Cloud, lunettes Meta et ChatGPT chez Uber.
 - [Actu Tech de la semaine #42](https://altruisme.dev/actualites/semaine-42-2026): Quantique, nouveaux modèles de Meta, agents IA incontrôlés, maison connectée et puces.
 - [Actu Tech de la semaine #41](https://altruisme.dev/actualites/semaine-41-2026): Gemini agent, IA locale sur Windows, cyberdéfense, traçabilité des contenus et datacenters.

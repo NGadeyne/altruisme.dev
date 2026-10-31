@@ -9,6 +9,7 @@ import { week40 } from '@/content/news/week40Metadata'
 import { week41 } from '@/content/news/week41Metadata'
 import { week42 } from '@/content/news/week42Metadata'
 import { week43 } from '@/content/news/week43Metadata'
+import { week44 } from '@/content/news/week44Metadata'
 
 export const routes: RouteRecordRaw[] = [
   {
@@ -93,6 +94,27 @@ export const routes: RouteRecordRaw[] = [
       title: 'Actualités tech de la semaine | Altruisme.DEV',
       description:
         'Une sélection hebdomadaire des actualités produit, SaaS, IA, automatisation, freelance et entreprises tech, expliquées avec du contexte.',
+    },
+  },
+  {
+    path: `/actualites/${week44.slug}`,
+    name: 'news-week-44',
+    component: () => import('../views/news/Week44View.vue'),
+    meta: {
+      title: 'Actu Tech semaine #44 : la facture de l’IA rattrape Big Tech',
+      description:
+        'Big Tech dépense plus que jamais dans l’IA, Google lance Gemini 4 Carbon, Apple passe au tactile et le Web prépare de nouvelles règles pour l’entraînement IA.',
+      ogTitle: week44.title,
+      ogDescription:
+        'Les géants de la Tech brûlent des centaines de milliards dans l’IA, Google pousse la cyber avec Gemini 4 Carbon et la Chine durcit le contrôle sur ses technologies stratégiques.',
+      image: week44.image,
+      imageAlt: week44.imageAlt,
+      ogImageAlt: 'Actu Tech de la semaine #44 — Altruisme.DEV',
+      article: true,
+      articleSection: week44.format,
+      publishedAt: week44.publishedAt,
+      modifiedAt: week44.modifiedAt,
+      author: week44.author,
     },
   },
   {
