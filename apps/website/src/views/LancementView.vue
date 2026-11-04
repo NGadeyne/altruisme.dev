@@ -2,6 +2,7 @@
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { BaseButton, BaseContainer } from '@altruisme/ui'
 import { OPEN_COOKIE_SETTINGS_EVENT, useCookieConsent } from '@/composables/useCookieConsent'
+import { trackChecklistRegistration } from '@/lib/metaPixel'
 
 const steps = [
   'Vérifier l’indexation',
@@ -45,27 +46,32 @@ const faqs = [
 const { loadPreferences, preferences } = useCookieConsent()
 const brevoIframe = ref<HTMLIFrameElement | null>(null)
 let brevoResizeObserver: ResizeObserver | null = null
+let brevoSuccessObserver: MutationObserver | null = null
 
 onMounted(loadPreferences)
-onBeforeUnmount(stopBrevoResizeObserver)
+onBeforeUnmount(stopBrevoObservers)
 watch(() => preferences.value.external, (allowed) => {
-  if (!allowed) stopBrevoResizeObserver()
+  if (!allowed) stopBrevoObservers()
 })
 
-function stopBrevoResizeObserver() {
+function stopBrevoObservers() {
   brevoResizeObserver?.disconnect()
   brevoResizeObserver = null
+  brevoSuccessObserver?.disconnect()
+  brevoSuccessObserver = null
 }
 
 function observeBrevoHeight() {
-  stopBrevoResizeObserver()
+  stopBrevoObservers()
 
   const iframe = brevoIframe.value
   if (!iframe) return
 
   let form: HTMLElement | null = null
+  let formDocument: Document | null = null
   try {
-    form = iframe.contentDocument?.querySelector<HTMLElement>('.sib-form') ?? null
+    formDocument = iframe.contentDocument
+    form = formDocument?.querySelector<HTMLElement>('.sib-form') ?? null
   } catch {
     // Brevo may navigate the iframe to its own domain after submission.
   }
@@ -78,6 +84,26 @@ function observeBrevoHeight() {
   brevoResizeObserver = new ResizeObserver(updateHeight)
   brevoResizeObserver.observe(form)
   updateHeight()
+
+  const successMessage = formDocument?.getElementById('success-message')
+  if (!successMessage || !formDocument?.body) return
+
+  let wasSuccessVisible = false
+  const trackConfirmedRegistration = () => {
+    const display = formDocument.defaultView?.getComputedStyle(successMessage).display
+    const isVisible = Boolean(display && display !== 'none')
+    if (isVisible && !wasSuccessVisible) trackChecklistRegistration()
+    wasSuccessVisible = isVisible
+  }
+
+  brevoSuccessObserver = new MutationObserver(trackConfirmedRegistration)
+  brevoSuccessObserver.observe(formDocument.body, {
+    attributes: true,
+    attributeFilter: ['class', 'style'],
+    childList: true,
+    subtree: true,
+  })
+  trackConfirmedRegistration()
 }
 
 function openCookieSettings() {

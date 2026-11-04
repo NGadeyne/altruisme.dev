@@ -98,7 +98,7 @@ import LegalPageLayout from '@/components/legal/LegalPageLayout.vue'
               <td class="py-4">Consentement</td>
             </tr>
 
-            <tr>
+            <tr class="border-b border-[#4f7774]/10">
               <td class="py-4 pr-6">Mesure d’audience</td>
 
               <td class="py-4 pr-6">
@@ -106,6 +106,11 @@ import LegalPageLayout from '@/components/legal/LegalPageLayout.vue'
               </td>
 
               <td class="py-4">Consentement lorsqu’il est requis</td>
+            </tr>
+            <tr>
+              <td class="py-4 pr-6">Publicité et mesure des conversions</td>
+              <td class="py-4 pr-6">Mesurer les visites et les conversions configurées avec le pixel Meta</td>
+              <td class="py-4">Consentement</td>
             </tr>
           </tbody>
         </table>
@@ -131,6 +136,7 @@ import LegalPageLayout from '@/components/legal/LegalPageLayout.vue'
           <li>YouTube lorsqu’une vidéo intégrée est affichée ;</li>
           <li>le prestataire d’hébergement du site ;</li>
           <li>Brevo pour la gestion des contacts inscrits aux contenus par email ;</li>
+          <li>Meta lorsque tu autorises la publicité et la mesure des conversions ;</li>
           <li>les futurs prestataires de paiement ou autres services utilisés.</li>
         </ul>
       </div>

@@ -9,7 +9,7 @@ import {
 const { hasConsent, loadPreferences, preferences, savePreferences } = useCookieConsent()
 const isVisible = ref(false)
 const showSettings = ref(false)
-const draftPreferences = ref<CookiePreferences>({ external: false })
+const draftPreferences = ref<CookiePreferences>({ external: false, marketing: false })
 
 function openBanner(settings = false) {
   draftPreferences.value = { ...preferences.value }
@@ -23,13 +23,15 @@ function save() {
   showSettings.value = false
 }
 
-function acceptExternalContent() {
+function acceptAll() {
   draftPreferences.value.external = true
+  draftPreferences.value.marketing = true
   save()
 }
 
 function rejectOptionalContent() {
   draftPreferences.value.external = false
+  draftPreferences.value.marketing = false
   save()
 }
 
@@ -67,7 +69,7 @@ onBeforeUnmount(() => {
               Ton choix, tes cookies.
             </p>
             <p class="mt-2 max-w-2xl text-sm leading-6 text-[#46504d]">
-              Les contenus externes, comme Brevo, YouTube ou Calendly, ne sont chargés qu’avec ton accord.
+              Les contenus externes (Brevo, YouTube, Calendly) et le pixel Meta ne sont chargés qu’avec ton accord.
               Les éléments nécessaires au fonctionnement du site restent actifs.
             </p>
             <RouterLink
@@ -84,8 +86,8 @@ onBeforeUnmount(() => {
             <button type="button" class="cookie-secondary-button" @click="showSettings = true">
               Personnaliser
             </button>
-            <button type="button" class="cookie-primary-button" @click="acceptExternalContent">
-              Autoriser les contenus externes
+            <button type="button" class="cookie-primary-button" @click="acceptAll">
+              Tout autoriser
             </button>
           </div>
         </div>
@@ -136,6 +138,22 @@ onBeforeUnmount(() => {
               </span>
               <input
                 v-model="draftPreferences.external"
+                type="checkbox"
+                class="h-5 w-5 shrink-0 accent-[#31413f]"
+              />
+            </label>
+
+            <label
+              class="flex cursor-pointer items-center justify-between gap-6 rounded-2xl border border-[#4f7774]/15 bg-white/50 p-5"
+            >
+              <span>
+                <span class="block text-sm font-semibold text-[#222826]">Publicité et mesure des conversions</span>
+                <span class="mt-1 block text-sm leading-6 text-[#46504d]"
+                  >Autorise le pixel Meta à mesurer les visites et les conversions configurées.</span
+                >
+              </span>
+              <input
+                v-model="draftPreferences.marketing"
                 type="checkbox"
                 class="h-5 w-5 shrink-0 accent-[#31413f]"
               />

@@ -95,6 +95,21 @@ function openCookieSettings() {
           </p>
         </article>
 
+        <article class="rounded-2xl border border-[#4f7774]/15 bg-white/45 p-6">
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              <h3>Publicité et mesure des conversions</h3>
+              <p class="mt-2 text-sm leading-6 text-[#64706c]">
+                Le pixel Meta mesure les visites et les conversions configurées pour évaluer
+                nos campagnes publicitaires. Il est chargé uniquement si tu autorises cette catégorie.
+              </p>
+            </div>
+            <span class="w-fit shrink-0 rounded-full border border-[#4f7774]/15 bg-white/55 px-3 py-1 text-xs font-semibold text-[#64706c]">
+              Selon ton choix
+            </span>
+          </div>
+        </article>
+
         <!-- Analytics -->
         <article class="rounded-2xl border border-[#4f7774]/15 bg-white/45 p-6">
           <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">

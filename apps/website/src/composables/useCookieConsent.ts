@@ -2,6 +2,7 @@ import { ref } from 'vue'
 
 export type CookiePreferences = {
   external: boolean
+  marketing: boolean
 }
 
 type StoredCookiePreferences = CookiePreferences & {
@@ -13,10 +14,10 @@ export const COOKIE_CONSENT_EVENT = 'cookie-consent-updated'
 export const OPEN_COOKIE_SETTINGS_EVENT = 'open-cookie-settings'
 
 const STORAGE_KEY = 'acquisition-cookie-consent'
-const CONSENT_VERSION = 1
+const CONSENT_VERSION = 2
 const CONSENT_DURATION_MS = 6 * 30 * 24 * 60 * 60 * 1000
 
-const preferences = ref<CookiePreferences>({ external: false })
+const preferences = ref<CookiePreferences>({ external: false, marketing: false })
 const hasConsent = ref(false)
 const isLoaded = ref(false)
 
@@ -29,6 +30,7 @@ function isStoredPreference(value: unknown): value is StoredCookiePreferences {
   return (
     stored.version === CONSENT_VERSION &&
     typeof stored.external === 'boolean' &&
+    typeof stored.marketing === 'boolean' &&
     Number.isFinite(updatedAt) &&
     Date.now() - updatedAt >= 0 &&
     Date.now() - updatedAt < CONSENT_DURATION_MS
@@ -51,7 +53,7 @@ export function useCookieConsent() {
         return
       }
 
-      preferences.value = { external: parsed.external }
+      preferences.value = { external: parsed.external, marketing: parsed.marketing }
       hasConsent.value = true
     } catch {
       try {
@@ -63,13 +65,14 @@ export function useCookieConsent() {
   }
 
   function savePreferences(nextPreferences: CookiePreferences) {
-    preferences.value = { external: nextPreferences.external }
+    preferences.value = { ...nextPreferences }
     hasConsent.value = true
     if (typeof window === 'undefined') return
 
     const storedPreferences: StoredCookiePreferences = {
       version: CONSENT_VERSION,
       external: preferences.value.external,
+      marketing: preferences.value.marketing,
       updatedAt: new Date().toISOString(),
     }
 
