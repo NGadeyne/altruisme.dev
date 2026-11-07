@@ -1,0 +1,273 @@
+Une semaine de plus dans la Tech, et encore beaucoup trop de choses à suivre. Alors on a fait le tri.
+
+Dans la Tech, certaines annonces deviennent tellement importantes qu’elles finissent par représenter beaucoup plus qu’un simple produit. Le Cybertruck faisait clairement partie de cette catégorie. Lorsqu’Elon Musk l’a présenté en 2019, Tesla ne dévoilait pas seulement un nouveau pick-up électrique. L’entreprise proposait presque sa propre vision de ce que devait devenir l’automobile : anguleuse, futuriste, radicalement différente de tout ce qui existait déjà et suffisamment ambitieuse pour donner l’impression que l’industrie traditionnelle venait une nouvelle fois de prendre plusieurs années de retard.
+
+Sept ans plus tard, Tesla prépare pourtant la fin de sa production.
+
+Le Cybertruck n’a jamais réussi à transformer l’attention gigantesque générée par son lancement en un marché suffisamment important. Tesla préfère désormais récupérer une partie de la capacité de son usine texane pour produire le Cybercab, son futur véhicule autonome. Ce changement raconte évidemment l’échec commercial d’un modèle particulier, mais il dit peut-être aussi quelque chose de plus intéressant sur la manière dont la Tech transforme parfois une vision spectaculaire en certitude avant même de vérifier qu’un marché existe réellement.
+
+## Tesla enterre son pari Cybertruck
+
+Le Cybertruck est probablement l’un des véhicules les plus reconnaissables jamais produits.
+
+Lorsque Tesla l’a présenté en novembre 2019, son design en acier inoxydable ne ressemblait à presque rien de disponible sur le marché automobile. Là où les constructeurs historiques faisaient évoluer progressivement leurs pick-up, Tesla proposait une carrosserie presque entièrement composée de surfaces planes, un pare-brise gigantesque et une silhouette semblant sortir d’un film de science-fiction.
+
+Même sa présentation est devenue immédiatement célèbre. Pour démontrer la résistance de ses vitres, Tesla avait demandé à son designer Franz von Holzhausen de lancer une boule métallique contre le véhicule. La vitre s’était fissurée. Une deuxième tentative avait produit exactement le même résultat sur une autre fenêtre.
+
+L’incident aurait pu transformer la présentation en catastrophe. Il a finalement participé à rendre le véhicule encore plus célèbre.
+
+Quelques jours plus tard, Elon Musk annonçait déjà environ 250 000 réservations accompagnées d’un dépôt remboursable. Tesla envisageait alors plusieurs versions du véhicule, dont une entrée de gamme annoncée à 39 900 dollars, et évoquait un début de production autour de 2021.
+
+La réalité a été beaucoup plus compliquée.
+
+Les difficultés techniques liées à la carrosserie en acier inoxydable, la pandémie, les problèmes de chaîne d’approvisionnement puis la complexité générale du projet ont repoussé la production pendant plusieurs années. Le premier Cybertruck assemblé dans l’usine texane de Tesla n’est finalement sorti qu’en 2023, avec les premières livraisons clients à la fin de cette même année.
+
+Entre-temps, le prix avait considérablement changé. Les versions disponibles avant l’annonce de la fin progressive de la production coûtaient environ 82 490 à 102 490 dollars, très loin du modèle accessible à moins de 40 000 dollars présenté quelques années auparavant.
+
+Le véritable problème est cependant apparu dans les ventes.
+
+Elon Musk avait évoqué à terme une demande permettant d’atteindre environ **250 000 Cybertruck par an**. Tesla en a vendu seulement **20 237 aux États-Unis en 2025**, contre 38 965 l’année précédente. Cela représente une baisse de 48 % en un an et surtout un volume extrêmement éloigné des ambitions initiales de l’entreprise.
+
+La comparaison avec les réservations annoncées lors de la présentation montre aussi une limite assez classique des produits particulièrement médiatisés. Demander à quelqu’un de déposer une petite somme remboursable pour réserver un véhicule futuriste n’est pas la même chose que lui demander de signer un chèque de plus de 80 000 dollars plusieurs années plus tard.
+
+Entre les deux, le marché avait également changé.
+
+Lorsque Tesla a présenté le Cybertruck en 2019, l’entreprise possédait encore une avance très importante sur la plupart des constructeurs traditionnels dans les véhicules électriques. Depuis, Ford, General Motors, Rivian et de nombreux autres constructeurs ont lancé leurs propres pick-up électriques, tandis que le marché américain du véhicule électrique a commencé à montrer des signes de ralentissement sur certains segments.
+
+Le Cybertruck devait également composer avec un autre problème : son design radical était précisément ce qui le rendait attractif pour certains acheteurs et difficile à vendre à beaucoup d’autres.
+
+Un pick-up américain traditionnel répond généralement à des usages relativement précis. Il doit pouvoir transporter, tracter, être réparé facilement et parfois servir quotidiennement dans un environnement professionnel. Tesla avait choisi de réinventer presque entièrement cette formule plutôt que de simplement électrifier un véhicule connu.
+
+Cette approche a produit un objet fascinant technologiquement, mais également beaucoup plus polarisant.
+
+Le véhicule a par ailleurs connu **11 rappels depuis le début de ses livraisons**, concernant aussi bien des problèmes logiciels que certains éléments physiques. En 2024, Tesla avait notamment dû rappeler plusieurs milliers de véhicules après avoir découvert qu’une pièce recouvrant la pédale d’accélérateur pouvait se déplacer et coincer celle-ci en position enfoncée. Un autre rappel avait concerné une barre lumineuse susceptible de se détacher.
+
+Aucun de ces problèmes ne suffit évidemment à expliquer seul les performances commerciales du véhicule. Les rappels sont fréquents dans l’industrie automobile, y compris pour des modèles vendus à plusieurs centaines de milliers d’exemplaires. Mais leur accumulation a renforcé l’impression d’un produit particulièrement complexe à industrialiser.
+
+Tesla doit également composer avec les contraintes réglementaires de marchés situés hors des États-Unis. Le design, les dimensions et certains choix techniques du Cybertruck compliquent sa commercialisation dans plusieurs régions du monde, limitant mécaniquement le nombre de marchés capables d’absorber la production.
+
+Cette semaine, Elon Musk a donc annoncé que Tesla allait progressivement réduire la production du Cybertruck dans sa Gigafactory texane avant de l’arrêter autour de [mi-2027](https://www.reuters.com/business/autos-transportation/tesla-wind-down-cybertruck-production-texas-gigafactory-next-year-musk-says-2026-11-06/). La capacité libérée doit notamment être utilisée pour produire davantage de **Cybercab**, le véhicule spécifiquement conçu pour le futur service de robotaxi de Tesla.
+
+C’est probablement là que l’histoire devient plus intéressante qu’un simple échec automobile.
+
+Tesla n’abandonne pas seulement un produit.
+
+L’entreprise déplace son pari.
+
+Pendant une grande partie de son histoire, Tesla se présentait avant tout comme le constructeur capable d’accélérer la transition vers la voiture électrique. Model S, Model 3, Model X et Model Y devaient démontrer qu’un véhicule électrique pouvait être plus désirable qu’un équivalent thermique.
+
+Depuis quelques années, Elon Musk insiste beaucoup davantage sur l’autonomie, l’intelligence artificielle et la robotique. Tesla affirme régulièrement que sa valeur future dépendra moins du nombre de voitures vendues que de sa capacité à construire des véhicules autonomes, des robotaxis et des robots humanoïdes.
+
+Le Cybercab représente précisément cette nouvelle vision.
+
+Contrairement au Cybertruck, il n’est pas pensé comme un véhicule traditionnel auquel Tesla aurait ajouté une motorisation électrique ou certaines capacités autonomes. Il est conçu dès le départ autour de l’idée qu’il pourrait fonctionner sans conducteur.
+
+C’est évidemment un pari loin d’être gagné.
+
+Tesla mène déjà certaines opérations limitées autour de ses robotaxis à Austin, mais la technologie reste sous surveillance réglementaire et doit encore démontrer qu’elle peut fonctionner à très grande échelle dans des environnements beaucoup plus variés. Transformer quelques véhicules autonomes opérant dans une zone définie en un réseau mondial de taxis sans conducteur représente un défi infiniment plus important que produire un nouveau modèle automobile.
+
+Mais c’est précisément ce qui rend la décision autour du Cybertruck révélatrice.
+
+Tesla préfère réduire un produit réel, déjà industrialisé et vendu à plusieurs dizaines de milliers d’exemplaires pour consacrer davantage de ressources à une technologie dont le potentiel économique est considérablement plus important, mais dont la réussite reste beaucoup plus incertaine.
+
+C’est presque une constante dans l’histoire de l’entreprise.
+
+Tesla accepte régulièrement de prendre des décisions qui paraîtraient extrêmement risquées pour un constructeur automobile traditionnel parce qu’elle se considère moins comme un constructeur que comme une entreprise technologique capable de changer brutalement de direction lorsqu’elle estime qu’une nouvelle opportunité est plus importante.
+
+Le Cybertruck restera probablement un véhicule particulièrement marquant. Son design a déjà influencé l’imaginaire automobile et il a réussi quelque chose que très peu de nouveaux modèles parviennent encore à faire : devenir immédiatement identifiable dans la rue.
+
+Mais être identifiable n’est pas la même chose qu’être massivement adopté.
+
+C’est peut-être la leçon la plus intéressante de son histoire.
+
+Dans la Tech, nous avons tendance à mesurer très rapidement le succès d’un produit à l’attention qu’il génère. Une keynote spectaculaire, plusieurs millions de vues, des centaines de milliers de réservations ou une immense quantité de conversations sur les réseaux peuvent donner l’impression qu’un marché est déjà acquis.
+
+Puis arrive une étape beaucoup plus banale : quelqu’un doit réellement acheter le produit.
+
+Le Cybertruck a parfaitement réussi la première partie.
+
+La seconde beaucoup moins.
+
+## OpenAI industrialise la recherche de vulnérabilités
+
+Deux semaines après PHP2Shell, la cybersécurité revient encore une fois dans l’actualité de l’intelligence artificielle.
+
+OpenAI a présenté cette semaine [GPT-6 Cyber](https://openai.com/fr-FR/index/introducing-gpt-6-cyber/), un modèle spécialisé dans la recherche de vulnérabilités, la création d’exploits et le développement de correctifs. L’entreprise le classe au niveau **Critical** en cybersécurité dans son propre Preparedness Framework, contre High pour GPT-5.6 Cyber. Son accès est donc fortement encadré et réservé aux chercheurs et organisations autorisés pour les workflows les plus sensibles.
+
+Les chiffres publiés donnent une idée assez impressionnante du changement d’échelle.
+
+Dans Firefox, les chercheurs d’OpenAI ont utilisé GPT-6 Cyber pour identifier **81 vulnérabilités inédites considérées comme étant de gravité élevée par Mozilla**. Le modèle a également montré que 30 problèmes déjà connus étaient plus graves qu’initialement estimé et a contribué à proposer des correctifs.
+
+Sur le noyau Linux, OpenAI a construit un pipeline beaucoup plus systématique. Le système a identifié 2 308 vulnérabilités potentielles, réussi à reproduire dynamiquement 1 724 d’entre elles puis développé **948 exploits fonctionnels d’élévation locale de privilèges**. OpenAI indique avoir signalé 304 problèmes critiques aux responsables de maintenance avec des propositions de correctifs.
+
+Ce qui mérite vraiment notre attention n’est peut-être pas le chiffre de 948 en lui-même.
+
+C’est la méthode.
+
+La recherche de vulnérabilités était historiquement une activité particulièrement artisanale. Un chercheur étudiait une application, repérait un comportement étrange, essayait de comprendre sa cause puis construisait éventuellement une preuve de concept permettant de démontrer son impact.
+
+Ces étapes demandent énormément de temps.
+
+OpenAI commence à montrer qu’une partie de cette recherche peut désormais être transformée en pipeline. Un agent analyse du code, identifie des pistes, essaie de reproduire les problèmes, vérifie s’ils sont exploitables puis peut proposer un correctif.
+
+Le coût publié donne aussi une idée intéressante de l’économie de cette approche : la campagne ayant produit les 948 exploits Linux aurait représenté environ **1,2 million de dollars de coûts API**. Quelques mois auparavant, GPT-5.6 Sol n’avait réussi à développer que 166 exploits avec le même environnement de recherche.
+
+Autrement dit, chaque nouvelle génération de modèle peut justifier de réexaminer du code pourtant déjà étudié.
+
+C’est à la fois extrêmement prometteur pour les défenseurs et assez inquiétant pour le reste de l’écosystème.
+
+Des logiciels comme Linux ou Firefox font partie des projets open source les plus observés et audités au monde. Si un nouveau modèle peut encore y trouver des dizaines ou centaines de faiblesses intéressantes, imagine ce qu’il peut découvrir dans les millions d’applications beaucoup moins surveillées.
+
+La question n’est donc progressivement plus de savoir si l’IA va transformer la recherche en vulnérabilités.
+
+Elle est de savoir qui bénéficiera le plus de cette industrialisation.
+
+## Microsoft donne aux agents des permissions qui peuvent changer en temps réel
+
+Plus les agents deviennent capables d’utiliser des applications, des fichiers et des bases de données, plus une vieille question de l’informatique revient au centre du débat : à quoi ont-ils réellement le droit d’accéder ?
+
+Microsoft vient de présenter [Dynamic Permissions](https://www.microsoft.com/en-us/security/blog/2026/11/05/whats-new-in-microsoft-security-november-2026/), un système conçu pour éviter de donner à un agent des autorisations permanentes beaucoup plus importantes que ce dont il a réellement besoin.
+
+Le fonctionnement repose sur un principe déjà très connu en cybersécurité : le **least privilege**. Un agent reçoit uniquement les permissions nécessaires pour accomplir sa tâche actuelle et seulement pendant la durée où elles sont nécessaires. Microsoft ajoute cependant une couche dynamique : son niveau de risque peut être réévalué pendant qu’il travaille. Si son comportement change ou qu’il commence à accéder à des ressources inattendues, le système peut réduire ses permissions, bloquer certains accès ou demander une validation humaine.
+
+L’idée paraît presque évidente lorsqu’on la formule ainsi.
+
+Mais elle montre à quel point les agents commencent à être traités comme une nouvelle catégorie d’acteurs dans les systèmes informatiques.
+
+Une entreprise possède déjà des identités pour ses salariés, ses applications, ses serveurs ou ses services automatisés. Chacune dispose de droits spécifiques et les équipes sécurité doivent pouvoir comprendre qui a accédé à quoi et pourquoi.
+
+Les agents ajoutent une difficulté supplémentaire : leur comportement n’est pas nécessairement entièrement déterminé à l’avance.
+
+Une application traditionnelle dispose généralement d’un ensemble limité de fonctions écrites par ses développeurs. Un agent peut choisir lui-même une partie des actions nécessaires pour atteindre son objectif. Les permissions ne peuvent donc pas uniquement être définies en fonction de l’application : elles doivent parfois évoluer selon ce que l’agent est en train de faire.
+
+Microsoft généralise également ses **Execution Containers**, qui permettent d’exécuter localement des agents dans un environnement isolé au niveau du système d’exploitation. Les fichiers, réseaux, processus et interactions accessibles peuvent être limités indépendamment du comportement du modèle.
+
+Nous retrouvons finalement exactement la même évolution que celle observée depuis plusieurs semaines chez NVIDIA, OpenAI ou Google.
+
+Au début, les agents étaient surtout une nouvelle capacité des modèles.
+
+Ils sont en train de devenir un problème d’infrastructure.
+
+## Alphabet mise sur Qualcomm pour diversifier les puces IA
+
+Pendant que NVIDIA continue de dominer massivement le marché des accélérateurs pour l’intelligence artificielle, les plus grands groupes technologiques cherchent presque tous des alternatives.
+
+Alphabet a révélé cette semaine avoir acquis environ [548 millions de dollars d’actions Qualcomm](https://www.reuters.com/business/alphabet-discloses-548-million-worth-qualcomm-stake-2026-11-06/). Le montant reste relativement limité à l’échelle du groupe, mais l’investissement intervient au moment où Qualcomm essaie précisément de sortir de son image historique de fournisseur de puces pour smartphones pour devenir un acteur important des datacenters IA.
+
+L’entreprise vise désormais environ **15 milliards de dollars de chiffre d’affaires dans les puces pour datacenters d’ici 2029**.
+
+Et elle commence à attirer des clients particulièrement importants.
+
+Amazon dispose d’un accord lui permettant d’acheter jusqu’à 60 milliards de dollars de puces IA et de produits associés auprès de Qualcomm, tandis que Microsoft et Meta ont également passé des commandes. Alphabet entretient déjà depuis longtemps des relations avec Qualcomm autour d’Android, des ordinateurs portables et de l’automobile.
+
+Le mouvement est intéressant parce qu’il montre que la bataille contre NVIDIA ne repose pas sur un concurrent unique.
+
+Google développe ses TPU.
+
+Amazon possède Trainium.
+
+Microsoft développe Maia.
+
+Plusieurs entreprises travaillent également avec AMD.
+
+Et Qualcomm essaie désormais de s’insérer dans cet écosystème avec sa propre architecture.
+
+Les géants du Cloud ne cherchent d’ailleurs pas nécessairement à faire disparaître NVIDIA. Ses GPU restent essentiels pour les modèles les plus avancés et son écosystème logiciel conserve une avance considérable.
+
+Leur objectif est plus pragmatique : éviter de dépendre d’un seul fournisseur pour une ressource devenue stratégique.
+
+Lorsque des dizaines de milliards de dollars de chiffre d’affaires Cloud dépendent directement de la quantité de puissance de calcul disponible, disposer d’une deuxième ou troisième source devient extrêmement précieux.
+
+La domination de NVIDIA peut donc continuer pendant longtemps tout en diminuant progressivement en proportion.
+
+Le marché de l’IA est simplement devenu suffisamment gigantesque pour que même une petite part représente déjà plusieurs milliards de dollars.
+
+## Quand ta voiture transmet suffisamment de données pour modifier ton assurance
+
+La dernière histoire de la semaine parle également de technologie, mais d’une manière beaucoup moins spectaculaire.
+
+General Motors va payer [220 millions de dollars](https://www.atg.wa.gov/news/news-releases/gm-pay-220m-sharing-drivers-private-data-case-co-led-washington) pour régler les accusations portées par une coalition de 36 procureurs généraux américains concernant son ancien programme **Smart Driver**. Les autorités reprochaient au constructeur d’avoir collecté puis partagé des informations détaillées sur la conduite et la localisation de millions d’utilisateurs sans avoir obtenu un consentement suffisamment clair. GM règle l'affaire sans reconnaître sa responsabilité.
+
+Les données pouvaient inclure la fréquence des trajets, leur heure de départ et d’arrivée, les accélérations ou freinages brusques et certains dépassements de vitesse.
+
+Elles étaient ensuite vendues à des courtiers en données, qui pouvaient les transmettre à des compagnies d’assurance. Pour certains conducteurs, ces informations auraient contribué à modifier le calcul de leurs primes.
+
+L’un des détails les plus problématiques concerne plus de **370 000 conducteurs** auxquels l’application OnStar aurait indiqué qu’ils n’étaient pas inscrits au programme Smart Driver alors que leur véhicule continuait en réalité à collecter et partager certaines informations.
+
+GM a arrêté Smart Driver après que ces pratiques ont été révélées et devra désormais obtenir un consentement explicite avant de collecter ou partager ce type de données. L’accord prévoit également de nouvelles obligations en matière de protection des informations personnelles.
+
+Cette affaire illustre parfaitement la transformation silencieuse de l’automobile.
+
+Une voiture moderne n’est plus seulement composée d’un moteur, d’un châssis et de quelques calculateurs.
+
+C’est un ordinateur mobile rempli de capteurs.
+
+Elle connaît sa position, sa vitesse, ses accélérations, les trajets qu’elle réalise et parfois énormément d’informations sur les personnes qui l’utilisent. Avec les véhicules électriques, les applications mobiles et les services connectés, la quantité de données disponibles ne fait qu’augmenter.
+
+Ces informations peuvent évidemment avoir énormément d’utilité. Elles permettent d’améliorer la maintenance, détecter certains problèmes, proposer de nouveaux services ou comprendre la manière dont un véhicule est réellement utilisé.
+
+Mais leur valeur intéresse également beaucoup d’autres acteurs.
+
+Une compagnie d’assurance peut vouloir connaître précisément la manière dont une personne conduit. Un annonceur peut s’intéresser aux lieux qu’elle fréquente. Un courtier peut agréger ces données avec celles provenant d’autres sources.
+
+Et contrairement à un téléphone, une voiture est généralement achetée pour plusieurs dizaines de milliers d’euros avec l’idée qu’elle nous appartient réellement.
+
+Cette différence rend la question particulièrement sensible.
+
+Nous avons progressivement accepté que nos smartphones collectent énormément d’informations parce que leur modèle économique et leurs applications sont devenus intimement liés aux données. Nous sommes beaucoup moins habitués à découvrir qu’un produit physique que nous avons acheté peut lui aussi devenir une source permanente de données revendues à des tiers.
+
+À mesure que les véhicules deviennent plus intelligents et connectés, la question ne sera donc pas uniquement de savoir ce qu’ils peuvent faire.
+
+Il faudra aussi savoir ce qu’ils savent sur nous.
+
+## Pourquoi ça compte pour les gens de la Tech
+
+Parce que cette semaine montre assez bien une nouvelle étape de maturité.
+
+Pendant longtemps, la Tech valorisait surtout la capacité à repousser une limite. Construire une voiture différente, créer un modèle plus puissant, fabriquer une nouvelle puce ou connecter davantage d’objets suffisait souvent à définir le progrès.
+
+Une fois ces technologies déployées dans le monde réel, les critères changent.
+
+Un produit peut attirer énormément d’attention et ne pas trouver suffisamment d’acheteurs. Un modèle peut être tellement performant en cybersécurité qu’il devient nécessaire de limiter son accès. Un agent peut être extrêmement utile uniquement si son environnement est capable de contrôler précisément ce qu’il a le droit de faire.
+
+Un constructeur peut collecter énormément de données simplement parce que ses véhicules en sont techniquement capables, puis découvrir que la question du consentement devient beaucoup plus importante que la facilité avec laquelle ces informations peuvent être monétisées.
+
+Même la bataille autour des puces commence à évoluer de cette manière. NVIDIA possède la meilleure position actuelle, mais les entreprises qui dépendent de son matériel cherchent naturellement à réduire cette dépendance en construisant plusieurs alternatives.
+
+La technologie ne disparaît pas.
+
+Elle rencontre simplement les contraintes qui apparaissent lorsqu’elle devient suffisamment importante pour entrer dans le quotidien de millions de personnes et dans les infrastructures de milliers d’entreprises.
+
+Le marché.
+
+La sécurité.
+
+Les permissions.
+
+La concurrence.
+
+La vie privée.
+
+Ce sont des sujets beaucoup moins spectaculaires qu’une keynote.
+
+Mais ils finissent souvent par décider quelles technologies survivent réellement.
+
+## Ce qu’on retient de la semaine
+
+Le Cybertruck résume probablement assez bien cette édition.
+
+Tesla avait réussi à créer quelque chose que presque aucune entreprise automobile ne parvient encore à produire : un véhicule immédiatement reconnaissable, débattu dans le monde entier et entouré d’une quantité gigantesque d’attention plusieurs années avant même sa commercialisation.
+
+Cela n’a pas suffi à créer un marché de 250 000 véhicules par an.
+
+Tesla préfère maintenant déplacer une partie de ses ressources vers le Cybercab et faire un nouveau pari, cette fois sur l’autonomie.
+
+Pendant ce temps, OpenAI démontre que la recherche de vulnérabilités peut devenir beaucoup plus systématique, Microsoft construit les mécanismes permettant de contrôler les agents qui vont accéder à nos systèmes, Alphabet investit dans une nouvelle alternative potentielle à NVIDIA et General Motors rappelle qu’un produit connecté peut produire autant de questions autour des données qu’autour de ses fonctionnalités.
+
+Toutes ces histoires racontent finalement la même chose.
+
+Créer une technologie impressionnante est une première étape.
+
+La rendre économiquement viable, contrôlable, sécurisée et acceptable en est une autre.
+
+Et plus la Tech entre profondément dans nos entreprises, nos voitures et nos vies quotidiennes, plus cette deuxième partie devient importante.

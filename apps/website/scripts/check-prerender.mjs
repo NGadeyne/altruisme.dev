@@ -249,31 +249,32 @@ for (const path of [...prerenderPaths, '/404']) {
     assert.equal(document.querySelector('.media-feature'), null)
     assert.equal(
       document.querySelector('.media-news-list .media-arrow-link')?.getAttribute('href'),
-      '/actualites/semaine-44-2026',
+      '/actualites/semaine-45-2026',
     )
     assert.equal(document.querySelector('.media-resource .base-button')?.getAttribute('href'), '/checklist')
     assert.equal(document.querySelectorAll('nav[aria-label="Navigation principale"] a[href="/checklist"]').length, 1)
   }
   if (path === '/actualites') {
-    assert.equal(document.querySelectorAll('main article').length, 6)
+    assert.equal(document.querySelectorAll('main article').length, 7)
     assert.equal(document.querySelector('main h1')?.textContent.trim(), 'Actu Tech de la semaine')
     assert.equal(
       document.querySelector('main article h2')?.textContent.trim(),
-      'Actu Tech de la semaine #44 : la facture de l’IA rattrape Big Tech',
+      'Actu Tech de la semaine #45 : Tesla enterre son pari Cybertruck',
     )
     assert.equal(document.querySelector('main article img'), null)
     assert.equal(
       document.querySelector('main article a')?.getAttribute('href'),
-      '/actualites/semaine-44-2026',
+      '/actualites/semaine-45-2026',
     )
     assert.equal(document.querySelectorAll('script[type="application/ld+json"]').length, 0)
   }
-  if (['/actualites/semaine-39-2026', '/actualites/semaine-40-2026', '/actualites/semaine-41-2026', '/actualites/semaine-42-2026', '/actualites/semaine-43-2026', '/actualites/semaine-44-2026'].includes(path)) {
+  if (['/actualites/semaine-39-2026', '/actualites/semaine-40-2026', '/actualites/semaine-41-2026', '/actualites/semaine-42-2026', '/actualites/semaine-43-2026', '/actualites/semaine-44-2026', '/actualites/semaine-45-2026'].includes(path)) {
     const publishedAt = path.endsWith('semaine-39-2026') ? '2026-09-26'
       : path.endsWith('semaine-40-2026') ? '2026-10-02'
         : path.endsWith('semaine-41-2026') ? '2026-10-10'
           : path.endsWith('semaine-42-2026') ? '2026-10-17'
-            : path.endsWith('semaine-43-2026') ? '2026-10-23' : '2026-10-31'
+            : path.endsWith('semaine-43-2026') ? '2026-10-23'
+              : path.endsWith('semaine-44-2026') ? '2026-10-31' : '2026-11-07'
     const canonical = document.querySelector('link[rel="canonical"]')?.getAttribute('href')
     assert.equal(document.querySelectorAll('link[rel="canonical"]').length, 1, path)
     assert.equal(document.querySelectorAll('script[type="application/ld+json"]').length, 1, path)
@@ -324,6 +325,42 @@ for (const path of [...prerenderPaths, '/404']) {
       assert.equal(tags.length, 1, `${property}: ${path}`)
       assert.equal(tags[0].content, publishedAt)
     }
+  }
+  if (path === '/actualites/semaine-45-2026') {
+    const source = await readFile(resolve('src/content/news/actu-tech-semaine-45-2026.txt'), 'utf8')
+    const publishedBlocks = [...document.querySelectorAll('.news-body h2, .news-body p')]
+      .map((element) => element.textContent.trim())
+    assert.deepEqual(
+      publishedBlocks,
+      source.trim().split(/\r?\n\s*\r?\n/).map((block) =>
+        block.replace(/^## /, '').replace(/\[([^\]]+)\]\((?:https?:\/\/|\/)[^)]+\)/g, '$1').replace(/\*\*|`/g, '').replace(/\r?\n/g, ' '),
+      ),
+    )
+    assert.equal(document.title, 'Actu Tech semaine #45 : Tesla enterre son pari Cybertruck')
+    assert.equal(document.querySelector('meta[name="description"]').content,
+      'Tesla réduit le Cybertruck, OpenAI muscle la cybersécurité, Microsoft encadre les agents et Google mise sur Qualcomm : l’actu Tech de la semaine #45.')
+    assert.equal(document.querySelector('meta[property="og:title"]').content,
+      'Actu Tech de la semaine #45 : Tesla enterre son pari Cybertruck')
+    assert.equal(document.querySelector('meta[property="og:description"]').content,
+      'Tesla prépare la fin du Cybertruck, OpenAI industrialise la recherche de vulnérabilités et Microsoft renforce les permissions des agents IA.')
+    assert.equal(document.querySelector('meta[property="og:image:alt"]').content,
+      'Actu Tech de la semaine #45 — Altruisme.DEV')
+    assert.equal(document.querySelector('main img')?.getAttribute('src'),
+      '/images/news/actu-tech-semaine-45-2026.webp')
+    assert.equal(document.querySelector('main img')?.getAttribute('alt'),
+      'Actu Tech de la semaine #45 : Tesla enterre son pari Cybertruck')
+    assert.deepEqual(
+      [...document.querySelectorAll('.news-body a')].map((link) => [link.textContent, link.href, link.target, link.rel]),
+      [
+        ['mi-2027', 'https://www.reuters.com/business/autos-transportation/tesla-wind-down-cybertruck-production-texas-gigafactory-next-year-musk-says-2026-11-06/', '_blank', 'noopener noreferrer'],
+        ['GPT-6 Cyber', 'https://openai.com/fr-FR/index/introducing-gpt-6-cyber/', '_blank', 'noopener noreferrer'],
+        ['Dynamic Permissions', 'https://www.microsoft.com/en-us/security/blog/2026/11/05/whats-new-in-microsoft-security-november-2026/', '_blank', 'noopener noreferrer'],
+        ['548 millions de dollars d’actions Qualcomm', 'https://www.reuters.com/business/alphabet-discloses-548-million-worth-qualcomm-stake-2026-11-06/', '_blank', 'noopener noreferrer'],
+        ['220 millions de dollars', 'https://www.atg.wa.gov/news/news-releases/gm-pay-220m-sharing-drivers-private-data-case-co-led-washington', '_blank', 'noopener noreferrer'],
+      ],
+    )
+    assert.equal(document.querySelector('nav[aria-label="Navigation entre les éditions"] a')?.getAttribute('href'),
+      '/actualites/semaine-44-2026')
   }
   if (path === '/actualites/semaine-44-2026') {
     const source = await readFile(resolve('src/content/news/actu-tech-semaine-44-2026.txt'), 'utf8')

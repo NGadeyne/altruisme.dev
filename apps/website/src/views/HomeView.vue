@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { BaseButton, BaseContainer } from '@altruisme/ui'
 import { featuredGuides } from '@/data/site'
-import { week43 } from '@/content/news/week43Metadata'
 import { week44 } from '@/content/news/week44Metadata'
+import { week45 } from '@/content/news/week45Metadata'
 
+const week45Path = `/actualites/${week45.slug}`
 const week44Path = `/actualites/${week44.slug}`
-const week43Path = `/actualites/${week43.slug}`
 const publishedGuideCount = featuredGuides.filter((guide) => guide.status === 'available').length
 const upcomingGuideCount = featuredGuides.length - publishedGuideCount
 const secondaryGuides = featuredGuides.slice(2)
@@ -61,7 +61,7 @@ const topics = ['Produit', 'SaaS', 'IA', 'Automatisation', 'Freelance', 'ESN', '
             </p>
             <div class="media-hero-actions">
               <div class="media-button-row">
-                <BaseButton :to="week44Path" size="large">Lire l’édition de la semaine</BaseButton>
+                <BaseButton :to="week45Path" size="large">Lire l’édition de la semaine</BaseButton>
                 <BaseButton to="/guides" variant="secondary" size="large">Explorer les guides</BaseButton>
               </div>
               <div class="media-topics">
@@ -102,6 +102,15 @@ const topics = ['Produit', 'SaaS', 'IA', 'Automatisation', 'Freelance', 'ESN', '
           </div>
           <div class="media-news-list">
             <article class="media-news-story">
+              <span class="media-news-number" aria-hidden="true">#45</span>
+              <div class="media-news-copy">
+                <p class="media-eyebrow">{{ week45.format }}</p>
+                <h3>{{ week45.title }}</h3>
+                <p>{{ week45.excerpt }}</p>
+              </div>
+              <RouterLink :to="week45Path" class="media-arrow-link" :aria-label="`Lire ${week45.editorialTitle}`">↗</RouterLink>
+            </article>
+            <article class="media-news-story">
               <span class="media-news-number" aria-hidden="true">#44</span>
               <div class="media-news-copy">
                 <p class="media-eyebrow">{{ week44.format }}</p>
@@ -109,15 +118,6 @@ const topics = ['Produit', 'SaaS', 'IA', 'Automatisation', 'Freelance', 'ESN', '
                 <p>{{ week44.excerpt }}</p>
               </div>
               <RouterLink :to="week44Path" class="media-arrow-link" :aria-label="`Lire ${week44.editorialTitle}`">↗</RouterLink>
-            </article>
-            <article class="media-news-story">
-              <span class="media-news-number" aria-hidden="true">#43</span>
-              <div class="media-news-copy">
-                <p class="media-eyebrow">{{ week43.format }}</p>
-                <h3>{{ week43.title }}</h3>
-                <p>{{ week43.excerpt }}</p>
-              </div>
-              <RouterLink :to="week43Path" class="media-arrow-link" :aria-label="`Lire ${week43.editorialTitle}`">↗</RouterLink>
             </article>
           </div>
         </div>

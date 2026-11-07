@@ -10,6 +10,7 @@ import { week41 } from '@/content/news/week41Metadata'
 import { week42 } from '@/content/news/week42Metadata'
 import { week43 } from '@/content/news/week43Metadata'
 import { week44 } from '@/content/news/week44Metadata'
+import { week45 } from '@/content/news/week45Metadata'
 
 export const routes: RouteRecordRaw[] = [
   {
@@ -94,6 +95,27 @@ export const routes: RouteRecordRaw[] = [
       title: 'Actualités tech de la semaine | Altruisme.DEV',
       description:
         'Une sélection hebdomadaire des actualités produit, SaaS, IA, automatisation, freelance et entreprises tech, expliquées avec du contexte.',
+    },
+  },
+  {
+    path: `/actualites/${week45.slug}`,
+    name: 'news-week-45',
+    component: () => import('../views/news/Week45View.vue'),
+    meta: {
+      title: 'Actu Tech semaine #45 : Tesla enterre son pari Cybertruck',
+      description:
+        'Tesla réduit le Cybertruck, OpenAI muscle la cybersécurité, Microsoft encadre les agents et Google mise sur Qualcomm : l’actu Tech de la semaine #45.',
+      ogTitle: week45.title,
+      ogDescription:
+        'Tesla prépare la fin du Cybertruck, OpenAI industrialise la recherche de vulnérabilités et Microsoft renforce les permissions des agents IA.',
+      image: week45.image,
+      imageAlt: week45.imageAlt,
+      ogImageAlt: 'Actu Tech de la semaine #45 — Altruisme.DEV',
+      article: true,
+      articleSection: week45.format,
+      publishedAt: week45.publishedAt,
+      modifiedAt: week45.modifiedAt,
+      author: week45.author,
     },
   },
   {
