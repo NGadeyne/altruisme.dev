@@ -11,7 +11,7 @@ function openCookieSettings() {
   <LegalPageLayout
     title="Gestion des cookies"
     description="Cette page explique comment Altruisme.DEV utilise les cookies et autres traceurs, ainsi que la manière dont tu peux gérer tes préférences."
-    updated-at="19 août 2026"
+    updated-at="9 novembre 2026"
   >
     <!-- Introduction -->
     <section>
@@ -117,21 +117,21 @@ function openCookieSettings() {
               <h3>Mesure d’audience</h3>
 
               <p class="mt-2 text-sm leading-6 text-[#64706c]">
-                Altruisme.DEV peut utiliser un outil de mesure d’audience afin de comprendre comment
-                le site est utilisé et d’améliorer son contenu.
+                Google Analytics mesure les visites via Google Tag Manager pour nous aider à comprendre
+                comment le site est utilisé et à améliorer son contenu. Le conteneur est chargé uniquement
+                si tu autorises cette catégorie.
               </p>
             </div>
 
             <span
               class="w-fit shrink-0 rounded-full border border-[#4f7774]/15 bg-white/55 px-3 py-1 text-xs font-semibold text-[#64706c]"
             >
-              Selon l’outil utilisé
+              Selon ton choix
             </span>
           </div>
 
           <p class="mt-4 text-sm leading-6 text-[#78827e]">
-            Si un outil de mesure d’audience nécessitant ton consentement est utilisé, il sera
-            ajouté aux préférences disponibles dans le gestionnaire de cookies.
+            Tu peux modifier ce choix à tout moment dans le gestionnaire de cookies.
           </p>
         </article>
       </div>

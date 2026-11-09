@@ -6,7 +6,7 @@ import LegalPageLayout from '@/components/legal/LegalPageLayout.vue'
   <LegalPageLayout
     title="Politique de confidentialité"
     description="Cette politique explique quelles données personnelles peuvent être collectées sur Altruisme.DEV et comment elles sont utilisées."
-    updated-at="26 septembre 2026"
+    updated-at="9 novembre 2026"
   >
     <section>
       <h2>1. Responsable du traitement</h2>
@@ -105,7 +105,7 @@ import LegalPageLayout from '@/components/legal/LegalPageLayout.vue'
                 Comprendre l’utilisation du site et améliorer son fonctionnement
               </td>
 
-              <td class="py-4">Consentement lorsqu’il est requis</td>
+              <td class="py-4">Consentement</td>
             </tr>
             <tr>
               <td class="py-4 pr-6">Publicité et mesure des conversions</td>
@@ -137,6 +137,7 @@ import LegalPageLayout from '@/components/legal/LegalPageLayout.vue'
           <li>le prestataire d’hébergement du site ;</li>
           <li>Brevo pour la gestion des contacts inscrits aux contenus par email ;</li>
           <li>Meta lorsque tu autorises la publicité et la mesure des conversions ;</li>
+          <li>Google lorsque tu autorises la mesure d’audience via Google Analytics ;</li>
           <li>les futurs prestataires de paiement ou autres services utilisés.</li>
         </ul>
       </div>

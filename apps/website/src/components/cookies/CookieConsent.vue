@@ -9,7 +9,7 @@ import {
 const { hasConsent, loadPreferences, preferences, savePreferences } = useCookieConsent()
 const isVisible = ref(false)
 const showSettings = ref(false)
-const draftPreferences = ref<CookiePreferences>({ external: false, marketing: false })
+const draftPreferences = ref<CookiePreferences>({ external: false, marketing: false, analytics: false })
 
 function openBanner(settings = false) {
   draftPreferences.value = { ...preferences.value }
@@ -26,12 +26,14 @@ function save() {
 function acceptAll() {
   draftPreferences.value.external = true
   draftPreferences.value.marketing = true
+  draftPreferences.value.analytics = true
   save()
 }
 
 function rejectOptionalContent() {
   draftPreferences.value.external = false
   draftPreferences.value.marketing = false
+  draftPreferences.value.analytics = false
   save()
 }
 
@@ -69,7 +71,7 @@ onBeforeUnmount(() => {
               Ton choix, tes cookies.
             </p>
             <p class="mt-2 max-w-2xl text-sm leading-6 text-[#46504d]">
-              Les contenus externes (Brevo, YouTube, Calendly) et le pixel Meta ne sont chargés qu’avec ton accord.
+              Les contenus externes (Brevo, YouTube, Calendly), le pixel Meta et Google Analytics ne sont chargés qu’avec ton accord.
               Les éléments nécessaires au fonctionnement du site restent actifs.
             </p>
             <RouterLink
@@ -126,6 +128,22 @@ onBeforeUnmount(() => {
                 >Toujours actifs</span
               >
             </div>
+
+            <label
+              class="flex cursor-pointer items-center justify-between gap-6 rounded-2xl border border-[#4f7774]/15 bg-white/50 p-5"
+            >
+              <span>
+                <span class="block text-sm font-semibold text-[#222826]">Mesure d’audience</span>
+                <span class="mt-1 block text-sm leading-6 text-[#46504d]"
+                  >Autorise Google Analytics à mesurer les visites via Google Tag Manager.</span
+                >
+              </span>
+              <input
+                v-model="draftPreferences.analytics"
+                type="checkbox"
+                class="h-5 w-5 shrink-0 accent-[#31413f]"
+              />
+            </label>
 
             <label
               class="flex cursor-pointer items-center justify-between gap-6 rounded-2xl border border-[#4f7774]/15 bg-white/50 p-5"

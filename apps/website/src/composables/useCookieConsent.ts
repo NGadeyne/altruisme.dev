@@ -3,6 +3,7 @@ import { ref } from 'vue'
 export type CookiePreferences = {
   external: boolean
   marketing: boolean
+  analytics: boolean
 }
 
 type StoredCookiePreferences = CookiePreferences & {
@@ -14,10 +15,10 @@ export const COOKIE_CONSENT_EVENT = 'cookie-consent-updated'
 export const OPEN_COOKIE_SETTINGS_EVENT = 'open-cookie-settings'
 
 const STORAGE_KEY = 'acquisition-cookie-consent'
-const CONSENT_VERSION = 2
+const CONSENT_VERSION = 3
 const CONSENT_DURATION_MS = 6 * 30 * 24 * 60 * 60 * 1000
 
-const preferences = ref<CookiePreferences>({ external: false, marketing: false })
+const preferences = ref<CookiePreferences>({ external: false, marketing: false, analytics: false })
 const hasConsent = ref(false)
 const isLoaded = ref(false)
 
@@ -28,9 +29,10 @@ function isStoredPreference(value: unknown): value is StoredCookiePreferences {
   const updatedAt = typeof stored.updatedAt === 'string' ? Date.parse(stored.updatedAt) : Number.NaN
 
   return (
-    stored.version === CONSENT_VERSION &&
+    (stored.version === 2 || stored.version === CONSENT_VERSION) &&
     typeof stored.external === 'boolean' &&
     typeof stored.marketing === 'boolean' &&
+    (stored.version === 2 || typeof stored.analytics === 'boolean') &&
     Number.isFinite(updatedAt) &&
     Date.now() - updatedAt >= 0 &&
     Date.now() - updatedAt < CONSENT_DURATION_MS
@@ -53,7 +55,11 @@ export function useCookieConsent() {
         return
       }
 
-      preferences.value = { external: parsed.external, marketing: parsed.marketing }
+      preferences.value = {
+        external: parsed.external,
+        marketing: parsed.marketing,
+        analytics: parsed.version === CONSENT_VERSION ? parsed.analytics : false,
+      }
       hasConsent.value = true
     } catch {
       try {
@@ -73,6 +79,7 @@ export function useCookieConsent() {
       version: CONSENT_VERSION,
       external: preferences.value.external,
       marketing: preferences.value.marketing,
+      analytics: preferences.value.analytics,
       updatedAt: new Date().toISOString(),
     }
 
