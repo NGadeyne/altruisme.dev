@@ -4,6 +4,7 @@ import type { User } from '@supabase/supabase-js'
 
 import { supabase } from '@/lib/supabase'
 import { hasCourseAccess } from '@/services/courseAccess'
+import { clearProtectedAssets, syncProtectedAssets } from '@/services/protectedAssets'
 
 type SeoAccessStatus = 'unknown' | 'granted' | 'denied' | 'error'
 
@@ -39,6 +40,13 @@ export const useAuthStore = defineStore('auth', () => {
       checkedUserId === userId &&
       (seoAccessStatus.value === 'granted' || seoAccessStatus.value === 'denied')
     ) {
+      if (seoAccessStatus.value === 'granted') {
+        try {
+          await syncProtectedAssets()
+        } catch {
+          seoAccessStatus.value = 'error'
+        }
+      }
       return seoAccessStatus.value
     }
 
@@ -46,7 +54,12 @@ export const useAuthStore = defineStore('auth', () => {
     seoAccessStatus.value = 'unknown'
     const request = (async (): Promise<SeoAccessStatus> => {
       try {
+        const { error: claimError } = await supabase.rpc('learn_claim_paid_checkouts')
+        if (claimError) throw claimError
         const granted = await hasCourseAccess(userId, 'seo')
+        if (user.value?.id !== userId) return 'unknown'
+        if (granted) await syncProtectedAssets()
+        else await clearProtectedAssets()
         if (user.value?.id !== userId) return 'unknown'
         seoAccessStatus.value = granted ? 'granted' : 'denied'
       } catch {
@@ -114,7 +127,27 @@ export const useAuthStore = defineStore('auth', () => {
     if (data.user) setUser(data.user)
   }
 
+  async function sendEmailCode(email: string) {
+    const { error } = await supabase.auth.signInWithOtp({
+      email,
+      options: { shouldCreateUser: true },
+    })
+    if (error) throw error
+  }
+
+  async function verifyEmailCode(email: string, token: string) {
+    const { data, error } = await supabase.auth.verifyOtp({ email, token, type: 'email' })
+    if (error) throw error
+    if (!data.user || !data.session) throw new Error('Code non validé. Réessaie.')
+    setUser(data.user)
+  }
+
   async function logout() {
+    try {
+      await clearProtectedAssets()
+    } catch {
+      // Supabase sign-out must still run if the asset worker is unavailable.
+    }
     const { error } = await supabase.auth.signOut()
 
     if (error) {
@@ -133,6 +166,8 @@ export const useAuthStore = defineStore('auth', () => {
     login,
     resendConfirmation,
     setPassword,
+    sendEmailCode,
+    verifyEmailCode,
     logout,
     refreshSeoAccess,
   }

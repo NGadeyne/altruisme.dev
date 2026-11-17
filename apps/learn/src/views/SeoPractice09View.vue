@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import SeoFurtherReading from '@/components/courses/SeoFurtherReading.vue'
 import BaseContainer from '@/components/ui/BaseContainer.vue'
 import { getSeoPracticeMinutes } from '@/data/seoProgram'
 const practiceMinutes = getSeoPracticeMinutes(9)
@@ -254,6 +255,7 @@ const practiceMinutes = getSeoPracticeMinutes(9)
           </div>
         </section>
       </article>
+      <SeoFurtherReading :module-number="9" />
     </div>
   </BaseContainer>
 </template>

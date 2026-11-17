@@ -2,6 +2,7 @@
 import { computed, nextTick, onMounted, ref } from 'vue'
 
 import SeoCourseRoadmap from '@/components/courses/SeoCourseRoadmap.vue'
+import SeoModuleVideo from '@/components/courses/SeoModuleVideo.vue'
 import BaseContainer from '@/components/ui/BaseContainer.vue'
 import UnavailableLinkIcon from '@/components/ui/UnavailableLinkIcon.vue'
 import { useSeoModuleProgress } from '@/composables/useSeoModuleProgress'
@@ -134,6 +135,11 @@ function practiceRoute(number: number) {
           :class="isModuleOpen(module.number) ? 'flex' : 'hidden sm:flex'"
         >
           <p class="mt-3 text-sm leading-6 text-muted">{{ module.description }}</p>
+          <SeoModuleVideo
+            :module-number="module.number"
+            :module-title="module.title"
+            :video-id="module.videoId"
+          />
           <ol class="mt-6 divide-y divide-petrol/10 border-t border-petrol/10">
             <li
               v-for="lesson in module.lessons"

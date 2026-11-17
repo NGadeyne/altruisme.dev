@@ -10,7 +10,6 @@ import {
   workshopsAvailable,
 } from '@/config/features'
 import publicPages from '@/data/publicPages.json'
-import { getLearningPlanCourse } from '@/data/learningPlanCourses'
 import { getSeoLessonBySlug, getSeoLessonSlug } from '@/data/seoProgram'
 
 const router = createRouter({
@@ -30,6 +29,13 @@ const router = createRouter({
     {
       path: '/inscription',
       redirect: { name: 'checkout' },
+    },
+
+    {
+      path: '/recuperer-acces',
+      name: 'recover-access',
+      component: () => import('@/views/RecoverAccessView.vue'),
+      meta: { public: true, layout: 'auth' },
     },
 
     {
@@ -56,6 +62,16 @@ const router = createRouter({
       path: '/paiement',
       name: 'checkout',
       component: () => import('@/views/CheckoutView.vue'),
+      meta: {
+        public: true,
+        layout: 'auth',
+      },
+    },
+
+    {
+      path: '/paiement/confirmation',
+      name: 'checkout-confirmation',
+      component: () => import('@/views/CheckoutConfirmationView.vue'),
       meta: {
         public: true,
         layout: 'auth',
@@ -371,8 +387,9 @@ router.beforeEach(async (to) => {
     return { name: 'dashboard' }
   }
 
-  if (to.name === 'learning-plan' && !getLearningPlanCourse(String(to.meta.courseSlug))) {
-    return { name: 'dashboard' }
+  if (to.name === 'learning-plan') {
+    const { getLearningPlanCourse } = await import('@/data/learningPlanCourses')
+    if (!getLearningPlanCourse(String(to.meta.courseSlug))) return { name: 'dashboard' }
   }
 
   if (to.name === 'seo-lesson') {

@@ -38,6 +38,10 @@ describe('progression de la formation SEO', () => {
     const wrapper = mountDashboard()
     await flushPromises()
 
+    expect(wrapper.findAll('section[aria-label^="Vidéo du module"]')).toHaveLength(10)
+    expect(wrapper.findAll('section[aria-label^="Vidéo du module"] iframe')).toHaveLength(0)
+    expect(wrapper.text()).toContain('La vidéo du module 1 est en préparation.')
+
     const moduleToggles = wrapper.findAll('button[aria-controls^="module-content-"]')
     expect(moduleToggles).toHaveLength(10)
     expect(moduleToggles[0]!.attributes('aria-expanded')).toBe('false')

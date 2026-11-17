@@ -55,20 +55,63 @@ reçoivent aucun droit par défaut ; un processus de confiance devra leur
 attribuer ce droit après achat.
 
 Le routeur protège la navigation, mais les fichiers JavaScript de la formation
-restent publics. Avant la vente, servir le contenu payant depuis un point d'accès
-contrôlé côté serveur et étendre les politiques RLS aux données de cours privées.
+restent publics tant que le Worker et les nouvelles politiques RLS ne sont pas
+déployés. Les étapes de publication sont suivies dans `STRIPE_INTEGRATION_TODO.md`.
 
-## Parcours d'achat (front seulement)
+## Achat Stripe et création du compte
 
 Les liens d'achat publics mènent à `/paiement` sans demander de compte Learn.
-Cette page présente le récapitulatif, mais son bouton de paiement est inactif :
-aucune session Stripe, aucun webhook et aucune création automatique de compte
-après achat ne sont encore implémentés. L'ancienne route `/inscription` renvoie
-vers `/paiement`.
+La fonction `learn-checkout` crée une session Stripe Checkout à 27 € TTC pour la
+formation SEO. Le webhook `learn-stripe-webhook` vérifie la signature Stripe, le
+paiement, le montant et la formation. Pour une adresse déjà confirmée, il
+enregistre l'achat et accorde le droit `seo`. Sinon, il conserve l'achat en
+attente jusqu'à la vérification de l'adresse e-mail. Une livraison répétée du
+webhook ne crée pas de second achat. La page `/paiement/confirmation` vérifie
+la session auprès de Stripe par `learn-claim-checkout`, avec un jeton conservé
+dans l'onglet ayant lancé Checkout. Un nouveau client reçoit un code e-mail,
+le saisit sur cette page, choisit son mot de passe et ouvre la formation.
+`/recuperer-acces` permet de terminer ce parcours si l'onglet a été perdu.
+Le même service peut enregistrer un paiement validé si le retour du navigateur
+précède le webhook. Un compte existant garde son mot de passe.
+L'ancienne route `/inscription` renvoie vers `/paiement`.
 
-À l'intégration du paiement, le compte devra être créé ou retrouvé et le droit
-`seo` accordé uniquement après confirmation du paiement côté serveur. L'acheteur
-recevra ensuite un lien sécurisé pour activer son compte ou se connecter.
+Configuration et vérifications :
+
+1. Appliquer les migrations existantes, puis
+   `migrations/202611110001_course_data_entitlements.sql` et
+   `migrations/202611110002_checkout_email_claim.sql` au projet Supabase Learn.
+2. Déployer `learn-checkout`, `learn-stripe-webhook` et `learn-claim-checkout` depuis `apps/learn/supabase`
+   avec la vérification JWT désactivée, comme indiqué dans `config.toml`.
+3. Configurer `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET` et `LEARN_SITE_URL`
+   dans les secrets des Edge Functions. `LEARN_SITE_URL` vaut l'origine de Learn,
+   par exemple `https://learn.altruisme.dev` (ou `http://localhost:5173` en local).
+   La fonction webhook utilise également `SUPABASE_URL` et la clé secrète
+   Supabase disponible dans l'environnement Edge Functions.
+4. Déclarer dans Stripe un endpoint webhook vers
+   `https://<project-ref>.supabase.co/functions/v1/learn-stripe-webhook`, abonné
+   à `checkout.session.completed`. Utiliser le secret propre à cet endpoint.
+5. Configurer le modèle Magic Link / Email OTP de Supabase Auth avec `{{ .Token }}`
+   et vérifier l'envoi SMTP. Conserver `/activation` pour les anciennes invitations.
+6. Tester avec Stripe en mode test : nouvel e-mail, compte existant, paiement
+   annulé, onglet perdu, code e-mail erroné, jeton erroné, signature invalide et
+   livraison répétée du webhook. Vérifier que le droit n'apparaît qu'après
+   `payment_status=paid` et confirmation de l'adresse e-mail.
+
+Stripe ne vérifie pas que l'acheteur possède l'adresse e-mail saisie pendant
+Checkout. Le code e-mail prouve que le nouvel apprenant contrôle cette adresse
+avant de créer son mot de passe et de réclamer l'achat en attente.
+
+Le prix de 27 € TTC est défini côté serveur et vérifié dans le webhook. Ce dernier
+accepte aussi les sessions à 97 € créées avant le changement de tarif pour que
+les achats déjà lancés puissent être finalisés. La page `/paiement` affiche le
+tarif actuel.
+Les paramètres fiscaux, reçus et moyens de paiement doivent
+être vérifiés dans la configuration du compte Stripe avant une mise en vente.
+
+Les contenus payants sont placés dans des fichiers JavaScript protégés par le
+Worker Cloudflare de Learn. Leur accès dépend d'un droit `seo` courant ; un
+ancien build ou un document tiers partagé publiquement nécessite une vérification
+distincte avant publication.
 
 ## Activation par invitation Supabase
 
@@ -86,8 +129,9 @@ ce compte. Ajouter cette URL, ainsi que
 Supabase Auth. L'invitation doit être envoyée par un service de confiance ou
 depuis le tableau de bord Supabase : ne jamais utiliser de clé secrète dans
 le navigateur. Si le lien a expiré, l'interface propose de demander un nouvel
-envoi par e-mail à l'équipe Learn. Son renvoi automatique reste à intégrer au
-futur service après achat.
+envoi par e-mail à l'équipe Learn. Ce parcours est conservé pour les anciennes
+invitations et les invitations manuelles ; il n'est plus utilisé pour un nouvel
+achat Stripe.
 
 ## Ancienne confirmation de l'e-mail
 

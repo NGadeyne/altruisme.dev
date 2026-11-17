@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import SeoFurtherReading from '@/components/courses/SeoFurtherReading.vue'
 import BaseContainer from '@/components/ui/BaseContainer.vue'
 import { getSeoPracticeMinutes } from '@/data/seoProgram'
 
@@ -167,9 +168,9 @@ const practiceMinutes = getSeoPracticeMinutes(8)
           comme pertinentes.
         </p>
         <p class="mt-4">
-          Conserve ensuite tes trois priorités dans ton plan d’action SEO. Tu pourras les organiser
-          avec les autres optimisations identifiées pendant la formation et examiner progressivement
-          leurs résultats.
+          Ajoute ensuite tes trois priorités comme actions personnelles dans « Mon plan d'action »,
+          en les associant au module 8. Tu pourras les organiser avec les autres optimisations
+          identifiées pendant la formation et examiner progressivement leurs résultats.
         </p>
         <p class="mt-4">
           <strong class="font-semibold text-ink">Résultat attendu :</strong> avoir sélectionné trois
@@ -210,12 +211,13 @@ const practiceMinutes = getSeoPracticeMinutes(8)
         </p>
         <div class="mt-8 border-t border-petrol/15 pt-6">
           <RouterLink
-            :to="{ name: 'learning-plan' }"
+            :to="{ name: 'learning-plan', query: { action: 'seo_local_visibility' } }"
             class="learn-button-primary inline-flex rounded-xl px-5 py-3 text-sm font-semibold"
             >Ouvrir mon plan d'action →</RouterLink
           >
         </div>
       </article>
+      <SeoFurtherReading :module-number="8" />
     </div>
   </BaseContainer>
 </template>

@@ -33,7 +33,7 @@ describe('lien entre une leçon SEO et le plan', () => {
     expect(wrapper.get('h1').text()).toBe("05 — Vérifier l'indexation et repérer les problèmes")
     expect(wrapper.text()).toContain('Module 2 · Auditer ton site')
     expect(wrapper.text()).toContain('Lecture : environ 14 min')
-    expect(wrapper.text()).toContain('Vidéo de démonstration')
+    expect(wrapper.find('[aria-label^="Vidéo du module"]').exists()).toBe(false)
     expect(wrapper.text()).toContain('Tes pages existent. Mais Google les connaît-il vraiment ?')
     expect(wrapper.text()).toContain('Question 4 — Que faut-il faire lorsqu')
     expect(wrapper.text()).not.toContain('Question 4 : B.')
@@ -63,7 +63,6 @@ describe('lien entre une leçon SEO et le plan', () => {
     expect(wrapper.find('h1').text()).toBe('01 — Le SEO : à quoi ça sert vraiment ?')
     expect(wrapper.text()).toContain('Altruisme Learn · Formation SEO')
     expect(wrapper.text()).toContain('Lecture : environ 11 min')
-    expect(wrapper.text()).toContain('Vidéo de démonstration')
     expect(wrapper.text()).toContain('Objectif pédagogique')
     expect(wrapper.text()).toContain('Ton site existe. Mais qui le trouve ?')
     expect(wrapper.text()).toContain('Être trouvé, être compris et être choisi')
@@ -84,7 +83,6 @@ describe('lien entre une leçon SEO et le plan', () => {
     )
     expect(wrapper.text()).toContain('Lecture : environ 14 min')
     expect(wrapper.text()).toContain('Les trois étapes fonctionnent ensemble')
-    expect(wrapper.text()).toContain('Vidéo de démonstration')
     expect(wrapper.text()).toContain(
       'Ton site est en ligne. Pourquoi Google ne le trouve-t-il pas ?',
     )
@@ -108,7 +106,6 @@ describe('lien entre une leçon SEO et le plan', () => {
     expect(wrapper.find('h1').text()).toBe("03 — Les fondamentaux d'un référencement efficace")
     expect(wrapper.text()).toContain('Lecture : environ 14 min')
     expect(wrapper.text()).toContain('Comprendre les grandes dimensions du référencement naturel')
-    expect(wrapper.text()).toContain('Vidéo de démonstration')
     expect(wrapper.text()).toContain('Pourquoi certaines pages restent invisibles')
     expect(wrapper.text()).toContain('Question 4 — Quelle approche est la plus pertinente')
     expect(wrapper.text()).not.toContain('Question 4 : B.')
@@ -134,7 +131,6 @@ describe('lien entre une leçon SEO et le plan', () => {
     expect(wrapper.find('h1').text()).toBe('04 — Installer et découvrir Google Search Console')
     expect(wrapper.text()).toContain('Module 2 · Auditer ton site')
     expect(wrapper.text()).toContain('Lecture : environ 13 min')
-    expect(wrapper.text()).toContain('Vidéo de démonstration')
     expect(wrapper.text()).toContain(
       'Ton site est en ligne. Mais sais-tu vraiment ce qui se passe sur Google ?',
     )
@@ -168,7 +164,6 @@ describe('lien entre une leçon SEO et le plan', () => {
     )
     expect(wrapper.text()).toContain('Module 2 · Auditer ton site')
     expect(wrapper.text()).toContain('Lecture : environ 14 min')
-    expect(wrapper.text()).toContain('Vidéo de démonstration')
     expect(wrapper.text()).toContain(
       "Ton site apparaît sur Google. Mais est-ce qu'il attire les bonnes personnes ?",
     )
@@ -198,7 +193,6 @@ describe('lien entre une leçon SEO et le plan', () => {
     expect(wrapper.get('h1').text()).toBe('07 — Comprendre les intentions de recherche')
     expect(wrapper.text()).toContain('Module 3 · Trouver les bons mots-clés')
     expect(wrapper.text()).toContain('Lecture : environ 14 min')
-    expect(wrapper.text()).toContain('Vidéo de démonstration')
     expect(wrapper.text()).toContain('Attirer des visiteurs ne suffit pas')
     expect(wrapper.text()).toContain("Les quatre grandes familles d'intentions de recherche")
     expect(wrapper.text()).toContain('Question 4 — Faut-il créer une page différente')

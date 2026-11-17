@@ -5,11 +5,11 @@ import { seoProgram } from '@/data/seoProgram'
 import { getLearningPlanCourse } from '@/data/learningPlanCourses'
 
 describe('catalogue du plan SEO', () => {
-  it('contient dix-sept actions stables, ordonnées et rattachées aux bonnes leçons', () => {
-    expect(seoActions).toHaveLength(17)
-    expect(new Set(seoActions.map((action) => action.key)).size).toBe(17)
+  it('contient dix-huit actions stables, ordonnées et rattachées aux bonnes leçons', () => {
+    expect(seoActions).toHaveLength(18)
+    expect(new Set(seoActions.map((action) => action.key)).size).toBe(18)
     expect(seoActions.map((action) => action.order)).toEqual(
-      Array.from({ length: 17 }, (_, index) => index + 1),
+      Array.from({ length: 18 }, (_, index) => index + 1),
     )
 
     for (const action of seoActions) {
@@ -25,9 +25,10 @@ describe('catalogue du plan SEO', () => {
       seoProgram.map(
         (module) => seoActions.filter((action) => action.moduleId === module.id).length,
       ),
-    ).toEqual([1, 3, 3, 3, 1, 2, 1, 0, 1, 2])
+    ).toEqual([1, 3, 3, 3, 1, 2, 1, 1, 1, 2])
     expect(seoActions.filter((action) => action.isNew).map((action) => action.key)).toEqual([
       'seo_backlink_opportunities',
+      'seo_local_visibility',
       'seo_geo_visibility',
     ])
     expect(seoActions.map((action) => action.key)).toEqual([
@@ -45,6 +46,7 @@ describe('catalogue du plan SEO', () => {
       'seo_content_ideas',
       'seo_editorial_plan',
       'seo_backlink_opportunities',
+      'seo_local_visibility',
       'seo_geo_visibility',
       'seo_record_baseline',
       'seo_90_day_plan',
@@ -55,11 +57,14 @@ describe('catalogue du plan SEO', () => {
     expect(seoActions.find((action) => action.key === 'seo_backlink_opportunities')?.lessonId).toBe(
       'seo-lesson-21',
     )
+    expect(seoActions.find((action) => action.key === 'seo_local_visibility')?.lessonId).toBe(
+      'seo-lesson-25',
+    )
     expect(seoActions.find((action) => action.key === 'seo_geo_visibility')?.lessonId).toBe(
       'seo-lesson-28',
     )
-    expect(seoActions.find((action) => action.key === 'seo_record_baseline')?.order).toBe(16)
-    expect(seoActions.find((action) => action.key === 'seo_90_day_plan')?.order).toBe(17)
+    expect(seoActions.find((action) => action.key === 'seo_record_baseline')?.order).toBe(17)
+    expect(seoActions.find((action) => action.key === 'seo_90_day_plan')?.order).toBe(18)
     expect(getLearningPlanCourse('seo')?.actions).toBe(seoActions)
     expect(getLearningPlanCourse('__proto__')).toBeUndefined()
   })

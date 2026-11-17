@@ -8,6 +8,7 @@
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "test:unit": "vitest",
+    "test:worker": "node --test worker/*.test.mjs",
     "build-only": "vite build && node scripts/write-public-html.mjs",
     "type-check": "vue-tsc --build",
     "lint": "run-s \"lint:*\"",

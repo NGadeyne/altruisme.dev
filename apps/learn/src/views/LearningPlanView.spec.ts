@@ -47,17 +47,17 @@ beforeEach(() => {
 })
 
 describe('Mon plan d’action', () => {
-  it('charge les dix-sept actions SEO, filtre et recalcule la progression immédiatement', async () => {
+  it('charge les dix-huit actions SEO, filtre et recalcule la progression immédiatement', async () => {
     const wrapper = mountPlan()
     await flushPromises()
 
     expect(mocks.load).toHaveBeenCalledWith('learner-a', 'seo')
-    expect(wrapper.findAll('select[id^="status-"]')).toHaveLength(17)
-    expect(wrapper.text()).toContain('0 action terminée sur 17')
+    expect(wrapper.findAll('select[id^="status-"]')).toHaveLength(18)
+    expect(wrapper.text()).toContain('0 action terminée sur 18')
     expect(wrapper.text()).toContain('Nouvelles actions')
 
     await wrapper.get('#status-seo_identify_strategic_pages').setValue('done')
-    expect(wrapper.text()).toContain('1 action terminée sur 17')
+    expect(wrapper.text()).toContain('1 action terminée sur 18')
     await flushPromises()
     expect(mocks.saveStatus).toHaveBeenCalledWith(
       'learner-a',
@@ -81,7 +81,7 @@ describe('Mon plan d’action', () => {
     await wrapper.get('#status-seo_identify_strategic_pages').setValue('done')
     await flushPromises()
 
-    expect(wrapper.text()).toContain('0 action terminée sur 17')
+    expect(wrapper.text()).toContain('0 action terminée sur 18')
     expect(wrapper.get('[role="alert"]').text()).toContain("n'a pas été enregistré")
   })
 
@@ -93,9 +93,9 @@ describe('Mon plan d’action', () => {
 
     const wrapper = mountPlan()
     await flushPromises()
-    expect(wrapper.text()).toContain('1 action terminée sur 17')
+    expect(wrapper.text()).toContain('1 action terminée sur 18')
     expect(wrapper.get('[role="progressbar"]').attributes('aria-valuenow')).toBe('1')
-    expect(wrapper.get('[role="progressbar"]').attributes('aria-valuemax')).toBe('17')
+    expect(wrapper.get('[role="progressbar"]').attributes('aria-valuemax')).toBe('18')
     expect(wrapper.text()).toContain('6 %')
     wrapper.unmount()
 
@@ -107,7 +107,7 @@ describe('Mon plan d’action', () => {
     )
   })
 
-  it('conserve le statut des anciennes actions déplacées aux numéros 16 et 17', async () => {
+  it('conserve le statut des anciennes actions déplacées aux numéros 17 et 18', async () => {
     mocks.load.mockResolvedValue({
       statuses: { seo_record_baseline: 'in_progress', seo_90_day_plan: 'done' },
       personalActions: [],
@@ -116,19 +116,20 @@ describe('Mon plan d’action', () => {
     const wrapper = mountPlan()
     await flushPromises()
 
-    expect(wrapper.get('#plan-action-seo_record_baseline').text()).toContain('Action 16')
+    expect(wrapper.get('#plan-action-seo_record_baseline').text()).toContain('Action 17')
     expect(wrapper.get('#status-seo_record_baseline').element).toHaveProperty(
       'value',
       'in_progress',
     )
-    expect(wrapper.get('#plan-action-seo_90_day_plan').text()).toContain('Action 17')
+    expect(wrapper.get('#plan-action-seo_90_day_plan').text()).toContain('Action 18')
     expect(wrapper.get('#status-seo_90_day_plan').element).toHaveProperty('value', 'done')
     expect(wrapper.get('#status-seo_backlink_opportunities').element).toHaveProperty(
       'value',
       'todo',
     )
+    expect(wrapper.get('#status-seo_local_visibility').element).toHaveProperty('value', 'todo')
     expect(wrapper.get('#status-seo_geo_visibility').element).toHaveProperty('value', 'todo')
-    expect(wrapper.text()).toContain('1 action terminée sur 17')
+    expect(wrapper.text()).toContain('1 action terminée sur 18')
   })
 
   it('déplie une action demandée depuis une leçon', async () => {
@@ -174,7 +175,7 @@ describe('Mon plan d’action', () => {
       description: 'Revoir les liens internes.',
       moduleId: 'seo-optimiser-pages',
     })
-    expect(wrapper.text()).toContain('0 action terminée sur 18')
+    expect(wrapper.text()).toContain('0 action terminée sur 19')
     expect(wrapper.get('#plan-action-personal-1').text()).toContain('Améliorer ma page de service')
   })
 
@@ -220,6 +221,6 @@ describe('Mon plan d’action', () => {
 
     expect(mocks.remove).toHaveBeenCalledWith('learner-a', 'seo', 'personal-1')
     expect(wrapper.find('#plan-action-personal-1').exists()).toBe(false)
-    expect(wrapper.text()).toContain('0 action terminée sur 17')
+    expect(wrapper.text()).toContain('0 action terminée sur 18')
   })
 })

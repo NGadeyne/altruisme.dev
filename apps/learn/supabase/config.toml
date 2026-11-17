@@ -1,0 +1,8 @@
+[functions.learn-checkout]
+verify_jwt = false
+
+[functions.learn-stripe-webhook]
+verify_jwt = false
+
+[functions.learn-claim-checkout]
+verify_jwt = false

@@ -15,6 +15,9 @@ const mock = vi.hoisted(() => ({
 
 vi.mock('@/lib/supabase', () => ({
   supabase: {
+    async rpc() {
+      return { data: 0, error: null }
+    },
     auth: {
       async getSession() {
         return {
@@ -49,6 +52,11 @@ vi.mock('@/lib/supabase', () => ({
 
 vi.mock('@/services/courseAccess', () => ({
   hasCourseAccess: vi.fn<(userId: string, courseSlug: string) => Promise<boolean>>(),
+}))
+
+vi.mock('@/services/protectedAssets', () => ({
+  syncProtectedAssets: vi.fn().mockResolvedValue(undefined),
+  clearProtectedAssets: vi.fn().mockResolvedValue(undefined),
 }))
 
 beforeEach(() => {

@@ -138,6 +138,7 @@ describe('mise en pratique du module 8', () => {
       wrapper.findAllComponents(RouterLinkStub).map((link) => link.props('to')),
     ).toContainEqual({
       name: 'learning-plan',
+      query: { action: 'seo_local_visibility' },
     })
   })
 })

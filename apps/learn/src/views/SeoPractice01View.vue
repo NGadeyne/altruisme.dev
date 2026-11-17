@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 
+import SeoFurtherReading from '@/components/courses/SeoFurtherReading.vue'
 import BaseContainer from '@/components/ui/BaseContainer.vue'
 import { getSeoPracticeMinutes } from '@/data/seoProgram'
 import { loadPresetStatus } from '@/services/learningPlan'
@@ -255,6 +256,7 @@ const practiceMinutes = getSeoPracticeMinutes(1)
           </div>
         </section>
       </article>
+      <SeoFurtherReading :module-number="1" />
     </div>
   </BaseContainer>
 </template>

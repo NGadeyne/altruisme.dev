@@ -1,33 +1,43 @@
+import { seoResourcePreviews } from './seoResourcePreviews'
+
 export interface SeoResource {
   number: number
   title: string
   description: string
+  url: string
+}
+
+export const seoResourcesSheetUrl =
+  'https://docs.google.com/spreadsheets/d/1WYRT1SnyGjKbZCVSox8YgnDz8Wzma5SSRmp1CzmZIQI/edit'
+
+function sheetTabUrl(gid: number) {
+  return `${seoResourcesSheetUrl}?gid=${gid}#gid=${gid}`
 }
 
 export const seoResources: SeoResource[] = [
   {
-    number: 1,
-    title: "Checklist d'audit SEO",
+    ...seoResourcePreviews[0],
     description: 'Contrôles essentiels, anomalies, gravité et priorités.',
+    url: sheetTabUrl(1004519445),
   },
   {
-    number: 2,
-    title: 'Recherche de mots-clés',
+    ...seoResourcePreviews[1],
     description: 'Tableau des requêtes, intentions, pages cibles et potentiel.',
+    url: sheetTabUrl(711277340),
   },
   {
-    number: 3,
-    title: "Modèle d'optimisation de page",
+    ...seoResourcePreviews[2],
     description: 'Analyse avant/après, title, H1, contenu, maillage et CTA.',
+    url: sheetTabUrl(65876417),
   },
   {
-    number: 4,
-    title: 'Calendrier éditorial',
+    ...seoResourcePreviews[3],
     description: 'Sujets, intentions, échéances, statuts et liens internes.',
+    url: sheetTabUrl(445528911),
   },
   {
-    number: 5,
-    title: "Plan d'action SEO sur 90 jours",
+    ...seoResourcePreviews[4],
     description: 'Actions, priorités, efforts estimés, échéances et résultats attendus.',
+    url: sheetTabUrl(1994007535),
   },
 ]

@@ -123,6 +123,10 @@ async function handleLogin() {
           </button>
         </form>
 
+        <RouterLink to="/recuperer-acces" class="mt-4 inline-block text-sm font-semibold text-petrol-dark underline underline-offset-4">
+          Mot de passe oublié ou accès après paiement ?
+        </RouterLink>
+
         <div class="mt-6 border-t border-petrol/15 pt-6 text-center">
           <p class="text-xs leading-5 text-muted">Tu découvres Altruisme Learn ?</p>
           <RouterLink

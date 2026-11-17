@@ -47,6 +47,8 @@ describe('accès à la formation SEO', () => {
   it('laisse le paiement et l’activation accessibles sans compte', async () => {
     await router.push('/paiement')
     expect(router.currentRoute.value.name).toBe('checkout')
+    await router.push('/paiement/confirmation')
+    expect(router.currentRoute.value.name).toBe('checkout-confirmation')
     await router.push('/activation')
     expect(router.currentRoute.value.name).toBe('account-activation')
     await router.push('/inscription')

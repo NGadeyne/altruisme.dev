@@ -150,6 +150,18 @@ export const seoActions: PlanActionDefinition[] = [
     isNew: true,
   },
   {
+    key: 'seo_local_visibility',
+    title: 'Faire mon diagnostic de visibilité locale',
+    description:
+      "Observe trois recherches liées à ton activité et à ta zone géographique. Si ton activité est éligible à une fiche d'établissement Google, vérifie ses informations et celles de ton site, puis ajoute tes trois priorités comme actions personnelles dans le module 8.",
+    completionCriterion:
+      "Avoir vérifié sa visibilité locale et défini trois actions adaptées, ou avoir constaté que ce levier ne s'applique pas à une activité exclusivement en ligne.",
+    moduleId: 'seo-visibilite-locale',
+    lessonId: 'seo-lesson-25',
+    order: 15,
+    isNew: true,
+  },
+  {
     key: 'seo_geo_visibility',
     title: 'Évaluer ma visibilité dans les moteurs IA',
     description:
@@ -158,7 +170,7 @@ export const seoActions: PlanActionDefinition[] = [
       'Avoir vérifié les conditions d’accès au site, réalisé trois recherches pertinentes et identifié une amélioration possible.',
     moduleId: 'seo-visibilite-geo',
     lessonId: 'seo-lesson-28',
-    order: 15,
+    order: 16,
     isNew: true,
   },
   {
@@ -170,7 +182,7 @@ export const seoActions: PlanActionDefinition[] = [
       'Avoir identifié les données de référence disponibles et celles qui manquent.',
     moduleId: 'seo-mesurer-progresser',
     lessonId: 'seo-lesson-29',
-    order: 16,
+    order: 17,
   },
   {
     key: 'seo_90_day_plan',
@@ -181,6 +193,6 @@ export const seoActions: PlanActionDefinition[] = [
       'Avoir identifié trois à cinq priorités, leurs prochaines étapes et les indicateurs à suivre.',
     moduleId: 'seo-mesurer-progresser',
     lessonId: 'seo-lesson-31',
-    order: 17,
+    order: 18,
   },
 ]

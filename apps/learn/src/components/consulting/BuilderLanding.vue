@@ -3,10 +3,13 @@ import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { BaseContainer } from '@altruisme/ui'
 import portraitOcean from '@/assets/portrait-ocean.webp'
 import { OPEN_COOKIE_SETTINGS_EVENT } from '@/composables/useCookieConsent'
-import { formatSeoMinutes, seoPracticeMinutes, seoReadingMinutes } from '@/data/seoProgram'
+import { formatSeoMinutes, seoPracticeMinutes, seoProgram, seoReadingMinutes } from '@/data/seoProgram'
+import { seoResourcePreviews } from '@/data/seoResourcePreviews'
 
 const footerYear = new Date().getFullYear()
 const totalTrainingMinutes = seoReadingMinutes + seoPracticeMinutes
+const lessonCount = seoProgram.reduce((total, module) => total + module.lessons.length, 0)
+const actionCount = 18
 const openFaq = ref<number | null>(null)
 const landingRoot = ref<HTMLElement | null>(null)
 let revealObserver: IntersectionObserver | undefined
@@ -35,10 +38,10 @@ function openCookieSettings() {
   window.dispatchEvent(new Event(OPEN_COOKIE_SETTINGS_EVENT))
 }
 
-const seoSignals = [
-  { title: 'Invisible sur Google', text: 'Ton site est en ligne, mais tes pages apparaissent rarement sur les recherches qui comptent pour ton activité. Tu as investi du temps dans ton site, sans parvenir à attirer suffisamment de visiteurs.' },
-  { title: 'Difficile de savoir par où commencer', text: 'Mots-clés, balises, indexation, contenus, backlinks… Tu entends parler de dizaines de techniques, mais tu ne sais pas lesquelles sont réellement importantes ni dans quel ordre les appliquer.' },
-  { title: 'Des efforts, mais peu de résultats', text: 'Tu publies, tu modifies tes pages, tu testes des optimisations… Pourtant, ta visibilité progresse peu et tu ne comprends pas toujours pourquoi. Difficile de savoir ce qui fonctionne réellement.' },
+const acquisitionChallenges = [
+  { title: 'Toujours prospecter pour trouver des clients', text: 'Tu passes du temps à envoyer des messages, relancer des prospects ou entretenir ton réseau. Et dès que tu ralentis, tu crains de manquer de nouvelles opportunités.' },
+  { title: 'Difficile de compter sur la publicité', text: "Les publicités peuvent attirer des prospects, mais elles demandent un budget régulier. Tu aimerais développer un autre canal d'acquisition, sans devoir payer pour chaque visite." },
+  { title: 'Un site qui ne génère presque aucun contact', text: 'Tu as investi dans un site pour présenter ton activité. Pourtant, il reçoit peu de visites qualifiées et génère rarement des demandes de devis ou des prises de contact.' },
 ]
 
 const diagnosticAxes = [
@@ -49,12 +52,11 @@ const diagnosticAxes = [
   { title: 'Conversion', text: 'Tu attires des visiteurs, mais ton site ne les incite pas suffisamment à passer à l’action.' },
 ]
 const methodSteps = [
-  { title: 'Comprendre Google', text: 'Découvre comment fonctionnent les moteurs de recherche, pourquoi certaines pages apparaissent sur Google et les fondamentaux qui influencent leur visibilité.' },
-  { title: 'Auditer ton site', text: 'Apprends à utiliser Google Search Console, à analyser tes performances et à identifier les premiers problèmes qui freinent ton référencement.' },
-  { title: 'Trouver les bons mots-clés', text: 'Identifie les recherches de tes futurs clients, comprends leurs intentions et sélectionne les mots-clés les plus pertinents pour ton activité.' },
-  { title: 'Optimiser tes pages', text: 'Améliore tes titres, tes contenus, ta structure et ton maillage interne pour rendre tes pages plus utiles et plus faciles à comprendre.' },
-  { title: 'Développer ta visibilité', text: 'Apprends à identifier les bons sujets, à organiser tes contenus et à construire progressivement une stratégie de référencement durable.' },
-  { title: 'Mesurer et progresser', text: "Suis tes performances, comprends ce qui fonctionne et construis ton plan d'action SEO sur 90 jours pour continuer à avancer en autonomie." },
+  { title: 'Comprendre et auditer', text: 'Découvre comment Google trouve tes pages, puis utilise Search Console pour repérer les premiers freins à leur visibilité.' },
+  { title: 'Choisir les bonnes recherches', text: 'Identifie les questions de tes futurs clients et associe les mots-clés prioritaires aux pages qui peuvent y répondre.' },
+  { title: 'Améliorer tes pages et ton site', text: 'Travaille tes titres, tes contenus et ton maillage interne, puis vérifie les points techniques essentiels.' },
+  { title: 'Développer ta visibilité', text: 'Construis ta stratégie de contenu et explore les backlinks, le référencement local et la visibilité dans les moteurs IA.' },
+  { title: 'Mesurer et prioriser', text: "Suis les indicateurs utiles et transforme tes constats en un plan d'action SEO réaliste sur 90 jours." },
 ]
 const caseStudies = [
   {
@@ -185,10 +187,11 @@ function toggleCaseAutoplay() {
 const faqs = [
   { question: 'Je pars de zéro en SEO. Est-ce que je vais réussir à suivre ?', answer: "Oui, c'est justement pour ça que cette formation existe. On reprend les fondamentaux, sans supposer que tu connais déjà le référencement naturel. Chaque notion est expliquée simplement, illustrée par des exemples et accompagnée d'exercices pour avancer progressivement. L'objectif n'est pas de faire de toi un expert SEO, mais de te rendre capable d'améliorer ton propre site. Disposer d'un site sur lequel pratiquer est recommandé pour profiter pleinement des exercices." },
   { question: 'Je ne sais pas coder. Est-ce que je pourrai vraiment appliquer les conseils ?', answer: "Oui. Tu n'as pas besoin d'être développeur pour comprendre les intentions de recherche, travailler tes contenus, structurer tes pages ou analyser tes performances. Certaines optimisations techniques peuvent demander une intervention spécifique selon ton site ou ton CMS. La formation t'apprend aussi à les identifier et à comprendre ce qui mérite ton attention." },
-  { question: "Pourquoi payer 97 € alors qu'il existe des centaines de tutoriels gratuits ?", answer: "Parce que trouver de l'information n'est pas forcément le problème. Savoir quoi en faire, dans quel ordre et comment l'appliquer à son activité, c'est une autre histoire. Ici, tu ne paies pas simplement pour des vidéos. Tu suis une méthode structurée, avec des démonstrations, des exercices et des ressources pour passer de la théorie aux premières optimisations concrètes." },
+  { question: "Pourquoi payer 27 € alors qu'il existe des centaines de tutoriels gratuits ?", answer: "Parce que trouver de l'information n'est pas forcément le problème. Savoir quoi en faire, dans quel ordre et comment l'appliquer à son activité, c'est une autre histoire. Ici, tu suis un parcours structuré avec des démonstrations, des exercices, un plan d'action pour suivre tes priorités et un assistant SEO pour éclaircir tes questions." },
   { question: "J'ai déjà essayé d'améliorer mon SEO sans résultat. Qu'est-ce qui sera différent ?", answer: "Publier des articles ou modifier quelques balises ne suffit pas toujours. Encore faut-il savoir si tes pages sont indexées, si tu cibles les bonnes recherches et si tes contenus répondent aux attentes de tes visiteurs. La formation t'aide à prendre du recul, à comprendre ce qui mérite d'être amélioré et à prioriser tes actions plutôt que de multiplier les optimisations au hasard." },
   { question: 'Je manque de temps. Est-ce que je vais vraiment pouvoir m\'y mettre ?', answer: "La formation est conçue pour avancer à ton rythme, avec des leçons courtes et des exercices applicables directement sur ton site. Tu n'as pas besoin de tout refaire en une semaine. L'idée est de commencer par les actions prioritaires, puis de construire progressivement une routine SEO compatible avec ton activité." },
   { question: 'Est-ce que cette formation va réellement m\'apporter des visiteurs et des clients ?', answer: "Elle t'apprendra à identifier des opportunités de visibilité, à optimiser tes pages et à suivre tes performances. Ce sont des compétences utiles pour développer ton acquisition organique. En revanche, personne ne peut te garantir un nombre de visiteurs, de clients ou une position sur Google. Les résultats dépendent de ton marché, de ton site, de la concurrence et des actions mises en œuvre. Ce que tu peux obtenir, c'est une méthode concrète pour avancer avec davantage d'autonomie." },
+  { question: "Comment l'assistant SEO m'aide-t-il pendant la formation ?", answer: "Tu peux lui poser une question quand une notion ou une étape te bloque. Il t'aide à clarifier le sujet et peut te renvoyer vers les leçons pertinentes du programme. Ses réponses restent des pistes à vérifier avant de modifier ton site." },
 ]
 </script>
 
@@ -199,11 +202,11 @@ const faqs = [
         <BaseContainer>
           <div class="mx-auto max-w-4xl py-16 text-center sm:py-20 lg:py-[6.5rem]">
             <div class="builder-glass inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[.17em] text-petrol">
-              <span class="h-1.5 w-1.5 rounded-full bg-petrol" />FORMATION SEO
+              <span class="h-1.5 w-1.5 rounded-full bg-petrol" />SPRINT SEO
             </div>
             <h1 class="mx-auto mt-7 max-w-[52rem] text-[2.45rem] font-semibold leading-[1.12] tracking-[-0.045em] text-ink sm:text-[3.35rem] lg:text-[3.85rem] lg:leading-[1.08]">
-              Ton site mérite d'être trouvé.
-              <span class="mt-1 block text-petrol sm:mt-2">Apprends à le rendre visible sur Google</span>
+              Trouve tes prochains clients
+              <span class="mt-1 block text-petrol sm:mt-2">grâce au SEO.</span>
             </h1>
             <div class="builder-player-wrap relative mx-auto mt-10 max-w-3xl sm:mt-11">
               <div class="builder-player-shell rounded-[1.35rem] p-1 sm:rounded-[1.7rem] sm:p-1.5">
@@ -221,35 +224,41 @@ const faqs = [
                 </picture>
               </div>
             </div>
-            <p class="mx-auto mt-8 max-w-[41rem] text-base leading-7 text-muted sm:text-lg sm:leading-8">
-              Une formation pratique pour comprendre le référencement naturel, optimiser ton propre site et apprendre à attirer les bonnes personnes depuis Google. Sans jargon inutile, à ton rythme.
-            </p>
+            <div class="mx-auto mt-8 max-w-[41rem] space-y-4 text-base leading-7 text-muted sm:text-lg sm:leading-8">
+              <p>Apprends à attirer sur ton site des personnes qui recherchent déjà tes services sur Google. Sans dépendre uniquement de la prospection ou des publicités payantes.</p>
+              <p>Une formation pratique pour comprendre le référencement naturel, optimiser ton site et construire un canal d'acquisition durable. À ton rythme, même si tu pars de zéro.</p>
+            </div>
             <div class="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
               <RouterLink to="/paiement" class="builder-button builder-button--primary">Acheter la formation <span class="ml-2" aria-hidden="true">↗</span></RouterLink>
               <a href="#methode-pedagogique" class="builder-button builder-button--secondary">Découvrir le programme</a>
             </div>
-            <p class="mt-7 text-sm font-medium text-muted-light">SEO <span class="mx-2 font-bold text-petrol/80">·</span> Niveau débutant <span class="mx-2 font-bold text-petrol/80">·</span> Environ {{ formatSeoMinutes(totalTrainingMinutes) }} avec exercices <span class="mx-2 font-bold text-petrol/80">·</span> À ton rythme</p>
+            <p class="mt-7 text-sm font-medium text-muted-light">Niveau débutant <span class="mx-2 font-bold text-petrol/80">·</span> Environ {{ formatSeoMinutes(totalTrainingMinutes) }} de lecture et d'exercices <span class="mx-2 font-bold text-petrol/80">·</span> À ton rythme <span class="mx-2 font-bold text-petrol/80">·</span> Assistant SEO intégré</p>
           </div>
         </BaseContainer>
       </section>
 
-      <section class="builder-wash--cool border-b border-petrol/10 py-8 sm:py-11" aria-label="Les chiffres clés de la formation">
+      <section class="builder-wash--cool border-b border-petrol/10 py-8 sm:py-11" aria-label="Ce que comprend la formation">
         <BaseContainer>
-          <div class="grid gap-3 sm:gap-4 md:grid-cols-3">
+          <div class="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
             <div data-builder-reveal class="builder-reveal builder-proof-card flex min-h-36 flex-col items-center justify-center rounded-2xl px-3 py-7 text-center sm:min-h-44 sm:px-6 sm:py-9">
-              <p class="text-[1.8rem] font-semibold tracking-tight text-[#315d61] sm:text-[2.15rem]">9</p>
-              <p class="mt-2 font-medium text-[#315d61]">Modules</p>
-              <p class="mt-1 max-w-[13rem] text-sm leading-6 text-muted">Pour comprendre les fondamentaux et les appliquer sur ton site.</p>
-            </div>
-            <div data-builder-reveal class="builder-reveal builder-proof-card flex min-h-36 flex-col items-center justify-center rounded-2xl px-3 py-7 text-center sm:min-h-44 sm:px-6 sm:py-9">
-              <p class="text-[1.8rem] font-semibold tracking-tight text-[#315d61] sm:text-[2.15rem]">28</p>
+              <p class="text-[1.8rem] font-semibold tracking-tight text-[#315d61] sm:text-[2.15rem]">{{ lessonCount }}</p>
               <p class="mt-2 font-medium text-[#315d61]">Leçons</p>
               <p class="mt-1 max-w-[13rem] text-sm leading-6 text-muted">Des explications accessibles, des exemples et des démonstrations concrètes.</p>
             </div>
             <div data-builder-reveal class="builder-reveal builder-proof-card flex min-h-36 flex-col items-center justify-center rounded-2xl px-3 py-7 text-center sm:min-h-44 sm:px-6 sm:py-9">
-              <p class="text-[1.8rem] font-semibold tracking-tight text-[#315d61] sm:text-[2.15rem]">5</p>
+              <p class="text-[1.8rem] font-semibold tracking-tight text-[#315d61] sm:text-[2.15rem]">{{ actionCount }}</p>
+              <p class="mt-2 font-medium text-[#315d61]">Plan d'action</p>
+              <p class="mt-1 max-w-[13rem] text-sm leading-6 text-muted">Des actions à suivre sur ton site, avec la liberté d'ajouter les tiennes.</p>
+            </div>
+            <div data-builder-reveal class="builder-reveal builder-proof-card flex min-h-36 flex-col items-center justify-center rounded-2xl px-3 py-7 text-center sm:min-h-44 sm:px-6 sm:py-9">
+              <p class="text-[1.8rem] font-semibold tracking-tight text-[#315d61] sm:text-[2.15rem]">{{ seoResourcePreviews.length }}</p>
               <p class="mt-2 font-medium text-[#315d61]">Ressources pratiques</p>
               <p class="mt-1 max-w-[13rem] text-sm leading-6 text-muted">Pour analyser, optimiser et organiser ton référencement.</p>
+            </div>
+            <div data-builder-reveal class="builder-reveal builder-proof-card flex min-h-36 flex-col items-center justify-center rounded-2xl px-3 py-7 text-center sm:min-h-44 sm:px-6 sm:py-9">
+              <p class="text-[1.8rem] font-semibold tracking-tight text-[#315d61] sm:text-[2.15rem]">IA</p>
+              <p class="mt-2 font-medium text-[#315d61]">Assistant SEO</p>
+              <p class="mt-1 max-w-[13rem] text-sm leading-6 text-muted">Pour poser tes questions et retrouver les leçons utiles.</p>
             </div>
           </div>
         </BaseContainer>
@@ -260,11 +269,11 @@ const faqs = [
           <div class="grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-20">
             <div class="max-w-xl lg:self-center">
               <h2 class="text-3xl font-semibold leading-[1.14] tracking-[-0.04em] text-ink sm:text-[3.25rem]">
-                Ton site pourrait <span class="text-petrol">t'apporter bien plus</span>
+                Trouver des clients <span class="text-petrol">ne devrait pas dépendre uniquement de tes efforts commerciaux.</span>
               </h2>
             </div>
-            <div class="builder-signals" aria-label="Trois signaux à reconnaître">
-              <div v-for="(signal, index) in seoSignals" :key="signal.title" data-builder-reveal class="builder-reveal builder-signal">
+            <div class="builder-signals" aria-label="Trois freins à l'acquisition de clients">
+              <div v-for="(signal, index) in acquisitionChallenges" :key="signal.title" data-builder-reveal class="builder-reveal builder-signal">
                 <span class="builder-signal-index" aria-hidden="true">0{{ index + 1 }}</span>
                 <div class="builder-signal-copy">
                   <h3 class="text-xl font-semibold tracking-tight text-[#2f5b60] sm:text-2xl">{{ signal.title }}</h3>
@@ -426,7 +435,7 @@ const faqs = [
           <div class="grid gap-10 md:grid-cols-2 md:gap-20">
             <div class="builder-fit-territory">
               <h3 class="text-2xl font-semibold tracking-tight text-[#315d61]">Pour toi, si…</h3>
-              <p class="mt-4 max-w-md text-lg leading-8 text-muted">Ton site peine à gagner en visibilité sur Google, certaines pages ne performent pas et tu ne sais plus quelles optimisations prioriser pour obtenir de meilleurs résultats.</p>
+              <p class="mt-4 max-w-md text-lg leading-8 text-muted">Tu veux attirer davantage de prospects grâce à ton site, sans dépendre uniquement de la prospection ou de la publicité. Mais tu ne sais pas comment améliorer ton référencement ni quelles actions prioriser pour obtenir des résultats.</p>
             </div>
             <div class="builder-fit-territory builder-fit-territory--quiet">
               <h3 class="text-2xl font-semibold tracking-tight text-ink">Moins adapté, si…</h3>
@@ -440,50 +449,57 @@ const faqs = [
         <BaseContainer>
           <div class="max-w-3xl">
             <p class="text-sm font-medium uppercase tracking-[0.16em] text-[#597e80]">Une formation pour passer à l'action</p>
-            <h2 class="mt-4 text-3xl font-semibold leading-tight tracking-tight sm:text-5xl">Ton SEO. Ton site. <span class="text-petrol">Ta méthode</span></h2>
-            <p class="mt-6 max-w-2xl text-lg leading-8 text-muted">Pas besoin de multiplier les tutoriels ou de maîtriser des dizaines d'outils. Une formation complète pour comprendre le référencement, optimiser ton site et construire une stratégie adaptée à ton activité.</p>
+            <h2 class="mt-4 text-3xl font-semibold leading-tight tracking-tight sm:text-5xl">Fais de ton site un véritable <span class="text-petrol">levier d'acquisition</span></h2>
+            <p class="mt-6 max-w-2xl text-lg leading-8 text-muted">Ton site peut faire plus que présenter ton activité. Apprends à attirer les bonnes personnes depuis Google, à identifier les opportunités pour ton entreprise et à construire une stratégie SEO concrète, sans dépendre uniquement de la prospection ou de la publicité.</p>
           </div>
           <article data-builder-reveal class="builder-reveal builder-offer-primary mt-12 max-w-5xl rounded-[1.75rem] p-7 sm:p-10 lg:p-14">
             <p class="text-sm font-medium text-[#597e80]">Altruisme Learn · Formation SEO</p>
-            <h3 class="mt-5 max-w-3xl text-3xl font-semibold leading-tight tracking-tight text-[#254e54] sm:text-4xl">Apprends à rendre ton site visible sur Google</h3>
-            <p class="mt-6 max-w-3xl text-lg leading-8 text-muted">De ton premier diagnostic à tes premières optimisations, avance étape par étape avec des leçons accessibles, des démonstrations concrètes et des exercices directement applicables à ton site.</p>
+            <h3 class="mt-5 max-w-3xl text-3xl font-semibold leading-tight tracking-tight text-[#254e54] sm:text-4xl">Apprends à attirer tes futurs clients grâce à Google</h3>
+            <p class="mt-6 max-w-3xl text-lg leading-8 text-muted">De l'analyse de ton site à ton plan d'action sur 90 jours, découvre comment améliorer ton référencement pour attirer des visiteurs réellement intéressés par tes services. Une méthode progressive, des exercices pratiques et un assistant SEO pour avancer en autonomie, même si tu débutes.</p>
             <div class="mt-10 grid gap-8 border-t border-petrol/15 pt-8 sm:gap-10 lg:grid-cols-2">
               <div>
                 <h4 class="font-semibold text-[#254e54]">Le programme</h4>
                 <ul class="mt-3 list-disc space-y-1 pl-5 leading-7 text-muted marker:text-petrol">
-                  <li>10 modules</li>
-                  <li>31 leçons au programme</li>
+                  <li>{{ seoProgram.length }} modules</li>
+                  <li>{{ lessonCount }} leçons pratiques</li>
                   <li>Environ {{ formatSeoMinutes(seoReadingMinutes) }} de lecture</li>
-                  <li>Niveau débutant</li>
+                  <li>Accessible aux débutants</li>
                   <li>À ton rythme</li>
                 </ul>
               </div>
               <div>
-                <h4 class="font-semibold text-[#254e54]">Les ressources incluses</h4>
+                <h4 class="font-semibold text-[#254e54]">Les ressources pratiques</h4>
                 <ul class="mt-3 list-disc space-y-1 pl-5 leading-7 text-muted marker:text-petrol">
-                  <li>Checklist d'audit SEO</li>
-                  <li>Recherche de mots-clés</li>
-                  <li>Modèle d'optimisation de page</li>
-                  <li>Calendrier éditorial</li>
-                  <li>Plan d'action sur 90 jours</li>
+                  <li v-for="resource in seoResourcePreviews" :key="resource.number">{{ resource.title }}</li>
                 </ul>
+                <p class="mt-3 text-sm text-muted">Cinq outils réunis dans un Google Sheets pour passer de la théorie à l'application sur ton propre site.</p>
+              </div>
+            </div>
+            <div class="mt-8 grid gap-6 border-t border-petrol/15 pt-8 sm:grid-cols-2">
+              <div>
+                <h4 class="font-semibold text-[#254e54]">Un plan d'action pour avancer concrètement</h4>
+                <p class="mt-3 leading-7 text-muted">{{ actionCount }} actions pour identifier tes priorités, améliorer ton site et suivre ta progression. Tu peux également ajouter tes propres objectifs pour construire une stratégie adaptée à ton activité.</p>
+              </div>
+              <div>
+                <h4 class="font-semibold text-[#254e54]">Un assistant SEO pour ne pas rester bloqué</h4>
+                <p class="mt-3 leading-7 text-muted">Une question sur un concept, une optimisation ou une étape de la formation ? Ton assistant SEO t'aide à comprendre les notions et à retrouver les leçons pertinentes pour continuer à avancer.</p>
               </div>
             </div>
             <div class="mt-8 border-t border-petrol/15 pt-8">
               <h4 class="font-semibold text-[#254e54]">À la fin de la formation</h4>
-              <p class="mt-3 max-w-3xl leading-7 text-muted">Tu sais analyser ton site, identifier les opportunités, optimiser tes premières pages et prioriser tes prochaines actions SEO.</p>
+              <p class="mt-3 max-w-3xl leading-7 text-muted">Tu sais identifier les recherches de tes futurs clients, optimiser les pages importantes de ton site et suivre les indicateurs qui comptent. Tu repars avec une méthode claire et un plan d'action sur 90 jours pour développer progressivement ton acquisition grâce au SEO.</p>
             </div>
             <div class="mt-10 flex flex-col gap-6 border-t border-petrol/15 pt-8 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p class="text-4xl font-semibold tracking-tight text-[#254e54]">97 €</p>
-                <p class="mt-1 text-sm italic text-[#597e80]">Prix de la formation</p>
+                <p class="text-4xl font-semibold tracking-tight text-[#254e54]">27 € TTC</p>
+                <p class="mt-1 text-sm italic text-[#597e80]">Tarif de lancement · Accès à la formation complète</p>
               </div>
               <div class="flex flex-col items-start gap-2 sm:items-end">
                 <RouterLink to="/paiement" class="builder-button builder-button--primary">Acheter la formation <span class="ml-2" aria-hidden="true">↗</span></RouterLink>
               </div>
             </div>
           </article>
-          <p class="mt-10 max-w-3xl text-lg leading-8 text-muted"><strong class="font-semibold text-ink">Pas besoin de devenir expert pour commencer.</strong> L'essentiel est de comprendre ce qui compte, de savoir quoi améliorer et de pouvoir avancer en autonomie.</p>
+          <p class="mt-10 max-w-3xl text-lg leading-8 text-muted"><strong class="font-semibold text-ink">Pas besoin de devenir expert SEO pour développer ton activité.</strong> L'objectif : savoir quoi faire, dans quel ordre, et avancer avec une méthode adaptée à ton site.</p>
         </BaseContainer>
       </section>
 
@@ -516,7 +532,7 @@ const faqs = [
             <h2 class="mx-auto max-w-3xl text-3xl font-semibold leading-[1.12] tracking-[-0.04em] sm:text-5xl">Et si tu prenais enfin ton SEO en main ?</h2>
             <p class="mx-auto mt-6 max-w-lg text-lg leading-8 text-[#dbe8e4]">Ton site mérite mieux que des optimisations au hasard. Apprends à comprendre son référencement, à identifier les bonnes opportunités et à construire une méthode pour améliorer progressivement ta visibilité. Une formation concrète, des exercices pratiques et les fondamentaux nécessaires pour avancer en autonomie.</p>
             <RouterLink to="/paiement" class="builder-button builder-button--inverse mt-9">Acheter la formation <span class="ml-2" aria-hidden="true">↗</span></RouterLink>
-            <p class="mt-5 text-sm text-[#bdd1c9]">10 modules · 31 leçons au programme · 5 ressources pratiques</p>
+            <p class="mt-5 text-sm text-[#bdd1c9]">{{ seoProgram.length }} modules · {{ lessonCount }} leçons · {{ seoResourcePreviews.length }} ressources pratiques · Plan d'action · Assistant SEO</p>
           </div>
         </BaseContainer>
       </section>
