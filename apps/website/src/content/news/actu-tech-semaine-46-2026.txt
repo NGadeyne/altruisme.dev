@@ -1,0 +1,313 @@
+Une semaine de plus dans la Tech, et encore beaucoup trop de choses à suivre. Alors on a fait le tri.
+
+Depuis trois ans, presque toutes les histoires importantes autour de l’intelligence artificielle finissent tôt ou tard par croiser NVIDIA. Les modèles ont besoin de GPU. Les datacenters sont construits autour de ses architectures. Les Clouds se battent pour obtenir suffisamment de capacité. Les startups lèvent des milliards pour acheter ses puces, tandis que les États commencent à considérer leur exportation comme une question stratégique.
+
+Au centre de tout cela se trouvait depuis plus de trente ans la même personne : Jensen Huang.
+
+Cette semaine, le cofondateur et CEO de NVIDIA a quitté ses fonctions après plusieurs jours de crise autour de sa gouvernance et de ses relations personnelles, au moment même où les liens de l’entreprise avec la Chine faisaient déjà l’objet d’une attention politique particulièrement forte aux États-Unis. Pour beaucoup d’entreprises, le départ d’un dirigeant reste avant tout un sujet de management.
+
+Dans le cas de NVIDIA, la question est beaucoup plus large.
+
+Parce que Jensen Huang n’était pas seulement le patron d’une entreprise devenue gigantesque.
+
+Il était devenu l’un des principaux architectes de toute l’économie actuelle de l’IA.
+
+## NVIDIA perd l’homme qui a façonné le boom de l’IA
+
+Jensen Huang a cofondé NVIDIA en 1993 avec Chris Malachowsky et Curtis Priem. L’entreprise était alors loin de l’infrastructure stratégique qu’elle représente aujourd’hui. Son objectif était beaucoup plus simple : construire des processeurs spécialisés capables d’améliorer les performances graphiques des ordinateurs.
+
+Pendant des années, NVIDIA a donc surtout été connue du grand public comme une entreprise de cartes graphiques. Ses GPU équipaient les PC des joueurs, les stations de travail utilisées pour la 3D et progressivement une partie des serveurs capables d’effectuer des calculs parallèles.
+
+La décision qui allait transformer l’entreprise est arrivée bien avant ChatGPT.
+
+NVIDIA a compris assez tôt qu’un GPU pouvait faire beaucoup plus qu’afficher des jeux vidéo. Contrairement à un processeur classique conçu pour exécuter rapidement un nombre relativement limité d’opérations complexes, un GPU possède énormément de petits cœurs capables d’effectuer simultanément des calculs similaires.
+
+Ce qui est extrêmement pratique pour afficher des millions de pixels l’est également pour certaines opérations mathématiques utilisées dans l’apprentissage automatique.
+
+NVIDIA a donc investi massivement dans CUDA, son environnement permettant aux développeurs d’utiliser les GPU pour effectuer du calcul général. À l’époque, cette décision ne promettait évidemment pas encore une révolution de l’intelligence artificielle. Mais elle a progressivement créé quelque chose d’extrêmement difficile à reproduire : un écosystème complet associant matériel, bibliothèques, outils logiciels, chercheurs et développeurs.
+
+Lorsque le deep learning a commencé à exploser au début des années 2010, NVIDIA était déjà là.
+
+Lorsque les modèles sont devenus plus grands, NVIDIA était encore là.
+
+Et lorsque ChatGPT a déclenché une course mondiale pour construire des infrastructures capables d’entraîner puis d’exécuter des modèles contenant des centaines de milliards de paramètres, l’entreprise s’est retrouvée dans une position presque idéale.
+
+Les GPU n’étaient plus seulement des composants informatiques.
+
+Ils étaient devenus l’une des ressources les plus recherchées du monde.
+
+Jensen Huang a largement incarné cette transformation. Il présentait les nouvelles architectures de NVIDIA, négociait directement avec les grands fournisseurs Cloud, entretenait des relations avec les fabricants comme TSMC et participait personnellement à certaines des discussions politiques autour des restrictions américaines à l’exportation de puces avancées.
+
+Sous sa direction, NVIDIA est passée d’une entreprise connue principalement des joueurs et des professionnels de la 3D à l’une des plus grandes capitalisations boursières de l’histoire.
+
+Début octobre, sa valeur avait brièvement approché **6 000 milliards de dollars**. Quelques semaines plus tard, l’entreprise doit désormais apprendre à fonctionner sans la personne qui l’a dirigée depuis sa création.
+
+Le départ de Jensen Huang intervient dans un contexte particulièrement compliqué.
+
+Depuis plusieurs jours, le conseil d’administration de NVIDIA examinait différentes informations concernant des relations personnelles du dirigeant, dont l’une avec une cadre de l’entreprise. Une autre relation faisait parallèlement l’objet d’un examen plus large en raison de possibles liens avec une entreprise chinoise impliquée dans des investigations américaines autour de l’exportation de semi-conducteurs.
+
+Il faut être prudent ici : plusieurs investigations restent en cours et certaines accusations concernant d’éventuels liens avec les services de renseignement chinois n’ont pas été établies. Le problème pour NVIDIA dépasse cependant déjà la question de savoir ce que ces enquêtes concluront finalement.
+
+Une entreprise aussi stratégique ne peut plus traiter la gouvernance de son CEO comme une simple affaire interne.
+
+NVIDIA se trouve désormais au cœur d’un affrontement technologique entre les États-Unis et la Chine. Washington contrôle l’exportation de certaines de ses puces les plus avancées. Pékin cherche simultanément à développer des alternatives locales. Les plus grandes entreprises d’intelligence artificielle chinoises ont besoin de capacités de calcul comparables pour rester compétitives.
+
+Chaque décision prise par NVIDIA concernant la Chine peut donc avoir des conséquences économiques et géopolitiques considérables.
+
+C’est ce qui rend le départ de Huang particulièrement sensible.
+
+Le dirigeant n’était pas simplement chargé de définir une roadmap produit. Il avait construit personnellement une grande partie des relations entre NVIDIA et ses principaux clients, fournisseurs, investisseurs et gouvernements.
+
+Reuters rapporte que sa démission a entraîné une baisse de [4,3 % de l’action NVIDIA](https://www.reuters.com/business/retail-consumer/nvidia-ceo-jensen-huang-step-down-big-blow-ai-boom-2026-11-12/) le jour de l’annonce. Depuis le début de la crise, l’entreprise a perdu plusieurs centaines de milliards de dollars de capitalisation, même si cela doit évidemment être replacé dans le contexte d’un titre qui avait progressé extrêmement rapidement au cours des dernières années.
+
+La CFO **Colette Kress** prend désormais la direction par intérim.
+
+Son profil est intéressant précisément parce qu’il est assez différent de celui de Jensen Huang. Kress a rejoint NVIDIA en 2013 après avoir travaillé chez Cisco et Microsoft. Là où Huang incarnait souvent la vision technologique et les paris extrêmement ambitieux de l’entreprise, Reuters rapporte que Kress était également connue pour challenger certaines décisions financières et pousser NVIDIA à davantage de discipline.
+
+Cette différence pourrait devenir importante.
+
+NVIDIA est arrivée à un moment où les questions qui se posent à l’entreprise ne sont plus uniquement technologiques.
+
+Elle doit augmenter ses capacités de production, sécuriser suffisamment de mémoire et de packaging avancé, gérer une chaîne d’approvisionnement dépendante de Taïwan, conserver son avance face aux accélérateurs développés par Google, Amazon, Microsoft ou AMD et maintenir suffisamment de demande alors que les investisseurs commencent à s’interroger sur les dépenses gigantesques consacrées à l’intelligence artificielle.
+
+En parallèle, ses investissements ont créé un réseau extrêmement complexe de dépendances.
+
+NVIDIA ne vend plus simplement des GPU. L’entreprise investit dans des fournisseurs de Cloud, des startups d’intelligence artificielle, des entreprises de robotique et plusieurs sociétés qui sont simultanément ses clients.
+
+Cette stratégie a contribué à accélérer l’adoption de son écosystème, mais elle soulève aussi une question : quelle part de la demande actuelle en infrastructures IA existe indépendamment du capital que les grands acteurs du secteur réinjectent eux-mêmes dans l’écosystème ?
+
+La semaine dernière, nous parlions justement du moment où les investisseurs commencent à demander davantage de preuves sur la rentabilité des centaines de milliards injectés dans l’intelligence artificielle.
+
+Le départ de Jensen Huang arrive donc à un moment particulièrement délicat.
+
+NVIDIA doit réussir une transition de leadership tout en continuant de convaincre les marchés que la demande en calcul IA reste suffisamment forte pour soutenir ses investissements et sa valorisation.
+
+La bonne nouvelle pour l’entreprise est que son avantage ne repose évidemment pas uniquement sur son CEO.
+
+CUDA, l’écosystème développeur, les relations avec les principaux Clouds et la roadmap matérielle de NVIDIA existent indépendamment de Jensen Huang. L’entreprise possède des milliers d’ingénieurs, des partenaires extrêmement solides et une avance technologique construite pendant plusieurs décennies.
+
+Mais les entreprises dirigées pendant plus de trente ans par leur fondateur rencontrent presque toujours la même difficulté lorsqu’il disparaît brutalement.
+
+Une partie des décisions n’a jamais vraiment eu besoin d’être institutionnalisée.
+
+Elle passait directement par lui.
+
+La question pour NVIDIA sera donc de savoir si elle peut transformer une culture largement construite autour de Huang en une organisation capable de continuer à prendre les mêmes paris sans sa présence.
+
+Il existe également une dimension beaucoup plus large pour l’écosystème Tech.
+
+Depuis l’explosion de ChatGPT, l’intelligence artificielle a créé plusieurs dépendances extrêmement concentrées.
+
+Une poignée de laboratoires construit les modèles les plus avancés.
+
+Quelques Clouds possèdent une grande partie des infrastructures.
+
+TSMC fabrique l’essentiel des puces les plus avancées.
+
+ASML fournit les machines nécessaires pour les produire.
+
+Et NVIDIA contrôle encore une part considérable du calcul utilisé pour entraîner les modèles.
+
+Cette concentration signifie qu’un événement touchant une seule entreprise peut désormais avoir des conséquences sur une grande partie de l’industrie.
+
+La démission d’un CEO n’empêchera évidemment pas les datacenters de fonctionner demain matin.
+
+Mais elle rappelle quelque chose d’important.
+
+L’infrastructure de l’intelligence artificielle paraît parfois gigantesque, distribuée et presque abstraite.
+
+Elle repose pourtant encore sur un nombre étonnamment réduit d’entreprises et de personnes.
+
+## OpenAI donne désormais une carte bancaire aux agents
+
+Il y a quelques semaines, les agents obtenaient une mémoire, un navigateur et leur propre environnement informatique dans le Cloud.
+
+Cette semaine, ils obtiennent également un moyen de paiement.
+
+OpenAI a lancé [ChatGPT Wallet](https://openai.com/index/introducing-chatgpt-wallet/), un portefeuille permettant à un Dot de finaliser directement certains achats au nom de son utilisateur. Le service est d’abord proposé aux abonnés ChatGPT Pro majeurs aux États-Unis et fonctionne avec des cartes éligibles émises dans le pays. OpenAI l’a développé avec plusieurs grands réseaux et acteurs du paiement, dont American Express, Mastercard et Visa.
+
+Le point le plus important concerne la manière dont les informations bancaires sont protégées.
+
+L’agent n’accède pas directement au numéro réel de la carte. OpenAI utilise un identifiant de paiement tokenisé pouvant être transmis au commerçant sans exposer les véritables données bancaires. Avant chaque transaction, l’utilisateur peut vérifier le marchand, les produits achetés, le montant et la carte utilisée, puis autoriser l’opération avec une authentification biométrique comme Face ID ou Touch ID.
+
+Cela peut sembler être une simple fonctionnalité supplémentaire dans une application qui sait déjà rechercher des produits.
+
+Mais donner la capacité de payer à un agent change énormément de choses.
+
+Jusqu’ici, la majorité des agents pouvaient effectuer des actions relativement réversibles : comparer des offres, remplir un formulaire, préparer un panier ou trouver une réservation.
+
+Un paiement possède une conséquence économique directe.
+
+Cela signifie que les systèmes d’agents doivent désormais gérer une nouvelle catégorie de permissions : non plus simplement ce qu’un logiciel peut lire ou modifier, mais **combien d’argent il peut engager au nom de son utilisateur**.
+
+OpenAI indique déjà travailler vers des usages permettant d’autoriser à l’avance certaines dépenses dans des limites précises. On peut facilement imaginer un agent autorisé à renouveler automatiquement certains produits, réserver un hôtel sous un budget défini ou acheter un billet lorsqu’un prix passe sous un seuil particulier.
+
+Techniquement, cela paraît assez naturel.
+
+En matière de sécurité, c’est une autre histoire.
+
+Les erreurs des agents peuvent désormais avoir une valeur monétaire.
+
+Et cela va probablement rendre les mécanismes de permissions, de validation et d’audit encore plus importants.
+
+## Une panne Microsoft rappelle le prix de la centralisation
+
+Le Cloud nous a permis de supprimer énormément de contraintes locales.
+
+Une entreprise n’a plus forcément besoin d’héberger ses propres serveurs de messagerie, maintenir son infrastructure collaborative ou gérer physiquement les logiciels installés sur chaque poste. Quelques abonnements suffisent pour utiliser Outlook, Teams, OneDrive, SharePoint ou Copilot depuis presque n’importe où.
+
+Le revers apparaît lorsque tout cela tombe en panne simultanément.
+
+Microsoft a subi cette semaine une [importante interruption](https://www.reuters.com/commentary/breakingviews/microsoft-outage-will-supercharge-backup-plans-2026-11-13/) ayant touché notamment Outlook, Exchange Online, Teams et certains services liés à Microsoft 365. L’incident a affecté des utilisateurs à travers plusieurs régions du monde pendant plus d’une journée, avec des perturbations encore signalées le lendemain pour certaines organisations.
+
+Le problème venait notamment de plusieurs serveurs devenus indisponibles après avoir échoué à des contrôles automatiques de santé, ce qui a augmenté brutalement la charge sur l’infrastructure restante. Microsoft a dû redémarrer progressivement certains serveurs et déployer des modifications de configuration pour restaurer le service.
+
+L’incident a touché bien plus que quelques boîtes mail.
+
+Des entreprises, des administrations, des services de police et même des organismes de renseignement australiens ont rencontré des difficultés. Des systèmes critiques ne sont pas nécessairement tombés en panne, mais leurs collaborateurs ont perdu l’accès à une partie des outils quotidiens nécessaires pour communiquer ou travailler.
+
+Ce type d’événement n’est évidemment pas nouveau.
+
+AWS, Google Cloud, Cloudflare et Microsoft ont tous déjà connu d’importantes interruptions.
+
+Mais chaque panne devient légèrement plus problématique parce que nous continuons à concentrer davantage de fonctions dans les mêmes plateformes.
+
+Microsoft 365 ne gère plus seulement les e-mails.
+
+Il concentre les réunions, les fichiers, les calendriers, l’identité, les documents, les conversations internes et désormais une part croissante des assistants et agents IA utilisés en entreprise.
+
+Les bénéfices de cette intégration sont énormes.
+
+Mais elle crée également un point de défaillance commun.
+
+Ce n’est probablement pas une raison pour revenir massivement aux serveurs Exchange installés dans les caves des entreprises.
+
+En revanche, cela rappelle que la résilience ne consiste pas seulement à sauvegarder ses données.
+
+Il faut également réfléchir à la manière dont une organisation continue à fonctionner lorsque son fournisseur principal devient temporairement indisponible.
+
+## AMD rapproche le quantique du calcul classique
+
+Après Google et Willow il y a quelques semaines, l’informatique quantique revient dans l’actualité.
+
+AMD va investir dans [PsiQuantum](https://www.reuters.com/business/amd-invest-psiquantum-advance-quantum-computing-infrastructure-2026-11-12/), une entreprise qui cherche à construire des ordinateurs quantiques à grande échelle en utilisant des photons plutôt que les architectures supraconductrices adoptées notamment par Google ou IBM. Le montant de la prise de participation n’a pas été communiqué.
+
+Mais le partenariat est intéressant pour une autre raison.
+
+AMD ne cherche pas simplement à investir dans une startup quantique.
+
+Les deux entreprises veulent construire ensemble des infrastructures capables de combiner calcul quantique, calcul haute performance et intelligence artificielle. AMD fournira notamment CPU, GPU, technologies adaptatives et logiciel, tandis que PsiQuantum apportera son architecture photonique reposant en partie sur des technologies de fabrication déjà utilisées dans l’industrie des semi-conducteurs.
+
+Cette vision est probablement beaucoup plus réaliste que l’image populaire d’un ordinateur quantique venant remplacer nos machines classiques.
+
+Même lorsqu’ils deviendront réellement utiles, les processeurs quantiques ne seront probablement pas utilisés pour ouvrir un navigateur, stocker une base de données ou entraîner l’intégralité d’un modèle.
+
+Ils seront plutôt mobilisés sur certaines opérations extrêmement spécifiques.
+
+Un système pourra par exemple préparer les données sur un CPU, effectuer certaines simulations massives sur des GPU, envoyer une partie particulièrement adaptée du calcul vers un processeur quantique puis récupérer le résultat pour poursuivre le traitement sur une infrastructure classique.
+
+Autrement dit, le quantique pourrait devenir un accélérateur spécialisé parmi d’autres.
+
+Et cette approche explique pourquoi une entreprise comme AMD commence à s’y intéresser directement.
+
+Si le quantique devient réellement utilisable dans quelques années, les gagnants ne seront peut-être pas seulement les entreprises capables de fabriquer des qubits.
+
+Il faudra également construire toute l’infrastructure permettant de les connecter au reste du monde informatique.
+
+## Instagram utilise l’IA pour décider si tu es réellement majeur
+
+Déterminer l’âge d’une personne sur Internet paraît relativement simple.
+
+On lui demande sa date de naissance.
+
+Le problème est que rien n’empêche un adolescent de déclarer qu’il est né quelques années plus tôt.
+
+Meta essaie donc progressivement d’utiliser une autre méthode : analyser les informations disponibles sur un compte pour estimer si son propriétaire est probablement mineur.
+
+Cette semaine, l’entreprise a annoncé le déploiement mondial de sa [technologie d’estimation d’âge](https://about.fb.com/news/2026/11/expanding-teen-account-protections-to-teens-around-the-world/) afin de placer automatiquement davantage d’utilisateurs dans les protections **Teen Account** d’Instagram. Le système peut appliquer ces restrictions même lorsqu’un utilisateur a déclaré une date de naissance indiquant qu’il est adulte.
+
+Meta explique utiliser plusieurs signaux.
+
+Le système peut analyser les publications, les commentaires, les biographies, certaines références à l’école ou aux anniversaires et différents indices visuels permettant d’estimer approximativement l’âge d’une personne.
+
+L’entreprise précise qu’il ne s’agit pas de reconnaissance faciale destinée à identifier l’utilisateur. Son système cherche plutôt certains motifs généraux permettant d’estimer qu’un compte appartient probablement à une personne mineure.
+
+Lorsqu’un utilisateur est considéré comme adolescent, Instagram peut automatiquement limiter les personnes capables de le contacter, réduire l’exposition à certains contenus sensibles et appliquer plusieurs protections supplémentaires.
+
+L’objectif est évidemment compréhensible.
+
+Demander simplement aux mineurs de déclarer honnêtement leur âge ne permet pas de construire un système de protection suffisamment fiable.
+
+Mais la solution pose une question intéressante.
+
+Pour mieux protéger les adolescents, une plateforme doit analyser davantage d’informations sur l’ensemble de ses utilisateurs.
+
+Y compris ceux qui sont réellement adultes.
+
+On retrouve donc un compromis assez classique de la sécurité numérique.
+
+Plus un système veut vérifier qu’une personne respecte certaines conditions, plus il doit collecter ou interpréter des informations permettant de prendre cette décision.
+
+Dans certains cas, cette surveillance peut être justifiée par un bénéfice important.
+
+Mais elle doit aussi rester suffisamment transparente pour que l’utilisateur comprenne comment la plateforme arrive à sa conclusion et puisse contester une mauvaise estimation.
+
+L’IA rend l’estimation de l’âge beaucoup plus efficace.
+
+Elle rend également la frontière entre protection et analyse comportementale beaucoup plus difficile à tracer.
+
+## Pourquoi ça compte pour les gens de la Tech
+
+Parce que toutes les histoires de cette semaine parlent finalement de la même chose : **la dépendance**.
+
+NVIDIA est devenue tellement importante pour l’infrastructure mondiale de l’intelligence artificielle que le départ de son dirigeant historique ne concerne plus simplement ses actionnaires.
+
+Les Clouds ont simplifié tellement de fonctions informatiques qu’une panne chez Microsoft peut simultanément affecter la messagerie, les réunions et les outils de travail de millions de personnes.
+
+Les agents deviennent suffisamment capables pour effectuer des paiements, ce qui oblige à inventer de nouveaux mécanismes permettant de décider combien ils ont le droit de dépenser et dans quelles conditions.
+
+Meta utilise davantage d’intelligence artificielle pour protéger les adolescents, mais cette protection nécessite également d’analyser davantage d’informations sur les utilisateurs.
+
+Même le quantique dépendra probablement d’une énorme quantité d’infrastructure traditionnelle pour devenir réellement utilisable.
+
+Cette concentration n’est pas forcément mauvaise.
+
+Les plateformes existent précisément parce qu’il est plus efficace de mutualiser une infrastructure que de demander à chaque entreprise de la reconstruire elle-même.
+
+Mais plus une plateforme devient essentielle, plus il devient important de comprendre ce qui se passe lorsqu’elle échoue, lorsque son dirigeant disparaît ou lorsque les règles qui régissent son fonctionnement changent.
+
+Pendant longtemps, la Tech a cherché à supprimer les frictions.
+
+Le Cloud a supprimé les serveurs.
+
+Les plateformes ont supprimé les intégrations complexes.
+
+Les agents commencent à supprimer certaines interactions manuelles.
+
+Mais chaque friction supprimée crée souvent une nouvelle dépendance ailleurs.
+
+Et la maturité d’une infrastructure se mesure probablement moins à sa capacité à fonctionner lorsque tout va bien qu’à ce qui se passe lorsqu’un élément central disparaît.
+
+## Ce qu’on retient de la semaine
+
+Le départ de Jensen Huang résume particulièrement bien cette édition.
+
+NVIDIA est devenue en quelques années l’une des entreprises les plus importantes de la planète en contrôlant une ressource indispensable au boom actuel de l’intelligence artificielle.
+
+Mais derrière les GPU, CUDA, les datacenters et les milliers d’ingénieurs se trouvait également depuis 1993 un fondateur qui participait personnellement à une grande partie des décisions stratégiques et des relations commerciales de l’entreprise.
+
+Son départ rappelle brutalement que même les infrastructures technologiques les plus gigantesques restent parfois dépendantes de quelques personnes.
+
+La même logique apparaît ailleurs.
+
+ChatGPT Wallet donne aux agents une nouvelle capacité extrêmement puissante, mais crée immédiatement de nouvelles dépendances aux systèmes de paiement et de contrôle.
+
+La panne Microsoft montre ce qui arrive lorsque trop de fonctions reposent sur une infrastructure commune.
+
+AMD et PsiQuantum rappellent que même les ordinateurs quantiques auront besoin de CPU, de GPU et de réseaux classiques pour devenir utiles.
+
+Et Meta démontre qu’une plateforme qui veut mieux protéger les adolescents doit simultanément devenir meilleure pour comprendre qui utilise ses services.
+
+La Tech continue donc de construire des systèmes toujours plus capables.
+
+La prochaine étape consiste probablement à s’assurer qu’ils restent suffisamment robustes lorsque l’une de leurs dépendances disparaît.

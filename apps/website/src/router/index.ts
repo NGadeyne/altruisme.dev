@@ -11,6 +11,7 @@ import { week42 } from '@/content/news/week42Metadata'
 import { week43 } from '@/content/news/week43Metadata'
 import { week44 } from '@/content/news/week44Metadata'
 import { week45 } from '@/content/news/week45Metadata'
+import { week46 } from '@/content/news/week46Metadata'
 
 export const routes: RouteRecordRaw[] = [
   {
@@ -95,6 +96,27 @@ export const routes: RouteRecordRaw[] = [
       title: 'Actualités tech de la semaine | Altruisme.DEV',
       description:
         'Une sélection hebdomadaire des actualités produit, SaaS, IA, automatisation, freelance et entreprises tech, expliquées avec du contexte.',
+    },
+  },
+  {
+    path: `/actualites/${week46.slug}`,
+    name: 'news-week-46',
+    component: () => import('../views/news/Week46View.vue'),
+    meta: {
+      title: 'Actu Tech semaine #46 : NVIDIA perd Jensen Huang',
+      description:
+        'Jensen Huang quitte NVIDIA, ChatGPT Wallet arrive, Microsoft subit une panne majeure et AMD investit dans le quantique : l’actu Tech de la semaine #46.',
+      ogTitle: week46.title,
+      ogDescription:
+        'Le départ de Jensen Huang secoue NVIDIA pendant qu’OpenAI donne un moyen de paiement aux agents, Microsoft tombe en panne et AMD pousse le quantique.',
+      image: week46.image,
+      imageAlt: week46.imageAlt,
+      ogImageAlt: 'Actu Tech de la semaine #46 — Altruisme.DEV',
+      article: true,
+      articleSection: week46.format,
+      publishedAt: week46.publishedAt,
+      modifiedAt: week46.modifiedAt,
+      author: week46.author,
     },
   },
   {

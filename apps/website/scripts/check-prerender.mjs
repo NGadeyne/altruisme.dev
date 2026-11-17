@@ -249,32 +249,33 @@ for (const path of [...prerenderPaths, '/404']) {
     assert.equal(document.querySelector('.media-feature'), null)
     assert.equal(
       document.querySelector('.media-news-list .media-arrow-link')?.getAttribute('href'),
-      '/actualites/semaine-45-2026',
+      '/actualites/semaine-46-2026',
     )
     assert.equal(document.querySelector('.media-resource .base-button')?.getAttribute('href'), '/checklist')
     assert.equal(document.querySelectorAll('nav[aria-label="Navigation principale"] a[href="/checklist"]').length, 1)
   }
   if (path === '/actualites') {
-    assert.equal(document.querySelectorAll('main article').length, 7)
+    assert.equal(document.querySelectorAll('main article').length, 8)
     assert.equal(document.querySelector('main h1')?.textContent.trim(), 'Actu Tech de la semaine')
     assert.equal(
       document.querySelector('main article h2')?.textContent.trim(),
-      'Actu Tech de la semaine #45 : Tesla enterre son pari Cybertruck',
+      'Actu Tech de la semaine #46 : NVIDIA perd l’homme qui a façonné le boom de l’IA',
     )
     assert.equal(document.querySelector('main article img'), null)
     assert.equal(
       document.querySelector('main article a')?.getAttribute('href'),
-      '/actualites/semaine-45-2026',
+      '/actualites/semaine-46-2026',
     )
     assert.equal(document.querySelectorAll('script[type="application/ld+json"]').length, 0)
   }
-  if (['/actualites/semaine-39-2026', '/actualites/semaine-40-2026', '/actualites/semaine-41-2026', '/actualites/semaine-42-2026', '/actualites/semaine-43-2026', '/actualites/semaine-44-2026', '/actualites/semaine-45-2026'].includes(path)) {
+  if (['/actualites/semaine-39-2026', '/actualites/semaine-40-2026', '/actualites/semaine-41-2026', '/actualites/semaine-42-2026', '/actualites/semaine-43-2026', '/actualites/semaine-44-2026', '/actualites/semaine-45-2026', '/actualites/semaine-46-2026'].includes(path)) {
     const publishedAt = path.endsWith('semaine-39-2026') ? '2026-09-26'
       : path.endsWith('semaine-40-2026') ? '2026-10-02'
         : path.endsWith('semaine-41-2026') ? '2026-10-10'
           : path.endsWith('semaine-42-2026') ? '2026-10-17'
             : path.endsWith('semaine-43-2026') ? '2026-10-23'
-              : path.endsWith('semaine-44-2026') ? '2026-10-31' : '2026-11-07'
+              : path.endsWith('semaine-44-2026') ? '2026-10-31'
+                : path.endsWith('semaine-45-2026') ? '2026-11-07' : '2026-11-17'
     const canonical = document.querySelector('link[rel="canonical"]')?.getAttribute('href')
     assert.equal(document.querySelectorAll('link[rel="canonical"]').length, 1, path)
     assert.equal(document.querySelectorAll('script[type="application/ld+json"]').length, 1, path)
@@ -325,6 +326,42 @@ for (const path of [...prerenderPaths, '/404']) {
       assert.equal(tags.length, 1, `${property}: ${path}`)
       assert.equal(tags[0].content, publishedAt)
     }
+  }
+  if (path === '/actualites/semaine-46-2026') {
+    const source = await readFile(resolve('src/content/news/actu-tech-semaine-46-2026.txt'), 'utf8')
+    const publishedBlocks = [...document.querySelectorAll('.news-body h2, .news-body p')]
+      .map((element) => element.textContent.trim())
+    assert.deepEqual(
+      publishedBlocks,
+      source.trim().split(/\r?\n\s*\r?\n/).map((block) =>
+        block.replace(/^## /, '').replace(/\[([^\]]+)\]\((?:https?:\/\/|\/)[^)]+\)/g, '$1').replace(/\*\*|`/g, '').replace(/\r?\n/g, ' '),
+      ),
+    )
+    assert.equal(document.title, 'Actu Tech semaine #46 : NVIDIA perd Jensen Huang')
+    assert.equal(document.querySelector('meta[name="description"]').content,
+      'Jensen Huang quitte NVIDIA, ChatGPT Wallet arrive, Microsoft subit une panne majeure et AMD investit dans le quantique : l’actu Tech de la semaine #46.')
+    assert.equal(document.querySelector('meta[property="og:title"]').content,
+      'Actu Tech de la semaine #46 : NVIDIA perd l’homme qui a façonné le boom de l’IA')
+    assert.equal(document.querySelector('meta[property="og:description"]').content,
+      'Le départ de Jensen Huang secoue NVIDIA pendant qu’OpenAI donne un moyen de paiement aux agents, Microsoft tombe en panne et AMD pousse le quantique.')
+    assert.equal(document.querySelector('meta[property="og:image:alt"]').content,
+      'Actu Tech de la semaine #46 — Altruisme.DEV')
+    assert.equal(document.querySelector('main img')?.getAttribute('src'),
+      '/images/news/actu-tech-semaine-46-2026.webp')
+    assert.equal(document.querySelector('main img')?.getAttribute('alt'),
+      'Actu Tech de la semaine #46 : NVIDIA perd l’homme qui a façonné le boom de l’IA')
+    assert.deepEqual(
+      [...document.querySelectorAll('.news-body a')].map((link) => [link.textContent, link.href, link.target, link.rel]),
+      [
+        ['4,3 % de l’action NVIDIA', 'https://www.reuters.com/business/retail-consumer/nvidia-ceo-jensen-huang-step-down-big-blow-ai-boom-2026-11-12/', '_blank', 'noopener noreferrer'],
+        ['ChatGPT Wallet', 'https://openai.com/index/introducing-chatgpt-wallet/', '_blank', 'noopener noreferrer'],
+        ['importante interruption', 'https://www.reuters.com/commentary/breakingviews/microsoft-outage-will-supercharge-backup-plans-2026-11-13/', '_blank', 'noopener noreferrer'],
+        ['PsiQuantum', 'https://www.reuters.com/business/amd-invest-psiquantum-advance-quantum-computing-infrastructure-2026-11-12/', '_blank', 'noopener noreferrer'],
+        ['technologie d’estimation d’âge', 'https://about.fb.com/news/2026/11/expanding-teen-account-protections-to-teens-around-the-world/', '_blank', 'noopener noreferrer'],
+      ],
+    )
+    assert.equal(document.querySelector('nav[aria-label="Navigation entre les éditions"] a')?.getAttribute('href'),
+      '/actualites/semaine-45-2026')
   }
   if (path === '/actualites/semaine-45-2026') {
     const source = await readFile(resolve('src/content/news/actu-tech-semaine-45-2026.txt'), 'utf8')

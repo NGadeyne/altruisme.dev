@@ -8,7 +8,9 @@ import { week42 } from '@/content/news/week42Metadata'
 import { week43 } from '@/content/news/week43Metadata'
 import { week44 } from '@/content/news/week44Metadata'
 import { week45 } from '@/content/news/week45Metadata'
+import { week46 } from '@/content/news/week46Metadata'
 
+const week46Path = `/actualites/${week46.slug}`
 const week45Path = `/actualites/${week45.slug}`
 const week44Path = `/actualites/${week44.slug}`
 const week43Path = `/actualites/${week43.slug}`
@@ -29,6 +31,24 @@ const week39Path = `/actualites/${week39.slug}`
         <div class="mx-auto max-w-5xl">
           <article
             class="grid gap-6 border-t border-petrol/25 pt-8 sm:gap-10 sm:pt-10 md:grid-cols-[10rem_minmax(0,1fr)]"
+          >
+            <p class="text-sm font-semibold uppercase tracking-[0.15em] text-petrol">Édition #46</p>
+            <div class="max-w-3xl">
+              <h2 class="text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">
+                {{ week46.title }}
+              </h2>
+              <p class="mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">
+                {{ week46.excerpt }}
+              </p>
+              <RouterLink
+                :to="week46Path"
+                class="mt-8 inline-flex border-b border-petrol/50 pb-1 text-sm font-semibold text-petrol transition-colors hover:border-petrol focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-petrol"
+                >Lire l’édition <span aria-hidden="true" class="ml-3">↗</span></RouterLink
+              >
+            </div>
+          </article>
+          <article
+            class="mt-14 grid gap-6 border-t border-petrol/25 pt-8 sm:gap-10 sm:pt-10 md:grid-cols-[10rem_minmax(0,1fr)]"
           >
             <p class="text-sm font-semibold uppercase tracking-[0.15em] text-petrol">Édition #45</p>
             <div class="max-w-3xl">
