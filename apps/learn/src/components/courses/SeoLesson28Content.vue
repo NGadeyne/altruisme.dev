@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import SeoLesson28Quiz from './SeoLesson28Quiz.vue'
+
+defineProps<{ publicEdition?: boolean }>()
 </script>
 
 <template>
   <article class="seo-lesson-content">
     <h2>
-      Être visible dans une réponse IA, c'est bien. Encore faut-il savoir ce que cela signifie.
+      Être visible dans une réponse IA, c'est bien. Encore faut-il savoir ce que cela signifie
     </h2>
     <p>
       Imagine que tu possèdes un site internet sur lequel tu présentes tes prestations et publies
@@ -1117,10 +1119,12 @@ import SeoLesson28Quiz from './SeoLesson28Quiz.vue'
       questions représentatives, examiné les éventuelles données disponibles dans Search Console et
       construit un tableau permettant de suivre tes observations dans le temps.
     </p>
-    <p>
-      Dans « Mon plan d'action », tu peux maintenant marquer l'action « Évaluer ma visibilité dans
-      les moteurs IA » comme terminée.
-    </p>
+    <div v-if="!publicEdition">
+      <p>
+        Dans « Mon plan d'action », tu peux maintenant marquer l'action « Évaluer ma visibilité dans
+        les moteurs IA » comme terminée.
+      </p>
+    </div>
     <p>
       Tu disposes d'une première base d'observation, sans avoir besoin d'obtenir une citation pour
       valider ton travail.

@@ -22,8 +22,13 @@ export async function render(path: string) {
   const html = await renderToString(app, context)
   return {
     html,
-    resolvedPath: router.currentRoute.value.path,
     head: renderPageMetadata(router.currentRoute.value),
     modules: [...(context.modules ?? [])],
   }
+}
+
+export async function resolveRedirect(path: string) {
+  const router = createWebsiteRouter(true)
+  await router.push(path)
+  return router.currentRoute.value.fullPath
 }

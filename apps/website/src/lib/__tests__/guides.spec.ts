@@ -1,5 +1,7 @@
 import { describe, expect, it, beforeEach } from 'vitest'
 import { createMemoryHistory, createRouter } from 'vue-router'
+import { formerSeoGuideAnchor } from '@/router/seoCourse'
+import { courseSteps } from '@/content/guides/seo'
 import { guides, guidePath } from '@/data/guides'
 import { renderInline, readingMinutes } from '@/lib/guide'
 import { updatePageMetadata } from '@/lib/pageMetadata'
@@ -8,7 +10,7 @@ import saasSections from '@/content/guides/saas'
 
 describe('published guides', () => {
   it('keeps every anchor unique and every published guide loadable', async () => {
-    for (const guide of guides.filter((item) => item.status === 'available')) {
+    for (const guide of guides.filter((item) => item.status === 'available' && item.format !== 'course')) {
       expect(guide.loadSections).toBeTypeOf('function')
       const content = await guide.loadSections!()
       expect(content.length).toBeGreaterThan(0)
@@ -19,6 +21,16 @@ describe('published guides', () => {
       expect(new Set(ids).size).toBe(ids.length)
       expect(content.every((section) => section.title.length > 0)).toBe(true)
     }
+  })
+
+  it('maps former SEO chapter and subsection links to the course index', () => {
+    const steps = courseSteps.map((step) => step.slug)
+    for (let chapter = 1; chapter <= 18; chapter++) {
+      expect(steps).toContain(formerSeoGuideAnchor(`partie-${chapter}`))
+    }
+    expect(formerSeoGuideAnchor('partie-17-a-retenir')).toBe('lecon-26')
+    expect(formerSeoGuideAnchor('faq-une-question')).toBe('faq')
+    expect(formerSeoGuideAnchor('module-1')).toBeUndefined()
   })
 
   it('preserves the full freelance guide and derives reading time', () => {

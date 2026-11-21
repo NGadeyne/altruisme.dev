@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import SeoLesson10Quiz from './SeoLesson10Quiz.vue'
+
+defineProps<{ publicEdition?: boolean }>()
 </script>
 
 <template>
@@ -768,10 +770,12 @@ import SeoLesson10Quiz from './SeoLesson10Quiz.vue'
       nécessaire, les titres visibles d'une page stratégique, tout en conservant une cohérence avec
       son intention de recherche principale.
     </p>
-    <p>
-      Dans « Mon plan d'action », tu peux maintenant marquer l'action « Optimiser les titres et
-      balises d'une page » comme terminée.
-    </p>
+    <div v-if="!publicEdition">
+      <p>
+        Dans « Mon plan d'action », tu peux maintenant marquer l'action « Optimiser les titres et
+        balises d'une page » comme terminée.
+      </p>
+    </div>
     <p>
       Tu viens de réaliser l'une de tes premières optimisations SEO directement applicables à ton
       site.

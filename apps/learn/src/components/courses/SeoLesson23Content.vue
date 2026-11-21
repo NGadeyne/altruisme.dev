@@ -6,7 +6,7 @@ import SeoLesson23Quiz from './SeoLesson23Quiz.vue'
   <article class="seo-lesson-content">
     <h2>
       Tes futurs clients ne cherchent pas toujours une information. Parfois, ils cherchent quelqu'un
-      près de chez eux.
+      près de chez eux
     </h2>
     <p>
       Imagine qu'une personne prépare son mariage à Bordeaux. Elle connaît déjà la date de

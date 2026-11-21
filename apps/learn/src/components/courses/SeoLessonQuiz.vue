@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { computed, nextTick, ref } from 'vue'
+import { computed, inject, nextTick, ref, useId } from 'vue'
 
 import type { QuizChoice, QuizQuestion } from '@/types/quiz'
 
 const props = defineProps<{ questions: QuizQuestion[]; intro: string }>()
 
+const quizId = inject('seoQuizAnchor', `quiz-${useId()}`)
+const titleId = `${quizId}-titre`
 const answers = ref<Record<number, QuizChoice | undefined>>({})
 const submitted = ref(false)
 const formElement = ref<HTMLFormElement | null>(null)
@@ -31,11 +33,11 @@ async function retry() {
 
 <template>
   <section
-    id="verifie-tes-connaissances"
-    aria-labelledby="quiz-title"
+    :id="quizId"
+    :aria-labelledby="titleId"
     class="mt-14 rounded-3xl border border-petrol/15 bg-white p-6 shadow-sm sm:p-8"
   >
-    <h2 id="quiz-title" class="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+    <h2 :id="titleId" class="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
       Vérifie tes connaissances
     </h2>
     <p class="mt-3 text-sm leading-7 text-ink-soft sm:text-base">

@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import SeoLesson12Quiz from './SeoLesson12Quiz.vue'
+
+defineProps<{ publicEdition?: boolean }>()
 </script>
 
 <template>
@@ -988,10 +990,12 @@ import SeoLesson12Quiz from './SeoLesson12Quiz.vue'
       pertinents, dont un lien vers une page stratégique, puis vérifié leur cohérence et leur
       fonctionnement.
     </p>
-    <p>
-      Dans « Mon plan d'action », tu peux maintenant marquer l'action « Améliorer mon maillage
-      interne » comme terminée.
-    </p>
+    <div v-if="!publicEdition">
+      <p>
+        Dans « Mon plan d'action », tu peux maintenant marquer l'action « Améliorer mon maillage
+        interne » comme terminée.
+      </p>
+    </div>
     <h2>Ce qu'il faut retenir</h2>
     <p>
       La structure d'un site correspond à la manière dont ses différentes pages sont organisées.

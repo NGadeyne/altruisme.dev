@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import SeoLesson14Quiz from './SeoLesson14Quiz.vue'
+
+defineProps<{ publicEdition?: boolean }>()
 </script>
 
 <template>
@@ -1097,10 +1099,12 @@ import SeoLesson14Quiz from './SeoLesson14Quiz.vue'
       L'objectif est d'apprendre à reconnaître les situations qui méritent ton attention et à
       préparer correctement les changements lorsque ceux-ci deviennent nécessaires.
     </p>
-    <p>
-      Ces observations alimenteront l'action « Réaliser un premier audit technique de mon site »
-      dans « Mon plan d'action », que tu finaliseras à la fin du module 5.
-    </p>
+    <div v-if="!publicEdition">
+      <p>
+        Ces observations alimenteront l'action « Réaliser un premier audit technique de mon site »
+        dans « Mon plan d'action », que tu finaliseras à la fin du module 5.
+      </p>
+    </div>
     <h2>Ce qu'il faut retenir</h2>
     <p>Une URL correspond à l'adresse permettant d'accéder à une ressource sur Internet.</p>
     <p>

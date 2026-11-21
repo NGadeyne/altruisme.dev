@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, defineAsyncComponent, type Component } from 'vue'
+import { computed, defineAsyncComponent, provide, type Component } from 'vue'
 import { useRoute } from 'vue-router'
 
 import BaseContainer from '@/components/ui/BaseContainer.vue'
@@ -12,6 +12,8 @@ import {
   getSeoLessonSlug,
   seoProgram,
 } from '@/data/seoProgram'
+
+provide('seoQuizAnchor', 'verifie-tes-connaissances')
 
 const lessonContents: Record<string, Component> = {
   'seo-lesson-01': defineAsyncComponent(

@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import SeoLesson11Quiz from './SeoLesson11Quiz.vue'
+
+defineProps<{ publicEdition?: boolean }>()
 </script>
 
 <template>
@@ -992,10 +994,12 @@ import SeoLesson11Quiz from './SeoLesson11Quiz.vue'
       visiteurs de ta page et réalisé au moins une amélioration de contenu permettant de mieux
       répondre à leurs attentes.
     </p>
-    <p>
-      Dans « Mon plan d'action », tu peux maintenant marquer l'action « Améliorer le contenu d'une
-      page stratégique » comme terminée.
-    </p>
+    <div v-if="!publicEdition">
+      <p>
+        Dans « Mon plan d'action », tu peux maintenant marquer l'action « Améliorer le contenu d'une
+        page stratégique » comme terminée.
+      </p>
+    </div>
     <p>
       Tu viens de franchir une nouvelle étape : tu ne te contentes plus d'optimiser les éléments
       visibles par Google, tu commences à améliorer la qualité des réponses proposées sur ton site.

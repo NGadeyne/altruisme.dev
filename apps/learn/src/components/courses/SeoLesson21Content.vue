@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import SeoLesson21Quiz from './SeoLesson21Quiz.vue'
+
+defineProps<{ publicEdition?: boolean }>()
 </script>
 
 <template>
@@ -966,10 +968,12 @@ import SeoLesson21Quiz from './SeoLesson21Quiz.vue'
       expliqué leur pertinence, associé une ressource à chacune et sélectionné une première démarche
       réaliste.
     </p>
-    <p>
-      Dans « Mon plan d'action », tu peux compléter l'action « Identifier mes premières opportunités
-      de backlinks » à partir de cette sélection.
-    </p>
+    <div v-if="!publicEdition">
+      <p>
+        Dans « Mon plan d'action », tu peux compléter l'action « Identifier mes premières opportunités
+        de backlinks » à partir de cette sélection.
+      </p>
+    </div>
     <p>
       Tu n'as pas besoin d'avoir obtenu un nouveau lien pour valider ton travail. La prochaine leçon
       t'apprendra à analyser les backlinks dans le temps et à reconnaître les pratiques à éviter.

@@ -1,6 +1,8 @@
 @import 'tailwindcss';
 @import '@altruisme/brand/tokens.css';
 @source '../../../../packages/ui/src';
+@source '../../../learn/src/components/courses/SeoLesson*.vue';
+@source '../../../learn/src/components/courses/practices';
 
 /* =========================================================
    DESIGN SYSTEM

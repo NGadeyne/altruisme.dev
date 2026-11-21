@@ -15,6 +15,7 @@ export interface SeoProgramModule {
   number: number
   title: string
   description: string
+  videoId?: string
   lessons: SeoProgramLesson[]
   exercise?: string
   practiceMinutes?: SeoDurationRange

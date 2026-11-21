@@ -437,7 +437,7 @@ Les API permettent au contraire de créer des échanges directs.
 Un formulaire peut envoyer automatiquement ses données vers un CRM. Un outil de paiement peut interroger un service de facturation. Une application interne peut récupérer des informations depuis plusieurs SaaS différents pour construire un tableau de bord unique.
 L’automatisation repose donc très souvent sur les API, même lorsque l’utilisateur ne les voit pas.
 Quand tu ajoutes une action dans un outil no-code, tu utilises parfois simplement une interface plus visuelle au-dessus d’une API.
-C’est également pour cette raison que [comprendre les API](/guides/api) augmente fortement les possibilités.
+C’est également pour cette raison que comprendre les API augmente fortement les possibilités.
 Lorsque l’intégration officielle ne propose pas une fonctionnalité, il est souvent possible d’utiliser directement l’API du service.
 Le no-code ne disparaît pas.
 Il devient simplement capable d’aller plus loin.
@@ -767,7 +767,7 @@ Un système peut par exemple lire une demande commerciale et identifier son nive
 C’est là que l’IA devient particulièrement intéressante.
 Elle sert de pont entre le monde désordonné du langage humain et le monde beaucoup plus rigide des systèmes automatisés.
 Comprendre les LLM dans un workflow
-Les [grands modèles de langage](/guides/ia), souvent appelés LLM, sont aujourd’hui au cœur de nombreuses automatisations basées sur l’IA.
+Les grands modèles de langage, souvent appelés LLM, sont aujourd’hui au cœur de nombreuses automatisations basées sur l’IA.
 Le principe est relativement simple : on leur fournit une instruction et un contexte, puis le modèle génère une réponse à partir de ces informations.
 Dans un workflow, le LLM devient une étape intermédiaire.
 Le système récupère par exemple le contenu d’un email, l’envoie au modèle avec une consigne précise, puis récupère la réponse pour décider quoi faire ensuite.

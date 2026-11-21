@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import SeoLesson13Quiz from './SeoLesson13Quiz.vue'
+
+defineProps<{ publicEdition?: boolean }>()
 </script>
 
 <template>
@@ -930,10 +932,12 @@ import SeoLesson13Quiz from './SeoLesson13Quiz.vue'
       Tu n'as pas besoin d'avoir résolu un problème pour terminer l'exercice. Savoir distinguer une
       erreur importante d'une situation normale constitue déjà une compétence essentielle.
     </p>
-    <p>
-      Ces observations alimenteront l'action « Réaliser un premier audit technique de mon site »
-      dans « Mon plan d'action », que tu pourras finaliser à la fin du module 5.
-    </p>
+    <div v-if="!publicEdition">
+      <p>
+        Ces observations alimenteront l'action « Réaliser un premier audit technique de mon site »
+        dans « Mon plan d'action », que tu pourras finaliser à la fin du module 5.
+      </p>
+    </div>
     <h2>Ce qu'il faut retenir</h2>
     <p>
       Le SEO technique regroupe les éléments qui permettent notamment aux moteurs de recherche de

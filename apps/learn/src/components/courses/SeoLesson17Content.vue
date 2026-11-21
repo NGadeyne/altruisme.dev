@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import SeoLesson17Quiz from './SeoLesson17Quiz.vue'
+
+defineProps<{ publicEdition?: boolean }>()
 </script>
 
 <template>
@@ -970,10 +972,12 @@ import SeoLesson17Quiz from './SeoLesson17Quiz.vue'
       public, précisé s'ils nécessitent une création ou une optimisation et sélectionné une première
       priorité.
     </p>
-    <p>
-      Dans « Mon plan d'action », tu peux maintenant marquer l'action « Identifier cinq sujets de
-      contenu pertinents » comme terminée.
-    </p>
+    <div v-if="!publicEdition">
+      <p>
+        Dans « Mon plan d'action », tu peux maintenant marquer l'action « Identifier cinq sujets de
+        contenu pertinents » comme terminée.
+      </p>
+    </div>
     <p>
       Tu possèdes désormais une première sélection éditoriale fondée sur les besoins de ton public
       et les objectifs de ton activité.

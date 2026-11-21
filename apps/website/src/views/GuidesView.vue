@@ -61,8 +61,7 @@ const visibleGuides = computed(() =>
                   guide.status === 'available' ? 'Disponible' : 'Bientôt disponible' }}</span></div>
             <h2 class="mt-5 text-2xl font-bold leading-8 text-ink">{{ guide.title }}</h2>
             <p class="mt-4 flex-1 text-sm leading-6 text-muted">{{ guide.description }}</p>
-            <RouterLink v-if="guide.to" :to="guide.to" class="mt-7 inline-flex text-sm font-semibold text-petrol">Lire
-              le guide →</RouterLink>
+            <RouterLink v-if="guide.to" :to="guide.to" class="mt-7 inline-flex text-sm font-semibold text-petrol">Lire le guide →</RouterLink>
             <p v-else class="mt-7 text-sm font-semibold text-muted-light">Publication à venir</p>
           </article>
         </div>

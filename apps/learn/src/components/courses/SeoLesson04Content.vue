@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import SeoLesson04Quiz from './SeoLesson04Quiz.vue'
+
+defineProps<{ publicEdition?: boolean }>()
 </script>
 
 <template>
@@ -466,11 +468,13 @@ import SeoLesson04Quiz from './SeoLesson04Quiz.vue'
       <strong>Ton résultat attendu :</strong> disposer d'un accès validé à Google Search Console
       pour ton site et savoir retrouver les principales fonctionnalités de l'outil.
     </p>
-    <p>
-      Lorsque ta propriété est correctement configurée, ouvre « Mon plan d'action » dans Altruisme
-      Learn et marque l'action « Configurer Google Search Console » comme terminée. Si la validation
-      est encore en attente, tu peux simplement laisser cette action « En cours ».
-    </p>
+    <div v-if="!publicEdition">
+      <p>
+        Lorsque ta propriété est correctement configurée, ouvre « Mon plan d'action » dans Altruisme
+        Learn et marque l'action « Configurer Google Search Console » comme terminée. Si la validation
+        est encore en attente, tu peux simplement laisser cette action « En cours ».
+      </p>
+    </div>
     <h2>Ce qu'il faut retenir</h2>
     <p>
       Google Search Console est un outil gratuit qui permet de mieux comprendre la présence de ton

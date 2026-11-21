@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import SeoLesson05Quiz from './SeoLesson05Quiz.vue'
+
+defineProps<{ publicEdition?: boolean }>()
 </script>
 
 <template>
@@ -724,10 +726,12 @@ import SeoLesson05Quiz from './SeoLesson05Quiz.vue'
       <strong>Ton résultat attendu :</strong> avoir vérifié l'indexation de tes trois pages
       stratégiques et identifié les éventuelles situations qui nécessitent une investigation.
     </p>
-    <p>
-      Dans « Mon plan d'action », tu peux maintenant marquer l'action « Vérifier l'indexation de mes
-      pages » comme terminée.
-    </p>
+    <div v-if="!publicEdition">
+      <p>
+        Dans « Mon plan d'action », tu peux maintenant marquer l'action « Vérifier l'indexation de mes
+        pages » comme terminée.
+      </p>
+    </div>
     <p>
       Tu n'as pas besoin d'avoir résolu tous les problèmes pour valider l'exercice. L'objectif de
       cette leçon est d'apprendre à les identifier, pas de maîtriser immédiatement toutes les

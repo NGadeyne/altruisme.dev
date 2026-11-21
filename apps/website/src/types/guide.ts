@@ -47,5 +47,6 @@ export type GuideMetadata = {
 }
 
 export type GuideDefinition = GuideMetadata & {
+  format?: 'course'
   loadSections?: () => Promise<GuideSection[]>
 }

@@ -1,37 +1,59 @@
-import type { GuideBlock, GuideSection, GuideSubsection } from '@/types/guide'
-import source from './source.txt?raw'
+import { modulePages } from './modulePages'
+import { lessonDetails, practiceObjectives } from '../../../../../learn/src/data/seoLessonDetails'
+import {
+  estimateSeoMinutes,
+  getSeoPracticeMinutes,
+  seoProgram,
+} from '../../../../../learn/src/data/seoProgram'
 
-const slugify = (value: string) =>
-  value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+export { formatSeoMinutes, seoReadingMinutes } from '../../../../../learn/src/data/seoProgram'
+export { seoResources } from '../../../../../learn/src/data/seoResources'
+export { seoExternalResources } from '../../../../../learn/src/data/seoExternalResources'
 
-const heading = /^(Introduction|Partie (\d+)|Conclusion|FAQ) — (.+)$/gm
-const article = source.slice(source.indexOf('\nIntroduction —', source.indexOf('\nIntroduction —') + 1) + 1)
-const matches = [...article.matchAll(heading)]
+export interface CourseStep {
+  slug: string
+  path: string
+  title: string
+  objective: string
+  label: string
+  minutes: number
+  lessonNumber?: string
+}
 
-const sections: GuideSection[] = matches.map((match, index) => {
-  const [, label, number, title] = match
-  const id = number ? `partie-${number}` : slugify(label!)
-  const kind = label === 'Introduction' ? 'introduction' : label === 'Conclusion' ? 'conclusion' : label === 'FAQ' ? 'faq' : 'chapter'
-  const intro: GuideBlock[] = []
-  const subsections: GuideSubsection[] = []
-  let current: GuideSubsection | undefined
-  const body = article.slice((match.index ?? 0) + match[0].length, matches[index + 1]?.index)
+export const coursePath = '/guides/seo'
+const pad = (number: number) => String(number).padStart(2, '0')
 
-  for (const line of body.split('\n').map((part) => part.trim()).filter(Boolean)) {
-    if (line === 'À retenir' || (kind === 'faq' && line.endsWith('?')) || (kind === 'chapter' && line.length <= 100 && !/[.!?”»:]$/.test(line) && !/^\d/.test(line))) {
-      current = {
-        id: `${id}-${slugify(line)}`,
-        title: line,
-        kind: line === 'À retenir' ? 'takeaway' : 'content',
-        blocks: [],
-      }
-      subsections.push(current)
-    } else {
-      ;(current?.blocks ?? intro).push({ type: 'paragraph', text: line })
+export const courseModules = seoProgram.map((module) => {
+  const page = modulePages[module.id]
+  if (!page) throw new Error(`Page publique manquante pour ${module.id}`)
+  const path = `${coursePath}/${page.slug}`
+  const steps: CourseStep[] = module.lessons.map((lesson) => {
+    const lessonNumber = pad(lesson.number)
+    const slug = `lecon-${lessonNumber}`
+    return {
+      slug,
+      path: `${path}#${slug}`,
+      title: lesson.title,
+      objective: lessonDetails[lesson.id]!.objective,
+      label: `Leçon ${lesson.number}`,
+      minutes: estimateSeoMinutes(lesson.readingMinutes),
+      lessonNumber,
     }
+  })
+  if (module.exercise) {
+    const slug = `exercice-${pad(module.number)}`
+    steps.push({
+      slug,
+      path: `${path}#${slug}`,
+      title: module.exercise.replace(/\.$/, ''),
+      objective: practiceObjectives[module.number]!,
+      label: 'Mise en pratique',
+      minutes: getSeoPracticeMinutes(module.number),
+    })
   }
-
-  return { id, title: title!, kind, ...(number ? { number: Number(number) } : {}), intro, subsections }
+  return { ...page, path, number: module.number, steps }
 })
 
-export default sections
+export const courseSteps = courseModules.flatMap((module) => module.steps)
+
+export type CourseModule = (typeof courseModules)[number]

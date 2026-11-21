@@ -96,7 +96,7 @@ Cette relation directe possède une importance stratégique.
 Elle permet à la marque de maîtriser davantage son expérience, ses données clients et sa marge.
 Mais elle oblige également à prendre en charge l’acquisition, la logistique et le service client que d’autres intermédiaires assumaient auparavant.
 Marketplace ou boutique propriétaire
-Les [marketplaces](/guides/marketplace) offrent un accès immédiat à une audience déjà existante.
+Les marketplaces offrent un accès immédiat à une audience déjà existante.
 Amazon, Cdiscount, Etsy ou d’autres plateformes spécialisées permettent à une entreprise de vendre sans devoir créer toute sa visibilité depuis zéro.
 Cet avantage a cependant un prix.
 La marketplace contrôle une grande partie de l’expérience, prélève des commissions et conserve souvent une relation plus forte avec le client que le vendeur lui-même.
@@ -1543,7 +1543,7 @@ Le problème apparaît lorsque l’information doit être saisie plusieurs fois.
 Une adresse client peut exister dans plusieurs logiciels avec des versions différentes.
 Une commande peut être mise à jour dans la boutique mais pas dans le système logistique.
 Les intégrations permettent de faire circuler les données.
-[API](/guides/api), webhooks ou plateformes d’automatisation peuvent relier progressivement les différents outils.
+API, webhooks ou plateformes d’automatisation peuvent relier progressivement les différents outils.
 Il faut cependant définir clairement quelle application constitue la source de vérité.
 Le système e-commerce peut être responsable des commandes, le CRM des données relationnelles et l’outil financier des factures.
 Cette responsabilité évite que plusieurs systèmes essaient de contrôler la même information.
@@ -1664,7 +1664,7 @@ Il peut recevoir un objectif, utiliser plusieurs outils et effectuer une série 
 Dans les opérations internes, cela pourrait par exemple permettre de détecter une rupture probable, récupérer plusieurs informations nécessaires, préparer un réapprovisionnement puis demander une validation avant son exécution.
 Un agent pourrait également analyser quotidiennement certaines performances, identifier une anomalie et créer automatiquement une tâche pour l’équipe concernée.
 Mais la transformation la plus importante concerne peut-être le consommateur.
-La Fevad et KPMG parlent en 2026 de [commerce agentique](https://www.fevad.com/e-commerce-les-agents-ia-rebattent-les-cartes-du-partage-de-la-valeur/) : les [assistants IA](/guides/ia) deviennent une nouvelle couche d’intermédiation capable de comprendre une intention, comparer des offres, préparer une commande et potentiellement réaliser certaines actions au nom de l’utilisateur. Pour le marchand, il ne suffit donc plus d’être compréhensible par un consommateur ou bien indexé par un moteur de recherche ; l’offre doit également pouvoir être correctement interprétée par ces agents.
+La Fevad et KPMG parlent en 2026 de [commerce agentique](https://www.fevad.com/e-commerce-les-agents-ia-rebattent-les-cartes-du-partage-de-la-valeur/) : les assistants IA deviennent une nouvelle couche d’intermédiation capable de comprendre une intention, comparer des offres, préparer une commande et potentiellement réaliser certaines actions au nom de l’utilisateur. Pour le marchand, il ne suffit donc plus d’être compréhensible par un consommateur ou bien indexé par un moteur de recherche ; l’offre doit également pouvoir être correctement interprétée par ces agents.
 Cette évolution pourrait modifier profondément l’acquisition.
 Un consommateur pourra demander : « Trouve-moi une paire de chaussures de trail imperméables, fabriquée en Europe, sous 150 euros et livrable avant vendredi. »
 L’agent effectuera alors une partie du travail de recherche et de comparaison.

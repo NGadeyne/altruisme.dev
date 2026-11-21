@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import SeoLesson26Quiz from './SeoLesson26Quiz.vue'
+
+defineProps<{ publicEdition?: boolean }>()
 </script>
 
 <template>
@@ -912,10 +914,12 @@ import SeoLesson26Quiz from './SeoLesson26Quiz.vue'
       Ces observations constituent une première introduction au GEO. Elles seront utiles pour la
       leçon 28, consacrée à la mesure de ta visibilité.
     </p>
-    <p>
-      L'action « Évaluer ma visibilité dans les moteurs IA » de « Mon plan d'action » sera finalisée
-      après les vérifications techniques et les tests plus structurés des prochaines leçons.
-    </p>
+    <div v-if="!publicEdition">
+      <p>
+        L'action « Évaluer ma visibilité dans les moteurs IA » de « Mon plan d'action » sera finalisée
+        après les vérifications techniques et les tests plus structurés des prochaines leçons.
+      </p>
+    </div>
     <h2>Ce qu'il faut retenir</h2>
     <p>
       Les outils utilisant l'intelligence artificielle générative permettent aux internautes

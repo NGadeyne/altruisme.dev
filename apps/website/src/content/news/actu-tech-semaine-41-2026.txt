@@ -4,7 +4,7 @@ Depuis quelques semaines, les annonces autour de l’intelligence artificielle r
 
 ## Google veut faire de Gemini un collègue
 
-Google organisait cette semaine Gemini at Work 2026, son événement consacré à l’utilisation de [l’intelligence artificielle dans les entreprises](/guides/ia). L’annonce principale pourrait presque sembler banale après deux années remplies de nouveaux assistants : Google lance un nouvel agent appelé Gemini. Mais derrière ce nom désormais très familier se cache une ambition beaucoup plus importante que l’ajout de quelques fonctionnalités supplémentaires dans Workspace.
+Google organisait cette semaine Gemini at Work 2026, son événement consacré à l’utilisation de l’intelligence artificielle dans les entreprises. L’annonce principale pourrait presque sembler banale après deux années remplies de nouveaux assistants : Google lance un nouvel agent appelé Gemini. Mais derrière ce nom désormais très familier se cache une ambition beaucoup plus importante que l’ajout de quelques fonctionnalités supplémentaires dans Workspace.
 
 Google présente Gemini comme un [agent universel pour le travail](https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-at-work/). Il peut répondre à des questions, produire du contenu, analyser des informations, générer des images, écrire et exécuter du code, mais surtout utiliser différents outils pour accomplir un objectif donné. L’entreprise résume elle-même assez bien le changement de philosophie : l’utilisateur ne lui décrit plus nécessairement chaque étape à réaliser, il lui confie un résultat à obtenir.
 

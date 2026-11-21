@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import SeoLesson06Quiz from './SeoLesson06Quiz.vue'
+
+defineProps<{ publicEdition?: boolean }>()
 </script>
 
 <template>
@@ -855,10 +857,12 @@ import SeoLesson06Quiz from './SeoLesson06Quiz.vue'
       les performances de ton site, ou avoir identifié les données manquantes nécessaires pour
       poursuivre ton analyse.
     </p>
-    <p>
-      Dans « Mon plan d'action », tu peux maintenant marquer l'action « Identifier mes premières
-      opportunités SEO » comme terminée.
-    </p>
+    <div v-if="!publicEdition">
+      <p>
+        Dans « Mon plan d'action », tu peux maintenant marquer l'action « Identifier mes premières
+        opportunités SEO » comme terminée.
+      </p>
+    </div>
     <p>
       Tu n'as pas besoin d'avoir trouvé trois problèmes ni d'avoir réalisé des optimisations.
       L'objectif consiste à apprendre à observer les données, à distinguer les situations

@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import SeoLesson31Quiz from './SeoLesson31Quiz.vue'
+
+defineProps<{ publicEdition?: boolean }>()
 </script>
 
 <template>
   <article class="seo-lesson-content">
     <h2>
-      Tu as appris à améliorer ton référencement. Il est maintenant temps de passer à l'action.
+      Tu as appris à améliorer ton référencement. Il est maintenant temps de passer à l'action
     </h2>
     <p>
       Imagine que tu viens de terminer cette formation. Tu comprends comment Google explore et
@@ -944,10 +946,12 @@ import SeoLesson31Quiz from './SeoLesson31Quiz.vue'
       ton objectif principal, une situation de départ mesurée, au moins trois actions prioritaires,
       leurs échéances, leurs critères de réalisation et trois moments de bilan.
     </p>
-    <p>
-      Dans « Mon plan d'action », tu peux maintenant marquer l'action « Construire mon plan d'action
-      SEO sur 90 jours » comme terminée.
-    </p>
+    <div v-if="!publicEdition">
+      <p>
+        Dans « Mon plan d'action », tu peux maintenant marquer l'action « Construire mon plan d'action
+        SEO sur 90 jours » comme terminée.
+      </p>
+    </div>
     <p>Tu possèdes désormais un document destiné à guider tes prochaines améliorations.</p>
     <h2>Ce qu'il faut retenir</h2>
     <p>

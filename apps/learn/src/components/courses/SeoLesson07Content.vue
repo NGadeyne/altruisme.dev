@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import SeoLesson07Quiz from './SeoLesson07Quiz.vue'
+
+defineProps<{ publicEdition?: boolean }>()
 </script>
 
 <template>
   <article class="seo-lesson-content">
-    <h2>Attirer des visiteurs ne suffit pas. Encore faut-il répondre à leurs attentes.</h2>
+    <h2>Attirer des visiteurs ne suffit pas. Encore faut-il répondre à leurs attentes</h2>
     <p>
       Imagine que tu possèdes un site internet sur lequel tu proposes des prestations de création de
       sites web. Tu souhaites développer ton référencement naturel et attirer davantage de clients
@@ -818,10 +820,12 @@ import SeoLesson07Quiz from './SeoLesson07Quiz.vue'
       pertinentes pour ton activité, avec un exemple de recherche et un type de contenu adapté pour
       chacune.
     </p>
-    <p>
-      Dans « Mon plan d'action », tu peux maintenant marquer l'action « Définir les intentions de
-      recherche de mes futurs clients » comme terminée.
-    </p>
+    <div v-if="!publicEdition">
+      <p>
+        Dans « Mon plan d'action », tu peux maintenant marquer l'action « Définir les intentions de
+        recherche de mes futurs clients » comme terminée.
+      </p>
+    </div>
     <p>
       Conserve tes observations. Nous les utiliserons dès la prochaine leçon pour commencer à
       identifier les mots-clés qui présentent le plus d'intérêt pour ton activité.

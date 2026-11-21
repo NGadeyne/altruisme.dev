@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import SeoLesson15Quiz from './SeoLesson15Quiz.vue'
+
+defineProps<{ publicEdition?: boolean }>()
 </script>
 
 <template>
@@ -910,10 +912,12 @@ Sitemap: https://exemple.fr/sitemap.xml
       L'essentiel est de comprendre ce que ton site communique aux moteurs de recherche et de savoir
       identifier les situations qui méritent une attention particulière.
     </p>
-    <p>
-      Ces observations viendront compléter l'action « Réaliser un premier audit technique de mon
-      site » dans « Mon plan d'action », que tu finaliseras à la fin du module 5.
-    </p>
+    <div v-if="!publicEdition">
+      <p>
+        Ces observations viendront compléter l'action « Réaliser un premier audit technique de mon
+        site » dans « Mon plan d'action », que tu finaliseras à la fin du module 5.
+      </p>
+    </div>
     <h2>Ce qu'il faut retenir</h2>
     <p>
       Le fichier <code>robots.txt</code>, le sitemap XML et les balises canoniques font partie des

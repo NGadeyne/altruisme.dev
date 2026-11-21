@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import SeoLesson22Quiz from './SeoLesson22Quiz.vue'
+
+defineProps<{ publicEdition?: boolean }>()
 </script>
 
 <template>
@@ -874,11 +876,13 @@ import SeoLesson22Quiz from './SeoLesson22Quiz.vue'
       rapport sur les actions manuelles et identifié les éventuelles corrections utiles, sans
       supprimer ni désavouer de liens à l'aveugle.
     </p>
-    <p>
-      Tu peux maintenant finaliser l'action « Identifier mes premières opportunités de backlinks »
-      dans « Mon plan d'action », à condition d'avoir également réalisé la sélection de cinq
-      opportunités prévue dans la leçon précédente.
-    </p>
+    <div v-if="!publicEdition">
+      <p>
+        Tu peux maintenant finaliser l'action « Identifier mes premières opportunités de backlinks »
+        dans « Mon plan d'action », à condition d'avoir également réalisé la sélection de cinq
+        opportunités prévue dans la leçon précédente.
+      </p>
+    </div>
     <p>
       L'objectif de cette action n'est pas d'obtenir immédiatement de nouveaux liens, mais de
       disposer d'une première démarche pertinente et d'un point de départ fiable.

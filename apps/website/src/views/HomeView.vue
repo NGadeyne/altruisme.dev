@@ -16,7 +16,7 @@ const compactGuides = [
 
 const editorialStats = [
   { value: String(publishedGuideCount), label: 'guides de référence publiés' },
-  { value: String(upcomingGuideCount), label: 'grands guides en préparation' },
+  { value: String(upcomingGuideCount), label: upcomingGuideCount === 1 ? 'guide en préparation' : 'grands guides en préparation' },
   { value: '1× / semaine', label: 'une sélection d’actualités utile' },
   { value: '100 %', label: 'indépendant dans la ligne éditoriale' },
 ]

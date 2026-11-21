@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import SeoLesson20Quiz from './SeoLesson20Quiz.vue'
+
+defineProps<{ publicEdition?: boolean }>()
 </script>
 
 <template>
@@ -689,11 +691,13 @@ import SeoLesson20Quiz from './SeoLesson20Quiz.vue'
       Search Console, examiné jusqu'à deux références lorsqu'elles existent et identifié une
       ressource de ton site qui pourrait présenter un intérêt pour d'autres publications.
     </p>
-    <p>
-      Tu n'as pas besoin d'obtenir un nouveau backlink pour valider cet exercice. Ces observations
-      alimenteront l'action « Identifier mes premières opportunités de backlinks » dans « Mon plan
-      d'action », que tu pourras finaliser à la fin du module 7.
-    </p>
+    <div v-if="!publicEdition">
+      <p>
+        Tu n'as pas besoin d'obtenir un nouveau backlink pour valider cet exercice. Ces observations
+        alimenteront l'action « Identifier mes premières opportunités de backlinks » dans « Mon plan
+        d'action », que tu pourras finaliser à la fin du module 7.
+      </p>
+    </div>
     <h2>Ce qu'il faut retenir</h2>
     <p>
       Un backlink correspond à un lien présent sur un autre site et qui dirige vers une page de ton

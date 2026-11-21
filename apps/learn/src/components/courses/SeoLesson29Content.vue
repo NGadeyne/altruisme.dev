@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import SeoLesson29Quiz from './SeoLesson29Quiz.vue'
+
+defineProps<{ publicEdition?: boolean }>()
 </script>
 
 <template>
@@ -1190,10 +1192,12 @@ import SeoLesson29Quiz from './SeoLesson29Quiz.vue'
       une période de référence, les principaux chiffres Search Console, trois pages stratégiques et
       les résultats commerciaux disponibles.
     </p>
-    <p>
-      Dans « Mon plan d'action », tu peux maintenant marquer l'action « Mesurer mon point de départ
-      SEO » comme terminée.
-    </p>
+    <div v-if="!publicEdition">
+      <p>
+        Dans « Mon plan d'action », tu peux maintenant marquer l'action « Mesurer mon point de départ
+        SEO » comme terminée.
+      </p>
+    </div>
     <p>
       Tu disposes désormais d'une base concrète pour observer tes progrès pendant les prochains
       mois.

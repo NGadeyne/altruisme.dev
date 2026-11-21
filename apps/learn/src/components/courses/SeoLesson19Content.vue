@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import SeoLesson19Quiz from './SeoLesson19Quiz.vue'
+
+defineProps<{ publicEdition?: boolean }>()
 </script>
 
 <template>
@@ -975,10 +977,12 @@ import SeoLesson19Quiz from './SeoLesson19Quiz.vue'
       cinq contenus à créer ou à améliorer, avec une intention de recherche, une priorité, une
       échéance et une première action clairement identifiée.
     </p>
-    <p>
-      Dans « Mon plan d'action », tu peux maintenant marquer l'action « Planifier mes cinq prochains
-      contenus » comme terminée.
-    </p>
+    <div v-if="!publicEdition">
+      <p>
+        Dans « Mon plan d'action », tu peux maintenant marquer l'action « Planifier mes cinq prochains
+        contenus » comme terminée.
+      </p>
+    </div>
     <p>
       Tu disposes désormais d'une première stratégie éditoriale organisée et adaptée à ton activité.
     </p>

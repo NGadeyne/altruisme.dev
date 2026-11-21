@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import SeoLesson09Quiz from './SeoLesson09Quiz.vue'
+
+defineProps<{ publicEdition?: boolean }>()
 </script>
 
 <template>
@@ -964,10 +966,12 @@ import SeoLesson09Quiz from './SeoLesson09Quiz.vue'
       chacun associé à une intention de recherche et à une page existante ou à un contenu à
       envisager.
     </p>
-    <p>
-      Dans « Mon plan d'action », tu peux maintenant marquer l'action « Prioriser mes mots-clés et
-      les associer aux bonnes pages » comme terminée.
-    </p>
+    <div v-if="!publicEdition">
+      <p>
+        Dans « Mon plan d'action », tu peux maintenant marquer l'action « Prioriser mes mots-clés et
+        les associer aux bonnes pages » comme terminée.
+      </p>
+    </div>
     <p>
       Conserve ton tableau : nous allons l'utiliser dès le prochain module pour commencer à
       optimiser les éléments les plus importants de tes pages.

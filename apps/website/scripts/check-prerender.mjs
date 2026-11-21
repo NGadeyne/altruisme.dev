@@ -6,6 +6,10 @@ import { prerenderPaths, routes } from '../node_modules/.prerender/entry-server.
 
 const output = resolve('dist')
 const indexableUrls = new Set()
+const seoModules = prerenderPaths.filter((path) => path.startsWith('/guides/seo/'))
+const legacySteps = new Set()
+const redirectRules = (await readFile(resolve(output, '_redirects'), 'utf8')).trim().split('\n')
+
 for (const path of [...prerenderPaths, '/404']) {
   const file = resolve(output, path === '/' ? 'index.html' : `${path.slice(1)}.html`)
   const html = await readFile(file, 'utf8')
@@ -124,27 +128,66 @@ for (const path of [...prerenderPaths, '/404']) {
     )
   }
   if (path === '/guides/seo') {
-    assert.equal(document.querySelectorAll('.guide-section').length, 21)
-    assert.ok(document.querySelector('#partie-18'))
-    assert.ok(document.querySelector('#faq')?.textContent.includes(
-      'Trouvez le prochain problème le plus important, résolvez-le correctement, mesurez ce qui change puis recommencez.',
-    ))
-    assert.equal(document.title, 'SEO 2026 : le guide complet pour réussir son référencement')
-    assert.equal(
-      document.querySelector('meta[name="description"]').content,
-      'Le guide complet du SEO en 2026 : stratégie, mots-clés, contenu, technique, indexation, backlinks, autorité, IA et mesure des performances.',
-    )
-    assert.equal(document.querySelector('main h1')?.textContent.trim(), 'SEO 2026 : Guide complet')
-    assert.equal(document.querySelector('link[rel="canonical"]').href, 'https://altruisme.dev/guides/seo')
-    assert.equal(document.querySelector('meta[property="og:title"]').content, 'SEO 2026 : le guide complet')
-    assert.equal(
-      document.querySelector('meta[property="og:description"]').content,
-      'Comprendre et maîtriser le SEO en 2026 : stratégie, contenu, technique, indexation, autorité, backlinks, IA et croissance organique durable.',
-    )
-    assert.equal(document.querySelector('meta[property="og:url"]').content, 'https://altruisme.dev/guides/seo')
-    assert.equal(document.querySelector('meta[property="og:type"]').content, 'article')
-    assert.equal(document.querySelector('meta[name="twitter:card"]').content, 'summary_large_image')
-    assert.equal(document.querySelector('main img')?.getAttribute('src'), '/images/guides/guide-seo-2026.webp')
+    assert.equal(document.title, 'SEO 2026 : guide complet | Altruisme.DEV')
+    assert.equal(document.querySelector('main h1').textContent.trim(), 'SEO 2026 : guide complet')
+    for (const hash of ['#plan-action', '#sommaire', '#ressources', '#faq']) {
+      assert.ok(document.querySelector(`main a[href="${hash}"]`) && document.querySelector(hash), hash)
+    }
+    assert.equal(document.querySelectorAll('#plan-action h3').length, 3)
+    assert.equal(document.querySelector('#plan-action input'), null)
+    const paths = [...document.querySelectorAll('#sommaire h3 a')].map((a) => a.getAttribute('href'))
+    assert.equal(seoModules.length, 10)
+    assert.deepEqual(paths, seoModules)
+    assert.equal(document.querySelectorAll('#sommaire li a').length, 41)
+    const steps = [...document.querySelectorAll('#sommaire li a')].map((a) => a.getAttribute('href'))
+    const questions = document.querySelectorAll('#faq details')
+    assert.ok(questions.length >= 12)
+    for (const question of questions) {
+      assert.ok(question.querySelector('summary')?.textContent.trim().endsWith('?'))
+      assert.ok(question.querySelector('p')?.textContent.trim())
+      assert.ok(steps.includes(question.querySelector('a')?.getAttribute('href')))
+    }
+    assert.equal(document.querySelectorAll('#ressources li a').length, 5)
+    const [course] = JSON.parse(document.querySelector('#guide-structured-data').textContent)['@graph']
+    assert.equal(course['@type'], 'Course')
+    assert.deepEqual(course.hasPart.map((part) => new URL(part['@id']).pathname), paths)
+  }
+  if (seoModules.includes(path)) {
+    const title = document.querySelector('main h1').textContent.trim()
+    assert.equal(document.querySelectorAll('main h1').length, 1)
+    assert.equal(document.title, `${title} | SEO 2026 : guide complet`)
+    const ids = [...document.querySelectorAll('[id]')].map((element) => element.id)
+    assert.equal(ids.length, new Set(ids).size, `Repeated id on ${path}`)
+    const anchors = [...document.querySelectorAll('#sommaire a')].map((a) => a.getAttribute('href'))
+    const [module, breadcrumbs] = JSON.parse(document.querySelector('#guide-structured-data').textContent)['@graph']
+    assert.equal(module['@type'], 'LearningResource')
+    assert.equal(module.isPartOf['@id'], 'https://altruisme.dev/guides/seo')
+    assert.equal(breadcrumbs.itemListElement.at(-1).item, module.url)
+    assert.deepEqual(module.hasPart.map((part) => part.url), anchors.map((hash) => module.url + hash))
+    assert.equal(anchors.filter((hash) => hash.startsWith('#exercice-')).length, 1)
+    for (const anchor of anchors) {
+      const step = document.getElementById(anchor.slice(1))
+      assert.ok(step, anchor)
+      const body = step.querySelector('.course-body')
+      assert.ok(body?.textContent.length > 3000, path + anchor)
+      assert.equal(body.querySelector('h1, h2'), null, path + anchor)
+      assert.ok(body.querySelector('h3'), path + anchor)
+      assert.doesNotMatch(body.textContent, /« Mon plan d['’]action »/, path)
+      if (anchor.startsWith('#lecon-')) {
+        assert.ok(body.querySelectorAll('form fieldset').length >= 3, path + anchor)
+      } else {
+        assert.match(body.textContent, /Étape 3 —/, path)
+      }
+      const oldPath = '/guides/seo/' + step.id
+      assert.ok(!legacySteps.has(oldPath))
+      legacySteps.add(oldPath)
+      assert.ok(redirectRules.includes(`${oldPath} ${path}${anchor} 301`), oldPath)
+      await assert.rejects(access(resolve(output, oldPath.slice(1) + '.html')))
+    }
+    const index = seoModules.indexOf(path)
+    const navigation = document.querySelector('nav[aria-label="Parcourir le guide"]')
+    for (const target of [seoModules[index - 1], seoModules[index + 1] ?? '/guides/seo'].filter(Boolean))
+      assert.ok(navigation.querySelector(`a[href="${target}"]`), path)
   }
   if (path === '/guides/prospection') {
     assert.equal(document.querySelectorAll('.guide-section').length, 21)
@@ -170,33 +213,6 @@ for (const path of [...prerenderPaths, '/404']) {
     assert.equal(document.querySelector('meta[name="twitter:card"]').content, 'summary_large_image')
     assert.equal(document.querySelector('main img')?.getAttribute('src'), '/images/guides/guide-prospection-2026.webp')
   }
-  if (path === '/guides/api') {
-    assert.equal(document.querySelectorAll('.guide-section').length, 21)
-    assert.ok(document.querySelector('#partie-18'))
-    assert.ok(document.querySelector('#faq')?.textContent.includes(
-      'En 2026, la meilleure architecture n’est donc pas nécessairement la plus distribuée',
-    ))
-    assert.equal(document.title, 'API 2026 : le guide complet des API modernes')
-    assert.equal(
-      document.querySelector('meta[name="description"]').content,
-      'Comprendre et concevoir une API en 2026 : HTTP, REST, GraphQL, sécurité, authentification, versioning, documentation, performance et IA.',
-    )
-    assert.equal(
-      document.querySelector('meta[name="keywords"]').content,
-      'API, API REST, créer une API, architecture API, API HTTP, GraphQL, gRPC, sécurité API, documentation API, versioning API',
-    )
-    assert.equal(document.querySelector('main h1')?.textContent.trim(), 'API 2026 : Guide complet')
-    assert.equal(document.querySelector('link[rel="canonical"]').href, 'https://altruisme.dev/guides/api')
-    assert.equal(document.querySelector('meta[property="og:title"]').content, 'API 2026 : le guide complet')
-    assert.equal(
-      document.querySelector('meta[property="og:description"]').content,
-      'Le guide complet pour comprendre et concevoir une API moderne : HTTP, REST, GraphQL, sécurité, documentation, performance, architecture et IA.',
-    )
-    assert.equal(document.querySelector('meta[property="og:url"]').content, 'https://altruisme.dev/guides/api')
-    assert.equal(document.querySelector('meta[property="og:type"]').content, 'article')
-    assert.equal(document.querySelector('meta[name="twitter:card"]').content, 'summary_large_image')
-    assert.equal(document.querySelector('main img')?.getAttribute('src'), '/images/guides/guide-api-2026.webp')
-  }
   if (path === '/guides/cloud') {
     assert.equal(document.querySelectorAll('.guide-section').length, 21)
     assert.ok(document.querySelector('#partie-18'))
@@ -220,29 +236,6 @@ for (const path of [...prerenderPaths, '/404']) {
     assert.equal(document.querySelector('meta[property="og:type"]').content, 'article')
     assert.equal(document.querySelector('meta[name="twitter:card"]').content, 'summary_large_image')
     assert.equal(document.querySelector('main img')?.getAttribute('src'), '/images/guides/guide-cloud-2026.webp')
-  }
-  if (path === '/guides/marketplace') {
-    assert.equal(document.querySelectorAll('.guide-section').length, 21)
-    assert.ok(document.querySelector('#partie-18'))
-    assert.ok(document.querySelector('#faq')?.textContent.includes(
-      'La meilleure validation reste finalement la plus concrète',
-    ))
-    assert.equal(document.title, 'Marketplace 2026 : le guide complet pour lancer sa plateforme')
-    assert.equal(
-      document.querySelector('meta[name="description"]').content,
-      'Le guide complet pour créer une marketplace en 2026 : modèle, offre, demande, liquidité, confiance, monétisation, acquisition, technologie et IA.',
-    )
-    assert.equal(document.querySelector('main h1')?.textContent.trim(), 'Marketplace 2026 : Guide complet')
-    assert.equal(document.querySelector('link[rel="canonical"]').href, 'https://altruisme.dev/guides/marketplace')
-    assert.equal(document.querySelector('meta[property="og:title"]').content, 'Marketplace 2026 : le guide complet')
-    assert.equal(
-      document.querySelector('meta[property="og:description"]').content,
-      'Comprendre, lancer et développer une marketplace en 2026 : offre, demande, liquidité, confiance, monétisation, acquisition, technologie et IA.',
-    )
-    assert.equal(document.querySelector('meta[property="og:url"]').content, 'https://altruisme.dev/guides/marketplace')
-    assert.equal(document.querySelector('meta[property="og:type"]').content, 'article')
-    assert.equal(document.querySelector('meta[name="twitter:card"]').content, 'summary_large_image')
-    assert.equal(document.querySelector('main img')?.getAttribute('src'), '/images/guides/guide-marketplace-2026.webp')
   }
   if (path === '/') {
     assert.equal(document.querySelectorAll('.media-news-list article').length, 2)
@@ -791,7 +784,12 @@ for (const path of [...prerenderPaths, '/404']) {
     assert.equal(document.querySelectorAll('.checklist-steps li').length, 9)
   }
 }
-for (const retired of ['contact', 'guides/freelance-2026', 'communaute']) {
+assert.equal(legacySteps.size, 41)
+for (const retired of [
+  'contact', 'guides/freelance-2026', 'communaute',
+  'guides/ia', 'guides/esn', 'guides/marketplace', 'guides/api', 'guides/typescript',
+  'guides/python', 'guides/youtube', 'guides/newsletter', 'guides/landing-page',
+]) {
   await assert.rejects(access(resolve(output, `${retired}.html`)))
 }
 const sitemap = await readFile(resolve(output, 'sitemap.xml'), 'utf8')

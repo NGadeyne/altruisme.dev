@@ -6,7 +6,7 @@ import SeoLesson25Quiz from './SeoLesson25Quiz.vue'
   <article class="seo-lesson-content">
     <h2>
       Être présent dans Google Maps est une première étape. Être choisi par les bons clients en est
-      une autre.
+      une autre
     </h2>
     <p>
       Imagine qu'une personne recherche un photographe de mariage à Bordeaux. Elle découvre

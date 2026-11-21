@@ -16,6 +16,10 @@ export const guideRoutes: RouteRecordRaw[] = guides.map((guide) => ({
     robots: guide.status === 'available' ? 'index, follow' : 'noindex, follow',
   },
   component: async () => {
+    if (guide.format === 'course') {
+      const view = await import('@/views/guides/SeoCourseView.vue')
+      return defineComponent({ setup: () => () => h(view.default, { guide }) })
+    }
     if (guide.status === 'available' && guide.loadSections) {
       const [view, sections] = await Promise.all([
         import('@/views/guides/GuideView.vue'),

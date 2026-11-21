@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import SeoLesson08Quiz from './SeoLesson08Quiz.vue'
+
+defineProps<{ publicEdition?: boolean }>()
 </script>
 
 <template>
@@ -941,10 +943,12 @@ import SeoLesson08Quiz from './SeoLesson08Quiz.vue'
       expressions pertinentes, accompagnées de leur source et d'une hypothèse sur l'intention de
       recherche associée.
     </p>
-    <p>
-      Dans « Mon plan d'action », tu peux maintenant marquer l'action « Constituer ma première liste
-      de mots-clés » comme terminée.
-    </p>
+    <div v-if="!publicEdition">
+      <p>
+        Dans « Mon plan d'action », tu peux maintenant marquer l'action « Constituer ma première liste
+        de mots-clés » comme terminée.
+      </p>
+    </div>
     <p>
       Conserve ce tableau : il nous servira directement dans la prochaine leçon pour identifier les
       meilleures opportunités et commencer à associer les bons mots-clés aux bonnes pages.

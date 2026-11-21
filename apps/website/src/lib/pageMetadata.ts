@@ -1,5 +1,7 @@
+import { courseModules, coursePath, type CourseModule } from '@/content/guides/seo'
 import type { RouteLocationNormalizedLoaded } from 'vue-router'
 import { guides, guidePath } from '@/data/guides'
+import type { GuideDefinition } from '@/types/guide'
 
 const SITE_NAME = 'Altruisme.DEV'
 const SITE_URL = 'https://altruisme.dev'
@@ -16,10 +18,41 @@ const escapeHtml = (text: string) =>
       })[character] ?? character,
   )
 
+function guideEntity(guide: GuideDefinition, module: CourseModule | undefined, url: string) {
+  if (guide.format !== 'course') return { '@type': 'Article', headline: guide.title }
+  if (module) {
+    return {
+      '@type': 'LearningResource',
+      '@id': url,
+      name: module.title,
+      isAccessibleForFree: true,
+      isPartOf: { '@type': 'Course', '@id': SITE_URL + coursePath },
+      hasPart: module.steps.map((step) => ({
+        '@type': 'LearningResource',
+        name: step.title,
+        url: SITE_URL + step.path,
+      })),
+    }
+  }
+  return {
+    '@type': 'Course',
+    '@id': url,
+    name: guide.title,
+    provider: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
+    isAccessibleForFree: true,
+    hasPart: courseModules.map((part) => ({
+      '@type': 'LearningResource',
+      '@id': SITE_URL + part.path,
+      name: part.title,
+    })),
+  }
+}
+
 // One serializer for the initial HTML and subsequent client-side navigations.
 export function renderPageMetadata(to: RouteLocationNormalizedLoaded) {
   const path = to.path.replace(/\/+$/, '') || '/'
-  const guide = guides.find((item) => guidePath(item) === path)
+  const courseModule = courseModules.find((module) => module.path === path)
+  const guide = guides.find((item) => guidePath(item) === (courseModule ? coursePath : path))
   const published = guide?.status === 'available' || to.meta.article === true
   const title = String(to.meta.title || SITE_NAME)
   const description = String(
@@ -99,31 +132,39 @@ export function renderPageMetadata(to: RouteLocationNormalizedLoaded) {
       meta('twitter:image', image)
       meta('twitter:image:alt', guide.imageAlt ?? guide.title)
     }
-    if (guide.publishedAt) meta('article:published_time', guide.publishedAt, 'property')
+    if (guide.publishedAt && !courseModule)
+      meta('article:published_time', guide.publishedAt, 'property')
     if (guide.updatedAt) meta('article:modified_time', guide.updatedAt, 'property')
     const structuredData = {
       '@context': 'https://schema.org',
       '@graph': [
         {
-          '@type': 'Article',
-          headline: guide.title,
+          ...guideEntity(guide, courseModule, url),
           description,
           url,
           mainEntityOfPage: { '@type': 'WebPage', '@id': url },
           image: guide.image ? new URL(guide.image, SITE_URL).href : undefined,
           author: guide.author ? { '@type': 'Person', ...guide.author } : undefined,
           publisher: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
-          datePublished: guide.publishedAt,
+          datePublished: courseModule ? undefined : guide.publishedAt,
           dateModified: guide.updatedAt,
           inLanguage: 'fr-FR',
-          articleSection: guide.label,
+          articleSection: guide.format === 'course' ? undefined : guide.label,
         },
         {
           '@type': 'BreadcrumbList',
           itemListElement: [
             { '@type': 'ListItem', position: 1, name: 'Accueil', item: SITE_URL },
             { '@type': 'ListItem', position: 2, name: 'Guides', item: `${SITE_URL}/guides` },
-            { '@type': 'ListItem', position: 3, name: guide.title, item: url },
+            {
+              '@type': 'ListItem',
+              position: 3,
+              name: guide.title,
+              item: SITE_URL + guidePath(guide),
+            },
+            ...(courseModule
+              ? [{ '@type': 'ListItem', position: 4, name: courseModule.title, item: url }]
+              : []),
           ],
         },
       ],

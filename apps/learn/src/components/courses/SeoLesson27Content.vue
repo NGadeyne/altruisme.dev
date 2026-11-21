@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import SeoLesson27Quiz from './SeoLesson27Quiz.vue'
+
+defineProps<{ publicEdition?: boolean }>()
 </script>
 
 <template>
@@ -1005,10 +1007,12 @@ import SeoLesson27Quiz from './SeoLesson27Quiz.vue'
       principales règles applicables aux robots de recherche et identifié une amélioration
       éventuelle pour rendre son contenu plus clair ou plus fiable.
     </p>
-    <p>
-      Ces observations viendront compléter l'action « Évaluer ma visibilité dans les moteurs IA »
-      dans « Mon plan d'action ».
-    </p>
+    <div v-if="!publicEdition">
+      <p>
+        Ces observations viendront compléter l'action « Évaluer ma visibilité dans les moteurs IA »
+        dans « Mon plan d'action ».
+      </p>
+    </div>
     <p>
       Tu disposes désormais des éléments nécessaires pour réaliser des tests de visibilité plus
       structurés dans la prochaine leçon.

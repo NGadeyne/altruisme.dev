@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import SeoLesson16Quiz from './SeoLesson16Quiz.vue'
+
+defineProps<{ publicEdition?: boolean }>()
 </script>
 
 <template>
@@ -981,11 +983,13 @@ import SeoLesson16Quiz from './SeoLesson16Quiz.vue'
       identifié deux observations importantes et sélectionné une amélioration prioritaire lorsque
       cela est nécessaire.
     </p>
-    <p>
-      Ces informations complètent l'action « Réaliser un premier audit technique de mon site » dans
-      « Mon plan d'action ».
-    </p>
-    <p>Tu peux maintenant finaliser cette action lors de la mise en pratique de fin de module.</p>
+    <div v-if="!publicEdition">
+      <p>
+        Ces informations complètent l'action « Réaliser un premier audit technique de mon site » dans
+        « Mon plan d'action ».
+      </p>
+      <p>Tu peux maintenant finaliser cette action lors de la mise en pratique de fin de module.</p>
+    </div>
     <h2>Ce qu'il faut retenir</h2>
     <p>
       Les performances d'un site influencent la manière dont les visiteurs découvrent et utilisent

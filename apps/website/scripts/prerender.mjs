@@ -3,6 +3,7 @@ import { dirname, resolve } from 'node:path'
 import {
   prerenderPaths,
   redirectPaths,
+  resolveRedirect,
   render,
   routes,
 } from '../node_modules/.prerender/entry-server.js'
@@ -65,7 +66,7 @@ await writeFile(resolve(output, 'news-sitemap-articles.json'), JSON.stringify(ne
 // Preserve remaining route aliases at the HTTP layer; retired URLs are not registered routes.
 const redirects = []
 for (const path of redirectPaths) {
-  const { resolvedPath } = await render(path)
+  const resolvedPath = await resolveRedirect(path)
   redirects.push(`${path} ${resolvedPath} 301`)
 }
 if (redirects.length) await writeFile(resolve(output, '_redirects'), redirects.join('\n') + '\n')

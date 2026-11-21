@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import SeoLesson03Quiz from './SeoLesson03Quiz.vue'
+
+defineProps<{ publicEdition?: boolean }>()
 </script>
 
 <template>
@@ -771,11 +773,13 @@ import SeoLesson03Quiz from './SeoLesson03Quiz.vue'
       Tu peux utiliser un document personnel, un tableur ou la méthode de prise de notes que tu
       préfères.
     </p>
-    <p>
-      Dans ton espace Altruisme Learn, tu retrouveras également l'action « Identifier les pages
-      stratégiques de mon site » dans la rubrique « Mon plan d'action ».
-    </p>
-    <p>Lorsque tu auras terminé ta sélection, tu pourras marquer cette action comme réalisée.</p>
+    <div v-if="!publicEdition">
+      <p>
+        Dans ton espace Altruisme Learn, tu retrouveras également l'action « Identifier les pages
+        stratégiques de mon site » dans la rubrique « Mon plan d'action ».
+      </p>
+      <p>Lorsque tu auras terminé ta sélection, tu pourras marquer cette action comme réalisée.</p>
+    </div>
     <p>
       <strong>Ton résultat attendu :</strong> disposer d'une première sélection de trois pages
       importantes, avec une raison claire expliquant pourquoi chacune mérite ton attention.

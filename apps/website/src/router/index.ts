@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import { nextTick } from 'vue'
 import type { RouteRecordRaw } from 'vue-router'
 import { guideRoutes } from './guides'
+import { formerSeoGuideAnchor, seoCourseRoutes } from './seoCourse'
 import { updatePageMetadata } from '@/lib/pageMetadata'
 import { week39 } from '@/content/news/week39Metadata'
 import { week40 } from '@/content/news/week40Metadata'
@@ -67,7 +68,7 @@ export const routes: RouteRecordRaw[] = [
     meta: {
       title: 'Guides tech 2026 | Altruisme.DEV',
       description:
-        'Guides complets sur le freelancing, le SaaS, l’automatisation, les ESN, l’e-commerce, l’IA et les marketplaces.',
+        'Explore les guides sur le freelancing, le SaaS, l’automatisation, l’e-commerce, LinkedIn, la prospection, le cloud et le référencement naturel.',
     },
   },
   {
@@ -81,6 +82,7 @@ export const routes: RouteRecordRaw[] = [
     },
   },
   ...guideRoutes,
+  ...seoCourseRoutes,
   {
     path: '/guides/saas-2026',
     redirect: (to) => ({ path: '/guides/saas', hash: to.hash, query: to.query }),
@@ -364,6 +366,7 @@ export function createWebsiteRouter(server = import.meta.env.SSR) {
         } catch {
           /* Keep malformed fragments literal. */
         }
+        if (to.name === 'guide-seo') id = formerSeoGuideAnchor(id) ?? id
         const element = document.getElementById(id)
         if (element)
           return { el: element, top: parseFloat(getComputedStyle(element).scrollMarginTop) || 112 }

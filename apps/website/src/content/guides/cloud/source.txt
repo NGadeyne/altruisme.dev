@@ -358,7 +358,7 @@ Comprendre le réseau revient donc surtout à répondre à trois questions : qui
 Comprendre le rôle du DNS
 Lorsque nous utilisons un nom comme altruisme.dev, nous manipulons une représentation lisible pour un humain. Les machines, elles, doivent savoir vers quelle adresse réseau envoyer les données.
 Le Domain Name System, ou DNS, assure cette correspondance. Il permet d’associer un nom de domaine ou un sous-domaine à différentes informations, notamment à une adresse IP ou à un autre nom.
-Une architecture peut par exemple faire pointer app.exemple.com vers un load balancer, api.exemple.com vers une [API](/guides/api) et cdn.exemple.com vers un service de distribution de contenus. Le DNS devient ainsi l’une des premières couches permettant d’orienter le trafic.
+Une architecture peut par exemple faire pointer app.exemple.com vers un load balancer, api.exemple.com vers une API et cdn.exemple.com vers un service de distribution de contenus. Le DNS devient ainsi l’une des premières couches permettant d’orienter le trafic.
 Cette résolution possède une particularité importante : les informations peuvent être mises en cache. Une modification DNS n’est donc pas toujours visible immédiatement partout. Les enregistrements possèdent une durée de vie, souvent appelée TTL, qui indique combien de temps une réponse peut être conservée avant d’être demandée à nouveau.
 Le DNS ne transporte pas lui-même les requêtes de l’application. Il indique simplement où commencer le trajet. Une fois l’adresse obtenue, le navigateur établit une connexion vers la destination correspondante.
 Cette distinction permet de mieux comprendre les incidents. Un site inaccessible peut parfaitement avoir une application fonctionnelle mais une configuration DNS incorrecte. À l’inverse, un domaine peut résoudre correctement alors que le serveur derrière ne répond plus.
@@ -1106,7 +1106,7 @@ Une machine disposant d’un GPU puissant qui reste inactive une grande partie d
 Dans certains cas, mutualiser plusieurs workloads ou utiliser une infrastructure capable de démarrer uniquement lorsque le besoin apparaît peut être beaucoup plus rationnel que conserver une capacité permanente.
 Le choix d’un GPU doit donc être analysé comme n’importe quelle autre ressource cloud : partir du workload réel plutôt que de la puissance maximale disponible.
 Choisir entre API de modèles et hébergement propre
-Lorsqu’une application veut intégrer de l’[intelligence artificielle](/guides/ia), une première décision consiste à choisir entre l’utilisation d’un service externe et l’hébergement direct d’un modèle.
+Lorsqu’une application veut intégrer de l’intelligence artificielle, une première décision consiste à choisir entre l’utilisation d’un service externe et l’hébergement direct d’un modèle.
 Les APIs offrent généralement le chemin le plus rapide. L’équipe ne gère ni GPU, ni scaling, ni déploiement du modèle. Elle envoie une requête et reçoit une réponse.
 Cette simplicité peut être particulièrement attractive lorsqu’un produit démarre. Elle permet de valider l’usage avant d’investir dans une infrastructure spécialisée.
 Mais l’API crée une dépendance externe. Le coût peut augmenter avec le volume, la latence dépend d’un service tiers et certaines contraintes de données peuvent limiter ce qui peut être envoyé.
