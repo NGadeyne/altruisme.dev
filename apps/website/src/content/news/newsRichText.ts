@@ -1,14 +1,16 @@
 export function inlineParts(paragraph: string) {
   return paragraph
-    .split(/(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\((?:https?:\/\/|\/guides\/)[^)]+\))/g)
+    .split(/(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`|\[[^\]]+\]\((?:https?:\/\/|\/guides\/)[^)]+\))/g)
     .filter(Boolean)
     .map((part) => {
       const link = part.match(/^\[([^\]]+)\]\(((?:https?:\/\/|\/guides\/)[^)]+)\)$/)
       const strong = !link && part.startsWith('**')
+      const em = !link && !strong && part.startsWith('*')
       const code = !link && part.startsWith('`')
       return {
-        text: link ? link[1]! : strong ? part.slice(2, -2) : code ? part.slice(1, -1) : part,
+        text: link ? link[1]! : strong ? part.slice(2, -2) : em || code ? part.slice(1, -1) : part,
         strong,
+        em,
         code,
         href: link?.[2],
       }

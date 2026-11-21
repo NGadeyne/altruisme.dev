@@ -12,6 +12,7 @@ import { week43 } from '@/content/news/week43Metadata'
 import { week44 } from '@/content/news/week44Metadata'
 import { week45 } from '@/content/news/week45Metadata'
 import { week46 } from '@/content/news/week46Metadata'
+import { week47 } from '@/content/news/week47Metadata'
 
 export const routes: RouteRecordRaw[] = [
   {
@@ -96,6 +97,27 @@ export const routes: RouteRecordRaw[] = [
       title: 'Actualités tech de la semaine | Altruisme.DEV',
       description:
         'Une sélection hebdomadaire des actualités produit, SaaS, IA, automatisation, freelance et entreprises tech, expliquées avec du contexte.',
+    },
+  },
+  {
+    path: `/actualites/${week47.slug}`,
+    name: 'news-week-47',
+    component: () => import('../views/news/Week47View.vue'),
+    meta: {
+      title: 'Actu Tech semaine #47 : GTA VI pulvérise tous les records',
+      description:
+        'GTA VI bat tous les records, Anthropic réussit une IPO historique, Signal se protège des agents IA et OVHcloud pousse la souveraineté européenne.',
+      ogTitle: week47.title,
+      ogDescription:
+        'GTA VI devient le plus gros lancement du divertissement, Anthropic entre en Bourse et la bataille autour des agents, des puces et du Cloud s’intensifie.',
+      image: week47.image,
+      imageAlt: week47.imageAlt,
+      ogImageAlt: 'Actu Tech de la semaine #47 — Altruisme.DEV',
+      article: true,
+      articleSection: week47.format,
+      publishedAt: week47.publishedAt,
+      modifiedAt: week47.modifiedAt,
+      author: week47.author,
     },
   },
   {

@@ -6,6 +6,7 @@ import { week43 } from './week43Metadata'
 import { week44 } from './week44Metadata'
 import { week45 } from './week45Metadata'
 import { week46 } from './week46Metadata'
+import { week47 } from './week47Metadata'
 
 // Add an edition here only when its article route and content are published.
 export const publishedEditions = [
@@ -17,4 +18,5 @@ export const publishedEditions = [
   week44,
   week45,
   week46,
+  week47,
 ].sort((a, b) => a.publishedAt.localeCompare(b.publishedAt))

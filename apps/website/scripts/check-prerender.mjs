@@ -249,33 +249,34 @@ for (const path of [...prerenderPaths, '/404']) {
     assert.equal(document.querySelector('.media-feature'), null)
     assert.equal(
       document.querySelector('.media-news-list .media-arrow-link')?.getAttribute('href'),
-      '/actualites/semaine-46-2026',
+      '/actualites/semaine-47-2026',
     )
     assert.equal(document.querySelector('.media-resource .base-button')?.getAttribute('href'), '/checklist')
     assert.equal(document.querySelectorAll('nav[aria-label="Navigation principale"] a[href="/checklist"]').length, 1)
   }
   if (path === '/actualites') {
-    assert.equal(document.querySelectorAll('main article').length, 8)
+    assert.equal(document.querySelectorAll('main article').length, 9)
     assert.equal(document.querySelector('main h1')?.textContent.trim(), 'Actu Tech de la semaine')
     assert.equal(
       document.querySelector('main article h2')?.textContent.trim(),
-      'Actu Tech de la semaine #46 : NVIDIA perd l’homme qui a façonné le boom de l’IA',
+      'Actu Tech de la semaine #47 : GTA VI pulvérise tous les records',
     )
     assert.equal(document.querySelector('main article img'), null)
     assert.equal(
       document.querySelector('main article a')?.getAttribute('href'),
-      '/actualites/semaine-46-2026',
+      '/actualites/semaine-47-2026',
     )
     assert.equal(document.querySelectorAll('script[type="application/ld+json"]').length, 0)
   }
-  if (['/actualites/semaine-39-2026', '/actualites/semaine-40-2026', '/actualites/semaine-41-2026', '/actualites/semaine-42-2026', '/actualites/semaine-43-2026', '/actualites/semaine-44-2026', '/actualites/semaine-45-2026', '/actualites/semaine-46-2026'].includes(path)) {
+  if (['/actualites/semaine-39-2026', '/actualites/semaine-40-2026', '/actualites/semaine-41-2026', '/actualites/semaine-42-2026', '/actualites/semaine-43-2026', '/actualites/semaine-44-2026', '/actualites/semaine-45-2026', '/actualites/semaine-46-2026', '/actualites/semaine-47-2026'].includes(path)) {
     const publishedAt = path.endsWith('semaine-39-2026') ? '2026-09-26'
       : path.endsWith('semaine-40-2026') ? '2026-10-02'
         : path.endsWith('semaine-41-2026') ? '2026-10-10'
           : path.endsWith('semaine-42-2026') ? '2026-10-17'
             : path.endsWith('semaine-43-2026') ? '2026-10-23'
               : path.endsWith('semaine-44-2026') ? '2026-10-31'
-                : path.endsWith('semaine-45-2026') ? '2026-11-07' : '2026-11-17'
+                : path.endsWith('semaine-45-2026') ? '2026-11-07'
+                  : path.endsWith('semaine-46-2026') ? '2026-11-17' : '2026-11-21'
     const canonical = document.querySelector('link[rel="canonical"]')?.getAttribute('href')
     assert.equal(document.querySelectorAll('link[rel="canonical"]').length, 1, path)
     assert.equal(document.querySelectorAll('script[type="application/ld+json"]').length, 1, path)
@@ -326,6 +327,46 @@ for (const path of [...prerenderPaths, '/404']) {
       assert.equal(tags.length, 1, `${property}: ${path}`)
       assert.equal(tags[0].content, publishedAt)
     }
+  }
+  if (path === '/actualites/semaine-47-2026') {
+    const source = await readFile(resolve('src/content/news/actu-tech-semaine-47-2026.txt'), 'utf8')
+    const publishedBlocks = [...document.querySelectorAll('.news-body h2, .news-body p')]
+      .map((element) => element.textContent.trim())
+    assert.deepEqual(
+      publishedBlocks,
+      source.trim().split(/\r?\n\s*\r?\n/).map((block) =>
+        block.replace(/^## /, '').replace(/\[([^\]]+)\]\((?:https?:\/\/|\/)[^)]+\)/g, '$1').replace(/\*|`/g, '').replace(/\r?\n/g, ' '),
+      ),
+    )
+    assert.equal(document.title, 'Actu Tech semaine #47 : GTA VI pulvérise tous les records')
+    assert.equal(document.querySelector('meta[name="description"]').content,
+      'GTA VI bat tous les records, Anthropic réussit une IPO historique, Signal se protège des agents IA et OVHcloud pousse la souveraineté européenne.')
+    assert.equal(document.querySelector('main h1')?.textContent.trim(),
+      'Actu Tech de la semaine #47 : GTA VI pulvérise tous les records')
+    assert.equal(document.querySelector('link[rel="canonical"]')?.getAttribute('href'),
+      'https://altruisme.dev/actualites/semaine-47-2026')
+    assert.equal(document.querySelector('meta[property="og:title"]').content,
+      'Actu Tech de la semaine #47 : GTA VI pulvérise tous les records')
+    assert.equal(document.querySelector('meta[property="og:description"]').content,
+      'GTA VI devient le plus gros lancement du divertissement, Anthropic entre en Bourse et la bataille autour des agents, des puces et du Cloud s’intensifie.')
+    assert.equal(document.querySelector('meta[property="og:image:alt"]').content,
+      'Actu Tech de la semaine #47 — Altruisme.DEV')
+    assert.equal(document.querySelector('main img')?.getAttribute('src'),
+      '/images/news/actu-tech-semaine-47-2026.webp')
+    assert.equal(document.querySelector('main img')?.getAttribute('alt'),
+      'Actu Tech de la semaine #47 : GTA VI pulvérise tous les records')
+    assert.deepEqual(
+      [...document.querySelectorAll('.news-body a')].map((link) => [link.textContent, link.href, link.target, link.rel]),
+      [
+        ['32,5 millions d’unités', 'https://www.reuters.com/lifestyle/take-two-set-shatter-sales-records-gta-vi-launches-massive-fanfare-2026-11-19/', '_blank', 'noopener noreferrer'],
+        ['81 milliards de dollars', 'https://www.reuters.com/business/finance/anthropics-historic-debut-put-ais-promise-peril-wall-st-test-2026-11-19/', '_blank', 'noopener noreferrer'],
+        ['nouvelles protections', 'https://signal.org/blog/protecting-your-privacy/', '_blank', 'noopener noreferrer'],
+        ['nouvelles règles', 'https://www.reuters.com/legal/litigation/us-issues-rule-protect-advanced-ai-chips-being-accessed-remotely-2026-11-16/', '_blank', 'noopener noreferrer'],
+        ['55 nouveautés Cloud et IA', 'https://corporate.ovhcloud.com/fr-ma/newsroom/news/ovh-ai-turn-55-products/', '_blank', 'noopener noreferrer'],
+      ],
+    )
+    assert.equal(document.querySelector('nav[aria-label="Navigation entre les éditions"] a')?.getAttribute('href'),
+      '/actualites/semaine-46-2026')
   }
   if (path === '/actualites/semaine-46-2026') {
     const source = await readFile(resolve('src/content/news/actu-tech-semaine-46-2026.txt'), 'utf8')
